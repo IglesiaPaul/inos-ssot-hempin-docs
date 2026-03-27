@@ -48,13 +48,6 @@ We are building the **operating system for planetary regeneration**.
 
 ---
 
-## 📞 Contact
-
-- **Email:** contact@inos-ssot.org
-- **GitHub:** github.com/inos-ssot
-
----
-
 ## 📄 License
 
 Proprietary - All Rights Reserved
