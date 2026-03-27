@@ -1,0 +1,29 @@
+# Event-Sourced Data Flow
+direction: right
+DataSources: {
+label: "Data Sources"
+FarmerOnboarding: "Farmer via BUD"
+TradeExecution: "Hemp Swap"
+CertificateUpload: "Labs"
+ERPIntegration: "ERP APIs"
+}
+EventStream: {
+label: "Immutable Events"
+style: { fill: "#7C3AED" }
+Kafka: { label: "Apache Kafka" }
+}
+GraphDatabase: {
+label: "Graph Database"
+style: { fill: "#065F46" }
+AppendOnlyLog: "Append-Only Log"
+AuditTrail: "Audit Trail"
+}
+DataConsumers: {
+label: "Data Consumers"
+AnalyticsEngine: { icon: chart-bar }
+BUD_AI: { icon: ai }
+ComplianceOracle: { icon: shield }
+}
+DataSources -> EventStream.Kafka: ""
+EventStream.Kafka -> GraphDatabase: ""
+GraphDatabase -> DataConsumers: ""

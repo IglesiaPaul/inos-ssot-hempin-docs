@@ -1,0 +1,30 @@
+# SSOT Four-Layer Knowledge Graph
+direction: top
+Layer1: {
+label: "Layer 1: Entity Layer"
+style: { fill: "#DBEAFE" }
+Organization: { icon: building }
+Professional: { icon: user }
+Product: { icon: package }
+Location: { icon: map-pin }
+}
+Layer2: {
+label: "Layer 2: Relationship Layer"
+style: { fill: "#D1FAE5" }
+TradeEdge: "trade_edge"
+CertEdge: "cert_edge"
+}
+Layer3: {
+label: "Layer 3: Compliance Layer"
+style: { fill: "#FEF3C7" }
+Regulation: { icon: document }
+Jurisdiction: { icon: flag }
+}
+Layer4: {
+label: "Layer 4: Value Layer"
+style: { fill: "#EDE9FE" }
+NADA_Token: { icon: coin }
+Transaction: "Transaction"
+}
+Layer1 -> Layer2 -> Layer3 -> Layer4: ""
+Layer4 -> Layer1: "Value reweights Trust"

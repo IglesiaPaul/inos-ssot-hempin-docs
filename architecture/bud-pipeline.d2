@@ -1,0 +1,23 @@
+# BUD AI Pipeline
+direction: right
+UserInput: {
+VoiceConversation: { icon: microphone }
+TextChat: { icon: chat }
+FieldTablet: { icon: tablet }
+}
+BUD_Pipeline: {
+SpeechToText: "Speech-to-Text"
+LLM_Extraction: "LLM Extraction"
+SchemaValidation: "Schema Validation"
+ConfidenceScoring: "Confidence (0.85)"
+}
+GraphOutput: {
+NodeCreation: "Node Creation"
+EdgeCreation: "Edge Creation"
+EventGeneration: "Event to Kafka"
+}
+UserInput -> BUD_Pipeline.SpeechToText: ""
+BUD_Pipeline.SpeechToText -> BUD_Pipeline.LLM_Extraction: ""
+BUD_Pipeline.LLM_Extraction -> BUD_Pipeline.SchemaValidation: ""
+BUD_Pipeline.SchemaValidation -> BUD_Pipeline.ConfidenceScoring: ""
+BUD_Pipeline.ConfidenceScoring -> GraphOutput.NodeCreation: "if >= 0.85"

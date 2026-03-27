@@ -1,0 +1,33 @@
+name: Render Diagrams
+
+on:
+  push:
+    paths:
+      - 'architecture/**/*.d2'
+  pull_request:
+    paths:
+      - 'architecture/**/*.d2'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install D2
+        run: |
+          curl -fsSL https://d2lang.com/install.sh | sh -s --
+      
+      - name: Render all diagrams
+        run: |
+          mkdir -p rendered
+          find architecture -name "*.d2" -exec d2 {} rendered/{}.svg \;
+      
+      - name: Upload rendered diagrams as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-diagrams
+          path: rendered/
+          retention-days: 30

@@ -1,0 +1,32 @@
+# INOS/SSOT/HEMPIN System Architecture
+direction: right
+HEMPIN: {
+style: { fill: "#10B981" }
+HempCommons: { icon: globe }
+HempSwap: { icon: swap }
+HempGlobe: { icon: map }
+BUD: { icon: ai, label: "BUD AI Agent" }
+}
+INOS: {
+style: { fill: "#3B82F6" }
+IdentityService: { icon: user }
+ComplianceEngine: { icon: shield }
+ValuationService: { icon: dollar }
+IntegrationAdapter: { icon: gears }
+APIGateway: { icon: network }
+}
+SSOT: {
+style: { fill: "#7C3AED" }
+EntityLayer
+RelationshipLayer
+ComplianceLayer
+ValueLayer
+}
+EventStore: {
+Kafka: { icon: lightning }
+style: { fill: "#F59E0B" }
+}
+HEMPIN -> INOS: "API Calls"
+INOS -> SSOT: "Read/Write"
+INOS -> EventStore: "Append Events"
+EventStore -> SSOT: "Rebuild State"
