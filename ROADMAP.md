@@ -23,13 +23,17 @@
 
 ### Funding Targets
 
-| Source | Amount | Timeline |
-|--------|--------|----------|
-| Foundation micro-grants | €5K-25K | Month 2-3 |
-| National innovation grants | €10K-50K | Month 3-4 |
-| Climate tech accelerators | €20K-50K | Month 4-5 |
-| EU startup competitions | €25K-100K | Month 5-6 |
-| **TOTAL** | **€50K-100K** | |
+| Source | Amount Applied | Success Rate | Expected Secured | Timeline |
+|--------|---------------|--------------|------------------|----------|
+| Horizon Europe (Cluster 4) | €2-3M | 25% | €500K-750K | Q1 2027 |
+| Digital Europe | €1-2M | 25% | €250K-500K | Q2 2027 |
+| UNDP Climate Partnership | €500K-1M | 30% | €150K-300K | Q3 2027 |
+| EIB Innovation Loan | €1-2M | 20% | €200K-400K | Q4 2027 |
+| Seed investment | €500K-1M | 50% | €250K-500K | Month 12 |
+| **TOTAL** | **€5M-9M** | **~25% avg** | **€1.35M-2.45M** | |
+
+**Phase 1 Goal:** Secure €500K-1M minimum to continue operations
+**Stretch Goal:** Secure €2M+ for accelerated growth
 
 ### Deliverables
 
