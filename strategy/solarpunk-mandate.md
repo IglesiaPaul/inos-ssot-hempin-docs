@@ -39,9 +39,8 @@ Solarpunk is a movement, aesthetic, and philosophy envisioning a future where:
 ## The 2045 Vision
 
 ### World State Today (2026)
-┌─────────────────────────────────────────────────────────────┐
+
 │ CURRENT STATE (2026) │
-├─────────────────────────────────────────────────────────────┤
 │ │
 │ 🌡️ Climate: +1.2°C warming, accelerating │
 │ 📉 Biodiversity: 1M species at risk of extinction │
