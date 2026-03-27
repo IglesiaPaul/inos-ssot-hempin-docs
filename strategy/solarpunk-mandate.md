@@ -40,9 +40,9 @@ Solarpunk is a movement, aesthetic, and philosophy envisioning a future where:
 
 ### World State Today (2026)
 
-│ CURRENT STATE (2026) │
-│ │
-│ 🌡️ Climate: +1.2°C warming, accelerating │
+| CURRENT STATE (2026) |
+||
+| 🌡️ Climate: +1.2°C warming, accelerating |
 │ 📉 Biodiversity: 1M species at risk of extinction │
 │ 🏭 Economy: Linear extractive, growth-at-all-costs │
 │ 🔍 Transparency: Supply chains opaque, greenwashing rampant│
@@ -54,7 +54,7 @@ Solarpunk is a movement, aesthetic, and philosophy envisioning a future where:
 │ • No accountability for environmental harm │
 │ • No coordination mechanism for regeneration │
 │ │
-└─────────────────────────────────────────────────────────────┘
+
 
 
 ### World State Target (2045)
