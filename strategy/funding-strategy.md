@@ -24,12 +24,12 @@ INOS/SSOT/HEMPIN will be funded through a diversified capital stack prioritizing
 ### Traditional Startup Model (Rejected)
 
 Typical Tech Startup:
-├── Seed: €2M (15% dilution)
-├── Series A: €10M (20% dilution)
-├── Series B: €30M (20% dilution)
-├── Series C: €50M (20% dilution)
-├── Series D: €100M (15% dilution)
-└── TOTAL: €192M raised, ~70% founder dilution
+├── Seed: €2M (15% dilution) |
+├── Series A: €10M (20% dilution) |
+├── Series B: €30M (20% dilution) |
+├── Series C: €50M (20% dilution) |
+├── Series D: €100M (15% dilution) |
+└── TOTAL: €192M raised, ~70% founder dilution |
 
 
 **Problem:** Founders lose control, investors demand exits, mission drifts.
