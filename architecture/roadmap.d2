@@ -4,34 +4,53 @@ direction: right
 
 Year1: {
   label: "Year 1\nAnchor - Thailand Pilot"
-  style: { fill: "#DBEAFE" }
-  Tech1: { icon: gear, label: "Neo4j setup" }
+  style: { fill: "#DBEAFE", stroke: "#3B82F6" }
+  Tech1: { icon: gear, label: "Memgraph setup" }
   Tech2: { icon: lightning, label: "Kafka pipeline" }
   Tech3: { icon: ai, label: "BUD LLM" }
   Ops1: { icon: calendar, label: "TIHTA LOI" }
   Ops2: { icon: users, label: "500 entities" }
-  Success: { icon: check-circle, label: "Verification Moat" }
+  Success: { icon: check-circle, label: "Verification Moat proof" }
+  style: { nested_grid: 1 }
 }
 
 Year2: {
   label: "Year 2\nExpansion - 5 Countries"
-  style: { fill: "#D1FAE5" }
+  style: { fill: "#D1FAE5", stroke: "#10B981" }
   Tech1: { icon: swap, label: "Hemp Swap launch" }
   Tech2: { icon: shield, label: "Compliance Engine" }
   Tech3: { icon: gears, label: "ERP integrations" }
   Ops1: { icon: globe, label: "4 new jurisdictions" }
-  Success: { icon: chart-bar, label: "Cross-border liquidity" }
+  Success: { icon: chart-bar, label: "Cross-border liquidity proof" }
+  style: { nested_grid: 1 }
 }
 
 Year3: {
   label: "Year 3\nOS - Global Infrastructure"
-  style: { fill: "#EDE9FE" }
-  Tech1: { icon: coin, label: "NADA token" }
+  style: { fill: "#EDE9FE", stroke: "#7C3AED" }
+  Tech1: { icon: coin, label: "NADA token/ledger" }
   Tech2: { icon: network, label: "Public API" }
   Tech3: { icon: robot, label: "Automated onboarding" }
   Ops1: { icon: trending-up, label: "15+ countries" }
   Success: { icon: lock, label: "Infrastructure lock-in" }
+  style: { nested_grid: 1 }
 }
 
 Year1 -> Year2: "Year 1 → Year 2"
 Year2 -> Year3: "Year 2 → Year 3"
+
+GrowthCurve: {
+  label: "Global Scale & Resilience"
+  style: { fill: "#FEF3C7", stroke: "#F59E0B" }
+  Curve: { shape: curve, style: { stroke-width: 4, stroke: "#F59E0B" } }
+  Year1 -> Curve: ""
+  Year2 -> Curve: ""
+  Year3 -> Curve: ""
+  style: { nested_grid: 1 }
+}
+
+style: {
+  font_family: "Inter"
+  border_radius: 10
+  padding: 30
+}
