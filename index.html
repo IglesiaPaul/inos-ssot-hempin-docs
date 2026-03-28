@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="INOS/SSOT/HEMPIN — Verified Truth Infrastructure for Planetary Regeneration">
-    <title>INOS/SSOT/HEMPIN | Solarpunk Infrastructure 2045</title>
+    <meta name="description" content="HEMPIN — Verified Truth Infrastructure for Planetary Regeneration">
+    <title>HEMPIN | Solarpunk Infrastructure 2045</title>
     <style>
-        /* ===== RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --hempin-green: #10B981;
             --inos-blue: #3B82F6;
@@ -21,350 +15,65 @@
             --light: #F9FAFB;
             --gray: #6B7280;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: var(--light);
-        }
-
-        a {
-            color: var(--inos-blue);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--ssot-purple);
-        }
-
-        .logo span {
-            color: var(--hempin-green);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--inos-blue);
-        }
-
-        .cta-button {
-            background: var(--hempin-green);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            text-decoration: none;
-            color: white;
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-button {
-            background: white;
-            color: var(--inos-blue);
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s;
-        }
-
-        .hero-button:hover {
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-
-        .hero-button.secondary {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-
-        /* ===== FEATURES ===== */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            padding: 30px;
-            border-radius: 12px;
-            background: var(--light);
-            border-left: 4px solid var(--hempin-green);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .feature-card p {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        .feature-card.blue {
-            border-left-color: var(--inos-blue);
-        }
-
-        .feature-card.purple {
-            border-left-color: var(--ssot-purple);
-        }
-
-        /* ===== MISSION ===== */
-        .mission {
-            padding: 80px 0;
-            background: var(--dark);
-            color: white;
-            text-align: center;
-        }
-
-        .mission h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .mission p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .mission-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--hempin-green);
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-top: 10px;
-        }
-
-        /* ===== ROADMAP ===== */
-        .roadmap {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .roadmap h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-        }
-
-        .roadmap-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .roadmap-item {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-            padding-left: 30px;
-            border-left: 3px solid var(--inos-blue);
-        }
-
-        .roadmap-phase {
-            font-weight: 700;
-            color: var(--inos-blue);
-            min-width: 120px;
-        }
-
-        .roadmap-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .roadmap-content p {
-            color: var(--gray);
-        }
-
-        /* ===== GET INVOLVED ===== */
-        .involved {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .involved h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .involved p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .involved-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .involved-button {
-            background: white;
-            color: var(--hempin-green);
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .involved-button:hover {
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: white;
-        }
-
-        /* ===== MOBILE ===== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .mission-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
+        a { color: var(--inos-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--ssot-purple); }
+        .logo span { color: var(--hempin-green); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--dark); font-weight: 500; }
+        .nav-links a:hover { color: var(--inos-blue); }
+        .cta-button { background: var(--hempin-green); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; transition: transform 0.2s; }
+        .cta-button:hover { transform: translateY(-2px); text-decoration: none; color: white; }
+        .hero { background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%); color: white; padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; }
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .hero-button { background: white; color: var(--inos-blue); padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: transform 0.2s; }
+        .hero-button:hover { transform: translateY(-2px); text-decoration: none; }
+        .hero-button.secondary { background: transparent; border: 2px solid white; color: white; }
+        .features { padding: 80px 0; background: white; }
+        .features h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-card { padding: 30px; border-radius: 12px; background: var(--light); border-left: 4px solid var(--hempin-green); }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--dark); }
+        .feature-card p { color: var(--gray); line-height: 1.8; }
+        .feature-card.blue { border-left-color: var(--inos-blue); }
+        .feature-card.purple { border-left-color: var(--ssot-purple); }
+        .mission { padding: 80px 0; background: var(--dark); color: white; text-align: center; }
+        .mission h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .mission p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.9; }
+        .mission-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 3rem; font-weight: 700; color: var(--hempin-green); }
+        .stat-label { font-size: 1rem; opacity: 0.8; margin-top: 10px; }
+        .roadmap { padding: 80px 0; background: white; }
+        .roadmap h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .roadmap-timeline { max-width: 800px; margin: 0 auto; }
+        .roadmap-item { display: flex; gap: 30px; margin-bottom: 40px; padding-left: 30px; border-left: 3px solid var(--inos-blue); }
+        .roadmap-phase { font-weight: 700; color: var(--inos-blue); min-width: 120px; }
+        .roadmap-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .roadmap-content p { color: var(--gray); }
+        .involved { padding: 80px 0; background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%); color: white; text-align: center; }
+        .involved h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .involved p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; }
+        .involved-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .involved-button { background: white; color: var(--hempin-green); padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; }
+        .involved-button:hover { transform: translateY(-2px); text-decoration: none; }
+        footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; }
+        footer p { opacity: 0.7; font-size: 0.9rem; }
+        footer a { color: white; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .hero p { font-size: 1rem; } .nav-links { display: none; } .features-grid { grid-template-columns: 1fr; } .mission-stats { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">INOS/<span>SSOT</span>/HEMPIN</div>
+                <div class="logo">HEMPIN</div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#mission">Mission</a></li>
@@ -378,193 +87,92 @@
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <h1>Verified Truth Infrastructure<br>for Planetary Regeneration</h1>
-            <p>
-                We're building the operating system for Solarpunk civilization — 
-                verified supply chains, sovereign technology, and regenerative economics. 
-                Starting with the global hemp industry.
-            </p>
+            <p>We're building the operating system for Solarpunk civilization — verified supply chains, sovereign technology, and regenerative economics. Starting with the global hemp industry.</p>
             <div class="hero-buttons">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="hero-button">
-                    View Documentation
-                </a>
-                <a href="#involved" class="hero-button secondary">
-                    Join the Mission
-                </a>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="hero-button">View Documentation</a>
+                <a href="#involved" class="hero-button secondary">Join the Mission</a>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
     <section id="features" class="features">
         <div class="container">
             <h2>What We're Building</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>🌐 SSOT</h3>
-                    <p>
-                        Single Source of Truth — A multi-dimensional knowledge graph 
-                        representing the hemp economy at entity, relationship, compliance, 
-                        and value flow levels simultaneously.
-                    </p>
+                    <p>Single Source of Truth — A multi-dimensional knowledge graph representing the hemp economy at entity, relationship, compliance, and value flow levels simultaneously.</p>
                 </div>
                 <div class="feature-card blue">
                     <h3>⚙️ INOS</h3>
-                    <p>
-                        Operating System — Microservices + Event Sourcing + Graph Database. 
-                        Sovereign infrastructure with zero US technology dependency.
-                    </p>
+                    <p>Operating System — Microservices + Event Sourcing + Graph Database. Sovereign infrastructure with zero US technology dependency.</p>
                 </div>
                 <div class="feature-card purple">
                     <h3>🌱 HEMPIN</h3>
-                    <p>
-                        First Deployment — Application layer activating the ecosystem 
-                        through associations, tools (Hemp Commons, Hemp Swap, Hemp Globe), 
-                        and integrations.
-                    </p>
+                    <p>First Deployment — Application layer activating the ecosystem through associations, tools (Hemp Commons, Hemp Swap, Hemp Globe), and integrations.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🤖 BUD AI</h3>
-                    <p>
-                        Natural language onboarding agent that converts conversations 
-                        into verified graph data. Self-hosted, sovereign AI infrastructure.
-                    </p>
+                    <p>Natural language onboarding agent that converts conversations into verified graph data. Self-hosted, sovereign AI infrastructure.</p>
                 </div>
                 <div class="feature-card blue">
                     <h3>💎 NADA Token</h3>
-                    <p>
-                        Regenerative token economics with 30% of value flowing to the 
-                        Regeneration Fund for environmental cleanup and R&D.
-                    </p>
+                    <p>Regenerative token economics with 30% of value flowing to the Regeneration Fund for environmental cleanup and R&D.</p>
                 </div>
                 <div class="feature-card purple">
                     <h3>🌍 Solarpunk 2045</h3>
-                    <p>
-                        Long-term vision: Verified supply chains for all industries, 
-                        sovereign technology, and regenerative finance at global scale.
-                    </p>
+                    <p>Long-term vision: Verified supply chains for all industries, sovereign technology, and regenerative finance at global scale.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission -->
     <section id="mission" class="mission">
         <div class="container">
             <h2>Why This Matters</h2>
-            <p>
-                The global hemp industry is a $17B market growing at 25% CAGR, 
-                yet it cannot efficiently trade due to coordination failure. 
-                57 jurisdictions. No shared identity. No verified trust layer.
-            </p>
-            <p>
-                We're not just building a platform. We're building 
-                <strong>critical public infrastructure</strong> for planetary regeneration.
-            </p>
+            <p>The global hemp industry is a $17B market growing at 25% CAGR, yet it cannot efficiently trade due to coordination failure. 57 jurisdictions. No shared identity. No verified trust layer.</p>
+            <p>We're not just building a platform. We're building <strong>critical public infrastructure</strong> for planetary regeneration.</p>
             <div class="mission-stats">
-                <div class="stat">
-                    <div class="stat-number">57</div>
-                    <div class="stat-label">Jurisdictions</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">$17B</div>
-                    <div class="stat-label">Hemp Market</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">€240M</div>
-                    <div class="stat-label">Grant Funding Target</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">2045</div>
-                    <div class="stat-label">Solarpunk Vision</div>
-                </div>
+                <div class="stat"><div class="stat-number">57</div><div class="stat-label">Jurisdictions</div></div>
+                <div class="stat"><div class="stat-number">$17B</div><div class="stat-label">Hemp Market</div></div>
+                <div class="stat"><div class="stat-number">€240M</div><div class="stat-label">Grant Funding Target</div></div>
+                <div class="stat"><div class="stat-number">2045</div><div class="stat-label">Solarpunk Vision</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Roadmap -->
     <section id="roadmap" class="roadmap">
         <div class="container">
             <h2>Implementation Roadmap</h2>
             <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <div class="roadmap-phase">Phase 0</div>
-                    <div class="roadmap-content">
-                        <h3>Bootstrap (Months 1-6)</h3>
-                        <p>Secure first €50K-100K, build advisory board, submit 10+ grant applications, sign Thailand association LOI</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-phase">Phase 1</div>
-                    <div class="roadmap-content">
-                        <h3>MVP (Months 7-12)</h3>
-                        <p>€500K-1M funding, legal entity, first team, deploy SSOT graph, 500 entities (Thailand pilot)</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-phase">Phase 2</div>
-                    <div class="roadmap-content">
-                        <h3>Expansion (Year 2)</h3>
-                        <p>5 countries, Hemp Swap launch, Compliance Engine, 5,000+ verified entities, Series A</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-phase">Phase 3</div>
-                    <div class="roadmap-content">
-                        <h3>Scale (Year 3)</h3>
-                        <p>15+ countries, NADA token launch, multi-industry expansion, 50,000+ entities, path to profitability</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-phase">Phase 4</div>
-                    <div class="roadmap-content">
-                        <h3>Solarpunk (Years 5-20)</h3>
-                        <p>100+ countries, all major industries, €1B+ Regeneration Fund, 10M+ verified entities, self-sustaining</p>
-                    </div>
-                </div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 0</div><div class="roadmap-content"><h3>Bootstrap (Months 1-6)</h3><p>Secure first €50K-100K, build advisory board, submit 10+ grant applications, sign Thailand association LOI</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 1</div><div class="roadmap-content"><h3>MVP (Months 7-12)</h3><p>€500K-1M funding, legal entity, first team, deploy SSOT graph, 500 entities (Thailand pilot)</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 2</div><div class="roadmap-content"><h3>Expansion (Year 2)</h3><p>5 countries, Hemp Swap launch, Compliance Engine, 5,000+ verified entities, Series A</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 3</div><div class="roadmap-content"><h3>Scale (Year 3)</h3><p>15+ countries, NADA token launch, multi-industry expansion, 50,000+ entities, path to profitability</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 4</div><div class="roadmap-content"><h3>Solarpunk (Years 5-20)</h3><p>100+ countries, all major industries, €1B+ Regeneration Fund, 10M+ verified entities, self-sustaining</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Get Involved -->
     <section id="involved" class="involved">
         <div class="container">
             <h2>Join the Mission</h2>
-            <p>
-                We're seeking founding advisors, grant partners, and mission-aligned 
-                collaborators. This is not a typical startup — we're building public 
-                infrastructure for planetary regeneration.
-            </p>
+            <p>We're seeking founding advisors, grant partners, and mission-aligned collaborators. This is not a typical startup — we're building public infrastructure for planetary regeneration.</p>
             <div class="involved-buttons">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="involved-button">
-                    View Documentation
-                </a>
-                <a href="mailto:contact@inos-ssot.org" class="involved-button">
-                    Contact Us
-                </a>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="involved-button">View Documentation</a>
+                <a href="mailto:contact@hempin.org" class="involved-button">Contact Us</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>
-                <strong>INOS/SSOT/HEMPIN</strong> — Verified Truth Infrastructure for Planetary Regeneration
-            </p>
-            <p>
-                <a href="index.html">Home</a> · 
-                <a href="strategy.html">Strategy</a> · 
-                <a href="roadmap.html">Roadmap</a> · 
-                <a href="technology.html">Technology</a> · 
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a>
-            </p>
-            <p style="margin-top: 20px;">
-                © 2026 INOS/SSOT. Mission-locked for Solarpunk 2045.
-            </p>
+            <p><strong>HEMPIN</strong> — Verified Truth Infrastructure for Planetary Regeneration</p>
+            <p><a href="index.html">Home</a> · <a href="strategy.html">Strategy</a> · <a href="roadmap.html">Roadmap</a> · <a href="technology.html">Technology</a> · <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></p>
+            <p style="margin-top: 20px;">© 2026 HEMPIN. Mission-locked for Solarpunk 2045.</p>
         </div>
     </footer>
 </body>
