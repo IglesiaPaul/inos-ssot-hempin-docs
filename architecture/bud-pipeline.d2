@@ -1,23 +1,42 @@
-# BUD AI Pipeline
+# BUD AI Agent - Natural Language to Graph Pipeline
+
 direction: right
+
 UserInput: {
-VoiceConversation: { icon: microphone }
-TextChat: { icon: chat }
-FieldTablet: { icon: tablet }
+  label: "User Input Methods"
+  VoiceConversation: { icon: microphone, label: "Voice\nReal-time ASR" }
+  TextChat: { icon: chat, label: "Text\nWebSockets + JSON" }
+  FieldTablet: { icon: tablet, label: "Field Tablet\nOffline PWA" }
 }
+
 BUD_Pipeline: {
-SpeechToText: "Speech-to-Text"
-LLM_Extraction: "LLM Extraction"
-SchemaValidation: "Schema Validation"
-ConfidenceScoring: "Confidence (0.85)"
-}
-GraphOutput: {
-NodeCreation: "Node Creation"
-EdgeCreation: "Edge Creation"
-EventGeneration: "Event to Kafka"
-}
-UserInput -> BUD_Pipeline.SpeechToText: ""
-BUD_Pipeline.SpeechToText -> BUD_Pipeline.LLM_Extraction: ""
-BUD_Pipeline.LLM_Extraction -> BUD_Pipeline.SchemaValidation: ""
-BUD_Pipeline.SchemaValidation -> BUD_Pipeline.ConfidenceScoring: ""
-BUD_Pipeline.ConfidenceScoring -> GraphOutput.NodeCreation: "if >= 0.85"
+  label: "BUD Processing Pipeline"
+  style: { fill: "#EFF6FF" }
+  
+  SpeechToText: {
+    label: "Speech-to-Text\nWhisper v3.2"
+    icon: microphone
+  }
+  
+  LLM_Extraction: {
+    label: "LLM Entity Extraction\nMistral 7B fine-tuned"
+    icon: ai
+  }
+  
+  SchemaValidation: {
+    label: "Schema Validation\nAgriGraph v2.1"
+    icon: checklist
+  }
+  
+  ConfidenceScoring: {
+    label: "Confidence Scoring\nThreshold: 0.85"
+    icon: chart-bar
+  }
+  
+  ClarificationLoop: {
+    label: "Clarification Loop\n(if < 0.85)"
+    icon: refresh
+  }
+  
+  HumanReview: {
+    label: "Human-in-the-Loop
