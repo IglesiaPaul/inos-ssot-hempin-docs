@@ -4,80 +4,86 @@ direction: bottom
 
 Layer0: {
   label: "Layer 0: Institutional Anchoring"
-  style: { fill: "#DBEAFE" }
-  AssociationLOI: "Association LOI"
-  CryptographicKeys: "Cryptographic Keys"
-  VerificationTier: "Verification: Notary-verified"
+  style: { fill: "#DBEAFE", stroke: "#3B82F6" }
+  AssociationLOI: "Association LOI\ncryptographic keys\nco-sovereignty"
+  VerificationTier: "Verification Tier: Notary-verified"
   Endpoint: "Endpoint: /v1/anchor/register"
   Event: "Event: anchor.established"
+  style: { nested_grid: 1 }
 }
 
 Layer1: {
   label: "Layer 1: Entity Registration"
-  style: { fill: "#D1FAE5" }
-  BUDConversation: "BUD Conversation"
-  NL2GParsing: "NL2G Parsing"
-  GraphSeeding: "Graph Seeding"
-  VerificationTier: "Verification: Graph-consensus"
+  style: { fill: "#D1FAE5", stroke: "#10B981" }
+  BUDConversation: "BUD conversation\nNL2G parsing\ngraph seeding"
+  VerificationTier: "Verification Tier: Graph-consensus validated"
   Endpoint: "Endpoint: /v1/entity/ingest"
   Event: "Event: entity.graph-seeded"
+  style: { nested_grid: 1 }
 }
 
 Layer2: {
   label: "Layer 2: Operational Tools"
-  style: { fill: "#FEF3C7" }
-  HempCommons: "Hemp Commons"
-  HempSwap: "Hemp Swap"
-  HempGlobe: "Hemp Globe"
-  VerificationTier: "Verification: On-chain attestation"
+  style: { fill: "#FEF3C7", stroke: "#F59E0B" }
+  Tools: "Hemp Commons\nHemp Swap\nHemp Globe activation"
+  VerificationTier: "Verification Tier: On-chain attestation"
   Endpoint: "Endpoint: /v1/tools/activate"
   Event: "Event: tool.ready"
+  style: { nested_grid: 1 }
 }
 
 Layer3: {
   label: "Layer 3: Software Integration"
-  style: { fill: "#EDE9FE" }
-  ERPConnectors: "ERP Connectors"
-  BidirectionalAPIs: "Bidirectional APIs"
-  DataLockIn: "Data Lock-in"
-  VerificationTier: "Verification: Schema-compliance audit"
+  style: { fill: "#EDE9FE", stroke: "#7C3AED" }
+  ERPConnectors: "ERP connectors\nbidirectional APIs\ndata lock-in"
+  VerificationTier: "Verification Tier: Schema-compliance audit"
   Endpoint: "Endpoint: /v1/integration/hook"
   Event: "Event: integration.synced"
+  style: { nested_grid: 1 }
 }
 
 Layer4: {
   label: "Layer 4: Emergent Liquidity"
-  style: { fill: "#FCE7F3" }
-  NetworkEffects: "Network Effects"
-  MatchQuality: "Match Quality Improvement"
-  CACApproachesZero: "CAC → 0"
-  VerificationTier: "Verification: Real-time KPI"
+  style: { fill: "#FCE7F3", stroke: "#DB2777" }
+  NetworkEffects: "network effects\nmatch quality improvement\nCAC approaches zero"
+  VerificationTier: "Verification Tier: Real-time KPI thresholding"
   Endpoint: "Endpoint: /v1/liquidity/metrics"
   Event: "Event: liquidity.compounded"
+  style: { nested_grid: 1 }
 }
 
 Layer5: {
   label: "Layer 5: Consumer Bridge"
-  style: { fill: "#E0E7FF" }
-  Tradeshows: "Tradeshows"
-  CoMarketing: "Co-marketing"
-  DEWIIMagazine: "DEWII Magazine"
-  VerificationTier: "Verification: Engagement-weighted"
+  style: { fill: "#E0E7FF", stroke: "#4F46E5" }
+  Marketing: "tradeshows\nco-marketing\nDEWII Magazine"
+  VerificationTier: "Verification Tier: Engagement-weighted attribution"
   Endpoint: "Endpoint: /v1/consumer/bridge"
   Event: "Event: bridge.activated"
+  style: { nested_grid: 1 }
 }
 
-Layer0 -> Layer1 -> Layer2 -> Layer3 -> Layer4 -> Layer5: ""
+Layer0 -> Layer1: ""
+Layer1 -> Layer2: ""
+Layer2 -> Layer3: ""
+Layer3 -> Layer4: ""
+Layer4 -> Layer5: ""
 
 FeedbackLoop: {
   label: "Feedback Loops"
-  LiquidityData: "Liquidity Data → Graph Refinement"
-  ERPIntegration: "ERP Integration + Tool Adoption"
-  Marketing: "Marketing + Sovereignty Audit"
-  style: { fill: "#F9FAFB" }
+  style: { fill: "#F9FAFB", stroke: "#E5E7EB", border_radius: 50 }
+  LiquidityData: "Liquidity Data →\nGraph Refinement"
+  ERPIntegration: "ERP Integration +\nTool Adoption"
+  Marketing: "Marketing +\nSovereignty Audit"
+  style: { nested_grid: 1 }
 }
 
 Layer2 -> FeedbackLoop: ""
 Layer3 -> FeedbackLoop: ""
 Layer5 -> FeedbackLoop: ""
 FeedbackLoop -> Layer0: ""
+
+style: {
+  font_family: "Inter"
+  border_radius: 10
+  padding: 30
+}
