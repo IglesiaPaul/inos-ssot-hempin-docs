@@ -6,42 +6,78 @@ Layer0: {
   label: "Layer 0: Institutional Anchoring"
   style: { fill: "#DBEAFE" }
   AssociationLOI: "Association LOI"
+  CryptographicKeys: "Cryptographic Keys"
   VerificationTier: "Verification: Notary-verified"
+  Endpoint: "Endpoint: /v1/anchor/register"
+  Event: "Event: anchor.established"
 }
 
 Layer1: {
   label: "Layer 1: Entity Registration"
   style: { fill: "#D1FAE5" }
-  BUDConversation: "BUD conversation"
+  BUDConversation: "BUD Conversation"
+  NL2GParsing: "NL2G Parsing"
+  GraphSeeding: "Graph Seeding"
   VerificationTier: "Verification: Graph-consensus"
+  Endpoint: "Endpoint: /v1/entity/ingest"
+  Event: "Event: entity.graph-seeded"
 }
 
 Layer2: {
   label: "Layer 2: Operational Tools"
   style: { fill: "#FEF3C7" }
-  Tools: "Hemp Commons, Hemp Swap, Hemp Globe"
+  HempCommons: "Hemp Commons"
+  HempSwap: "Hemp Swap"
+  HempGlobe: "Hemp Globe"
   VerificationTier: "Verification: On-chain attestation"
+  Endpoint: "Endpoint: /v1/tools/activate"
+  Event: "Event: tool.ready"
 }
 
 Layer3: {
   label: "Layer 3: Software Integration"
   style: { fill: "#EDE9FE" }
-  ERPConnectors: "ERP connectors, bidirectional APIs"
+  ERPConnectors: "ERP Connectors"
+  BidirectionalAPIs: "Bidirectional APIs"
+  DataLockIn: "Data Lock-in"
   VerificationTier: "Verification: Schema-compliance audit"
+  Endpoint: "Endpoint: /v1/integration/hook"
+  Event: "Event: integration.synced"
 }
 
 Layer4: {
   label: "Layer 4: Emergent Liquidity"
   style: { fill: "#FCE7F3" }
-  NetworkEffects: "network effects, match quality"
+  NetworkEffects: "Network Effects"
+  MatchQuality: "Match Quality Improvement"
+  CACApproachesZero: "CAC → 0"
   VerificationTier: "Verification: Real-time KPI"
+  Endpoint: "Endpoint: /v1/liquidity/metrics"
+  Event: "Event: liquidity.compounded"
 }
 
 Layer5: {
   label: "Layer 5: Consumer Bridge"
   style: { fill: "#E0E7FF" }
-  Marketing: "tradeshows, co-marketing, DEWII"
+  Tradeshows: "Tradeshows"
+  CoMarketing: "Co-marketing"
+  DEWIIMagazine: "DEWII Magazine"
   VerificationTier: "Verification: Engagement-weighted"
+  Endpoint: "Endpoint: /v1/consumer/bridge"
+  Event: "Event: bridge.activated"
 }
 
 Layer0 -> Layer1 -> Layer2 -> Layer3 -> Layer4 -> Layer5: ""
+
+FeedbackLoop: {
+  label: "Feedback Loops"
+  LiquidityData: "Liquidity Data → Graph Refinement"
+  ERPIntegration: "ERP Integration + Tool Adoption"
+  Marketing: "Marketing + Sovereignty Audit"
+  style: { fill: "#F9FAFB" }
+}
+
+Layer2 -> FeedbackLoop: ""
+Layer3 -> FeedbackLoop: ""
+Layer5 -> FeedbackLoop: ""
+FeedbackLoop -> Layer0: ""
