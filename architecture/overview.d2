@@ -1,32 +1,54 @@
 # INOS/SSOT/HEMPIN System Architecture
+
 direction: right
+
 HEMPIN: {
-style: { fill: "#10B981" }
-HempCommons: { icon: globe }
-HempSwap: { icon: swap }
-HempGlobe: { icon: map }
-BUD: { icon: ai, label: "BUD AI Agent" }
+  style: { fill: "#10B981" }
+  HempCommons: { icon: globe, label: "Hemp Commons\nRegulatory Q&A" }
+  HempSwap: { icon: swap, label: "Hemp Swap\nVerified Trading" }
+  HempGlobe: { icon: map, label: "Hemp Globe\nGeospatial Map" }
+  BUD: { icon: ai, label: "BUD AI Agent\nNL2G Pipeline" }
 }
+
 INOS: {
-style: { fill: "#3B82F6" }
-IdentityService: { icon: user }
-ComplianceEngine: { icon: shield }
-ValuationService: { icon: dollar }
-IntegrationAdapter: { icon: gears }
-APIGateway: { icon: network }
+  style: { fill: "#3B82F6" }
+  IdentityService: { icon: user, label: "Identity Service\nKYC/KYB" }
+  ComplianceEngine: { icon: shield, label: "Compliance Engine\nRules + RAG" }
+  ValuationService: { icon: dollar, label: "Valuation Service\nPricing + NADA" }
+  IntegrationAdapter: { icon: gears, label: "Integration Adapter\nERP Connectors" }
+  APIGateway: { icon: network, label: "API Gateway\nGraphQL" }
 }
+
 SSOT: {
-style: { fill: "#7C3AED" }
-EntityLayer
-RelationshipLayer
-ComplianceLayer
-ValueLayer
+  style: { fill: "#7C3AED" }
+  EntityLayer: "Entity Layer\nOrganizations, Professionals, Products, Locations"
+  RelationshipLayer: "Relationship Layer\nTrades, Introductions, Contracts, Samples"
+  ComplianceLayer: "Compliance Layer\n57 Jurisdictions, Machine-Readable"
+  ValueLayer: "Value Layer\nNADA, GMV, Fees, Subscriptions"
+  style: { nested_grid: 1 }
 }
+
 EventStore: {
-Kafka: { icon: lightning }
-style: { fill: "#F59E0B" }
+  Kafka: { icon: lightning, label: "Apache Kafka\nEvent Stream" }
+  style: { fill: "#F59E0B" }
 }
-HEMPIN -> INOS: "API Calls"
-INOS -> SSOT: "Read/Write"
-INOS -> EventStore: "Append Events"
-EventStore -> SSOT: "Rebuild State"
+
+ExternalSystems: {
+  ERPs: "Agricultural ERPs"
+  Logistics: "Logistics APIs"
+  Customs: "Customs Databases"
+  Certificates: "Certification Registries"
+  style: { fill: "#6B7280" }
+}
+
+HEMPIN -> INOS: "API Calls\nGraphQL"
+INOS -> SSOT: "Read/Write\nCypher Queries"
+INOS -> EventStore: "Append Events\nImmutable"
+EventStore -> SSOT: "Rebuild State\nEvent Replay"
+ExternalSystems -> INOS.IntegrationAdapter: "Typed Adapters\nBidirectional"
+
+style: {
+  font_family: "Inter"
+  border_radius: 10
+  padding: 30
+}
