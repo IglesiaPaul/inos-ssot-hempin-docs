@@ -1,30 +1,79 @@
-# SSOT Four-Layer Knowledge Graph
+# SSOT Four-Layer Knowledge Graph Structure
+
 direction: top
-Layer1: {
-label: "Layer 1: Entity Layer"
-style: { fill: "#DBEAFE" }
-Organization: { icon: building }
-Professional: { icon: user }
-Product: { icon: package }
-Location: { icon: map-pin }
+
+SSOT_Graph: {
+  style: { fill: "#F3F4F6", stroke: "#D1D5DB", border_radius: 20 }
+  
+  Layer1: {
+    label: "Layer 1: Entity Layer"
+    style: { fill: "#DBEAFE", stroke: "#3B82F6" }
+    Organization: { icon: building }
+    Professional: { icon: user }
+    Product: { icon: package }
+    Location: { icon: map-pin }
+    Certificate: { icon: badge-check }
+    Organization -> Professional: "employs"
+    Organization -> Product: "produces"
+    Organization -> Location: "located_in"
+    Organization -> Certificate: "certified_by"
+  }
+  
+  Layer2: {
+    label: "Layer 2: Relationship Layer"
+    style: { fill: "#D1FAE5", stroke: "#10B981" }
+    TradeEdge: "trade_edge\n{weight, timestamp, volume}"
+    CertEdge: "cert_edge\n{valid_until, issuer}"
+    IntroEdge: "intro_edge\n{source, date}"
+    ContractEdge: "contract_edge\n{value, terms}"
+    style: { nested_grid: 1 }
+  }
+  
+  Layer3: {
+    label: "Layer 3: Compliance Layer"
+    style: { fill: "#FEF3C7", stroke: "#F59E0B" }
+    Regulation: { icon: document }
+    Jurisdiction: { icon: flag }
+    Requirement: { icon: checklist }
+    EU_Flag: { icon: globe, label: "EU" }
+    US_Flag: { icon: globe, label: "US" }
+    TH_Flag: { icon: globe, label: "Thailand" }
+    style: { nested_grid: 1 }
+  }
+  
+  Layer4: {
+    label: "Layer 4: Value Layer"
+    style: { fill: "#EDE9FE", stroke: "#7C3AED" }
+    NADA_Token: { icon: coin, label: "NADA\nToken" }
+    Transaction: "Transaction\n{GMV, fee, timestamp}"
+    Stake: "Stake\n{amount, lock_period}"
+    Subscription: "Subscription\n{tier, renewal}"
+    NADA_Token -> Transaction: "powers"
+    NADA_Token -> Stake: "enables"
+    NADA_Token -> Subscription: "pays"
+    style: { nested_grid: 1 }
+  }
+  
+  Layer1 -> Layer2: "Entities create\nRelationships"
+  Layer2 -> Layer3: "Relationships validated\nby Compliance"
+  Layer3 -> Layer4: "Compliance enables\nValue Flow"
+  Layer4 -> Layer1: "Value reweights\nEntity Trust"
 }
-Layer2: {
-label: "Layer 2: Relationship Layer"
-style: { fill: "#D1FAE5" }
-TradeEdge: "trade_edge"
-CertEdge: "cert_edge"
+
+Specs: {
+  label: "Technical Specifications"
+  style: { fill: "#F9FAFB", stroke: "#E5E7EB" }
+  NodeTypes: "Node Types:\nOrganization, Professional,\nProduct, Location, Certificate"
+  EdgeTypes: "Edge Types:\ntrade_edge, cert_edge,\nintro_edge, contract_edge"
+  Properties: "Properties:\nname, id, jurisdiction_code,\nverification_tier, sustainability_score"
+  Indexes: "Indexes:\nentity_id_ixx, edge_weight_ix,\ngeo_hash_ix"
+  style: { nested_grid: 1 }
 }
-Layer3: {
-label: "Layer 3: Compliance Layer"
-style: { fill: "#FEF3C7" }
-Regulation: { icon: document }
-Jurisdiction: { icon: flag }
+
+SSOT_Graph -> Specs: "Schema Definition"
+
+style: {
+  font_family: "Inter"
+  border_radius: 10
+  padding: 30
 }
-Layer4: {
-label: "Layer 4: Value Layer"
-style: { fill: "#EDE9FE" }
-NADA_Token: { icon: coin }
-Transaction: "Transaction"
-}
-Layer1 -> Layer2 -> Layer3 -> Layer4: ""
-Layer4 -> Layer1: "Value reweights Trust"
