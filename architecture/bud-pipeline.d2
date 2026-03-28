@@ -4,39 +4,67 @@ direction: right
 
 UserInput: {
   label: "User Input Methods"
-  VoiceConversation: { icon: microphone, label: "Voice\nReal-time ASR" }
-  TextChat: { icon: chat, label: "Text\nWebSockets + JSON" }
-  FieldTablet: { icon: tablet, label: "Field Tablet\nOffline PWA" }
+  style: { fill: "#F0FDF4", stroke: "#86EFAC" }
+  VoiceConversation: { icon: microphone, label: "Voice Conversation\nReal-time ASR streaming" }
+  TextChat: { icon: chat, label: "Text Chat\nWebSockets + JSON payload" }
+  FieldTablet: { icon: tablet, label: "Field Tablet Interface\nOffline-capable PWA with sync" }
 }
 
 BUD_Pipeline: {
   label: "BUD Processing Pipeline"
-  style: { fill: "#EFF6FF" }
+  style: { fill: "#EFF6FF", stroke: "#3B82F6" }
   
-  SpeechToText: {
-    label: "Speech-to-Text\nWhisper v3.2"
-    icon: microphone
-  }
+  SpeechToText: { label: "Speech-to-Text\n(if voice)\nWhisper v3.2 fine-tuned", icon: microphone }
+  LLM_Extraction: { label: "LLM Entity Extraction\nFine-tuned Mistral 7B\nentity-aware prompt template", icon: ai }
+  SchemaValidation: { label: "Schema Validation\nOntology-driven against\nAgriGraph v2.1 schema", icon: checklist }
+  ConfidenceScoring: { label: "Confidence Scoring\nPer-entity softmax confidence\nthreshold = 0.85", icon: chart-bar }
+  ClarificationLoop: { label: "Clarification Loop\n(if confidence < 0.85)\nMulti-turn dialog engine\nwith context retention", icon: refresh }
+  HumanLoop: { label: "Human-in-the-loop\nConsole", icon: user, style: { fill: "#FEF3C7", stroke: "#F59E0B" } }
   
-  LLM_Extraction: {
-    label: "LLM Entity Extraction\nMistral 7B fine-tuned"
-    icon: ai
-  }
+  UserInput.VoiceConversation -> SpeechToText: ""
+  SpeechToText -> LLM_Extraction: ""
+  UserInput.TextChat -> LLM_Extraction: ""
+  UserInput.FieldTablet -> LLM_Extraction: ""
+  LLM_Extraction -> SchemaValidation: ""
+  SchemaValidation -> ConfidenceScoring: ""
+  ConfidenceScoring -> ClarificationLoop: "if < 0.85"
+  ConfidenceScoring -> HumanLoop: "Fallback to\nhuman review"
+  ClarificationLoop -> LLM_Extraction: "Context feedback"
   
-  SchemaValidation: {
-    label: "Schema Validation\nAgriGraph v2.1"
-    icon: checklist
-  }
-  
-  ConfidenceScoring: {
-    label: "Confidence Scoring\nThreshold: 0.85"
-    icon: chart-bar
-  }
-  
-  ClarificationLoop: {
-    label: "Clarification Loop\n(if < 0.85)"
-    icon: refresh
-  }
-  
-  HumanReview: {
-    label: "Human-in-the-Loop
+  style: { nested_grid: 1 }
+}
+
+GraphOutput: {
+  label: "Graph Database Output"
+  style: { fill: "#F3F4F6", stroke: "#6B7280" }
+  NodeCreation: { label: "Node Creation/Update\nMemgraph 5.21, batch\nupsert via Cypher", icon: database }
+  EdgeCreation: { label: "Edge Creation\nRelationship inference:\nfarms, grows, located_in, monitors", icon: network }
+  EventGeneration: { label: "Event Generation to Kafka\nAvro-encoded, topic:\nagri-graph-events-v1", icon: lightning }
+  style: { nested_grid: 1 }
+}
+
+BUD_Pipeline.ConfidenceScoring -> GraphOutput.NodeCreation: "if >= 0.85"
+BUD_Pipeline.ConfidenceScoring -> GraphOutput.EdgeCreation: ""
+BUD_Pipeline.ConfidenceScoring -> GraphOutput.EventGeneration: ""
+
+ExampleFlow: {
+  label: "Example Conversation Flow"
+  style: { fill: "#FEF3C7", stroke: "#F59E0B" }
+  FarmerInput: "Farmer says: 'I farm 50 hectares in Chiang Mai'"
+  BUDExtracts: "BUD extracts: {area: 50, unit: hectares,\ncrop: hemp, location: Chiang Mai}"
+  OrgNode: "Organization:\nFarmer_7829"
+  LocationNode: "Location:\nChiang Mai"
+  Relationship: "Relationship created:\nfarms"
+  FarmerInput -> BUDExtracts: ""
+  BUDExtracts -> OrgNode: ""
+  BUDExtracts -> LocationNode: ""
+  OrgNode -> Relationship: ""
+  LocationNode -> Relationship: ""
+  style: { nested_grid: 1 }
+}
+
+style: {
+  font_family: "Inter"
+  border_radius: 10
+  padding: 30
+}
