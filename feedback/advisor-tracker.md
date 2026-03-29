@@ -163,6 +163,14 @@ This document tracks all advisor outreach, conversations, commitments, and ongoi
 |------|------|---------|-------------|
 | - | - | - | - |
 
+| # | Name | Organization | Role | Email | Status | Sent Date | Response | Meeting | Notes |
+|---|------|-------------|------|-------|--------|-----------|----------|---------|-------|
+| 1 | Joao Duartte | Decimal Engineered Systems | Business Developer | joaoduarte239@gmail.com | Sent | [TODAY'S DATE] | | | Warm lead (Jan 2026) |
+| 2 | Joseph B. Carringer | Canna Markets Group | Lead Strategist | j.carringer@cannamarketsgroup.com | Sent | [TODAY'S DATE] | | | Warm lead (Feb 2026) |
+| 3 | Joana Farinha | Freelance | Compliance Consultant | joana.aparicio@hotmail.com | Sent | [TODAY'S DATE] | | | Medical cannabis compliance |
+| 4 | Nathalie Fichaux | InterChanvre | Directrice | directrice@interchanvre.org | Sent | [TODAY'S DATE] | | | EU association, grants |
+| 5 | Haneesh Katnawer | FIHO | Co-Chair Sustainability | hkatnawer@gmail.com | Sent | [TODAY'S DATE] | | | Global sustainability network |
+
 ---
 
 ## Outreach Templates
