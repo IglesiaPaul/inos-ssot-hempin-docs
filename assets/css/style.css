@@ -76,7 +76,10 @@ a:hover {
   padding: 0 20px;
 }
 
-/* Header & Navigation */
+/* ============================================
+   Header & Navigation (FIXED)
+   ============================================ */
+
 header {
   background: var(--white);
   box-shadow: var(--shadow);
@@ -89,24 +92,38 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 16px 0;
+  gap: 24px;
 }
 
+/* Logo as link */
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--ssot-purple);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
 }
 
 .logo span {
   color: var(--hempin-green);
 }
 
+.logo:hover {
+  opacity: 0.9;
+}
+
+/* Nav links */
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   list-style: none;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -114,6 +131,8 @@ nav {
   font-weight: 500;
   padding: 8px 0;
   position: relative;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 .nav-links a:hover,
@@ -130,6 +149,12 @@ nav {
   height: 2px;
   background: var(--inos-blue);
   border-radius: 2px;
+}
+
+/* CTA button positioning - push to right on desktop */
+nav > .cta-button {
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 /* Buttons */
@@ -550,7 +575,10 @@ li {
   color: var(--gray);
 }
 
-/* Responsive Design */
+/* ============================================
+   Responsive Design (FIXED)
+   ============================================ */
+
 @media (max-width: 768px) {
   /* Typography */
   h1 { font-size: 2rem; }
@@ -562,9 +590,36 @@ li {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
   
-  /* Navigation */
+  /* Navigation - Mobile Fixes */
+  nav {
+    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .logo {
+    order: 1;
+    margin-right: auto;
+    font-size: 1.3rem;
+  }
+  
   .nav-links {
-    display: none; /* Consider adding mobile menu toggle if needed */
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 4px 0;
+  }
+  
+  /* Hide CTA button on mobile since "Get Involved" is in nav */
+  nav > .cta-button {
+    display: none;
   }
   
   /* Grids */
