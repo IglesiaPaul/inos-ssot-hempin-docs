@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <li><a href="index.html#roadmap">Roadmap</a></li>
             <li><a href="strategy.html">Strategy</a></li>
             <li><a href="technology.html">Technology</a></li>
+            <li><a href="workpackages.html">Work Packages</a></li>
             <li><a href="involved.html">Get Involved</a></li>
             <li><a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></li>
           </ul>
@@ -30,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
-    const linkPage = link.getAttribute('href').split('#')[0];
+    const linkHref = link.getAttribute('href');
+    // Handle both page links (strategy.html) and anchor links (index.html#features)
+    const linkPage = linkHref.includes('#') ? linkHref.split('#')[0] : linkHref;
     if (linkPage === currentPage) {
       link.classList.add('active');
     }
