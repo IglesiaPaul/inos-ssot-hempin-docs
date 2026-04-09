@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join HEMPIN — Verified Truth Infrastructure for Planetary Regeneration">
+    <title>Get Involved - HEMPIN</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Get Involved page-specific styles */
+        .involved-hero { 
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%); 
+            color: var(--white); 
+            padding: 80px 0; 
+            text-align: center; 
+        }
+        .involved-hero h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: var(--white);
+            line-height: 1.2;
+        }
+        .involved-hero p { 
+            font-size: 1.2rem; 
+            max-width: 700px; 
+            margin: 0 auto 30px; 
+            opacity: 0.95; 
+            color: var(--white);
+        }
+        
+        .pathways { 
+            padding: 60px 0; 
+            background: var(--white); 
+        }
+        .pathways h2 { 
+            text-align: center; 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            color: var(--dark);
+        }
+        .pathways-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+        }
+        
+        .contact-card { 
+            padding: 30px; 
+            border-radius: var(--radius-lg); 
+            background: var(--light); 
+            border-left: 4px solid var(--hempin-green); 
+            transition: var(--transition);
+        }
+        .contact-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: var(--shadow-lg); 
+        }
+        .contact-card h3 { 
+            font-size: 1.3rem; 
+            margin-bottom: 15px; 
+            color: var(--dark);
+        }
+        .contact-card p { 
+            color: var(--gray); 
+            margin-bottom: 20px; 
+        }
+        .contact-button { 
+            display: inline-block; 
+            background: var(--inos-blue); 
+            color: var(--white); 
+            padding: 10px 20px; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            transition: var(--transition);
+        }
+        .contact-button:hover { 
+            background: var(--inos-blue-hover); 
+            text-decoration: none; 
+            color: var(--white);
+        }
+        .contact-card.blue { border-left-color: var(--inos-blue); }
+        .contact-card.purple { border-left-color: var(--ssot-purple); }
+        
+        .faq { 
+            padding: 60px 0; 
+            background: var(--light); 
+        }
+        .faq h2 { 
+            text-align: center; 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            color: var(--dark);
+        }
+        .faq-item { 
+            margin-bottom: 25px; 
+        }
+        .faq-item h3 { 
+            font-size: 1.2rem; 
+            margin-bottom: 10px; 
+            color: var(--dark);
+        }
+        .faq-item p { 
+            color: var(--gray); 
+        }
+        
+        .cta-section { 
+            padding: 60px 0; 
+            background: var(--white); 
+            text-align: center; 
+        }
+        .cta-section h2 { 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+            color: var(--dark);
+        }
+        .cta-section p { 
+            max-width: 600px; 
+            margin: 0 auto 30px; 
+            color: var(--gray); 
+        }
+        .cta-buttons { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        
+        @media (max-width: 768px) { 
+            .involved-hero h1 { font-size: 2rem; } 
+            .pathways-grid { grid-template-columns: 1fr; } 
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .contact-button, .cta-button { width: 100%; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR (updated with Get Involved link) -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">HEMPIN</div>
+                <ul class="nav-links">
+                    <li><a href="index.html#features">What We Build</a></li>
+                    <li><a href="index.html#mission">Why It Matters</a></li>
+                    <li><a href="index.html#impact">Impact</a></li>
+                    <li><a href="index.html#roadmap">Roadmap</a></li>
+                    <li><a href="strategy.html">Strategy</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="involved.html" class="active">Get Involved</a></li>
+                    <li><a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></li>
+                </ul>
+                <a href="#pathways" class="cta-button">Join the Mission</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="involved-hero">
+        <div class="container">
+            <h1>Join the Mission</h1>
+            <p>We're building verified truth infrastructure for planetary regeneration. This isn't a typical startup — it's critical public infrastructure for a Solarpunk future. If you believe in mission-aligned collaboration, we'd love to connect.</p>
+        </div>
+    </section>
+
+    <section id="pathways" class="pathways">
+        <div class="container">
+            <h2>Ways to Get Involved</h2>
+            <div class="pathways-grid">
+                <div class="contact-card">
+                    <h3>🤝 Founding Advisors</h3>
+                    <p>Strategic guidance, network access, grant expertise. Equity-based engagement with retainer activation post-funding. 2-4 hours/month commitment.</p>
+                    <a href="mailto:advisors@hempin.org" class="contact-button">advisors@hempin.org</a>
+                </div>
+                <div class="contact-card blue">
+                    <h3>🔬 Research Partners</h3>
+                    <p>Consortium participation for EU grants (EIC Pathfinder, Horizon Europe). Technical validation, regulatory encoding, pilot sites. LOI-based collaboration.</p>
+                    <a href="mailto:partners@hempin.org" class="contact-button">partners@hempin.org</a>
+                </div>
+                <div class="contact-card purple">
+                    <h3>🌱 Pilot Sites</h3>
+                    <p>Hemp associations, farmer cooperatives, processing facilities. Test SSOT verification in real-world settings. Free tier for smallholders.</p>
+                    <a href="mailto:pilots@hempin.org" class="contact-button">pilots@hempin.org</a>
+                </div>
+                <div class="contact-card">
+                    <h3>💼 General Inquiries</h3>
+                    <p>Media, collaboration ideas, or just want to learn more about Solarpunk 2045. We read every message.</p>
+                    <a href="mailto:contact@hempin.org" class="contact-button">contact@hempin.org</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>What's the time commitment for advisors?</h3>
+                <p>2-4 hours/month for strategic input, occasional intros, or grant strategy review. No deliverables required pre-funding. Equity vests over 2 years.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How does consortium participation work?</h3>
+                <p>We sign a non-binding Letter of Intent (LOI) to join the EIC Pathfinder consortium. If the grant is awarded, we formalize roles and funding. No cost to partners during proposal phase.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is this only for hemp?</h3>
+                <p>Hemp is our proof-of-concept domain. The architecture generalizes to any supply chain requiring verified trust: organic agriculture, textiles, critical minerals, coffee, cocoa. By 2045, we envision planetary-scale verified infrastructure.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How is the Regeneration Fund governed?</h3>
+                <p>30% of transaction value flows to verified environmental cleanup projects. Governance is community-driven via the INOS Foundation (non-profit), ensuring mission lock and transparency.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I contribute if I'm not in the hemp industry?</h3>
+                <p>Absolutely. We welcome collaborators from sustainability, AI, regulatory science, economics, and social impact. The Solarpunk 2045 vision requires diverse expertise.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Shape the Future?</h2>
+            <p>Whether you're an advisor, researcher, pilot site, or just curious — your perspective matters. Let's build Solarpunk infrastructure together.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button">View Documentation</a>
+                <a href="mailto:contact@hempin.org" class="cta-button secondary">Send a Message</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (updated with Get Involved link) -->
+    <footer>
+        <div class="container">
+            <p><strong>HEMPIN</strong> — Verified Truth Infrastructure for Planetary Regeneration</p>
+            <p>
+                <a href="index.html">Home</a> · 
+                <a href="strategy.html">Strategy</a> · 
+                <a href="roadmap.html">Roadmap</a> · 
+                <a href="technology.html">Technology</a> · 
+                <a href="involved.html">Get Involved</a> · 
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a>
+            </p>
+            <p style="margin-top: 20px;">© 2026 HEMPIN. Mission-locked for Solarpunk 2045.</p>
+        </div>
+    </footer>
+</body>
+</html>
