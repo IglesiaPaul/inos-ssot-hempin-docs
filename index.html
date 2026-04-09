@@ -5,75 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HEMPIN — Verified Truth Infrastructure for Planetary Regeneration">
     <title>HEMPIN | Solarpunk Infrastructure 2045</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --hempin-green: #10B981;
-            --inos-blue: #3B82F6;
-            --ssot-purple: #7C3AED;
-            --dark: #1F2937;
-            --light: #F9FAFB;
-            --gray: #6B7280;
-        }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
-        a { color: var(--inos-blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--ssot-purple); }
-        .logo span { color: var(--hempin-green); }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: var(--dark); font-weight: 500; }
-        .nav-links a:hover { color: var(--inos-blue); }
-        .cta-button { background: var(--hempin-green); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; transition: transform 0.2s; }
-        .cta-button:hover { transform: translateY(-2px); text-decoration: none; color: white; }
-        .hero { background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%); color: white; padding: 100px 0; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; }
-        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .hero-button { background: white; color: var(--inos-blue); padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: transform 0.2s; }
-        .hero-button:hover { transform: translateY(-2px); text-decoration: none; }
-        .hero-button.secondary { background: transparent; border: 2px solid white; color: white; }
-        .features { padding: 80px 0; background: white; }
-        .features h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .feature-card { padding: 30px; border-radius: 12px; background: var(--light); border-left: 4px solid var(--hempin-green); }
-        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--dark); }
-        .feature-card p { color: var(--gray); line-height: 1.8; }
-        .feature-card.blue { border-left-color: var(--inos-blue); }
-        .feature-card.purple { border-left-color: var(--ssot-purple); }
-        .mission { padding: 80px 0; background: var(--dark); color: white; text-align: center; }
-        .mission h2 { font-size: 2.5rem; margin-bottom: 30px; }
-        .mission p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.9; }
-        .mission-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 900px; margin: 0 auto; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 3rem; font-weight: 700; color: var(--hempin-green); }
-        .stat-label { font-size: 1rem; opacity: 0.8; margin-top: 10px; }
-        .impact { padding: 80px 0; background: white; }
-        .impact h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
-        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .impact-card { text-align: center; padding: 30px; }
-        .impact-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--inos-blue); }
-        .impact-card p { color: var(--gray); }
-        .impact-card .icon { font-size: 3rem; margin-bottom: 20px; }
-        .roadmap { padding: 80px 0; background: var(--light); }
-        .roadmap h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
-        .roadmap-timeline { max-width: 800px; margin: 0 auto; }
-        .roadmap-item { display: flex; gap: 30px; margin-bottom: 40px; padding-left: 30px; border-left: 3px solid var(--inos-blue); }
-        .roadmap-phase { font-weight: 700; color: var(--inos-blue); min-width: 120px; }
-        .roadmap-content h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .roadmap-content p { color: var(--gray); }
-        .involved { padding: 80px 0; background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%); color: white; text-align: center; }
-        .involved h2 { font-size: 2.5rem; margin-bottom: 30px; }
-        .involved p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; }
-        .involved-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .involved-button { background: white; color: var(--hempin-green); padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; }
-        .involved-button:hover { transform: translateY(-2px); text-decoration: none; }
-        footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; }
-        footer p { opacity: 0.7; font-size: 0.9rem; }
-        footer a { color: white; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .hero p { font-size: 1rem; } .nav-links { display: none; } .features-grid { grid-template-columns: 1fr; } .mission-stats { grid-template-columns: 1fr 1fr; } }
+       
     </style>
 </head>
 <body>
