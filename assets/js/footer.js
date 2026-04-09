@@ -1,6 +1,4 @@
 // assets/js/footer.js
-// Lightweight footer loader for static GitHub Pages sites
-
 document.addEventListener('DOMContentLoaded', function() {
   const footerHTML = `
     <footer>
@@ -20,6 +18,5 @@ document.addEventListener('DOMContentLoaded', function() {
     </footer>
   `;
   
-  // Insert footer before closing body tag
   document.body.insertAdjacentHTML('beforeend', footerHTML);
 });
