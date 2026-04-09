@@ -50,7 +50,14 @@
         .stat { text-align: center; }
         .stat-number { font-size: 3rem; font-weight: 700; color: var(--hempin-green); }
         .stat-label { font-size: 1rem; opacity: 0.8; margin-top: 10px; }
-        .roadmap { padding: 80px 0; background: white; }
+        .impact { padding: 80px 0; background: white; }
+        .impact h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .impact-card { text-align: center; padding: 30px; }
+        .impact-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--inos-blue); }
+        .impact-card p { color: var(--gray); }
+        .impact-card .icon { font-size: 3rem; margin-bottom: 20px; }
+        .roadmap { padding: 80px 0; background: var(--light); }
         .roadmap h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
         .roadmap-timeline { max-width: 800px; margin: 0 auto; }
         .roadmap-item { display: flex; gap: 30px; margin-bottom: 40px; padding-left: 30px; border-left: 3px solid var(--inos-blue); }
@@ -75,14 +82,15 @@
             <nav>
                 <div class="logo">HEMPIN</div>
                 <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#features">What We Build</a></li>
+                    <li><a href="#mission">Why It Matters</a></li>
+                    <li><a href="#impact">Impact</a></li>
                     <li><a href="#roadmap">Roadmap</a></li>
                     <li><a href="strategy.html">Strategy</a></li>
                     <li><a href="technology.html">Technology</a></li>
                     <li><a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></li>
                 </ul>
-                <a href="#involved" class="cta-button">Get Involved</a>
+                <a href="#involved" class="cta-button">Join the Mission</a>
             </nav>
         </div>
     </header>
@@ -90,7 +98,7 @@
     <section class="hero">
         <div class="container">
             <h1>Verified Truth Infrastructure<br>for Planetary Regeneration</h1>
-            <p>We're building the operating system for Solarpunk civilization — verified supply chains, sovereign technology, and regenerative economics. Starting with the global hemp industry.</p>
+            <p>We're building the operating system for Solarpunk civilization — verified supply chains, sovereign technology, and regenerative economics. Starting with the global hemp industry, scaling to all industries by 2045.</p>
             <div class="hero-buttons">
                 <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="hero-button">View Documentation</a>
                 <a href="#involved" class="hero-button secondary">Join the Mission</a>
@@ -104,27 +112,27 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>🌐 SSOT</h3>
-                    <p>Single Source of Truth — A multi-dimensional knowledge graph representing the hemp economy at entity, relationship, compliance, and value flow levels simultaneously.</p>
+                    <p>Single Source of Truth — A living knowledge graph that encodes every verified actor, relationship, regulation, and value flow in the hemp economy. Machine-readable compliance for 57+ jurisdictions.</p>
                 </div>
                 <div class="feature-card blue">
                     <h3>⚙️ INOS</h3>
-                    <p>Operating System — Microservices + Event Sourcing + Graph Database. Sovereign infrastructure with zero US technology dependency.</p>
+                    <p>Sovereign Operating System — Built on EU infrastructure (OVHcloud, Memgraph, Mistral AI). Zero US dependency. Event-sourced architecture for immutable, auditable truth.</p>
                 </div>
                 <div class="feature-card purple">
                     <h3>🌱 HEMPIN</h3>
-                    <p>First Deployment — Application layer activating the ecosystem through associations, tools (Hemp Commons, Hemp Swap, Hemp Globe), and integrations.</p>
+                    <p>First Deployment — Application layer activating the ecosystem: Hemp Commons (regulatory Q&A), Hemp Swap (verified trading), Hemp Globe (geospatial map), BUD AI (natural language onboarding).</p>
                 </div>
                 <div class="feature-card">
                     <h3>🤖 BUD AI</h3>
-                    <p>Natural language onboarding agent that converts conversations into verified graph data. Self-hosted, sovereign AI infrastructure.</p>
+                    <p>Natural language onboarding agent that converts farmer conversations into verified graph data. Self-hosted, sovereign AI with confidence scoring and human-in-the-loop validation.</p>
                 </div>
                 <div class="feature-card blue">
-                    <h3>💎 NADA Token</h3>
-                    <p>Regenerative token economics with 30% of value flowing to the Regeneration Fund for environmental cleanup and R&D.</p>
+                    <h3>💎 Regeneration Fund</h3>
+                    <p>30% of transaction value flows automatically to verified environmental cleanup projects. Embedded regenerative economics — not an add-on, but core architecture.</p>
                 </div>
                 <div class="feature-card purple">
                     <h3>🌍 Solarpunk 2045</h3>
-                    <p>Long-term vision: Verified supply chains for all industries, sovereign technology, and regenerative finance at global scale.</p>
+                    <p>Long-term vision: Verified supply chains for all industries, sovereign technology for data autonomy, and regenerative finance at global scale. Starting with hemp.</p>
                 </div>
             </div>
         </div>
@@ -134,12 +142,35 @@
         <div class="container">
             <h2>Why This Matters</h2>
             <p>The global hemp industry is a $17B market growing at 25% CAGR, yet it cannot efficiently trade due to coordination failure. 57 jurisdictions. No shared identity. No verified trust layer.</p>
-            <p>We're not just building a platform. We're building <strong>critical public infrastructure</strong> for planetary regeneration.</p>
+            <p>We're not just building a platform. We're building <strong>critical public infrastructure</strong> for planetary regeneration — where commerce funds environmental repair, data sovereignty empowers SMEs, and verified trust enables efficient global trade.</p>
             <div class="mission-stats">
-                <div class="stat"><div class="stat-number">57</div><div class="stat-label">Jurisdictions</div></div>
+                <div class="stat"><div class="stat-number">57+</div><div class="stat-label">Jurisdictions Encoded</div></div>
                 <div class="stat"><div class="stat-number">$17B</div><div class="stat-label">Hemp Market</div></div>
-                <div class="stat"><div class="stat-number">€240M</div><div class="stat-label">Grant Funding Target</div></div>
+                <div class="stat"><div class="stat-number">30%</div><div class="stat-label">To Regeneration Fund</div></div>
                 <div class="stat"><div class="stat-number">2045</div><div class="stat-label">Solarpunk Vision</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="impact">
+        <div class="container">
+            <h2>Transformative Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="icon">🌍</div>
+                    <h3>Environment</h3>
+                    <p>€10B+ cumulative funding for environmental regeneration by 2045. Verified impact metrics linking every transaction to soil restoration, water cleanup, and carbon sequestration.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="icon">💼</div>
+                    <h3>Economy</h3>
+                    <p>30-40% reduction in transaction costs for SMEs by automating compliance validation. Unlocking global markets for European hemp brands currently blocked by regulatory complexity.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="icon">🔐</div>
+                    <h3>Society</h3>
+                    <p>Data sovereignty for European SMEs — no US Cloud Act exposure. Democratic access to verification via conversational AI, empowering smallholder farmers to participate in global trade.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -148,11 +179,11 @@
         <div class="container">
             <h2>Implementation Roadmap</h2>
             <div class="roadmap-timeline">
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 0</div><div class="roadmap-content"><h3>Bootstrap (Months 1-6)</h3><p>Secure first €50K-100K, build advisory board, submit 10+ grant applications, sign Thailand association LOI</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 1</div><div class="roadmap-content"><h3>MVP (Months 7-12)</h3><p>€500K-1M funding, legal entity, first team, deploy SSOT graph, 500 entities (Thailand pilot)</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 2</div><div class="roadmap-content"><h3>Expansion (Year 2)</h3><p>5 countries, Hemp Swap launch, Compliance Engine, 5,000+ verified entities, Series A</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 0</div><div class="roadmap-content"><h3>Bootstrap (Months 1-6)</h3><p>Secure first funding, build advisory board, submit EU grant applications, sign first association LOI (Thailand pilot)</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 1</div><div class="roadmap-content"><h3>MVP (Months 7-12)</h3><p>Legal entity, first team, deploy SSOT graph, onboard 500 entities (Thailand pilot), validate sovereign AI stack</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 2</div><div class="roadmap-content"><h3>Expansion (Year 2)</h3><p>5 countries, Hemp Swap launch, Compliance Engine live, 5,000+ verified entities, Series A funding</p></div></div>
                 <div class="roadmap-item"><div class="roadmap-phase">Phase 3</div><div class="roadmap-content"><h3>Scale (Year 3)</h3><p>15+ countries, NADA token launch, multi-industry expansion, 50,000+ entities, path to profitability</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 4</div><div class="roadmap-content"><h3>Solarpunk (Years 5-20)</h3><p>100+ countries, all major industries, €1B+ Regeneration Fund, 10M+ verified entities, self-sustaining</p></div></div>
+                <div class="roadmap-item"><div class="roadmap-phase">Phase 4</div><div class="roadmap-content"><h3>Solarpunk (Years 5-20)</h3><p>100+ countries, all major industries, €1B+ Regeneration Fund, 10M+ verified entities, self-sustaining infrastructure</p></div></div>
             </div>
         </div>
     </section>
