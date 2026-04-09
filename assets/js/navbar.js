@@ -6,13 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <header>
       <div class="container">
         <nav>
-          <div class="logo">HEMPIN</div>
+          <a href="index.html" class="logo">HEMPIN<span>.</span></a>
           <ul class="nav-links">
-            <li><a href="index.html#features">What We Build</a></li>
-            <li><a href="index.html#mission">Why It Matters</a></li>
-            <li><a href="index.html#impact">Impact</a></li>
-            <li><a href="index.html#roadmap">Roadmap</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="strategy.html">Strategy</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
             <li><a href="technology.html">Technology</a></li>
             <li><a href="workpackages.html">Work Packages</a></li>
             <li><a href="involved.html">Get Involved</a></li>
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
     const linkHref = link.getAttribute('href');
-    // Handle both page links (strategy.html) and anchor links (index.html#features)
     const linkPage = linkHref.includes('#') ? linkHref.split('#')[0] : linkHref;
     if (linkPage === currentPage) {
       link.classList.add('active');
