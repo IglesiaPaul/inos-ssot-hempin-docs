@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HEMPIN Work Packages — How We Build Verified Truth Infrastructure">
+    <title>Work Packages - HEMPIN</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <style>
+        /* Work Packages page-specific styles */
+        .wps-hero { 
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%); 
+            color: var(--white); 
+            padding: 80px 0; 
+            text-align: center; 
+        }
+        .wps-hero h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: var(--white);
+            line-height: 1.2;
+        }
+        .wps-hero p { 
+            font-size: 1.2rem; 
+            max-width: 700px; 
+            margin: 0 auto 30px; 
+            opacity: 0.95; 
+            color: var(--white);
+        }
+        
+        .wps-intro { 
+            padding: 60px 0; 
+            background: var(--white); 
+            text-align: center;
+        }
+        .wps-intro h2 { 
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            color: var(--dark);
+        }
+        .wps-intro p { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            color: var(--gray);
+        }
+        
+        .wps-grid { 
+            padding: 60px 0; 
+            background: var(--light); 
+        }
+        .wps-grid h2 { 
+            text-align: center; 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            color: var(--dark);
+        }
+        .wps-list { 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        
+        .wp-card { 
+            background: var(--white); 
+            border-radius: var(--radius-lg); 
+            padding: 30px; 
+            margin-bottom: 30px; 
+            border-left: 5px solid var(--inos-blue); 
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .wp-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: var(--shadow-lg); 
+        }
+        .wp-card h3 { 
+            font-size: 1.4rem; 
+            margin-bottom: 15px; 
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .wp-card .wp-number { 
+            background: var(--inos-blue); 
+            color: var(--white); 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.9rem; 
+            font-weight: 600;
+        }
+        .wp-card p { 
+            color: var(--gray); 
+            margin-bottom: 15px;
+        }
+        .wp-card ul { 
+            margin: 15px 0 0 20px; 
+            color: var(--gray);
+        }
+        .wp-card li { 
+            margin-bottom: 8px;
+        }
+        .wp-card.blue { border-left-color: var(--inos-blue); }
+        .wp-card.green { border-left-color: var(--hempin-green); }
+        .wp-card.purple { border-left-color: var(--ssot-purple); }
+        
+        .timeline-section { 
+            padding: 60px 0; 
+            background: var(--white); 
+        }
+        .timeline-section h2 { 
+            text-align: center; 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            color: var(--dark);
+        }
+        .timeline { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--inos-blue);
+        }
+        .timeline-item { 
+            position: relative; 
+            padding-left: 30px; 
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--hempin-green);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--inos-blue);
+        }
+        .timeline-item h3 { 
+            font-size: 1.2rem; 
+            margin-bottom: 10px; 
+            color: var(--dark);
+        }
+        .timeline-item p { 
+            color: var(--gray); 
+            margin-bottom: 0;
+        }
+        .timeline-item .duration { 
+            display: inline-block; 
+            background: var(--light); 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            color: var(--inos-blue);
+            margin-bottom: 10px;
+        }
+        
+        .cta-section { 
+            padding: 60px 0; 
+            background: var(--light); 
+            text-align: center; 
+        }
+        .cta-section h2 { 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+            color: var(--dark);
+        }
+        .cta-section p { 
+            max-width: 600px; 
+            margin: 0 auto 30px; 
+            color: var(--gray); 
+        }
+        
+        @media (max-width: 768px) { 
+            .wps-hero h1 { font-size: 2rem; } 
+            .wp-card h3 { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .timeline { padding-left: 20px; }
+            .timeline::before { left: 4px; }
+            .timeline-item::before { left: -22px; }
+            .timeline-item { padding-left: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar injected by navbar.js -->
+
+    <section class="wps-hero">
+        <div class="container">
+            <h1>How We Build It</h1>
+            <p>Our work is organized into 6 interconnected Work Packages — each advancing the mission of verified truth infrastructure for planetary regeneration.</p>
+        </div>
+    </section>
+
+    <section class="wps-intro">
+        <div class="container">
+            <h2>A Coordinated Approach</h2>
+            <p>Each Work Package has clear objectives, deliverables, and timelines. Together, they form a cohesive research program designed to achieve proof-of-principle (TRL 4) by Month 48. All work is open science by default, with outputs shared via GitHub and open-access publications.</p>
+        </div>
+    </section>
+
+    <section class="wps-grid">
+        <div class="container">
+            <h2>The 6 Work Packages</h2>
+            <div class="wps-list">
+                
+                <div class="wp-card blue">
+                    <h3><span class="wp-number">WP1</span> Project Management & Coordination</h3>
+                    <p>Ensures smooth execution, ethical compliance, and stakeholder alignment across the entire project.</p>
+                    <ul>
+                        <li><strong>Key Tasks:</strong> Consortium coordination, reporting, risk management, financial oversight</li>
+                        <li><strong>Deliverables:</strong> Project Handbook, periodic reports, risk register updates</li>
+                        <li><strong>Duration:</strong> Months 1-48 (full project)</li>
+                    </ul>
+                </div>
+
+                <div class="wp-card green">
+                    <h3><span class="wp-number">WP2</span> SSOT Graph Architecture & Sovereign Infra</h3>
+                    <p>Designs the foundational knowledge graph and validates the sovereign EU technology stack.</p>
+                    <ul>
+                        <li><strong>Key Tasks:</strong> SSOT schema design (Entity/Relationship/Compliance/Value layers), sovereign stack deployment (OVHcloud, Memgraph, Mistral), performance benchmarking, security audit</li>
+                        <li><strong>Deliverables:</strong> SSOT Graph Schema v1.0, Sovereign Stack Benchmark Report, Security Audit Report</li>
+                        <li><strong>Duration:</strong> Months 1-36</li>
+                    </ul>
+                </div>
+
+                <div class="wp-card purple">
+                    <h3><span class="wp-number">WP3</span> BUD AI Agent Development (NL2G)</h3>
+                    <p>Builds the natural-language-to-graph pipeline that enables low-friction onboarding for farmers and processors.</p>
+                    <ul>
+                        <li><strong>Key Tasks:</strong> Ontology refinement for AI training, LLM fine-tuning (Mistral 7B), confidence scoring implementation, human-in-the-loop console development</li>
+                        <li><strong>Deliverables:</strong> BUD Pipeline v1.0, Confidence Scoring Model Technical Report, Human-in-Loop Console</li>
+                        <li><strong>Duration:</strong> Months 6-42</li>
+                    </ul>
+                </div>
+
+                <div class="wp-card blue">
+                    <h3><span class="wp-number">WP4</span> Compliance Engine & Regulatory Encoding</h3>
+                    <p>Encodes regulatory rules from 5 jurisdictions as machine-readable graph constraints for real-time compliance validation.</p>
+                    <ul>
+                        <li><strong>Key Tasks:</strong> Regulatory ontology mapping (TH, FR, DE, NL, AU), graph constraint encoding (SHACL/Cypher), validation against test cases, iterative expansion plan</li>
+                        <li><strong>Deliverables:</strong> Regulatory Ontology for 5 Jurisdictions, Compliance Engine Prototype, Validation Report</li>
+                        <li><strong>Duration:</strong> Months 6-48</li>
+                    </ul>
+                </div>
+
+                <div class="wp-card green">
+                    <h3><span class="wp-number">WP5</span> Pilot Deployment & Validation</h3>
+                    <p>Validates the integrated system with 500+ verified entities in Thailand and EU test environments.</p>
+                    <ul>
+                        <li><strong>Key Tasks:</strong> Pilot site setup (Thailand via TiHTA LOI), user onboarding via BUD Agent, transaction validation via Compliance Engine, feedback collection and iteration</li>
+                        <li><strong>Deliverables:</strong> Thailand Pilot Report, EU Pilot Report, Proof-of-Principle Validation Report (TRL 4)</li>
+                        <li><strong>Duration:</strong> Months 12-48</li>
+                    </ul>
+                </div>
+
+                <div class="wp-card purple">
+                    <h3><span class="wp-number">WP6</span> Dissemination, Ethics & Open Science</h3>
+                    <p>Ensures open science practices, stakeholder engagement, and ethical compliance throughout the project.</p>
+                    <ul>
+                        <li><strong>Key Tasks:</strong> Open-access publications, GitHub repo maintenance, industry workshops, policy briefings, data management plan (FAIR principles)</li>
+                        <li><strong>Deliverables:</strong> 3+ Peer-Reviewed Publications, Open Source Repository, Data Management Plan, Policy Briefs</li>
+                        <li><strong>Duration:</strong> Months 1-48 (full project)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <div class="container">
+            <h2>Project Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="duration">Months 1-6</span>
+                    <h3>Foundation Phase</h3>
+                    <p>WP1 kickoff, WP2 schema design begins, WP3 ontology refinement, WP4 regulatory mapping starts</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="duration">Months 7-18</span>
+                    <h3>Development Phase</h3>
+                    <p>WP2 sovereign stack deployment, WP3 BUD Agent alpha, WP4 constraint encoding, WP5 pilot planning</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="duration">Months 19-36</span>
+                    <h3>Integration Phase</h3>
+                    <p>WP3 confidence scoring, WP4 validation, WP5 Thailand pilot launch, WP6 publications begin</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="duration">Months 37-48</span>
+                    <h3>Validation Phase</h3>
+                    <p>WP5 EU pilot, TRL 4 proof-of-principle achieved, final reports, exploitation planning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Want to Contribute to a Work Package?</h2>
+            <p>Whether you're a researcher, developer, regulator, or industry expert — your expertise can strengthen our work. Reach out to explore collaboration opportunities.</p>
+            <a href="involved.html" class="cta-button">Get Involved</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>HEMPIN</strong> — Verified Truth Infrastructure for Planetary Regeneration</p>
+            <p>
+                <a href="index.html">Home</a> · 
+                <a href="strategy.html">Strategy</a> · 
+                <a href="roadmap.html">Roadmap</a> · 
+                <a href="technology.html">Technology</a> · 
+                <a href="workpackages.html">Work Packages</a> · 
+                <a href="involved.html">Get Involved</a> · 
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a>
+            </p>
+            <p style="margin-top: 20px;">© 2026 HEMPIN. Mission-locked for Solarpunk 2045.</p>
+        </div>
+    </footer>
+</body>
+</html>
