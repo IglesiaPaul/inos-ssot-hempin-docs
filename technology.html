@@ -29,6 +29,7 @@
         th { background: #7C3AED; color: white; }
         tr:hover { background: #F3F4F6; }
         .sovereign-badge { display: inline-block; background: #10B981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .ai-robustness { background: #F0FDF4; border-left: 4px solid #10B981; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0; }
         .cta-button { display: inline-block; background: #10B981; color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; margin: 20px 0; }
         .cta-button:hover { background: #059669; text-decoration: none; }
         footer { background: #1F2937; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
@@ -53,7 +54,9 @@
         <div class="container">
             <h1>Technology Stack</h1>
             <p class="subtitle"><strong>Principle:</strong> Maximum sovereignty, zero US dependency, open source first</p>
+            
             <div style="background: #10B981; color: white; padding: 20px; border-radius: 8px; margin: 30px 0;"><strong>✅ Sovereign Stack:</strong> 9.5/10 sovereignty score. All data in EU jurisdiction, no US Cloud Act exposure, community-governed open source.</div>
+            
             <h2>Infrastructure Layer</h2>
             <table>
                 <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
@@ -63,6 +66,7 @@
                 <tr><td>CI/CD</td><td>Woodpecker CI</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
                 <tr><td>Code Repo</td><td>Forgejo (self-hosted)</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
             </table>
+            
             <h2>Data Layer</h2>
             <table>
                 <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
@@ -71,6 +75,7 @@
                 <tr><td>Object Storage</td><td>Ceph (self-hosted)</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
                 <tr><td>Relational DB</td><td>PostgreSQL</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
             </table>
+            
             <h2>AI/ML Layer</h2>
             <table>
                 <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
@@ -79,6 +84,17 @@
                 <tr><td>Orchestration</td><td>Haystack</td><td>🇩🇪 Germany</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
                 <tr><td>Vector DB</td><td>Qdrant</td><td>🇬🇧 UK / 🇪🇪 Estonia</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
             </table>
+            
+            <div class="ai-robustness">
+                <strong>🤖 AI Robustness Measures (EIC Requirement):</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Technical Robustness:</strong> Confidence scoring (>0.85 threshold) + human-in-the-loop validation for low-confidence extractions</li>
+                    <li><strong>Social Robustness:</strong> Training data diversified across languages (EN, FR, TH, RO) to reduce bias; human review for sensitive regulatory decisions</li>
+                    <li><strong>Reliability:</strong> Service-level agreements (99.9% uptime); error logging and incident response protocols</li>
+                    <li><strong>Explainability:</strong> Each graph node includes provenance trail (source text, confidence score, reviewer ID) for auditability</li>
+                </ul>
+            </div>
+            
             <h2>Frontend Layer</h2>
             <table>
                 <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
@@ -86,6 +102,7 @@
                 <tr><td>Maps</td><td>MapLibre + OpenStreetMap</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
                 <tr><td>Diagrams</td><td>Mermaid + PlantUML</td><td>🌍 / 🇫🇷 France</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
             </table>
+            
             <h2>Security Layer</h2>
             <table>
                 <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
@@ -94,16 +111,16 @@
                 <tr><td>Monitoring</td><td>Prometheus + Grafana</td><td>🌍 / 🇨🇭 Switzerland</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
                 <tr><td>SSL/TLS</td><td>ZeroSSL</td><td>🇦🇹 Austria</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
             </table>
-            <h2>Hardware Specifications</h2>
-            <table>
-                <tr><th>Component</th><th>Specification</th><th>Quantity</th><th>Cost (€)</th></tr>
-                <tr><td>Compute Servers</td><td>Dell PowerEdge / Supermicro 2U</td><td>4</td><td>32,000</td></tr>
-                <tr><td>CPU</td><td>AMD EPYC 7543 (32 core)</td><td>4</td><td>14,000</td></tr>
-                <tr><td>RAM</td><td>512 GB DDR4 ECC</td><td>4</td><td>8,000</td></tr>
-                <tr><td>GPU (AI)</td><td>NVIDIA A100 40GB</td><td>2</td><td>30,000</td></tr>
-                <tr><td>Storage</td><td>4TB NVMe + 16TB HDD</td><td>24</td><td>8,800</td></tr>
-                <tr><td><strong>TOTAL (2 DCs)</strong></td><td></td><td></td><td><strong>€503,000</strong></td></tr>
-            </table>
+            
+            <h2>Why Sovereignty Matters</h2>
+            <p>Building on EU infrastructure isn't just a technical choice — it's a strategic necessity:</p>
+            <ul>
+                <li><strong>Data Sovereignty:</strong> Ensures European SMEs control their commercial relationships, not US platforms</li>
+                <li><strong>Regulatory Compliance:</strong> GDPR-by-design with data minimization and explicit consent flows</li>
+                <li><strong>Strategic Autonomy:</strong> Reduces exposure to extraterritorial laws (US Cloud Act) for critical trade infrastructure</li>
+                <li><strong>Mission Alignment:</strong> Sovereign tech enables the Solarpunk 2045 vision of decentralized, community-governed infrastructure</li>
+            </ul>
+            
             <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/specs/technology-stack.md" class="cta-button" target="_blank">View Full Tech Specs on GitHub</a>
         </div>
     </main>
