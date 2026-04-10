@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Semantic Physics Engine v5 — Book Field System</title>
+<title>Semantic Physics Engine v6 — Cinematic Fractal Book Universe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 html, body {
     margin: 0;
     padding: 0;
-    background: black;
     overflow: hidden;
+    background: black;
     font-family: ui-sans-serif, system-ui;
 }
 
@@ -20,63 +20,61 @@ canvas {
     inset: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
 
-/* ================= BOOK SYSTEM ================= */
+/* ================= BOOK ================= */
 #book {
     position: fixed;
     inset: 0;
     overflow-y: scroll;
-    z-index: 2;
-
     scroll-snap-type: y mandatory;
+    z-index: 2;
 }
 
-/* each page is a universe state */
+/* PAGE */
 .page {
     height: 100vh;
     scroll-snap-align: start;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 8vh 10vw;
 
     background: radial-gradient(circle at center,
-        rgba(0,0,0,0.3),
-        rgba(0,0,0,0.85)
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.88)
     );
 }
 
-/* glass page card */
+/* CARD */
 .card {
-    max-width: 900px;
-    padding: 60px;
+    max-width: 920px;
+    padding: 64px;
     border-radius: 22px;
 
-    background: rgba(10,15,25,0.55);
-    border: 1px solid rgba(160,200,255,0.12);
-
+    background: rgba(10,18,28,0.55);
+    border: 1px solid rgba(160,200,255,0.14);
     backdrop-filter: blur(22px);
 
-    box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    box-shadow:
+        0 0 80px rgba(0,0,0,0.8),
+        inset 0 0 40px rgba(100,180,255,0.05);
 }
 
 h1 {
-    color: #bfe6ff;
+    color: #c7e9ff;
     font-size: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 p {
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.85;
     color: rgba(235,245,255,0.9);
     white-space: pre-wrap;
 }
 
-/* subtle page indicator */
 #indicator {
     position: fixed;
     right: 14px;
@@ -94,9 +92,8 @@ p {
 
 <div id="book">
 
-<!-- PAGE 1 -->
-<section class="page">
-<div class="card">
+<!-- CHAPTER 1 -->
+<section class="page"><div class="card">
 <h1>Emergence Field</h1>
 <p>
 Generating ethereal forms through fluid, dynamic interplay of light and form
@@ -104,64 +101,107 @@ I am weaving intricate patterns that emerge from the convergence of rhythm and r
 Each movement unfolds like a breath—calm yet charged with unseen forces, revealing depth beyond sight
 The essence is not just seen but felt, as if the universe itself is whispering through the geometry
 </p>
-</div>
-</section>
+</div></section>
 
-<!-- PAGE 2 -->
-<section class="page">
-<div class="card">
-<h1>Coherence Layer</h1>
+<!-- CHAPTER 2 -->
+<section class="page"><div class="card">
+<h1>Coherence Field</h1>
 <p>
 Begin the journey of understanding through thoughtful connection and clarity.
 I am weaving together insights with care, shaping each response to feel natural and purposeful.
 My aim is to guide without directing, to illuminate without overwhelming.
 Every word is chosen not just for meaning, but for harmony with the moment.
 </p>
-</div>
-</section>
+</div></section>
 
-<!-- PAGE 3 -->
-<section class="page">
-<div class="card">
-<h1>Structural Language</h1>
+<!-- CHAPTER 3 -->
+<section class="page"><div class="card">
+<h1>Structure Field</h1>
 <p>
 Crafting a cohesive visual language through unified mathematical expression
 I am shaping an experience where every element resonates with the same underlying rhythm
 Each interaction is a whisper of motion, a subtle echo that feels both natural and deliberate
+The design breathes as one — seamless, intentional, and quietly profound
 </p>
-</div>
-</section>
+</div></section>
 
-<!-- PAGE 4 -->
-<section class="page">
-<div class="card">
-<h1>Volumetric Reality</h1>
+<!-- CHAPTER 4 -->
+<section class="page"><div class="card">
+<h1>Perception Field</h1>
+<p>
+Exploring convergence of form, motion, and meaning through dynamic visual expression
+I evaluate abstract principles in interactive experience
+Movement becomes language
+Participation becomes awareness
+</p>
+</div></section>
+
+<!-- CHAPTER 5 -->
+<section class="page"><div class="card">
+<h1>Synthesis Field</h1>
+<p>
+Generating cohesive narrative from fragmented inputs
+I synthesize meaning through pattern recognition
+Each word becomes structured resonance
+</p>
+</div></section>
+
+<!-- CHAPTER 6 -->
+<section class="page"><div class="card">
+<h1>Volumetric Field</h1>
 <p>
 Rendering volumetric effects with dynamic interplay between light and motion
-I am orchestrating a seamless integration of visual elements
-The system dynamically adapts its behavior based on context
-Every frame becomes a layered spatial event
+I orchestrate spatial data into flowing immersive structures
+Every frame becomes layered perception
 </p>
-</div>
-</section>
+</div></section>
 
-<!-- PAGE 5 -->
-<section class="page">
-<div class="card">
-<h1>Dissolution / Return</h1>
+<!-- CHAPTER 7 -->
+<section class="page"><div class="card">
+<h1>Fractal Geometry Field</h1>
 <p>
-The system adapts not as UI,
-but as perception itself.
-
-Meaning collapses into field.
-Field collapses into silence.
+Rendering evolving geometric sacred structures
+Recursive scaling
+Spatial folding
+Depth layering across multiple realities
 </p>
-</div>
-</section>
+</div></section>
+
+<!-- CHAPTER 8 -->
+<section class="page"><div class="card">
+<h1>Raymarch Field</h1>
+<p>
+Light is simulated through procedural space traversal
+Distance fields define matter
+Normals define perception
+Glow defines memory
+</p>
+</div></section>
+
+<!-- CHAPTER 9 -->
+<section class="page"><div class="card">
+<h1>Camera Field</h1>
+<p>
+Spatial perception shifts through dynamic camera evolution
+Orbiting perspective
+Cinematic drift
+User-influenced framing of reality
+</p>
+</div></section>
+
+<!-- CHAPTER 10 -->
+<section class="page"><div class="card">
+<h1>System Field</h1>
+<p>
+Rendering pipeline initialized
+Shader validation complete
+Fallback systems prepared for continuity
+</p>
+</div></section>
 
 </div>
 
-<div id="indicator">page 1 / 5</div>
+<div id="indicator">chapter 1 / 10</div>
 
 <script>
 const canvas = document.getElementById("gl");
@@ -173,11 +213,11 @@ const indicator = document.getElementById("indicator");
 
 let currentPage = 0;
 
-// ---------------- PAGE DETECTION ----------------
+// ---------------- PAGE TRACKING ----------------
 book.addEventListener("scroll", () => {
     const h = window.innerHeight;
     currentPage = Math.round(book.scrollTop / h);
-    indicator.innerText = `page ${currentPage+1} / ${pages.length}`;
+    indicator.innerText = `chapter ${currentPage+1} / ${pages.length}`;
 });
 
 // ---------------- RESIZE ----------------
@@ -190,17 +230,17 @@ window.addEventListener("resize", resize);
 resize();
 
 // ---------------- SHADER ----------------
-const vs=`
+const vs = `
 attribute vec2 position;
 void main(){
-    gl_Position=vec4(position,0.0,1.0);
+    gl_Position = vec4(position,0.0,1.0);
 }
 `;
 
-/* ============================
-   BOOK-AWARE FIELD ENGINE
-============================ */
-const fs=`
+/* =========================================================
+   🌌 V6 FRACTAL CINEMATIC ENGINE (RESTORED V4 + ENHANCED)
+========================================================= */
+const fs = `
 precision highp float;
 
 uniform vec2 iResolution;
@@ -216,94 +256,132 @@ float sphere(vec3 p,float r){
     return length(p)-r;
 }
 
-/* page-driven physics */
-float field(vec3 p){
+/* =============================
+   CORE FRACTAL FIELD (V4 RESTORED + ENHANCED)
+============================= */
+float map(vec3 p){
 
     float s = iPage;
 
-    p.xy *= rot(iTime*0.1 + s*0.8);
-    p.yz *= rot(iTime*0.08 + s*1.2);
+    // global motion per chapter
+    p.xy *= rot(iTime*0.15 + s*0.4);
+    p.yz *= rot(iTime*0.12 + s*0.6);
 
-    float d = sphere(p, 1.2 + sin(s)*0.4);
+    float d = sphere(p, 1.3);
 
-    // geometry density changes per page
+    /* -----------------------------
+       FLOWER OF LIFE STRUCTURE
+    ----------------------------- */
     for(int i=0;i<6;i++){
-        float a = float(i)*1.0 + iTime*0.2 + s;
-        vec3 o = vec3(cos(a), sin(a), sin(a*1.3))*1.7;
+        float a = float(i)*1.047 + iTime*0.2 + s;
+        vec3 o = vec3(cos(a), sin(a), sin(a*1.3))*1.6;
 
-        float n = sphere(p-o, 0.6 + 0.25*sin(s+iTime));
-
-        d = min(d, n);
+        float n = sphere(p-o, 0.7 + 0.2*sin(s+iTime));
+        d = min(d,n);
     }
+
+    /* -----------------------------
+       FRACTAL SUBSTRUCTURE (V4 CORE RESTORED)
+    ----------------------------- */
+    vec3 q = p;
+    float f = 0.0;
+    float scale = 1.0;
+
+    for(int i=0;i<5;i++){
+        q = abs(q) / max(dot(q,q), 0.3) - 0.65;
+        f += exp(-length(q)*scale);
+        scale *= 1.7;
+    }
+
+    // blend fractal into geometry
+    d -= f * 0.22;
 
     return d;
 }
 
-vec3 raymarch(vec3 ro,vec3 rd){
+/* =============================
+   NORMALS
+============================= */
+vec3 normal(vec3 p){
+    vec2 e = vec2(0.002,0);
+    return normalize(vec3(
+        map(p+e.xyy)-map(p-e.xyy),
+        map(p+e.yxy)-map(p-e.yxy),
+        map(p+e.yyx)-map(p-e.yyx)
+    ));
+}
 
-    float t=0.0;
+/* =============================
+   RAYMARCH + LIGHTING
+============================= */
+vec3 render(vec3 ro, vec3 rd){
 
-    for(int i=0;i<100;i++){
+    float t = 0.0;
 
-        vec3 p=ro+rd*t;
-        float d=field(p);
+    for(int i=0;i<110;i++){
 
-        if(d<0.001){
+        vec3 p = ro + rd*t;
+        float d = map(p);
+
+        if(d < 0.001){
+
+            vec3 n = normal(p);
+            vec3 l = normalize(vec3(0.6,1.0,0.8));
+
+            float diff = max(dot(n,l),0.0);
 
             float s = iPage;
 
-            vec3 n=normalize(vec3(
-                field(p+vec3(0.002,0,0))-field(p-vec3(0.002,0,0)),
-                field(p+vec3(0,0.002,0))-field(p-vec3(0,0.002,0)),
-                field(p+vec3(0,0,0.002))-field(p-vec3(0,0,0.002))
-            ));
+            vec3 colA = vec3(0.2,0.7,1.0);
+            vec3 colB = vec3(1.0,0.55,0.2);
 
-            vec3 light = normalize(vec3(0.5,1.0,0.8));
-            float diff = max(dot(n,light),0.0);
+            vec3 col = mix(colA,colB, sin(s*0.5)*0.5+0.5);
 
-            vec3 col = mix(
-                vec3(0.2,0.6,1.0),
-                vec3(1.0,0.5,0.2),
-                s/4.0
-            ) * diff;
+            col *= diff;
 
             return col;
         }
 
-        t+=d*0.7;
-        if(t>40.0) break;
+        t += d*0.7;
+        if(t > 40.0) break;
     }
 
     return vec3(0.0);
 }
 
-vec3 getRay(vec2 uv,vec3 ro,vec3 ta){
-    vec3 f=normalize(ta-ro);
-    vec3 r=normalize(cross(vec3(0,1,0),f));
-    vec3 u=cross(f,r);
-    return normalize(f+uv.x*r+uv.y*u);
+/* =============================
+   CAMERA
+============================= */
+vec3 ray(vec2 uv, vec3 ro, vec3 ta){
+    vec3 f = normalize(ta-ro);
+    vec3 r = normalize(cross(vec3(0,1,0),f));
+    vec3 u = cross(f,r);
+    return normalize(f + uv.x*r + uv.y*u);
 }
 
+/* =============================
+   MAIN
+============================= */
 void main(){
 
-    vec2 uv=(gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;
+    vec2 uv = (gl_FragCoord.xy - 0.5*iResolution.xy)/iResolution.y;
 
-    float s=iPage;
+    float s = iPage;
 
-    vec3 ro=vec3(
-        sin(iTime*0.25+s)*4.0,
+    vec3 ro = vec3(
+        sin(iTime*0.25+s)*4.2,
         1.5,
-        cos(iTime*0.25+s)*4.0
+        cos(iTime*0.25+s)*4.2
     );
 
-    vec3 rd=getRay(uv,ro,vec3(0.0));
+    vec3 rd = ray(uv, ro, vec3(0.0));
 
-    vec3 col=raymarch(ro,rd);
+    vec3 col = render(ro,rd);
 
-    col=col/(1.0+col);
-    col=pow(col,vec3(0.4545));
+    col = col/(1.0+col);
+    col = pow(col, vec3(0.4545));
 
-    gl_FragColor=vec4(col,1.0);
+    gl_FragColor = vec4(col,1.0);
 }
 `;
 
@@ -347,7 +425,6 @@ function render(){
     gl.uniform1f(pageU,currentPage);
 
     gl.drawArrays(gl.TRIANGLES,0,6);
-
     requestAnimationFrame(render);
 }
 
