@@ -1,4 +1,66 @@
 /* ============================================
+   Dropdown Navigation (for navbar.js)
+   ============================================ */
+
+.nav-links .dropdown {
+  position: relative;
+}
+
+.nav-links .dropbtn {
+  cursor: pointer;
+  padding-right: 8px;
+}
+
+.nav-links .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  min-width: 200px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius);
+  z-index: 101;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.nav-links .dropdown-content a {
+  padding: 10px 20px;
+  color: var(--dark);
+  font-weight: 400;
+  display: block;
+}
+
+.nav-links .dropdown-content a:hover {
+  background: var(--light);
+  color: var(--inos-blue);
+}
+
+.nav-links .dropdown:hover .dropdown-content,
+.nav-links .dropdown.open .dropdown-content {
+  display: flex;
+}
+
+/* Mobile dropdown adjustments */
+@media (max-width: 768px) {
+  .nav-links .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: var(--light);
+    margin-top: 8px;
+  }
+  
+  .nav-links .dropdown-content a {
+    padding: 8px 24px;
+    font-size: 0.95rem;
+  }
+  
+  .nav-links .dropdown.open .dropdown-content {
+    display: flex;
+  }
+}
+/* ============================================
    HEMPIN — Shared Stylesheet
    Verified Truth Infrastructure for Planetary Regeneration
    ============================================ */
