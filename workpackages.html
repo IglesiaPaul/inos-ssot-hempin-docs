@@ -8,28 +8,27 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
-<!-- Mermaid.js for diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
-<script>
-  // Initialize Mermaid with clean theme
-  document.addEventListener('DOMContentLoaded', function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        primaryColor: '#3B82F6',    // inos-blue
-        primaryTextColor: '#1F2937', // dark
-        primaryBorderColor: '#3B82F6',
-        lineColor: '#6B7280',        // gray
-        secondaryColor: '#10B981',   // hempin-green
-        tertiaryColor: '#F9FAFB'     // light
-      },
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      flowchart: { useMaxWidth: true, htmlLabels: true },
-      gantt: { useMaxWidth: true }
-    });
-  });
-</script>
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#3B82F6',
+            primaryTextColor: '#1F2937',
+            primaryBorderColor: '#3B82F6',
+            lineColor: '#6B7280',
+            secondaryColor: '#10B981',
+            tertiaryColor: '#F9FAFB'
+          },
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          flowchart: { useMaxWidth: true, htmlLabels: true },
+          gantt: { useMaxWidth: true }
+        });
+      });
+    </script>
     <style>
         /* Work Packages page-specific styles */
         .wps-hero { 
@@ -68,9 +67,45 @@
             color: var(--gray);
         }
         
-        .wps-grid { 
+        /* Diagrams Section */
+        .diagrams-section { 
             padding: 60px 0; 
             background: var(--light); 
+        }
+        .diagrams-section h2 { 
+            text-align: center; 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            color: var(--dark);
+        }
+        .diagram-container { 
+            max-width: 900px; 
+            margin: 0 auto 40px; 
+            background: var(--white); 
+            border-radius: var(--radius-lg); 
+            padding: 30px; 
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .diagram-container h3 { 
+            margin-bottom: 20px; 
+            color: var(--dark);
+        }
+        .mermaid { 
+            display: flex; 
+            justify-content: center; 
+            margin: 20px 0;
+        }
+        .diagram-note { 
+            font-size: 0.9rem; 
+            color: var(--gray); 
+            margin-top: 15px;
+        }
+        
+        /* Work Packages Grid */
+        .wps-grid { 
+            padding: 60px 0; 
+            background: var(--white); 
         }
         .wps-grid h2 { 
             text-align: center; 
@@ -84,17 +119,17 @@
         }
         
         .wp-card { 
-            background: var(--white); 
+            background: var(--light); 
             border-radius: var(--radius-lg); 
             padding: 30px; 
             margin-bottom: 30px; 
             border-left: 5px solid var(--inos-blue); 
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
         }
         .wp-card:hover { 
             transform: translateY(-4px); 
-            box-shadow: var(--shadow-lg); 
+            box-shadow: var(--shadow);
         }
         .wp-card h3 { 
             font-size: 1.4rem; 
@@ -123,71 +158,26 @@
         .wp-card li { 
             margin-bottom: 8px;
         }
+        .wp-card .wp-meta { 
+            display: flex; 
+            gap: 20px; 
+            margin: 15px 0; 
+            flex-wrap: wrap;
+        }
+        .wp-meta-item { 
+            background: var(--white); 
+            padding: 8px 16px; 
+            border-radius: var(--radius); 
+            font-size: 0.9rem; 
+            font-weight: 500;
+        }
+        .wp-meta-item.duration { background: #DBEAFE; color: var(--inos-blue); }
+        .wp-meta-item.deliverables { background: #D1FAE5; color: var(--hempin-green); }
+        .wp-meta-item.metrics { background: #EDE9FE; color: var(--ssot-purple); }
+        
         .wp-card.blue { border-left-color: var(--inos-blue); }
         .wp-card.green { border-left-color: var(--hempin-green); }
         .wp-card.purple { border-left-color: var(--ssot-purple); }
-        
-        .timeline-section { 
-            padding: 60px 0; 
-            background: var(--white); 
-        }
-        .timeline-section h2 { 
-            text-align: center; 
-            font-size: 2rem; 
-            margin-bottom: 40px; 
-            color: var(--dark);
-        }
-        .timeline { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            position: relative;
-            padding-left: 30px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--inos-blue);
-        }
-        .timeline-item { 
-            position: relative; 
-            padding-left: 30px; 
-            margin-bottom: 40px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -26px;
-            top: 4px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--hempin-green);
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 2px var(--inos-blue);
-        }
-        .timeline-item h3 { 
-            font-size: 1.2rem; 
-            margin-bottom: 10px; 
-            color: var(--dark);
-        }
-        .timeline-item p { 
-            color: var(--gray); 
-            margin-bottom: 0;
-        }
-        .timeline-item .duration { 
-            display: inline-block; 
-            background: var(--light); 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            color: var(--inos-blue);
-            margin-bottom: 10px;
-        }
         
         .cta-section { 
             padding: 60px 0; 
@@ -208,15 +198,13 @@
         @media (max-width: 768px) { 
             .wps-hero h1 { font-size: 2rem; } 
             .wp-card h3 { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .timeline { padding-left: 20px; }
-            .timeline::before { left: 4px; }
-            .timeline-item::before { left: -22px; }
-            .timeline-item { padding-left: 25px; }
+            .wp-meta { flex-direction: column; gap: 10px; }
+            .diagram-container { padding: 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar injected by navbar.js -->
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
     <section class="wps-hero">
         <div class="container">
@@ -232,6 +220,90 @@
         </div>
     </section>
 
+    <!-- Visual Diagrams Section -->
+    <section class="diagrams-section">
+        <div class="container">
+            <h2>Project Visualizations</h2>
+            
+            <div class="diagram-container">
+                <h3>🗓️ Project Timeline (Gantt)</h3>
+                <div class="mermaid">
+gantt
+    title HEMPIN Project Timeline (48 Months)
+    dateFormat  YYYY-MM
+    axisFormat  %m/%Y
+    
+    section Foundation
+    WP1: Management & Coordination      :active, wp1, 2026-04, 48m
+    WP2: SSOT Architecture              :active, wp2, 2026-04, 36m
+    WP6: Dissemination & Open Science   :active, wp6, 2026-04, 48m
+    
+    section Development
+    WP3: BUD AI Agent (NL2G)            :wp3, 2026-10, 36m
+    WP4: Compliance Engine              :wp4, 2026-10, 42m
+    
+    section Validation
+    WP5: Pilot Deployment               :wp5, 2027-04, 36m
+    
+    section Milestones
+    M1: Consortium Agreement            :milestone, m1, 2026-04, 0d
+    M2: Graph Schema v1.0               :milestone, m2, 2027-04, 0d
+    M3: BUD Agent Alpha                 :milestone, m3, 2027-10, 0d
+    M4: Compliance Engine Live          :milestone, m4, 2028-04, 0d
+    M5: Thailand Pilot Launch           :milestone, m5, 2028-04, 0d
+    M6: EU Pilot Launch                 :milestone, m6, 2028-10, 0d
+    M7: Proof of Principle (TRL 4)      :crit, milestone, m7, 2029-10, 0d
+                </div>
+                <p class="diagram-note">Interactive: Hover over bars to see details. Click legend to toggle visibility.</p>
+            </div>
+            
+            <div class="diagram-container">
+                <h3>🔗 Work Package Dependencies</h3>
+                <div class="mermaid">
+flowchart LR
+    subgraph Foundation["Foundation Layer"]
+        WP1[WP1: Management]
+        WP2[WP2: SSOT Architecture]
+        WP6[WP6: Dissemination]
+    end
+    
+    subgraph Development["Development Layer"]
+        WP3[WP3: BUD AI Agent]
+        WP4[WP4: Compliance Engine]
+    end
+    
+    subgraph Validation["Validation Layer"]
+        WP5[WP5: Pilot Deployment]
+    end
+    
+    WP1 --> WP3
+    WP1 --> WP4
+    WP1 --> WP5
+    WP2 --> WP3
+    WP2 --> WP4
+    WP2 --> WP5
+    WP3 --> WP5
+    WP4 --> WP5
+    WP6 --> WP1
+    WP6 --> WP2
+    WP6 --> WP3
+    WP6 --> WP4
+    WP6 --> WP5
+    
+    classDef foundation fill:#DBEAFE,stroke:#3B82F6,stroke-width:2px;
+    classDef development fill:#D1FAE5,stroke:#10B981,stroke-width:2px;
+    classDef validation fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px;
+    
+    class WP1,WP2,WP6 foundation;
+    class WP3,WP4 development;
+    class WP5 validation;
+                </div>
+                <p class="diagram-note">Blue = Foundation • Green = Development • Purple = Validation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Packages Detailed List -->
     <section class="wps-grid">
         <div class="container">
             <h2>The 6 Work Packages</h2>
@@ -240,91 +312,105 @@
                 <div class="wp-card blue">
                     <h3><span class="wp-number">WP1</span> Project Management & Coordination</h3>
                     <p>Ensures smooth execution, ethical compliance, and stakeholder alignment across the entire project.</p>
+                    
+                    <div class="wp-meta">
+                        <span class="wp-meta-item duration">⏱️ Months 1-48</span>
+                        <span class="wp-meta-item deliverables">📦 4 Deliverables</span>
+                        <span class="wp-meta-item metrics">🎯 100% Reporting On-Time</span>
+                    </div>
+                    
                     <ul>
-                        <li><strong>Key Tasks:</strong> Consortium coordination, reporting, risk management, financial oversight</li>
-                        <li><strong>Deliverables:</strong> Project Handbook, periodic reports, risk register updates</li>
-                        <li><strong>Duration:</strong> Months 1-48 (full project)</li>
+                        <li><strong>Key Tasks:</strong> Consortium coordination, risk management, financial oversight, ethics compliance (GDPR/AI Act)</li>
+                        <li><strong>Deliverables:</strong> Project Handbook (M3), Periodic Reports (M12/30/48), Risk Register Updates (Quarterly), Exploitation Plan (M48)</li>
+                        <li><strong>Success Metrics:</strong> All reporting deadlines met; risk mitigation actions implemented within 30 days; stakeholder satisfaction ≥4/5</li>
                     </ul>
                 </div>
 
                 <div class="wp-card green">
                     <h3><span class="wp-number">WP2</span> SSOT Graph Architecture & Sovereign Infra</h3>
                     <p>Designs the foundational knowledge graph and validates the sovereign EU technology stack.</p>
+                    
+                    <div class="wp-meta">
+                        <span class="wp-meta-item duration">⏱️ Months 1-36</span>
+                        <span class="wp-meta-item deliverables">📦 3 Deliverables</span>
+                        <span class="wp-meta-item metrics">🎯 Latency &lt;500ms</span>
+                    </div>
+                    
                     <ul>
                         <li><strong>Key Tasks:</strong> SSOT schema design (Entity/Relationship/Compliance/Value layers), sovereign stack deployment (OVHcloud, Memgraph, Mistral), performance benchmarking, security audit</li>
-                        <li><strong>Deliverables:</strong> SSOT Graph Schema v1.0, Sovereign Stack Benchmark Report, Security Audit Report</li>
-                        <li><strong>Duration:</strong> Months 1-36</li>
+                        <li><strong>Deliverables:</strong> SSOT Graph Schema v1.0 (M12), Sovereign Stack Benchmark Report (M18), Security Audit Report (M36)</li>
+                        <li><strong>Success Metrics:</strong> Graph queries &lt;500ms latency; 99.9% uptime in staging; zero critical vulnerabilities in audit</li>
                     </ul>
                 </div>
 
                 <div class="wp-card purple">
                     <h3><span class="wp-number">WP3</span> BUD AI Agent Development (NL2G)</h3>
                     <p>Builds the natural-language-to-graph pipeline that enables low-friction onboarding for farmers and processors.</p>
+                    
+                    <div class="wp-meta">
+                        <span class="wp-meta-item duration">⏱️ Months 6-42</span>
+                        <span class="wp-meta-item deliverables">📦 3 Deliverables</span>
+                        <span class="wp-meta-item metrics">🎯 Confidence &gt;0.85</span>
+                    </div>
+                    
                     <ul>
                         <li><strong>Key Tasks:</strong> Ontology refinement for AI training, LLM fine-tuning (Mistral 7B), confidence scoring implementation, human-in-the-loop console development</li>
-                        <li><strong>Deliverables:</strong> BUD Pipeline v1.0, Confidence Scoring Model Technical Report, Human-in-Loop Console</li>
-                        <li><strong>Duration:</strong> Months 6-42</li>
+                        <li><strong>Deliverables:</strong> BUD Pipeline v1.0 (M18), Confidence Scoring Model Technical Report (M24), Human-in-Loop Console (M30)</li>
+                        <li><strong>Success Metrics:</strong> Auto-approval rate ≥85%; hallucination rate &lt;5% on test set; user satisfaction ≥4/5 for onboarding flow</li>
                     </ul>
                 </div>
 
                 <div class="wp-card blue">
                     <h3><span class="wp-number">WP4</span> Compliance Engine & Regulatory Encoding</h3>
                     <p>Encodes regulatory rules from 5 jurisdictions as machine-readable graph constraints for real-time compliance validation.</p>
+                    
+                    <div class="wp-meta">
+                        <span class="wp-meta-item duration">⏱️ Months 6-48</span>
+                        <span class="wp-meta-item deliverables">📦 3 Deliverables</span>
+                        <span class="wp-meta-item metrics">🎯 5 Jurisdictions Encoded</span>
+                    </div>
+                    
                     <ul>
                         <li><strong>Key Tasks:</strong> Regulatory ontology mapping (TH, FR, DE, NL, AU), graph constraint encoding (SHACL/Cypher), validation against test cases, iterative expansion plan</li>
-                        <li><strong>Deliverables:</strong> Regulatory Ontology for 5 Jurisdictions, Compliance Engine Prototype, Validation Report</li>
-                        <li><strong>Duration:</strong> Months 6-48</li>
+                        <li><strong>Deliverables:</strong> Regulatory Ontology for 5 Jurisdictions (M24), Compliance Engine Prototype (M30), Validation Report (M36)</li>
+                        <li><strong>Success Metrics:</strong> 100% of test cases pass constraint validation; false-positive rate &lt;2%; expansion plan approved by consortium</li>
                     </ul>
                 </div>
 
                 <div class="wp-card green">
                     <h3><span class="wp-number">WP5</span> Pilot Deployment & Validation</h3>
                     <p>Validates the integrated system with 500+ verified entities in Thailand and EU test environments.</p>
+                    
+                    <div class="wp-meta">
+                        <span class="wp-meta-item duration">⏱️ Months 12-48</span>
+                        <span class="wp-meta-item deliverables">📦 3 Deliverables</span>
+                        <span class="wp-meta-item metrics">🎯 500+ Entities Verified</span>
+                    </div>
+                    
                     <ul>
                         <li><strong>Key Tasks:</strong> Pilot site setup (Thailand via TiHTA LOI), user onboarding via BUD Agent, transaction validation via Compliance Engine, feedback collection and iteration</li>
-                        <li><strong>Deliverables:</strong> Thailand Pilot Report, EU Pilot Report, Proof-of-Principle Validation Report (TRL 4)</li>
-                        <li><strong>Duration:</strong> Months 12-48</li>
+                        <li><strong>Deliverables:</strong> Thailand Pilot Report (M30), EU Pilot Report (M36), Proof-of-Principle Validation Report (TRL 4) (M42)</li>
+                        <li><strong>Success Metrics:</strong> 500+ entities onboarded; 50+ transactions validated end-to-end; TRL 4 achieved per EIC criteria</li>
                     </ul>
                 </div>
 
                 <div class="wp-card purple">
                     <h3><span class="wp-number">WP6</span> Dissemination, Ethics & Open Science</h3>
                     <p>Ensures open science practices, stakeholder engagement, and ethical compliance throughout the project.</p>
+                    
+                    <div class="wp-meta">
+                        <span class="wp-meta-item duration">⏱️ Months 1-48</span>
+                        <span class="wp-meta-item deliverables">📦 4 Deliverables</span>
+                        <span class="wp-meta-item metrics">🎯 3+ Publications</span>
+                    </div>
+                    
                     <ul>
                         <li><strong>Key Tasks:</strong> Open-access publications, GitHub repo maintenance, industry workshops, policy briefings, data management plan (FAIR principles)</li>
-                        <li><strong>Deliverables:</strong> 3+ Peer-Reviewed Publications, Open Source Repository, Data Management Plan, Policy Briefs</li>
-                        <li><strong>Duration:</strong> Months 1-48 (full project)</li>
+                        <li><strong>Deliverables:</strong> 3+ Peer-Reviewed Publications (M18/30/42), Open Source Repository (M6), Data Management Plan (M6), Policy Briefs (M24/36)</li>
+                        <li><strong>Success Metrics:</strong> All publications in Q1/Q2 open-access journals; GitHub repo ≥100 stars; 2+ industry workshops held; DMP compliant with FAIR principles</li>
                     </ul>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <section class="timeline-section">
-        <div class="container">
-            <h2>Project Timeline</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="duration">Months 1-6</span>
-                    <h3>Foundation Phase</h3>
-                    <p>WP1 kickoff, WP2 schema design begins, WP3 ontology refinement, WP4 regulatory mapping starts</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="duration">Months 7-18</span>
-                    <h3>Development Phase</h3>
-                    <p>WP2 sovereign stack deployment, WP3 BUD Agent alpha, WP4 constraint encoding, WP5 pilot planning</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="duration">Months 19-36</span>
-                    <h3>Integration Phase</h3>
-                    <p>WP3 confidence scoring, WP4 validation, WP5 Thailand pilot launch, WP6 publications begin</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="duration">Months 37-48</span>
-                    <h3>Validation Phase</h3>
-                    <p>WP5 EU pilot, TRL 4 proof-of-principle achieved, final reports, exploitation planning</p>
-                </div>
             </div>
         </div>
     </section>
@@ -336,5 +422,7 @@
             <a href="involved.html" class="cta-button">Get Involved</a>
         </div>
     </section>
+
+    <!-- Footer injected by footer.js -->
 </body>
 </html>
