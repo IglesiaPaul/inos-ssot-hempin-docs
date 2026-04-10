@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HEMPIN — Industry #1 deployment of NADA verified truth infrastructure. Hemp supply chain verification, BUD AI onboarding, Regeneration Fund.">
+    <title>HEMPIN — Industry #1 Deployment | NADA</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#3B82F6',
+            primaryTextColor: '#1F2937',
+            primaryBorderColor: '#3B82F6',
+            lineColor: '#6B7280',
+            secondaryColor: '#10B981',
+            tertiaryColor: '#F9FAFB',
+            fontSize: 14
+          },
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          flowchart: { useMaxWidth: true, htmlLabels: true },
+          gantt: { useMaxWidth: true, barHeight: 30, topPadding: 20 }
+        });
+      });
+    </script>
+    <style>
+        .hempin-hero {
+            background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hempin-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+        .hempin-hero .subtitle {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+        }
+        .stats-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--hempin-green);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-card .label {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        .content-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--hempin-green);
+            box-shadow: var(--shadow-sm);
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-card ul {
+            margin: 16px 0 0 20px;
+            color: var(--gray);
+        }
+        .feature-card li {
+            margin-bottom: 8px;
+        }
+        .tooltip {
+            display: inline-block;
+            background: #F0FDF4;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--hempin-green);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .fund-ripple {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .ripple-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--hempin-green);
+            border-radius: 50%;
+            position: relative;
+            animation: ripple-icon 2s ease-in-out infinite;
+        }
+        .ripple-icon::before,
+        .ripple-icon::after {
+            content: '';
+            position: absolute;
+            border: 2px solid var(--hempin-green);
+            border-radius: 50%;
+            opacity: 0;
+            animation: ripple-expand 2s ease-out infinite;
+        }
+        .ripple-icon::before { animation-delay: 0s; }
+        .ripple-icon::after { animation-delay: 0.5s; }
+        @keyframes ripple-icon {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        @keyframes ripple-expand {
+            0% { width: 24px; height: 24px; opacity: 0.6; }
+            100% { width: 48px; height: 48px; opacity: 0; }
+        }
+        .diagram-container {
+            max-width: 100% !important;
+            margin: 0 auto 40px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            overflow-x: auto;
+        }
+        .mermaid {
+            display: block !important;
+            width: 100% !important;
+            min-width: 600px;
+            margin: 20px auto;
+        }
+        .cta-section {
+            padding: 60px 0;
+            background: var(--white);
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 24px;
+            color: var(--gray);
+        }
+        @media (max-width: 768px) {
+            .hempin-hero h1 { font-size: 2.2rem; }
+            .hempin-hero .subtitle { font-size: 1.1rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <section class="hempin-hero">
+        <div class="container">
+            <h1>🌱 HEMPIN</h1>
+            <p class="subtitle">Industry #1 Deployment of NADA Verified Truth Infrastructure</p>
+        </div>
+    </section>
+
+    <!-- Why Hemp Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark);">Why Hemp First?</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">57+</div>
+                    <div class="label">Jurisdictions Encoded</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$17B</div>
+                    <div class="label">Hemp Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">25%</div>
+                    <div class="label">Annual Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100%</div>
+                    <div class="label">SME-Focused</div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; max-width: 800px; margin: 40px auto 0; color: var(--gray);">
+                Hemp is the perfect testbed: high regulatory fragmentation, strong sustainability mandate, fragmented SME landscape, and global growth. Once proven in hemp, the NADA architecture generalizes to all industries requiring verified trust.
+            </p>
+        </div>
+    </section>
+
+    <!-- BUD AI Section -->
+    <section class="content-section" id="bud">
+        <div class="container">
+            <h2>🤖 BUD AI: Natural Language Onboarding</h2>
+            <span class="tooltip">BUD AI: Natural language onboarding for verified supply chains</span>
+            
+            <p>Natural language onboarding agent that converts farmer conversations into verified graph data. Self-hosted, sovereign AI with confidence scoring and human-in-the-loop validation.</p>
+            
+            <div class="feature-card">
+                <h3>🎯 Key Features</h3>
+                <ul>
+                    <li><strong>Confidence scoring >0.85 threshold</strong> for auto-approval</li>
+                    <li><strong>Human-in-the-loop console</strong> for low-confidence extractions</li>
+                    <li><strong>Multi-language support</strong> (EN, FR, TH, RO + expanding)</li>
+                    <li><strong>Reduces onboarding friction</strong> from weeks to minutes</li>
+                    <li><strong>Sovereign AI stack</strong> (Mistral 7B, self-hosted on EU cloud)</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📊 Technical Specifications</h3>
+                <ul>
+                    <li><strong>Model:</strong> Fine-tuned Mistral 7B (self-hosted)</li>
+                    <li><strong>Latency:</strong> <500ms for onboarding flow</li>
+                    <li><strong>Accuracy:</strong> ≥85% auto-approval rate</li>
+                    <li><strong>Hallucination rate:</strong> <5% on test set</li>
+                    <li><strong>User satisfaction:</strong> ≥4/5 for onboarding flow</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="technology.html" style="color: var(--inos-blue); font-weight: 500;">View Full Technology Stack →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Regeneration Fund Section -->
+    <section class="content-section" style="background: var(--white);" id="fund">
+        <div class="container">
+            <h2>💧 Regeneration Fund</h2>
+            <div class="fund-ripple">
+                <div class="ripple-icon"></div>
+                <span style="font-size: 1.1rem; font-weight: 600; color: var(--hempin-green);">30% of ALL industry profits fund regeneration</span>
+            </div>
+            
+            <p>Starting with hemp, scaling to all industries. Profits fund environmental cleanup, not shareholder enrichment. Mission-locked economics embedded in the architecture.</p>
+            
+            <div class="feature-card" style="border-left-color: var(--ssot-purple);">
+                <h3>🌍 How It Works</h3>
+                <ul>
+                    <li><strong>30% of transaction value</strong> flows automatically to verified environmental projects</li>
+                    <li><strong>Transparent impact metrics</strong> linking every transaction to cleanup</li>
+                    <li><strong>Community-driven governance</strong> via INOS Foundation (non-profit)</li>
+                    <li><strong>Scalable funding mechanism</strong> independent of philanthropy or government grants</li>
+                    <li><strong>Verified projects:</strong> Soil remediation, water restoration, carbon sequestration</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" style="border-left-color: var(--ssot-purple);">
+                <h3>📈 Projected Impact</h3>
+                <ul>
+                    <li><strong>By 2030:</strong> €100M+ cumulative funding to regeneration projects</li>
+                    <li><strong>By 2035:</strong> €500M+ cumulative funding across multiple industries</li>
+                    <li><strong>By 2045:</strong> €1B+ cumulative funding, self-sustaining planetary infrastructure</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Validation Section -->
+    <section class="content-section" style="background: var(--light);">
+        <div class="container">
+            <h2>✅ Pilot Validation</h2>
+            <p>HEMPIN is validated through real-world pilots in Thailand and EU test environments.</p>
+            
+            <div class="diagram-container">
+                <h3 style="margin-bottom: 20px;">🗺️ Pilot Timeline</h3>
+                <div class="mermaid">
+gantt
+    title HEMPIN Pilot Validation Timeline
+    dateFormat  YYYY-MM
+    axisFormat  %m/%Y
+    
+    section Thailand Pilot
+    Site Setup              :active, t1, 2027-04, 3m
+    User Onboarding (500+)  :t2, after t1, 6m
+    Transaction Validation  :t3, after t2, 6m
+    Report & Iteration      :t4, after t3, 3m
+    
+    section EU Pilot
+    Site Setup              :e1, 2028-04, 3m
+    User Onboarding (200+)  :e2, after e1, 6m
+    Transaction Validation  :e3, after e2, 6m
+    Report & Iteration      :e4, after e3, 3m
+    
+    section Milestones
+    500 Entities Verified   :milestone, m1, 2028-04, 0d
+    50+ Transactions Validated :milestone, m2, 2028-10, 0d
+    TRL 4 Achieved          :crit, milestone, m3, 2029-10, 0d
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎯 Pilot Success Metrics</h3>
+                <ul>
+                    <li><strong>500+ entities onboarded</strong> in Thailand pilot</li>
+                    <li><strong>200+ entities onboarded</strong> in EU pilot</li>
+                    <li><strong>50+ transactions validated</strong> end-to-end</li>
+                    <li><strong>TRL 4 achieved</strong> per EIC criteria (proof-of-principle in lab environment)</li>
+                    <li><strong>User satisfaction ≥4/5</strong> for onboarding flow</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="roadmap.html" style="color: var(--inos-blue); font-weight: 500;">View Full Project Roadmap →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Connection to NADA Architecture -->
+    <section class="content-section" style="background: var(--white);">
+        <div class="container">
+            <h2>🔗 How HEMPIN Fits in NADA Architecture</h2>
+            
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    NADA["🌌 NADA<br/>Primordial Vibration"]:::nada
+    SSOT["🌐 SSOT<br/>Knowledge Graph"]:::core
+    INOS["⚙️ INOS<br/>Operating System"]:::core
+    HEMPIN["🌱 HEMPIN<br/>Industry #1: Hemp"]:::hempin
+    BUD["🤖 BUD AI<br/>Onboarding Tool"]:::hempin
+    FUND["💧 Regeneration Fund<br/>30% to cleanup"]:::fund
+    SOLAR["🌍 Solarpunk 2045<br/>Planetary regeneration"]:::vision
+    
+    NADA --> SSOT & INOS
+    SSOT & INOS --> HEMPIN & BUD
+    HEMPIN & BUD --> FUND
+    FUND --> SOLAR
+    
+    classDef nada fill:#7C3AED,stroke:#6D28D9,stroke-width:3px,color:white,rx:10,ry:10;
+    classDef core fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:white,rx:8,ry:8;
+    classDef hempin fill:#10B981,stroke:#059669,stroke-width:2px,color:white,rx:8,ry:8;
+    classDef fund fill:#F59E0B,stroke:#D97706,stroke-width:2px,color:white,rx:8,ry:8;
+    classDef vision fill:#EC4899,stroke:#DB2777,stroke-width:2px,color:white,rx:8,ry:8;
+    
+    class NADA nada;
+    class SSOT,INOS core;
+    class HEMPIN,BUD hempin;
+    class FUND fund;
+    class SOLAR vision;
+                </div>
+                <p style="font-size: 0.9rem; color: var(--gray); margin-top: 15px;">HEMPIN is Industry #1 deployment layer, powered by SSOT/INOS core architecture</p>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="index.html" style="color: var(--inos-blue); font-weight: 500;">Return to Homepage →</a> | 
+                <a href="architecture.html" style="color: var(--inos-blue); font-weight: 500;">Explore SSOT/INOS Architecture →</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Want to Pilot HEMPIN?</h2>
+            <p>Hemp associations, farmer cooperatives, processors — we're seeking pilot partners for Thailand and EU deployment. Free tier for smallholders.</p>
+            <a href="involved.html" class="cta-button">Get Involved</a>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
