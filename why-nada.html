@@ -178,20 +178,60 @@
 
     <!-- Shader Script (High-Quality Volumetric Sacred Geometry) -->
     <script>
-    (function() {
-        const canvas = document.getElementById("nada-volume");
-        const fallback = document.getElementById("shader-fallback");
-        const hero = document.querySelector(".philosophy-hero");
-        
-        // Performance detection: skip shader on mobile or low-end
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
-        
-        if (isMobile || isLowEnd) {
-            fallback.style.display = "block";
-            canvas.style.display = "none";
-            return;
-        }
+  (function() {
+    // 🧪 TEST MODE: Force shader rendering for testing
+    // Remove this block before production deployment
+    const TEST_MODE = true; // Set to false for production
+    
+    const canvas = document.getElementById("nada-volume");
+    const fallback = document.getElementById("shader-fallback");
+    
+    // Performance detection (bypassed in TEST_MODE)
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+    
+    console.log("🌊 NADA shader initializing...");
+    console.log("TEST_MODE:", TEST_MODE);
+    console.log("User agent:", navigator.userAgent);
+    console.log("Hardware concurrency:", navigator.hardwareConcurrency);
+    console.log("Is mobile:", isMobile, "Is low-end:", isLowEnd);
+    
+    if (!TEST_MODE && (isMobile || isLowEnd)) {
+        console.log("📱 Using fallback for mobile/low-end device");
+        fallback.style.display = "block";
+        canvas.style.display = "none";
+        return;
+    }
+    
+    const gl = canvas.getContext("webgl", { preserveDrawingBuffer: true, alpha: false });
+    if (!gl) {
+        console.error("❌ WebGL not supported");
+        fallback.style.display = "block";
+        canvas.style.display = "none";
+        return;
+    }
+    console.log("✅ WebGL context acquired");
+    
+    // Resize canvas to match hero section
+    function resize() {
+        const rect = document.querySelector(".philosophy-hero").getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        console.log("📐 Canvas resized:", canvas.width, "x", canvas.height);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+    
+    // Mouse tracking
+    let mouse = [0.5, 0.5];
+    canvas.addEventListener("mousemove", e => {
+        const rect = canvas.getBoundingClientRect();
+        mouse[0] = (e.clientX - rect.left) / rect.width;
+        mouse[1] = 1.0 - (e.clientY - rect.top) / rect.height;
+    });
+    
+    // ... [KEEP THE REST OF YOUR EXISTING SHADER CODE UNCHANGED FROM HERE] ...
         
         const gl = canvas.getContext("webgl", { preserveDrawingBuffer: true, alpha: false });
         if (!gl) {
