@@ -3,142 +3,759 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HEMPIN — Verified Truth Infrastructure for Planetary Regeneration">
-    <title>HEMPIN | Solarpunk Infrastructure 2045</title>
+    <meta name="description" content="NADA is verified truth infrastructure for planetary regeneration. HEMPIN is our first industry deployment in hemp. From the first ripple to Solarpunk 2045.">
+    <title>NADA — Verified Truth Infrastructure (HEMPIN: Industry #1)</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <!-- Mermaid.js for diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
-<script>
-  // Initialize Mermaid with clean theme
-  document.addEventListener('DOMContentLoaded', function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        primaryColor: '#3B82F6',    // inos-blue
-        primaryTextColor: '#1F2937', // dark
-        primaryBorderColor: '#3B82F6',
-        lineColor: '#6B7280',        // gray
-        secondaryColor: '#10B981',   // hempin-green
-        tertiaryColor: '#F9FAFB'     // light
-      },
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      flowchart: { useMaxWidth: true, htmlLabels: true },
-      gantt: { useMaxWidth: true }
-    });
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#3B82F6',
+            primaryTextColor: '#1F2937',
+            primaryBorderColor: '#3B82F6',
+            lineColor: '#6B7280',
+            secondaryColor: '#10B981',
+            tertiaryColor: '#F9FAFB',
+            fontSize: 14
+          },
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          flowchart: { 
+            useMaxWidth: true, 
+            htmlLabels: true,
+            nodeSpacing: 50,
+            rankSpacing: 50,
+            click: function(id, label, link) { window.location.href = link; }
+          },
+          gantt: { 
+            useMaxWidth: true,
+            barHeight: 30,
+            topPadding: 20
+          }
+        });
+        
+        // Add click handlers to Mermaid nodes for navigation
+        setTimeout(function() {
+          document.querySelectorAll('.mermaid .node').forEach(node => {
+            const nodeId = node.id;
+            if (nodeId === 'SSOT') node.addEventListener('click', () => window.location.href = 'architecture.html#ssot');
+            if (nodeId === 'INOS') node.addEventListener('click', () => window.location.href = 'architecture.html#inos');
+            if (nodeId === 'HEMPIN') node.addEventListener('click', () => window.location.href = 'hempin.html');
+            if (nodeId === 'BUD') node.addEventListener('click', () => window.location.href = 'hempin.html#bud');
+            if (nodeId === 'FUND') node.addEventListener('click', () => window.location.href = 'hempin.html#fund');
+          });
+        }, 2000);
+      });
+    </script>
     <style>
-        /* Index page has no additional custom styles needed */
+        /* Homepage-specific styles */
+        
+        /* Animated hero ripple (Level 3 interactivity) */
+        .hero {
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+            animation: ripple 10s ease-in-out infinite;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes ripple {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.2; }
+            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+        }
+        
+        .hero .tagline {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            color: var(--white);
+            font-style: italic;
+        }
+        
+        /* Ripple Architecture Section */
+        .ripple-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .ripple-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .ripple-section .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .diagram-container {
+            max-width: 100% !important;
+            margin: 0 auto 40px;
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            overflow-x: auto;
+        }
+        
+        .mermaid {
+            display: block !important;
+            width: 100% !important;
+            min-width: 800px;
+            margin: 20px auto;
+        }
+        
+        .diagram-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 15px;
+        }
+        
+        /* Enhanced Mermaid node styling for clickability */
+        .mermaid .node rect {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mermaid .node rect:hover {
+            stroke-width: 4px !important;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        }
+        
+        /* Why Hemp First Section */
+        .why-hemp {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .why-hemp h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .why-hemp .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--hempin-green);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .stat-card .label {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .why-hemp .connection {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+            padding: 20px;
+            background: #DBEAFE;
+            border-left: 4px solid var(--inos-blue);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        
+        /* Core Architecture Cards */
+        .architecture-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .architecture-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .arch-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .arch-card {
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border-left: 5px solid var(--inos-blue);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .arch-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        
+        .arch-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .arch-card p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+        
+        .arch-card ul {
+            margin: 16px 0 0 20px;
+            color: var(--gray);
+        }
+        
+        .arch-card li {
+            margin-bottom: 8px;
+        }
+        
+        .arch-card .learn-more {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--inos-blue);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .arch-card .learn-more:hover {
+            text-decoration: underline;
+        }
+        
+        .arch-card.blue { border-left-color: var(--inos-blue); }
+        .arch-card.green { border-left-color: var(--hempin-green); }
+        
+        /* Tools & Mission Section */
+        .tools-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .tools-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tool-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border-left: 5px solid var(--hempin-green);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tool-card p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+        
+        .tool-card .tooltip {
+            display: inline-block;
+            background: #F0FDF4;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--hempin-green);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        /* Regeneration Fund ripple icon */
+        .fund-ripple {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .ripple-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--hempin-green);
+            border-radius: 50%;
+            position: relative;
+            animation: ripple-icon 2s ease-in-out infinite;
+        }
+        
+        .ripple-icon::before,
+        .ripple-icon::after {
+            content: '';
+            position: absolute;
+            border: 2px solid var(--hempin-green);
+            border-radius: 50%;
+            opacity: 0;
+            animation: ripple-expand 2s ease-out infinite;
+        }
+        
+        .ripple-icon::before {
+            animation-delay: 0s;
+        }
+        
+        .ripple-icon::after {
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes ripple-icon {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        @keyframes ripple-expand {
+            0% { width: 24px; height: 24px; opacity: 0.6; }
+            100% { width: 48px; height: 48px; opacity: 0; }
+        }
+        
+        .tool-card.fund { border-left-color: var(--ssot-purple); }
+        
+        /* Future Ripples Section */
+        .future-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .future-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .future-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .future-item {
+            min-width: 200px;
+            padding: 24px;
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            scroll-snap-align: start;
+            border-top: 4px solid var(--inos-blue);
+        }
+        
+        .future-item .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        
+        .future-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .future-item p {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+        
+        /* Solarpunk Vision Section */
+        .vision-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .vision-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+        
+        .vision-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            color: var(--white);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--gray);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .hero .tagline { font-size: 1rem; }
+            
+            .arch-cards, .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .future-timeline {
+                gap: 12px;
+            }
+            
+            .future-item {
+                min-width: 160px;
+                padding: 16px;
+            }
+            
+            .mermaid {
+                min-width: 600px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar injected by navbar.js -->
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Verified Truth Infrastructure<br>for Planetary Regeneration</h1>
-            <p>We're building the operating system for Solarpunk civilization — verified supply chains, sovereign technology, and regenerative economics. Starting with the global hemp industry, scaling to all industries by 2045.</p>
+        <div class="container hero-content">
+            <h1>NADA</h1>
+            <p class="subtitle">Verified Truth Infrastructure (HEMPIN: Industry #1)</p>
+            <p class="tagline">From primordial vibration to planetary regeneration</p>
             <div class="hero-buttons">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="hero-button">View Documentation</a>
+                <a href="#ripple-architecture" class="hero-button">Explore the Architecture</a>
                 <a href="involved.html" class="hero-button secondary">Join the Mission</a>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <!-- The Ripple Architecture Section -->
+    <section id="ripple-architecture" class="ripple-section">
         <div class="container">
-            <h2>What We're Building</h2>
-            <div class="features-grid">
-                <div class="feature-card">
+            <h2>The Ripple Architecture</h2>
+            <p class="intro">Just as the first sound creates the universe, verified truth creates regenerative economies. Click any node to learn more.</p>
+            
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    %% Center: NADA
+    NADA["🌌 NADA<br/><i>Primordial Vibration</i>"]:::nada
+    
+    %% First Ring: Core Architecture
+    subgraph Core["Core Architecture"]
+        SSOT["🌐 SSOT<br/>Knowledge Graph"]:::core
+        INOS["⚙️ INOS<br/>Operating System"]:::core
+    end
+    
+    %% Second Ring: Industry Deployment
+    subgraph Deployment["Industry #1: HEMPIN"]
+        HEMPIN["🌱 HEMPIN<br/>Hemp Deployment"]:::deployment
+        BUD["🤖 BUD AI<br/>Natural Language Onboarding"]:::deployment
+    end
+    
+    %% Third Ring: Mission & Vision
+    subgraph Mission["Mission-Locked"]
+        FUND["💧 Regeneration Fund<br/>30% to environmental cleanup"]:::fund
+    end
+    
+    subgraph Vision["Long-Term Vision"]
+        SOLAR["🌍 Solarpunk 2045<br/>Planetary regeneration"]:::vision
+    end
+    
+    %% Connections (ripple effect)
+    NADA --> SSOT & INOS
+    SSOT & INOS --> HEMPIN & BUD
+    HEMPIN & BUD --> FUND
+    FUND --> SOLAR
+    
+    %% Styling classes
+    classDef nada fill:#7C3AED,stroke:#6D28D9,stroke-width:3px,color:white,rx:10,ry:10;
+    classDef core fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:white,rx:8,ry:8;
+    classDef deployment fill:#10B981,stroke:#059669,stroke-width:2px,color:white,rx:8,ry:8;
+    classDef fund fill:#F59E0B,stroke:#D97706,stroke-width:2px,color:white,rx:8,ry:8;
+    classDef vision fill:#EC4899,stroke:#DB2777,stroke-width:2px,color:white,rx:8,ry:8;
+    
+    %% Apply classes
+    class NADA nada;
+    class SSOT,INOS core;
+    class HEMPIN,BUD deployment;
+    class FUND fund;
+    class SOLAR vision;
+                </div>
+                <p class="diagram-note">Interactive: Click nodes to explore details. Hover for tooltips. Scroll horizontally on mobile.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hemp First Section -->
+    <section id="why-hemp" class="why-hemp">
+        <div class="container">
+            <h2>Why Hemp First? Our Industry #1 Deployment</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">57+</div>
+                    <div class="label">Jurisdictions Encoded</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$17B</div>
+                    <div class="label">Hemp Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">25%</div>
+                    <div class="label">Annual Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100%</div>
+                    <div class="label">SME-Focused</div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: var(--gray);">
+                Hemp is the perfect testbed: high regulatory fragmentation, strong sustainability mandate, fragmented SME landscape, and global growth. Once proven in hemp, the NADA architecture generalizes to all industries requiring verified trust.
+            </p>
+            
+            <div class="connection">
+                <strong>Learn more about HEMPIN:</strong> Our industry-specific deployment layer with BUD AI onboarding, compliance engine, and pilot validation.
+                <br><br>
+                <a href="hempin.html" class="cta-button" style="background: var(--inos-blue);">Explore HEMPIN Details →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Architecture Section -->
+    <section id="core-architecture" class="architecture-section">
+        <div class="container">
+            <h2>Core Architecture</h2>
+            <div class="arch-cards">
+                
+                <div class="arch-card blue" id="ssot">
                     <h3>🌐 SSOT</h3>
-                    <p>Single Source of Truth — A living knowledge graph that encodes every verified actor, relationship, regulation, and value flow in the hemp economy. Machine-readable compliance for 57+ jurisdictions.</p>
+                    <p><strong>Single Source of Truth</strong> — A living knowledge graph that encodes every verified actor, relationship, regulation, and value flow.</p>
+                    <ul>
+                        <li>Entity layer: Canonical representation of every verified actor</li>
+                        <li>Relationship layer: Every interaction between entities</li>
+                        <li>Compliance layer: Per-jurisdiction regulatory encoding as machine-readable constraints</li>
+                        <li>Value layer: Economic flow graph with embedded Regeneration Fund</li>
+                    </ul>
+                    <a href="architecture.html#ssot" class="learn-more">Deep dive into SSOT →</a>
                 </div>
-                <div class="feature-card blue">
+
+                <div class="arch-card green" id="inos">
                     <h3>⚙️ INOS</h3>
-                    <p>Sovereign Operating System — Built on EU infrastructure (OVHcloud, Memgraph, Mistral AI). Zero US dependency. Event-sourced architecture for immutable, auditable truth.</p>
+                    <p><strong>Operating System</strong> — The architecture that produces SSOT: Microservices + Event Sourcing + Graph Database + Sovereign EU infrastructure.</p>
+                    <ul>
+                        <li>Sovereign stack: OVHcloud, Memgraph, Mistral AI (zero US dependency)</li>
+                        <li>Event-sourced architecture for immutable, auditable truth</li>
+                        <li>GDPR-by-design with data minimization and explicit consent flows</li>
+                        <li>Scalable to planetary-level verified infrastructure</li>
+                    </ul>
+                    <a href="architecture.html#inos" class="learn-more">Deep dive into INOS →</a>
                 </div>
-                <div class="feature-card purple">
-                    <h3>🌱 HEMPIN</h3>
-                    <p>First Deployment — Application layer activating the ecosystem: Hemp Commons (regulatory Q&A), Hemp Swap (verified trading), Hemp Globe (geospatial map), BUD AI (natural language onboarding).</p>
-                </div>
-                <div class="feature-card">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Mission Section -->
+    <section id="tools-mission" class="tools-section">
+        <div class="container">
+            <h2>Tools & Mission</h2>
+            <div class="tools-grid">
+                
+                <div class="tool-card" id="bud">
                     <h3>🤖 BUD AI</h3>
+                    <span class="tooltip">BUD AI: Natural language onboarding for verified supply chains</span>
                     <p>Natural language onboarding agent that converts farmer conversations into verified graph data. Self-hosted, sovereign AI with confidence scoring and human-in-the-loop validation.</p>
+                    <ul>
+                        <li>Confidence scoring >0.85 threshold for auto-approval</li>
+                        <li>Human-in-the-loop console for low-confidence extractions</li>
+                        <li>Multi-language support (EN, FR, TH, RO + expanding)</li>
+                        <li>Reduces onboarding friction from weeks to minutes</li>
+                    </ul>
                 </div>
-                <div class="feature-card blue">
-                    <h3>💎 Regeneration Fund</h3>
-                    <p>30% of transaction value flows automatically to verified environmental cleanup projects. Embedded regenerative economics — not an add-on, but core architecture.</p>
+
+                <div class="tool-card fund" id="fund">
+                    <h3>💧 Regeneration Fund</h3>
+                    <div class="fund-ripple">
+                        <div class="ripple-icon"></div>
+                        <span>30% of ALL industry profits fund regeneration</span>
+                    </div>
+                    <p>Starting with hemp, scaling to all industries. Profits fund environmental cleanup, not shareholder enrichment. Mission-locked economics embedded in the architecture.</p>
+                    <ul>
+                        <li>30% of transaction value flows to verified environmental projects</li>
+                        <li>Transparent impact metrics linking every transaction to cleanup</li>
+                        <li>Community-driven governance via INOS Foundation (non-profit)</li>
+                        <li>Scalable funding mechanism independent of philanthropy</li>
+                    </ul>
                 </div>
-                <div class="feature-card purple">
-                    <h3>🌍 Solarpunk 2045</h3>
-                    <p>Long-term vision: Verified supply chains for all industries, sovereign technology for data autonomy, and regenerative finance at global scale. Starting with hemp.</p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="mission" class="mission">
+    <!-- Future Ripples Section -->
+    <section id="future-ripples" class="future-section">
         <div class="container">
-            <h2>Why This Matters</h2>
-            <p>The global hemp industry is a $17B market growing at 25% CAGR, yet it cannot efficiently trade due to coordination failure. 57 jurisdictions. No shared identity. No verified trust layer.</p>
-            <p>We're not just building a platform. We're building <strong>critical public infrastructure</strong> for planetary regeneration — where commerce funds environmental repair, data sovereignty empowers SMEs, and verified trust enables efficient global trade.</p>
-            <div class="mission-stats">
-                <div class="stat"><div class="stat-number">57+</div><div class="stat-label">Jurisdictions Encoded</div></div>
-                <div class="stat"><div class="stat-number">$17B</div><div class="stat-label">Hemp Market</div></div>
-                <div class="stat"><div class="stat-number">30%</div><div class="stat-label">To Regeneration Fund</div></div>
-                <div class="stat"><div class="stat-number">2045</div><div class="stat-label">Solarpunk Vision</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="impact" class="impact">
-        <div class="container">
-            <h2>Transformative Impact</h2>
-            <div class="impact-grid">
-                <div class="impact-card">
+            <h2>Future Ripples: Expanding to All Industries</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
+                Once proven in hemp, the NADA architecture generalizes to any supply chain requiring verified trust.
+            </p>
+            
+            <div class="future-timeline">
+                <div class="future-item">
+                    <div class="icon">🌱</div>
+                    <h4>Hemp</h4>
+                    <p>Industry #1 deployment</p>
+                </div>
+                <div class="future-item">
+                    <div class="icon">🌾</div>
+                    <h4>Organic Agriculture</h4>
+                    <p>Verified provenance for food</p>
+                </div>
+                <div class="future-item">
+                    <div class="icon">🧵</div>
+                    <h4>Textiles</h4>
+                    <p>Transparent supply chains</p>
+                </div>
+                <div class="future-item">
+                    <div class="icon">⚡</div>
+                    <h4>Critical Minerals</h4>
+                    <p>Ethical sourcing verification</p>
+                </div>
+                <div class="future-item">
                     <div class="icon">🌍</div>
-                    <h3>Environment</h3>
-                    <p>€10B+ cumulative funding for environmental regeneration by 2045. Verified impact metrics linking every transaction to soil restoration, water cleanup, and carbon sequestration.</p>
-                </div>
-                <div class="impact-card">
-                    <div class="icon">💼</div>
-                    <h3>Economy</h3>
-                    <p>30-40% reduction in transaction costs for SMEs by automating compliance validation. Unlocking global markets for European hemp brands currently blocked by regulatory complexity.</p>
-                </div>
-                <div class="impact-card">
-                    <div class="icon">🔐</div>
-                    <h3>Society</h3>
-                    <p>Data sovereignty for European SMEs — no US Cloud Act exposure. Democratic access to verification via conversational AI, empowering smallholder farmers to participate in global trade.</p>
+                    <h4>Global Trade</h4>
+                    <p>Planetary verified infrastructure</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="roadmap" class="roadmap">
+    <!-- Solarpunk 2045 Vision Section -->
+    <section id="solarpunk-vision" class="vision-section">
         <div class="container">
-            <h2>Implementation Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 0</div><div class="roadmap-content"><h3>Bootstrap (Months 1-6)</h3><p>Secure first funding, build advisory board, submit EU grant applications, sign first association LOI (Thailand pilot)</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 1</div><div class="roadmap-content"><h3>MVP (Months 7-12)</h3><p>Legal entity, first team, deploy SSOT graph, onboard 500 entities (Thailand pilot), validate sovereign AI stack</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 2</div><div class="roadmap-content"><h3>Expansion (Year 2)</h3><p>5 countries, Hemp Swap launch, Compliance Engine live, 5,000+ verified entities, Series A funding</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 3</div><div class="roadmap-content"><h3>Scale (Year 3)</h3><p>15+ countries, NADA token launch, multi-industry expansion, 50,000+ entities, path to profitability</p></div></div>
-                <div class="roadmap-item"><div class="roadmap-phase">Phase 4</div><div class="roadmap-content"><h3>Solarpunk (Years 5-20)</h3><p>100+ countries, all major industries, €1B+ Regeneration Fund, 10M+ verified entities, self-sustaining infrastructure</p></div></div>
-            </div>
+            <h2>Solarpunk 2045</h2>
+            <p>Our long-term vision: Verified supply chains for all industries, sovereign technology for data autonomy, and regenerative finance at global scale. Starting with hemp, scaling to planetary regeneration infrastructure.</p>
+            <a href="why-nada.html" class="hero-button secondary" style="background: transparent; border: 2px solid white; color: white;">Learn About the NADA Philosophy →</a>
         </div>
     </section>
 
-    <section id="involved" class="involved">
+    <!-- Join the Mission CTA Section -->
+    <section class="cta-section">
         <div class="container">
             <h2>Join the Mission</h2>
-            <p>We're seeking founding advisors, grant partners, and mission-aligned collaborators. This is not a typical startup — we're building public infrastructure for planetary regeneration.</p>
-            <div class="involved-buttons">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="involved-button">View Documentation</a>
-                <a href="mailto:contact@hempin.org" class="involved-button">Contact Us</a>
+            <p>Whether you're an advisor, researcher, pilot site, or just curious — your perspective matters. Let's build Solarpunk infrastructure together.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button">View Documentation</a>
+                <a href="involved.html" class="cta-button secondary">Get Involved</a>
             </div>
         </div>
     </section>
+
+    <!-- Footer injected by footer.js -->
 </body>
 </html>
