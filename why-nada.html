@@ -79,79 +79,7 @@
             z-index: 0;
         }
         
-        /* Content Sections */
-        .content-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-        .content-section h2 {
-            font-size: 2rem;
-            margin-bottom: 24px;
-            color: var(--dark);
-        }
-        .content-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-        .content-section ul {
-            margin: 20px 0 20px 30px;
-            color: var(--gray);
-        }
-        .content-section li {
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-        .quote-box {
-            background: #F0FDF4;
-            border-left: 4px solid var(--hempin-green);
-            padding: 24px;
-            margin: 30px 0;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            font-style: italic;
-            color: var(--dark);
-        }
-        .quote-box strong {
-            color: var(--hempin-green);
-        }
-        .connection-box {
-            background: #DBEAFE;
-            border-left: 4px solid var(--inos-blue);
-            padding: 24px;
-            margin: 30px 0;
-            border-radius: 0 var(--radius) var(--radius) 0;
-        }
-        .connection-box h3 {
-            color: var(--inos-blue);
-            margin-bottom: 12px;
-        }
-        .connection-box p {
-            color: var(--gray);
-            margin-bottom: 0;
-        }
-        .sanskrit {
-            font-size: 1.4rem;
-            color: var(--ssot-purple);
-            font-weight: 600;
-            margin: 8px 0;
-        }
-        .cta-section {
-            padding: 60px 0;
-            background: var(--light);
-            text-align: center;
-        }
-        .cta-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 24px;
-            color: var(--gray);
-        }
-        
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
             .philosophy-hero { min-height: 80vh; }
             .philosophy-hero .container { padding: 80px 20px; }
@@ -256,18 +184,15 @@
             #define MAX_DIST 40.0
             #define SURF_DIST 0.001
             
-            // Rotation matrix
             mat2 rot(float a) {
                 float s = sin(a), c = cos(a);
                 return mat2(c, -s, s, c);
             }
             
-            // Sphere SDF
             float sphere(vec3 p, float r) {
                 return length(p) - r;
             }
             
-            // Flower of Life (sacred geometry core)
             float flowerOfLife(vec3 p) {
                 float d = sphere(p, 1.0);
                 for (int i = 0; i < 6; i++) {
@@ -279,7 +204,6 @@
                 return d;
             }
             
-            // Stable fractal field (prevents NaN crashes)
             float fractal(vec3 p) {
                 float res = 0.0;
                 float scale = 1.0;
@@ -293,7 +217,6 @@
                 return res;
             }
             
-            // Scene mapping
             float map(vec3 p) {
                 p.xy *= rot(iTime * 0.15);
                 p.yz *= rot(iTime * 0.1);
@@ -302,7 +225,6 @@
                 return geo + f * 0.25;
             }
             
-            // Normal calculation
             vec3 getNormal(vec3 p) {
                 float d = map(p);
                 vec2 e = vec2(0.002, 0.0);
@@ -314,7 +236,6 @@
                 return normalize(n);
             }
             
-            // Volumetric glow accumulation (subtle for text readability)
             vec3 volumetric(vec3 ro, vec3 rd) {
                 float t = 0.0;
                 float glow = 0.0;
@@ -326,13 +247,11 @@
                     t += clamp(d, 0.02, 0.2);
                     if (t > MAX_DIST) break;
                 }
-                // Cooler tones for better text contrast
                 vec3 col = vec3(0.03, 0.18, 0.4) * glow;
                 col += vec3(0.7, 0.45, 0.1) * pow(glow, 2.0);
                 return col;
             }
             
-            // Raymarching with surface lighting
             vec3 raymarch(vec3 ro, vec3 rd) {
                 float t = 0.0;
                 for (int i = 0; i < MAX_STEPS; i++) {
@@ -352,7 +271,6 @@
                 return vec3(0.0);
             }
             
-            // Camera ray calculation
             vec3 getRay(vec2 uv, vec3 ro, vec3 target) {
                 vec3 f = normalize(target - ro);
                 vec3 r = normalize(cross(vec3(0.0, 1.0, 0.0), f));
@@ -364,7 +282,6 @@
                 vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
                 vec2 m = iMouse;
                 
-                // Cinematic camera orbit (slower for subtlety)
                 vec3 ro = vec3(
                     sin(iTime * 0.15 + m.x * 3.14) * 3.0,
                     1.0 + m.y * 1.5,
@@ -373,11 +290,9 @@
                 vec3 target = vec3(0.0);
                 vec3 rd = getRay(uv, ro, target);
                 
-                // Render passes
                 vec3 col = raymarch(ro, rd);
                 col += volumetric(ro, rd) * 0.4;
                 
-                // Cinematic tone mapping + gamma (subtle)
                 col = col / (1.0 + col);
                 col = pow(col, vec3(0.4545));
                 
@@ -432,7 +347,7 @@
         const uTime = gl.getUniformLocation(program, "iTime");
         const uMouse = gl.getUniformLocation(program, "iMouse");
         
-        // Render loop with pause when not in viewport (performance)
+        // Render loop with pause when not in viewport
         let start = performance.now();
         let isPaused = false;
         
@@ -456,12 +371,32 @@
             requestAnimationFrame(render);
         }
         
-        // Start rendering
         render();
     })();
     </script>
 
-    <section class="content-section">
+    <!-- Scroll Reveal Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+        
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
+
+    <section class="content-section is-visible">
         <div class="container">
             <h2>🔊 Nada (नाद): The Primordial Sound</h2>
             <p>In Sanskrit, <span class="sanskrit">Nāda</span> literally means <strong>sound, vibration, or flow of energy</strong>. But in deeper philosophical traditions like Hindu philosophy and Yoga, it goes much further.</p>
@@ -482,7 +417,7 @@
         </div>
     </section>
 
-    <section class="content-section" style="background: var(--light);">
+    <section class="content-section alt-bg">
         <div class="container">
             <h2>🕉️ The First Sound: OM (AUM)</h2>
             <p>In this framework, the first manifestation of Nāda is <strong>Om (AUM)</strong>. It represents:</p>
@@ -513,21 +448,21 @@
                 <li><strong>You're building a "frequency architecture":</strong> This maps beautifully to our ecosystem:</li>
             </ul>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0;">
-                <div style="background: var(--light); padding: 20px; border-radius: var(--radius); text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 8px;">📡</div>
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card">
+                    <div class="icon">📡</div>
                     <strong>Directory</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal discovery</span>
                 </div>
-                <div style="background: var(--light); padding: 20px; border-radius: var(--radius); text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 8px;">🔄</div>
+                <div class="ecosystem-card">
+                    <div class="icon">🔄</div>
                     <strong>Marketplace</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal exchange</span>
                 </div>
-                <div style="background: var(--light); padding: 20px; border-radius: var(--radius); text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 8px;">⚖️</div>
+                <div class="ecosystem-card">
+                    <div class="icon">⚖️</div>
                     <strong>Carbon / Environment</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal balancing</span>
                 </div>
-                <div style="background: var(--light); padding: 20px; border-radius: var(--radius); text-align: center;">
-                    <div style="font-size: 2rem; margin-bottom: 8px;">📢</div>
+                <div class="ecosystem-card">
+                    <div class="icon">📢</div>
                     <strong>Community</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal amplification</span>
                 </div>
             </div>
@@ -541,7 +476,7 @@
         </div>
     </section>
 
-    <section class="content-section" style="background: var(--light);">
+    <section class="content-section alt-bg">
         <div class="container">
             <h2>🌱 From Philosophy to Infrastructure</h2>
             <p>How does ancient Vedic philosophy connect to verified truth infrastructure for hemp supply chains?</p>
