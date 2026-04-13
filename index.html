@@ -13,48 +13,33 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#3B82F6',
-    primaryTextColor: '#1F2937',
-    primaryBorderColor: '#3B82F6',
-    lineColor: '#6B7280',
-    secondaryColor: '#10B981',
-    tertiaryColor: '#F9FAFB',
-    fontSize: 14
-  },
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-  flowchart: { 
-    useMaxWidth: true, 
-    htmlLabels: true,
-    nodeSpacing: 50,  /* Increased from 40 to 50 */
-    rankSpacing: 60,  /* Increased from 40 to 60 for more vertical space */
-    curve: 'basis',   /* Smoother curves */
-    padding: 20       /* Added padding around diagram */
-  },
-  gantt: { 
-    useMaxWidth: true,
-    barHeight: 30,
-    topPadding: 20
-  }
-});
-        
-        // Add click handlers to Mermaid nodes for navigation
-        setTimeout(function() {
-          document.querySelectorAll('.mermaid .node').forEach(node => {
-            node.style.cursor = 'pointer';
-            node.addEventListener('click', function() {
-              const text = this.querySelector('text').textContent;
-              if (text.includes('SSOT')) window.location.href = 'architecture.html#ssot';
-              if (text.includes('INOS')) window.location.href = 'architecture.html#inos';
-              if (text.includes('HEMPIN')) window.location.href = 'hempin.html';
-              if (text.includes('BUD')) window.location.href = 'hempin.html#bud';
-              if (text.includes('Fund')) window.location.href = 'hempin.html#fund';
-              if (text.includes('Solarpunk')) window.location.href = 'why-nada.html';
-            });
-          });
-        }, 2000);
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#3B82F6',
+            primaryTextColor: '#1F2937',
+            primaryBorderColor: '#3B82F6',
+            lineColor: '#6B7280',
+            secondaryColor: '#10B981',
+            tertiaryColor: '#F9FAFB',
+            fontSize: 14
+          },
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          flowchart: { 
+            useMaxWidth: true, 
+            htmlLabels: true,
+            nodeSpacing: 50,
+            rankSpacing: 70,
+            curve: 'basis',
+            padding: 20,
+            diagramPadding: 32
+          },
+          gantt: { 
+            useMaxWidth: true,
+            barHeight: 30,
+            topPadding: 20
+          }
+        });
       });
     </script>
     <style>
@@ -223,24 +208,41 @@
             line-height: 1.6;
         }
         
+        /* FIXED: Diagram Container - Aggressive Overflow Handling */
         .diagram-container {
-    max-width: 100% !important;
-    margin: 0 auto 30px;
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 32px 24px; /* Increased top/bottom padding from 24px to 32px */
-    box-shadow: var(--shadow);
-    text-align: center;
-    overflow: visible; /* Changed from overflow-x: auto to overflow: visible */
-    border: 1px solid var(--gray-light);
-    min-height: 500px; /* Added minimum height to ensure all nodes fit */
-}
+            max-width: 100% !important;
+            margin: 0 auto 40px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            overflow: visible !important;
+            border: 1px solid var(--gray-light);
+            min-height: 650px; /* Increased for desktop */
+            width: 100%;
+        }
         
         .mermaid {
             display: block !important;
             width: 100% !important;
             min-width: 100% !important;
-            margin: 20px auto;
+            margin: 0 auto;
+            overflow: visible !important;
+        }
+        
+        /* FIXED: Force Mermaid SVG to render fully */
+        .mermaid svg {
+            overflow: visible !important;
+            max-height: none !important;
+            width: 100% !important;
+            height: auto !important;
+            clip: auto !important;
+            clip-path: none !important;
+        }
+        
+        .mermaid > g {
+            overflow: visible !important;
         }
         
         .diagram-note {
@@ -558,6 +560,14 @@
             box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 0 0 1px rgba(124,58,237,0.2);
         }
         
+        /* Desktop-specific diagram fix */
+        @media (min-width: 769px) {
+            .diagram-container {
+                min-height: 700px;
+                padding: 48px 40px;
+            }
+        }
+        
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .hero { padding: 90px 0; }
@@ -584,6 +594,11 @@
             .final-cta .cta-button {
                 width: 100%;
                 max-width: 300px;
+            }
+            
+            .mermaid {
+                min-width: 100% !important;
+                font-size: 12px;
             }
         }
         
@@ -634,7 +649,7 @@
             <p class="intro">Just as the first sound creates the universe, verified truth creates regenerative economies. Click any node to explore deeper.</p>
             
             <div class="diagram-container">
-    <div class="mermaid">
+                <div class="mermaid">
 flowchart TD
     NADA["🌌 NADA<br/><i>Primordial Vibration</i>"]:::nada
     CORE["🌐 SSOT + ⚙️ INOS<br/>Core Architecture"]:::core
@@ -647,7 +662,6 @@ flowchart TD
     HEMPIN --> TOOLS
     TOOLS --> VISION
     
-    %% Native Mermaid click handlers (more reliable than JS)
     click CORE "architecture.html" "View Core Architecture"
     click HEMPIN "hempin.html" "Explore HEMPIN Deployment"
     click TOOLS "hempin.html#bud" "View BUD AI & Regeneration Fund"
@@ -664,9 +678,9 @@ flowchart TD
     class HEMPIN hempin;
     class TOOLS tools;
     class VISION vision;
-    </div>
-    <p class="diagram-note">Interactive: Click nodes to explore deeper</p>
-</div>
+                </div>
+                <p class="diagram-note">Interactive: Click nodes to explore deeper</p>
+            </div>
         </div>
     </section>
 
