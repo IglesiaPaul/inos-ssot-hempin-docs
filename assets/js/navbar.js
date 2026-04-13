@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="architecture.html">Architecture</a>
                 <a href="technology.html">Technology</a>
                 <a href="hempin.html">HEMPIN</a>
+                <a href="case-study.html">Simple Case</a>
               </div>
             </li>
             <li class="dropdown">
