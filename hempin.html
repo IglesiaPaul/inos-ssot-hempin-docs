@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HEMPIN — Industry #1 deployment of NADA verified truth infrastructure. Hemp supply chain verification, BUD AI onboarding, Regeneration Fund.">
+    <meta name="description" content="HEMPIN — Industry #1 deployment of NADA verified truth infrastructure. Hemp supply chain verification, BUD AI onboarding, Regeneration Fund. Pilot deployment in Thailand and EU.">
     <title>HEMPIN — Industry #1 Deployment | NADA</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
@@ -190,10 +190,102 @@
             margin: 0 auto 24px;
             color: var(--gray);
         }
+        
+        /* NEW: Pilot Deployment Cards */
+        .pilot-deployment-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .pilot-deployment-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        .pilot-deployment-section .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        .pilot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .pilot-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--hempin-green);
+        }
+        .pilot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .pilot-card.confirmed {
+            border-left-color: var(--hempin-green);
+        }
+        .pilot-card.target {
+            border-left-color: var(--inos-blue);
+        }
+        .pilot-card .status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .pilot-card.confirmed .status {
+            background: #D1FAE5;
+            color: var(--hempin-green);
+        }
+        .pilot-card.target .status {
+            background: #DBEAFE;
+            color: var(--inos-blue);
+        }
+        .pilot-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pilot-card p {
+            color: var(--gray);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .pilot-card p strong {
+            color: var(--dark);
+        }
+        .pilot-card .timeline {
+            background: var(--white);
+            padding: 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+        .pilot-card .scope-list {
+            margin: 16px 0 0 20px;
+            color: var(--gray);
+        }
+        .pilot-card .scope-list li {
+            margin-bottom: 8px;
+        }
+        
         @media (max-width: 768px) {
             .hempin-hero h1 { font-size: 2.2rem; }
             .hempin-hero .subtitle { font-size: 1.1rem; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
+            .pilot-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -234,6 +326,76 @@
             <p style="text-align: center; max-width: 800px; margin: 40px auto 0; color: var(--gray);">
                 Hemp is the perfect testbed: high regulatory fragmentation, strong sustainability mandate, fragmented SME landscape, and global growth. Once proven in hemp, the NADA architecture generalizes to all industries requiring verified trust.
             </p>
+        </div>
+    </section>
+
+    <!-- NEW: Pilot Deployment Roadmap Section -->
+    <section id="pilot" class="pilot-deployment-section">
+        <div class="container">
+            <h2>Pilot Deployment Roadmap</h2>
+            <p class="intro">Real-world validation in Thailand and EU environments. Each pilot tests core functionality while adapting to local regulatory contexts.</p>
+            
+            <div class="pilot-grid">
+                <div class="pilot-card confirmed">
+                    <div class="status">✅ Letter of Intent Secured</div>
+                    <h3>🇹🇭 Thailand Pilot (2026-2027)</h3>
+                    <p><strong>Partner:</strong> TiHTA (Thai Industrial Hemp Trade Association)</p>
+                    
+                    <div class="timeline">
+                        <strong>Timeline:</strong> April 2027 – March 2028
+                    </div>
+                    
+                    <p><strong>Scope:</strong></p>
+                    <ul class="scope-list">
+                        <li>50+ farmers across 3 provinces</li>
+                        <li>10+ processors and brands</li>
+                        <li>5+ certification bodies</li>
+                        <li>Thailand regulatory encoding (TH jurisdiction)</li>
+                    </ul>
+                    
+                    <p><strong>Goals:</strong></p>
+                    <ul class="scope-list">
+                        <li>Validate BUD AI onboarding flow in Thai language</li>
+                        <li>Test compliance engine for Thailand regulations</li>
+                        <li>Measure onboarding time reduction (target: weeks → minutes)</li>
+                        <li>Generate first revenue signals from pilot participants</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;">
+                        <a href="team.html#pilots" style="color: var(--inos-blue); font-weight: 500;">View Pilot Team Details →</a>
+                    </p>
+                </div>
+                
+                <div class="pilot-card target">
+                    <div class="status">🎯 Target Sites (Under Discussion)</div>
+                    <h3>🇪🇺 EU Pilot (2027-2028)</h3>
+                    <p><strong>Target Partners:</strong> Nova-Institut (DE), InterChanvre (FR), Univ. Iași (RO)</p>
+                    
+                    <div class="timeline">
+                        <strong>Timeline:</strong> April 2028 – March 2029
+                    </div>
+                    
+                    <p><strong>Scope:</strong></p>
+                    <ul class="scope-list">
+                        <li>Multi-country supply chain (DE, FR, RO)</li>
+                        <li>200+ entities across 3 jurisdictions</li>
+                        <li>Cross-border transaction validation</li>
+                        <li>GDPR-by-design architecture testing</li>
+                    </ul>
+                    
+                    <p><strong>Goals:</strong></p>
+                    <ul class="scope-list">
+                        <li>Test cross-border compliance (DE/FR/RO regulations)</li>
+                        <li>Validate GDPR data handling and consent flows</li>
+                        <li>Measure scalability to multi-jurisdiction deployment</li>
+                        <li>Prepare for commercial rollout in EU market</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;">
+                        <a href="team.html#consortium" style="color: var(--inos-blue); font-weight: 500;">View Consortium Partners →</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -306,14 +468,14 @@
         </div>
     </section>
 
-    <!-- Pilot Validation Section -->
+    <!-- Pilot Validation Section (Technical Details) -->
     <section class="content-section" style="background: var(--light);">
         <div class="container">
-            <h2>✅ Pilot Validation</h2>
-            <p>HEMPIN is validated through real-world pilots in Thailand and EU test environments.</p>
+            <h2>✅ Technical Validation Metrics</h2>
+            <p>HEMPIN is validated through real-world pilots in Thailand and EU test environments. Below are the technical success criteria.</p>
             
             <div class="diagram-container">
-                <h3 style="margin-bottom: 20px;">🗺️ Pilot Timeline</h3>
+                <h3 style="margin-bottom: 20px;">🗺️ Pilot Timeline (Gantt)</h3>
                 <div class="mermaid">
 gantt
     title HEMPIN Pilot Validation Timeline
