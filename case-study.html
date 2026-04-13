@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="See how NADA transforms hemp supply chains: from weeks of paperwork to minutes of conversation, from reactive audits to proactive compliance, from extraction to regeneration.">
+    <title>The Journey of a Hemp Batch | NADA Case Study</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
+    <style>
+        /* Case Study Specific Styles */
+        .case-hero {
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 50%, var(--hempin-green) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
+            animation: ripple 12s ease-in-out infinite;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
+        }
+        
+        .case-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--white);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .case-hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Scenario Selector */
+        .scenario-selector {
+            background: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .scenario-selector h3 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .scenario-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .scenario-btn {
+            padding: 12px 24px;
+            background: var(--light);
+            border: 2px solid var(--gray-light);
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scenario-btn:hover {
+            border-color: var(--inos-blue);
+            background: #DBEAFE;
+        }
+        
+        .scenario-btn.active {
+            background: var(--inos-blue);
+            color: var(--white);
+            border-color: var(--inos-blue);
+        }
+        
+        /* Act Sections */
+        .act-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .act-section:nth-child(even) {
+            background: var(--light);
+        }
+        
+        .act-section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .act-section .act-number {
+            display: inline-block;
+            background: var(--ssot-purple);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .act-section .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        /* Split Screen Comparison */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .comparison-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .comparison-card.current {
+            border-top: 4px solid var(--gray);
+        }
+        
+        .comparison-card.nada {
+            border-top: 4px solid var(--hempin-green);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .comparison-card .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .comparison-card.current .badge {
+            background: #F3F4F6;
+            color: var(--gray);
+        }
+        
+        .comparison-card.nada .badge {
+            background: #D1FAE5;
+            color: var(--hempin-green);
+        }
+        
+        .comparison-card ul {
+            margin: 20px 0 0 20px;
+            color: var(--gray);
+        }
+        
+        .comparison-card li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .comparison-card .stat {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 20px 0;
+            display: block;
+        }
+        
+        .comparison-card.current .stat {
+            color: var(--gray);
+        }
+        
+        .comparison-card.nada .stat {
+            color: var(--hempin-green);
+        }
+        
+        /* Interactive Elements */
+        .interactive-demo {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin: 32px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .interactive-demo h4 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .demo-controls {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        
+        .demo-controls input,
+        .demo-controls select {
+            padding: 12px 16px;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .demo-controls button {
+            padding: 12px 32px;
+            background: var(--hempin-green);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .demo-controls button:hover {
+            background: var(--hempin-green-hover);
+            transform: translateY(-2px);
+        }
+        
+        .demo-result {
+            background: var(--light);
+            padding: 24px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .demo-result.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .demo-result .success {
+            color: var(--hempin-green);
+            font-weight: 600;
+        }
+        
+        .demo-result .error {
+            color: #EF4444;
+            font-weight: 600;
+        }
+        
+        /* Outcome Summary */
+        .outcome-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(124,58,237,0.05) 0%, rgba(59,130,246,0.05) 50%, rgba(16,185,129,0.05) 100%);
+            text-align: center;
+        }
+        
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        
+        .outcome-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .outcome-card .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .outcome-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .outcome-card .metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--hempin-green);
+            margin: 16px 0;
+            display: block;
+        }
+        
+        .outcome-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .case-cta {
+            padding: 80px 0;
+            background: var(--white);
+            text-align: center;
+        }
+        
+        .case-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .case-cta p {
+            max-width: 600px;
+            margin: 0 auto 32px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .case-cta .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero { padding: 80px 0; }
+            .comparison-container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .demo-controls {
+                flex-direction: column;
+            }
+            .demo-controls input,
+            .demo-controls select,
+            .demo-controls button {
+                width: 100%;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="case-hero">
+        <div class="container">
+            <h1>The Journey of a Hemp Batch</h1>
+            <p>From chaos to clarity: See how NADA transforms supply chain verification from weeks to minutes</p>
+        </div>
+    </section>
+
+    <!-- Scenario Selector -->
+    <section class="scenario-selector">
+        <div class="container">
+            <h3>Choose a Scenario</h3>
+            <div class="scenario-buttons">
+                <button class="scenario-btn active" data-scenario="hemp-fiber">🌱 Hemp Fiber</button>
+                <button class="scenario-btn" data-scenario="cbd-oil">💧 CBD Oil</button>
+                <button class="scenario-btn" data-scenario="textiles">🧵 Textiles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 1: Onboarding -->
+    <section class="act-section">
+        <div class="container">
+            <span class="act-number">Act 1</span>
+            <h2>Farmer Onboarding</h2>
+            <p class="intro">How does a hemp farmer get verified and start selling?</p>
+            
+            <div class="comparison-container">
+                <div class="comparison-card current">
+                    <h3>📄 Current State</h3>
+                    <span class="badge">Weeks of Friction</span>
+                    <ul>
+                        <li>Manual paper forms (15+ pages)</li>
+                        <li>Physical document submission</li>
+                        <li>Manual data entry by processor</li>
+                        <li>Rejected for typos or missing fields</li>
+                        <li>No status tracking</li>
+                    </ul>
+                    <span class="stat">⏱️ 2-4 weeks</span>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Average onboarding time</p>
+                </div>
+                
+                <div class="comparison-card nada">
+                    <h3>💬 NADA State</h3>
+                    <span class="badge">Minutes with AI</span>
+                    <ul>
+                        <li>Voice or chat conversation with BUD AI</li>
+                        <li>Auto-extraction into graph nodes</li>
+                        <li>Confidence scoring (>0.85 = auto-approved)</li>
+                        <li>Human-in-loop for edge cases only</li>
+                        <li>Real-time status dashboard</li>
+                    </ul>
+                    <span class="stat">⏱️ 5-15 minutes</span>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Average onboarding time</p>
+                </div>
+            </div>
+            
+            <!-- Interactive Demo: BUD Chat Simulator -->
+            <div class="interactive-demo">
+                <h4>🤖 Try BUD AI Onboarding (Simulation)</h4>
+                <div class="demo-controls">
+                    <input type="text" id="farmer-input" placeholder="Describe your farm (e.g., 'I grow hemp in Chiang Mai, certified organic, 0.2% THC')">
+                    <button onclick="simulateBUD()">Send to BUD</button>
+                </div>
+                <div id="bud-result" class="demo-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 2: Compliance -->
+    <section class="act-section">
+        <div class="container">
+            <span class="act-number">Act 2</span>
+            <h2>Compliance Validation</h2>
+            <p class="intro">How is regulatory compliance verified before shipment?</p>
+            
+            <div class="comparison-container">
+                <div class="comparison-card current">
+                    <h3>🔍 Current State</h3>
+                    <span class="badge">Reactive Auditing</span>
+                    <ul>
+                        <li>PDF regulations (static, hard to search)</li>
+                        <li>Compliance checked AFTER shipment</li>
+                        <li>Manual lab testing coordination</li>
+                        <li>Border seizures if non-compliant</li>
+                        <li>Fines and reputational damage</li>
+                    </ul>
+                    <span class="stat">⚠️ 15-20% failure rate</span>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Shipments blocked at border</p>
+                </div>
+                
+                <div class="comparison-card nada">
+                    <h3>⚙️ NADA State</h3>
+                    <span class="badge">Proactive Prevention</span>
+                    <ul>
+                        <li>Regulations encoded as graph constraints</li>
+                        <li>Compliance checked BEFORE transaction recorded</li>
+                        <li>Auto-validation against 57 jurisdictions</li>
+                        <li>Blocked at source if non-compliant</li>
+                        <li>Immutable audit trail for regulators</li>
+                    </ul>
+                    <span class="stat">✅ 0% failure rate</span>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Non-compliant transactions prevented</p>
+                </div>
+            </div>
+            
+            <!-- Interactive Demo: Compliance Checker -->
+            <div class="interactive-demo">
+                <h4>🛡️ Test Compliance Engine (Simulation)</h4>
+                <div class="demo-controls">
+                    <input type="number" id="thc-input" placeholder="THC %" step="0.1" min="0" max="1">
+                    <select id="jurisdiction-input">
+                        <option value="TH">Thailand (Limit: 0.2%)</option>
+                        <option value="EU">European Union (Limit: 0.3%)</option>
+                        <option value="US">USA (Limit: 0.3%)</option>
+                        <option value="CH">Switzerland (Limit: 1.0%)</option>
+                    </select>
+                    <button onclick="checkCompliance()">Validate Shipment</button>
+                </div>
+                <div id="compliance-result" class="demo-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act 3: Value Flow -->
+    <section class="act-section">
+        <div class="container">
+            <span class="act-number">Act 3</span>
+            <h2>Value Distribution</h2>
+            <p class="intro">How is economic value distributed across the supply chain?</p>
+            
+            <div class="comparison-container">
+                <div class="comparison-card current">
+                    <h3>💰 Current State</h3>
+                    <span class="badge">Extractive Economics</span>
+                    <ul>
+                        <li>100% profit to shareholders</li>
+                        <li>Environmental costs externalized</li>
+                        <li>Opaque supply chain for consumers</li>
+                        <li>No funding for regeneration</li>
+                        <li>Short-term optimization</li>
+                    </ul>
+                    <span class="stat">🌑 0% to cleanup</span>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Environmental regeneration funded</p>
+                </div>
+                
+                <div class="comparison-card nada">
+                    <h3>🌱 NADA State</h3>
+                    <span class="badge">Regenerative Economics</span>
+                    <ul>
+                        <li>70% to supplier, 30% to Regeneration Fund</li>
+                        <li>Environmental cleanup automatically funded</li>
+                        <li>Verified provenance for consumers</li>
+                        <li>Transparent impact metrics</li>
+                        <li>Long-term ecosystem health</li>
+                    </ul>
+                    <span class="stat">🌍 30% to cleanup</span>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Every transaction funds regeneration</p>
+                </div>
+            </div>
+            
+            <!-- Interactive Demo: Regeneration Fund Calculator -->
+            <div class="interactive-demo">
+                <h4>💧 Calculate Regeneration Impact</h4>
+                <div class="demo-controls">
+                    <input type="number" id="transaction-value" placeholder="Transaction Value (€)" min="100" step="100">
+                    <button onclick="calculateRegeneration()">Calculate Impact</button>
+                </div>
+                <div id="regeneration-result" class="demo-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcome Summary -->
+    <section class="outcome-section">
+        <div class="container">
+            <h2>The NADA Difference</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--gray);">
+                One platform, three transformative shifts
+            </p>
+            
+            <div class="outcome-grid">
+                <div class="outcome-card">
+                    <div class="icon">⏱️</div>
+                    <h3>Time Saved</h3>
+                    <span class="metric">10x</span>
+                    <p>Faster onboarding, real-time compliance, instant verification</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Risk Reduced</h3>
+                    <span class="metric">100%</span>
+                    <p>Non-compliant transactions prevented before they occur</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="icon">🌍</div>
+                    <h3>Regeneration Funded</h3>
+                    <span class="metric">30%</span>
+                    <p>Every transaction automatically funds environmental cleanup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="case-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Supply Chain?</h2>
+            <p>Join pilot partners in Thailand and EU deploying verified truth infrastructure for hemp and beyond.</p>
+            <div class="cta-buttons">
+                <a href="involved.html" class="cta-button">Join the Pilot</a>
+                <a href="team.html" class="cta-button secondary">Meet the Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+
+    <!-- Interactive Demo Scripts -->
+    <script>
+        // Scenario Selector
+        document.querySelectorAll('.scenario-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // In full version, this would swap mock data
+                alert('Scenario switched to: ' + this.textContent + '\n(In full version, this updates mock data throughout the page)');
+            });
+        });
+        
+        // BUD AI Simulator
+        function simulateBUD() {
+            const input = document.getElementById('farmer-input').value;
+            const resultDiv = document.getElementById('bud-result');
+            
+            if (!input) {
+                resultDiv.innerHTML = '<p class="error">Please enter a description first.</p>';
+                resultDiv.classList.add('show');
+                return;
+            }
+            
+            // Mock extraction (no real AI)
+            const mockExtraction = `
+                <div style="margin-bottom: 16px;">
+                    <strong>BUD Agent Analysis:</strong>
+                </div>
+                <div style="background: var(--white); padding: 16px; border-radius: var(--radius); margin-bottom: 12px;">
+                    <strong>📍 Location:</strong> Extracted from input<br>
+                    <strong>🌱 Crop:</strong> Hemp<br>
+                    <strong>📜 Certification:</strong> Detected<br>
+                    <strong>🔬 THC Content:</strong> Detected
+                </div>
+                <div style="color: var(--hempin-green);">
+                    <strong>✅ Confidence Score: 0.92</strong> (Above 0.85 threshold → Auto-approved)
+                </div>
+                <div style="margin-top: 16px; font-size: 0.95rem; color: var(--gray);">
+                    Graph nodes created: Farmer, Location, Certification, Product
+                </div>
+            `;
+            
+            resultDiv.innerHTML = mockExtraction;
+            resultDiv.classList.add('show');
+        }
+        
+        // Compliance Checker
+        function checkCompliance() {
+            const thc = parseFloat(document.getElementById('thc-input').value);
+            const jurisdiction = document.getElementById('jurisdiction-input').value;
+            const resultDiv = document.getElementById('compliance-result');
+            
+            if (!thc || thc < 0) {
+                resultDiv.innerHTML = '<p class="error">Please enter a valid THC percentage.</p>';
+                resultDiv.classList.add('show');
+                return;
+            }
+            
+            const limits = { "TH": 0.2, "EU": 0.3, "US": 0.3, "CH": 1.0 };
+            const limit = limits[jurisdiction];
+            const pass = thc <= limit;
+            
+            if (pass) {
+                resultDiv.innerHTML = `
+                    <div class="success">✅ COMPLIANT</div>
+                    <p>THC ${thc}% is within ${jurisdiction} limit (${limit}%)</p>
+                    <p style="margin-top: 12px; font-size: 0.95rem; color: var(--gray);">
+                        Transaction recorded in SSOT graph. Shipment approved.
+                    </p>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="error">❌ BLOCKED</div>
+                    <p>THC ${thc}% exceeds ${jurisdiction} limit (${limit}%)</p>
+                    <p style="margin-top: 12px; font-size: 0.95rem; color: var(--gray);">
+                        Transaction prevented at source. Farmer notified to correct.
+                    </p>
+                `;
+            }
+            
+            resultDiv.classList.add('show');
+        }
+        
+        // Regeneration Fund Calculator
+        function calculateRegeneration() {
+            const value = parseFloat(document.getElementById('transaction-value').value);
+            const resultDiv = document.getElementById('regeneration-result');
+            
+            if (!value || value < 0) {
+                resultDiv.innerHTML = '<p class="error">Please enter a valid transaction value.</p>';
+                resultDiv.classList.add('show');
+                return;
+            }
+            
+            const supplier = value * 0.7;
+            const regeneration = value * 0.3;
+            
+            resultDiv.innerHTML = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="background: var(--white); padding: 16px; border-radius: var(--radius); text-align: center;">
+                        <div style="font-size: 0.9rem; color: var(--gray);">To Supplier</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--inos-blue);">€${supplier.toLocaleString()}</div>
+                        <div style="font-size: 0.85rem; color: var(--gray);">70%</div>
+                    </div>
+                    <div style="background: var(--white); padding: 16px; border-radius: var(--radius); text-align: center;">
+                        <div style="font-size: 0.9rem; color: var(--gray);">To Regeneration Fund</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--hempin-green);">€${regeneration.toLocaleString()}</div>
+                        <div style="font-size: 0.85rem; color: var(--gray);">30%</div>
+                    </div>
+                </div>
+                <div style="background: #F0FDF4; padding: 16px; border-radius: var(--radius); border-left: 4px solid var(--hempin-green);">
+                    <strong>🌍 Impact:</strong> This transaction funds verified environmental cleanup projects (soil remediation, water restoration, carbon sequestration).
+                </div>
+            `;
+            
+            resultDiv.classList.add('show');
+        }
+    </script>
+</body>
+</html>
