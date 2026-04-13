@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the team building NADA/HEMPIN: verified truth infrastructure for hemp supply chains. Advisors, consortium partners, and pilot sites in Thailand and EU.">
+    <title>Team & Consortium | HEMPIN</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
+    <style>
+        /* Team Page Specific Styles */
+        .team-hero {
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .team-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+        .team-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+        }
+        .team-section, .advisors-section, .consortium-section, .pilots-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .team-section h2, .advisors-section h2, .consortium-section h2, .pilots-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .team-card {
+            text-align: center;
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .team-card .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--ssot-purple), var(--inos-blue));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .team-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        .team-card .role {
+            color: var(--inos-blue);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .team-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .advisors-grid, .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .advisor-card, .partner-card {
+            background: var(--light);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border-top: 4px solid var(--hempin-green);
+            transition: var(--transition);
+        }
+        .advisor-card:hover, .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .advisor-card h3, .partner-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        .advisor-card .expertise, .partner-card .expertise {
+            color: var(--inos-blue);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .advisor-card p, .partner-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .partner-card .status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .partner-card .status.discussion {
+            background: #DBEAFE;
+            color: var(--inos-blue);
+        }
+        .partner-card .status.confirmed {
+            background: #D1FAE5;
+            color: var(--hempin-green);
+        }
+        .pilots-section {
+            background: var(--light);
+        }
+        .pilot-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pilot-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        .pilot-card.confirmed {
+            border-left: 5px solid var(--hempin-green);
+        }
+        .pilot-card.target {
+            border-left: 5px solid var(--inos-blue);
+        }
+        .pilot-card .status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .pilot-card.confirmed .status {
+            background: #D1FAE5;
+            color: var(--hempin-green);
+        }
+        .pilot-card.target .status {
+            background: #DBEAFE;
+            color: var(--inos-blue);
+        }
+        .pilot-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .pilot-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .pilot-card p strong {
+            color: var(--dark);
+        }
+        .join-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        .join-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+        .join-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+            color: var(--white);
+        }
+        .join-section .cta-button {
+            background: var(--white);
+            color: var(--hempin-green);
+        }
+        .join-section .cta-button:hover {
+            background: var(--light);
+            color: var(--inos-blue);
+        }
+        @media (max-width: 768px) {
+            .team-hero { padding: 80px 0; }
+            .team-hero h1 { font-size: 2.2rem; }
+            .team-hero p { font-size: 1.1rem; }
+            .team-grid, .advisors-grid, .partners-grid, .pilot-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <section class="team-hero">
+        <div class="container">
+            <h1>Team & Consortium</h1>
+            <p>Building verified truth infrastructure for planetary regeneration</p>
+        </div>
+    </section>
+
+    <!-- Core Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Core Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">PI</div>
+                    <h3>Paul Iglesia</h3>
+                    <div class="role">Founder & Technical Lead</div>
+                    <p>Building verified truth infrastructure starting with the hemp industry. Background in software architecture, product management, and regenerative systems design. Leading the EIC Pathfinder Open 2026 application.</p>
+                </div>
+                <!-- Add additional core team members here as they join -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisors Section -->
+    <section class="advisors-section" style="background: var(--light);">
+        <div class="container">
+            <h2>Advisors</h2>
+            <div class="advisors-grid">
+                <div class="advisor-card">
+                    <h3>Joseph Carringer</h3>
+                    <div class="expertise">Hemp Industry Expert</div>
+                    <p>Deep expertise in hemp supply chains, regulatory compliance, and industry standards. Advising on pilot deployment strategy and industry partnerships.</p>
+                </div>
+                <div class="advisor-card">
+                    <h3>Haneesh Katnawer</h3>
+                    <div class="expertise">Technology & Strategy</div>
+                    <p>Expertise in scalable architecture, grant strategy, and mission-aligned technology development. Advising on technical roadmap and funding pathways.</p>
+                </div>
+                <!-- Add additional advisors here as they join -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Consortium Partners Section -->
+    <section class="consortium-section">
+        <div class="container">
+            <h2>Consortium Partners (Under Discussion)</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
+                We're in active discussions with leading research institutions and industry associations for the EIC Pathfinder consortium.
+            </p>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <span class="status discussion">🔄 In Discussion</span>
+                    <h3>Nova-Institut (Germany)</h3>
+                    <div class="expertise">Bio-based Economy Research</div>
+                    <p><strong>Expertise:</strong> Hemp policy, market analysis, sustainability assessment</p>
+                    <p><strong>Proposed Role:</strong> EU regulatory encoding, market validation, dissemination</p>
+                </div>
+                <div class="partner-card">
+                    <span class="status discussion">🔄 In Discussion</span>
+                    <h3>EIHA (European Industrial Hemp Association)</h3>
+                    <div class="expertise">Industry Standards & Advocacy</div>
+                    <p><strong>Expertise:</strong> Hemp industry standards, policy advocacy, member network</p>
+                    <p><strong>Proposed Role:</strong> Industry validation, pilot site recruitment, policy engagement</p>
+                </div>
+                <div class="partner-card">
+                    <span class="status discussion">🔄 In Discussion</span>
+                    <h3>InterChanvre (France)</h3>
+                    <div class="expertise">French Hemp Supply Chains</div>
+                    <p><strong>Expertise:</strong> Farmer cooperatives, French regulatory landscape</p>
+                    <p><strong>Proposed Role:</strong> French pilot coordination, farmer onboarding</p>
+                </div>
+                <div class="partner-card">
+                    <span class="status discussion">🔄 In Discussion</span>
+                    <h3>University of Iași (Romania)</h3>
+                    <div class="expertise">Agricultural Research</div>
+                    <p><strong>Expertise:</strong> Hemp cultivation, agronomic data validation</p>
+                    <p><strong>Proposed Role:</strong> Romanian pilot site, agronomic validation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Sites Section -->
+    <section class="pilots-section">
+        <div class="container">
+            <h2>Pilot Deployment Sites</h2>
+            <div class="pilot-cards">
+                <div class="pilot-card confirmed">
+                    <div class="status">✅ Letter of Intent Secured</div>
+                    <h3>🇹🇭 Thailand (TiHTA)</h3>
+                    <p><strong>Partner:</strong> Thai Industrial Hemp Trade Association</p>
+                    <p><strong>Timeline:</strong> 2026-2027</p>
+                    <p><strong>Scope:</strong> 50+ farmers, 10+ processors, 5+ brands</p>
+                    <p><strong>Goal:</strong> Validate BUD onboarding, test compliance engine for Thailand regulations</p>
+                </div>
+                <div class="pilot-card target">
+                    <div class="status">🎯 Target Sites</div>
+                    <h3>🇪🇺 European Union</h3>
+                    <p><strong>Target Partners:</strong> Nova-Institut (DE), InterChanvre (FR), Univ. Iași (RO)</p>
+                    <p><strong>Timeline:</strong> 2027-2028</p>
+                    <p><strong>Scope:</strong> Multi-country supply chain (DE, FR, RO)</p>
+                    <p><strong>Goal:</strong> Test cross-border compliance, validate GDPR-by-design architecture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join-section">
+        <div class="container">
+            <h2>Join Our Consortium</h2>
+            <p>We're seeking research partners, pilot sites, and advisors. If your organization aligns with our mission, let's talk.</p>
+            <a href="involved.html" class="cta-button">Get Involved →</a>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
