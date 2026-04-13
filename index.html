@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NADA is verified truth infrastructure for planetary regeneration. HEMPIN is our first industry deployment in hemp. From the first ripple to Solarpunk 2045.">
+    <meta name="description" content="NADA: Verified truth infrastructure for planetary regeneration. HEMPIN deploys AI-powered supply chain verification in hemp. Sovereign EU tech stack. From first ripple to Solarpunk 2045.">
     <title>NADA — Verified Truth Infrastructure (HEMPIN: Industry #1)</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
@@ -28,38 +28,36 @@
           flowchart: { 
             useMaxWidth: true, 
             htmlLabels: true,
-            nodeSpacing: 50,
-            rankSpacing: 50,
-            click: function(id, label, link) { window.location.href = link; }
-          },
-          gantt: { 
-            useMaxWidth: true,
-            barHeight: 30,
-            topPadding: 20
+            nodeSpacing: 40,
+            rankSpacing: 40
           }
         });
         
         // Add click handlers to Mermaid nodes for navigation
         setTimeout(function() {
           document.querySelectorAll('.mermaid .node').forEach(node => {
-            const nodeId = node.id;
-            if (nodeId === 'SSOT') node.addEventListener('click', () => window.location.href = 'architecture.html#ssot');
-            if (nodeId === 'INOS') node.addEventListener('click', () => window.location.href = 'architecture.html#inos');
-            if (nodeId === 'HEMPIN') node.addEventListener('click', () => window.location.href = 'hempin.html');
-            if (nodeId === 'BUD') node.addEventListener('click', () => window.location.href = 'hempin.html#bud');
-            if (nodeId === 'FUND') node.addEventListener('click', () => window.location.href = 'hempin.html#fund');
+            node.style.cursor = 'pointer';
+            node.addEventListener('click', function() {
+              const text = this.querySelector('text').textContent;
+              if (text.includes('SSOT')) window.location.href = 'architecture.html#ssot';
+              if (text.includes('INOS')) window.location.href = 'architecture.html#inos';
+              if (text.includes('HEMPIN')) window.location.href = 'hempin.html';
+              if (text.includes('BUD')) window.location.href = 'hempin.html#bud';
+              if (text.includes('Fund')) window.location.href = 'hempin.html#fund';
+              if (text.includes('Solarpunk')) window.location.href = 'why-nada.html';
+            });
           });
         }, 2000);
       });
     </script>
     <style>
-        /* Homepage-specific styles */
+        /* NADA Soul: Creative Visuals */
         
-        /* Animated hero ripple (Level 3 interactivity) */
+        /* Animated hero ripple (subtle, not distracting) */
         .hero {
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 50%, var(--hempin-green) 100%);
             color: var(--white);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -72,17 +70,17 @@
             left: 50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
-            animation: ripple 10s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
+            animation: ripple 12s ease-in-out infinite;
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 0;
         }
         
         @keyframes ripple {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
-            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.2; }
-            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
+            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
         }
         
         .hero-content {
@@ -91,427 +89,502 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 16px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
             line-height: 1.1;
             color: var(--white);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
         }
         
         .hero .subtitle {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 24px;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            max-width: 700px;
+            margin: 0 auto 32px;
             opacity: 0.95;
             color: var(--white);
             font-weight: 300;
+            line-height: 1.5;
         }
         
         .hero .tagline {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            max-width: 600px;
+            margin: 0 auto 48px;
             opacity: 0.9;
             color: var(--white);
             font-style: italic;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-button {
+            background: var(--white);
+            color: var(--inos-blue);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            color: var(--ssot-purple);
+        }
+        
+        .hero-button.secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .hero-button.secondary:hover {
+            background: var(--white);
+            color: var(--inos-blue);
+        }
+        
+        /* Sacred Geometry Section Dividers */
+        .section-divider {
+            height: 40px;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .wave-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .wave-path {
+            fill: url(#waveGradient);
+            animation: waveFlow 20s ease-in-out infinite;
+        }
+        
+        @keyframes waveFlow {
+            0%, 100% { d: path("M0,20 Q300,0 600,20 T1200,20 L1200,40 L0,40 Z"); }
+            50% { d: path("M0,20 Q300,40 600,20 T1200,20 L1200,40 L0,40 Z"); }
         }
         
         /* Ripple Architecture Section */
         .ripple-section {
             padding: 80px 0;
             background: var(--white);
+            position: relative;
+        }
+        
+        .ripple-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100%;
+            background: 
+                radial-gradient(ellipse at top, rgba(124,58,237,0.02) 0%, transparent 70%),
+                radial-gradient(ellipse at bottom, rgba(59,130,246,0.02) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        .ripple-section .container {
+            position: relative;
+            z-index: 1;
         }
         
         .ripple-section h2 {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 16px;
             color: var(--dark);
         }
         
         .ripple-section .intro {
             text-align: center;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto 40px;
             color: var(--gray);
             font-size: 1.1rem;
+            line-height: 1.6;
         }
         
         .diagram-container {
             max-width: 100% !important;
-            margin: 0 auto 40px;
-            background: var(--light);
+            margin: 0 auto 30px;
+            background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 24px;
             box-shadow: var(--shadow);
             text-align: center;
             overflow-x: auto;
+            border: 1px solid var(--gray-light);
         }
         
         .mermaid {
             display: block !important;
             width: 100% !important;
-            min-width: 800px;
+            min-width: 100% !important;
             margin: 20px auto;
         }
         
         .diagram-note {
             font-size: 0.9rem;
             color: var(--gray);
-            margin-top: 15px;
+            margin-top: 12px;
+            font-style: italic;
         }
         
         /* Enhanced Mermaid node styling for clickability */
         .mermaid .node rect {
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.2s ease;
+            rx: 8 !important;
+            ry: 8 !important;
         }
         
         .mermaid .node rect:hover {
-            stroke-width: 4px !important;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+            stroke-width: 3px !important;
+            stroke: var(--inos-blue) !important;
+            filter: drop-shadow(0 4px 12px rgba(59,130,246,0.2));
+            transform: scale(1.02);
         }
         
         /* Why Hemp First Section */
         .why-hemp {
             padding: 80px 0;
             background: var(--light);
+            position: relative;
+        }
+        
+        .why-hemp::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(16,185,129,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59,130,246,0.03) 0%, transparent 50%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        .why-hemp .container {
+            position: relative;
+            z-index: 1;
         }
         
         .why-hemp h2 {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 32px;
             color: var(--dark);
         }
         
-        .why-hemp .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto 40px;
-        }
-        
-        .stat-card {
+        .why-hemp .single-stat {
             text-align: center;
-            padding: 24px;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
+            max-width: 600px;
+            margin: 0 auto 32px;
         }
         
-        .stat-card .number {
-            font-size: 2.5rem;
+        .why-hemp .stat-number {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             font-weight: 700;
             color: var(--hempin-green);
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            display: block;
         }
         
-        .stat-card .label {
-            font-size: 1rem;
+        .why-hemp .stat-label {
+            font-size: 1.1rem;
             color: var(--gray);
+            display: block;
+            margin-bottom: 24px;
+        }
+        
+        .why-hemp .explanation {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
         
         .why-hemp .connection {
             text-align: center;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-            color: var(--gray);
-            font-size: 1.1rem;
-            padding: 20px;
-            background: #DBEAFE;
-            border-left: 4px solid var(--inos-blue);
-            border-radius: 0 var(--radius) var(--radius) 0;
-        }
-        
-        /* Core Architecture Cards */
-        .architecture-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-        
-        .architecture-section h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--dark);
-        }
-        
-        .arch-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .arch-card {
-            background: var(--light);
+            padding: 24px;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
             border-radius: var(--radius-lg);
-            padding: 30px;
-            border-left: 5px solid var(--inos-blue);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
+            border: 1px solid rgba(59,130,246,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         
-        .arch-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-        
-        .arch-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .arch-card p {
-            color: var(--gray);
-            margin-bottom: 16px;
-        }
-        
-        .arch-card ul {
-            margin: 16px 0 0 20px;
-            color: var(--gray);
-        }
-        
-        .arch-card li {
-            margin-bottom: 8px;
-        }
-        
-        .arch-card .learn-more {
+        .why-hemp .connection a {
             display: inline-block;
             margin-top: 16px;
             color: var(--inos-blue);
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
+            transition: var(--transition);
         }
         
-        .arch-card .learn-more:hover {
+        .why-hemp .connection a:hover {
+            text-decoration: underline;
+            color: var(--inos-blue-hover);
+        }
+        
+        /* Proof Points Section */
+        .proof-section {
+            padding: 80px 0;
+            background: var(--white);
+            position: relative;
+        }
+        
+        .proof-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100%;
+            background: 
+                radial-gradient(ellipse at top, rgba(124,58,237,0.02) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .proof-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .proof-section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .proof-section .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .proof-list {
+            max-width: 700px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .proof-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+        
+        .proof-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .proof-list .icon {
+            font-size: 1.5rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        
+        .proof-list strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .proof-list a {
+            color: var(--inos-blue);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .proof-list a:hover {
             text-decoration: underline;
         }
         
-        .arch-card.blue { border-left-color: var(--inos-blue); }
-        .arch-card.green { border-left-color: var(--hempin-green); }
-        
-        /* Tools & Mission Section */
-        .tools-section {
-            padding: 80px 0;
-            background: var(--light);
-        }
-        
-        .tools-section h2 {
+        /* Final CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(124,58,237,0.05) 0%, rgba(59,130,246,0.05) 50%, rgba(16,185,129,0.05) 100%);
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--dark);
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .tool-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            border-left: 5px solid var(--hempin-green);
-            box-shadow: var(--shadow-sm);
             position: relative;
+            overflow: hidden;
         }
         
-        .tool-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .tool-card p {
-            color: var(--gray);
-            margin-bottom: 16px;
-        }
-        
-        .tool-card .tooltip {
-            display: inline-block;
-            background: #F0FDF4;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--hempin-green);
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-        
-        /* Regeneration Fund ripple icon */
-        .fund-ripple {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-        
-        .ripple-icon {
-            width: 24px;
-            height: 24px;
-            border: 2px solid var(--hempin-green);
-            border-radius: 50%;
-            position: relative;
-            animation: ripple-icon 2s ease-in-out infinite;
-        }
-        
-        .ripple-icon::before,
-        .ripple-icon::after {
+        .final-cta::before {
             content: '';
             position: absolute;
-            border: 2px solid var(--hempin-green);
-            border-radius: 50%;
-            opacity: 0;
-            animation: ripple-expand 2s ease-out infinite;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(124,58,237,0.02) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(16,185,129,0.02) 0%, transparent 30%);
+            animation: particleDrift 40s linear infinite;
+            pointer-events: none;
         }
         
-        .ripple-icon::before {
-            animation-delay: 0s;
+        @keyframes particleDrift {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 100px 100px, -100px -100px; }
         }
         
-        .ripple-icon::after {
-            animation-delay: 0.5s;
+        .final-cta .container {
+            position: relative;
+            z-index: 1;
         }
         
-        @keyframes ripple-icon {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        
-        @keyframes ripple-expand {
-            0% { width: 24px; height: 24px; opacity: 0.6; }
-            100% { width: 48px; height: 48px; opacity: 0; }
-        }
-        
-        .tool-card.fund { border-left-color: var(--ssot-purple); }
-        
-        /* Future Ripples Section */
-        .future-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-        
-        .future-section h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--dark);
-        }
-        
-        .future-timeline {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-snap-type: x mandatory;
-        }
-        
-        .future-item {
-            min-width: 200px;
-            padding: 24px;
-            background: var(--light);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            scroll-snap-align: start;
-            border-top: 4px solid var(--inos-blue);
-        }
-        
-        .future-item .icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-        }
-        
-        .future-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-        
-        .future-item p {
-            font-size: 0.95rem;
-            color: var(--gray);
-        }
-        
-        /* Solarpunk Vision Section */
-        .vision-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .vision-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 24px;
-            color: var(--white);
-        }
-        
-        .vision-section p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0.95;
-            color: var(--white);
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background: var(--light);
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.2rem;
+        .final-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             margin-bottom: 20px;
             color: var(--dark);
         }
         
-        .cta-section p {
+        .final-cta p {
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
             color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.7;
         }
         
-        /* Responsive adjustments */
+        .final-cta .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .final-cta .cta-button {
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+        }
+        
+        .final-cta .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(16,185,129,0.5);
+            background: linear-gradient(135deg, var(--inos-blue), var(--ssot-purple));
+            color: var(--white);
+        }
+        
+        .final-cta .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--inos-blue);
+            color: var(--inos-blue);
+        }
+        
+        .final-cta .cta-button.secondary:hover {
+            background: var(--inos-blue);
+            color: var(--white);
+        }
+        
+        /* Typography: Resonant Emphasis */
+        .resonant {
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .resonant::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ssot-purple), transparent);
+            border-radius: 2px;
+            animation: underlineGlow 4s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes underlineGlow {
+            0%, 100% { opacity: 0.3; transform: scaleX(0.9); }
+            50% { opacity: 0.8; transform: scaleX(1); }
+        }
+        
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 0 0 1px rgba(124,58,237,0.2);
+        }
+        
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero .subtitle { font-size: 1.2rem; }
-            .hero .tagline { font-size: 1rem; }
+            .hero { padding: 90px 0; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero-button { width: 100%; max-width: 300px; }
             
-            .arch-cards, .tools-grid {
-                grid-template-columns: 1fr;
+            .section-divider { height: 30px; }
+            
+            .proof-list li {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
             }
             
-            .future-timeline {
-                gap: 12px;
+            .proof-list .icon {
+                margin: 0 auto;
             }
             
-            .future-item {
-                min-width: 160px;
-                padding: 16px;
+            .final-cta .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .mermaid {
-                min-width: 600px;
+            .final-cta .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -519,380 +592,170 @@
 <body>
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
-    <!-- Hero Section -->
+    <!-- Hero Section: The First Ripple -->
     <section class="hero">
         <div class="container hero-content">
             <h1>NADA</h1>
-            <p class="subtitle">Verified Truth Infrastructure (HEMPIN: Industry #1)</p>
-            <p class="tagline">From primordial vibration to planetary regeneration</p>
+            <p class="subtitle">Before systems, there is signal. Before structure, there is resonance.</p>
+            <p class="tagline">Verified truth infrastructure for planetary regeneration</p>
             <div class="hero-buttons">
-                <a href="#ripple-architecture" class="hero-button">Explore the Architecture</a>
+                <a href="#architecture" class="hero-button">Explore the Architecture</a>
                 <a href="involved.html" class="hero-button secondary">Join the Mission</a>
             </div>
         </div>
     </section>
 
-    <!-- The Ripple Architecture Section -->
-    <section id="ripple-architecture" class="ripple-section">
+    <!-- Sacred Geometry Wave Divider -->
+    <div class="section-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,20 Q300,0 600,20 T1200,20 L1200,40 L0,40 Z"/>
+        </svg>
+    </div>
+
+    <!-- The Ripple Architecture: Visual Hub -->
+    <section id="architecture" class="ripple-section">
         <div class="container">
             <h2>The Ripple Architecture</h2>
-            <p class="intro">Just as the first sound creates the universe, verified truth creates regenerative economies.</p>
+            <p class="intro">Just as the first sound creates the universe, verified truth creates regenerative economies. Click any node to explore deeper.</p>
             
             <div class="diagram-container">
                 <div class="mermaid">
 flowchart TD
-    %% Center: NADA
     NADA["🌌 NADA<br/><i>Primordial Vibration</i>"]:::nada
+    CORE["🌐 SSOT + ⚙️ INOS<br/>Core Architecture"]:::core
+    HEMPIN["🌱 HEMPIN<br/>Industry #1"]:::hempin
+    TOOLS["🤖 BUD AI + 💧 Fund<br/>Tools & Mission"]:::tools
+    VISION["🌍 Solarpunk 2045<br/>Planetary Regeneration"]:::vision
     
-    %% First Ring: Core Architecture
-    subgraph Core["Core Architecture"]
-        SSOT["🌐 SSOT<br/>Knowledge Graph"]:::core
-        INOS["⚙️ INOS<br/>Operating System"]:::core
-    end
+    NADA --> CORE
+    CORE --> HEMPIN
+    HEMPIN --> TOOLS
+    TOOLS --> VISION
     
-    %% Second Ring: Industry Deployment
-    subgraph Deployment["Industry #1: HEMPIN"]
-        HEMPIN["🌱 HEMPIN<br/>Hemp Deployment"]:::deployment
-        BUD["🤖 BUD AI<br/>Natural Language Onboarding"]:::deployment
-    end
+    classDef nada fill:#7C3AED,stroke:#6D28D9,stroke-width:3px,color:white,rx:12,ry:12;
+    classDef core fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:white,rx:10,ry:10;
+    classDef hempin fill:#10B981,stroke:#059669,stroke-width:2px,color:white,rx:10,ry:10;
+    classDef tools fill:#F59E0B,stroke:#D97706,stroke-width:2px,color:white,rx:10,ry:10;
+    classDef vision fill:#EC4899,stroke:#DB2777,stroke-width:2px,color:white,rx:10,ry:10;
     
-    %% Third Ring: Mission & Vision
-    subgraph Mission["Mission-Locked"]
-        FUND["💧 Regeneration Fund<br/>30% to environmental cleanup"]:::fund
-    end
-    
-    subgraph Vision["Long-Term Vision"]
-        SOLAR["🌍 Solarpunk 2045<br/>Planetary regeneration"]:::vision
-    end
-    
-    %% Connections (ripple effect)
-    NADA --> SSOT & INOS
-    SSOT & INOS --> HEMPIN & BUD
-    HEMPIN & BUD --> FUND
-    FUND --> SOLAR
-    
-    %% Styling classes
-    classDef nada fill:#7C3AED,stroke:#6D28D9,stroke-width:3px,color:white,rx:10,ry:10;
-    classDef core fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:white,rx:8,ry:8;
-    classDef deployment fill:#10B981,stroke:#059669,stroke-width:2px,color:white,rx:8,ry:8;
-    classDef fund fill:#F59E0B,stroke:#D97706,stroke-width:2px,color:white,rx:8,ry:8;
-    classDef vision fill:#EC4899,stroke:#DB2777,stroke-width:2px,color:white,rx:8,ry:8;
-    
-    %% Apply classes
     class NADA nada;
-    class SSOT,INOS core;
-    class HEMPIN,BUD deployment;
-    class FUND fund;
-    class SOLAR vision;
+    class CORE core;
+    class HEMPIN hempin;
+    class TOOLS tools;
+    class VISION vision;
                 </div>
-                <p class="diagram-note">Interactive: Click nodes to explore details. Hover for tooltips. Scroll horizontally on mobile.</p>
+                <p class="diagram-note">Interactive: Click nodes to explore details</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Hemp First Section -->
-    <section id="why-hemp" class="why-hemp">
+    <!-- Sacred Geometry Wave Divider (Reversed) -->
+    <div class="section-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,20 Q300,40 600,20 T1200,20 L1200,0 L0,0 Z"/>
+        </svg>
+    </div>
+
+    <!-- Why Hemp First: One Clear Answer -->
+    <section class="why-hemp">
         <div class="container">
-            <h2>Why Hemp First? Our Industry #1 Deployment</h2>
+            <h2>Why Hemp First?</h2>
             
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number">57+</div>
-                    <div class="label">Jurisdictions Encoded</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">$17B</div>
-                    <div class="label">Hemp Market</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">25%</div>
-                    <div class="label">Annual Growth</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">100%</div>
-                    <div class="label">SME-Focused</div>
-                </div>
+            <div class="single-stat">
+                <span class="stat-number">57+</span>
+                <span class="stat-label">jurisdictions to encode</span>
             </div>
             
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: var(--gray);">
-                Hemp is the perfect testbed: high regulatory fragmentation, strong sustainability mandate, fragmented SME landscape, and global growth. Once proven in hemp, the NADA architecture generalizes to all industries requiring verified trust.
+            <p class="explanation">
+                Hemp is the perfect testbed: high regulatory fragmentation, strong sustainability mandate, fragmented SME landscape, and global growth. 
+                <span class="resonant">Once proven in hemp, NADA scales to all industries requiring verified trust.</span>
             </p>
             
-            <div class="connection">
+            <div class="connection glass-card">
                 <strong>Learn more about HEMPIN:</strong> Our industry-specific deployment layer with BUD AI onboarding, compliance engine, and pilot validation.
-                <br><br>
-                <a href="hempin.html" class="cta-button" style="background: var(--inos-blue);">Explore HEMPIN Details →</a>
+                <br>
+                <a href="hempin.html">Explore HEMPIN Details →</a>
             </div>
         </div>
     </section>
 
-
-    <!-- NEW: Traction & Proof Points Section -->
-<section id="traction" class="features" style="background: var(--light);">
-    <div class="container">
-        <h2>Validated Partnerships & Early Traction</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-            Building verified truth infrastructure requires trusted partners. Here's our early progress.
-        </p>
-        
-        <div class="features-grid">
-            <div class="feature-card green">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🇹🇭</div>
-                <h3>Thailand Partnership</h3>
-                <p>Letter of Intent being secured with <strong>TiHTA</strong> (Thai Industrial Hemp Trade Association) for 2026-2027 pilot deployment. 50+ farmers, 10+ processors targeted.</p>
-            </div>
-            
-    
-            
-            <div class="feature-card">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">📝</div>
-                <h3>Grant Preparation</h3>
-                <p><strong>EIC Pathfinder Open 2026</strong> application in progress (€4M target, 48-month duration). Deadline: May 12, 2026.</p>
-            </div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 30px;">
-            <a href="team.html" style="color: var(--inos-blue); font-weight: 500;">Meet Our Team & Partners →</a>
-        </p>
+    <!-- Sacred Geometry Wave Divider -->
+    <div class="section-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,20 Q300,0 600,20 T1200,20 L1200,40 L0,40 Z"/>
+        </svg>
     </div>
-</section>
 
-    <!-- NEW: Breakthrough Technology Comparison Section -->
-<section id="breakthrough" class="features" style="background: var(--white);">
-    <div class="container">
-        <h2>Why This Is Breakthrough Technology</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 20px; color: var(--gray);">
-            Moving from <em>"trust but verify"</em> to <em>"verify by design"</em>
-        </p>
-        
-        <div style="overflow-x: auto; margin: 30px 0;">
-            <table style="width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow);">
-                <thead>
-                    <tr style="background: var(--inos-blue); color: var(--white);">
-                        <th style="padding: 16px; text-align: left; font-weight: 600;">Feature</th>
-                        <th style="padding: 16px; text-align: left; font-weight: 600;">Current State-of-the-Art</th>
-                        <th style="padding: 16px; text-align: left; font-weight: 600;">INOS/SSOT Innovation</th>
-                        <th style="padding: 16px; text-align: left; font-weight: 600;">Advancement</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);"><strong>Onboarding</strong></td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);">Manual forms (weeks)</td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);">AI conversation → graph node (minutes)</td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light); color: var(--hempin-green); font-weight: 600;">10x speedup</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);"><strong>Compliance</strong></td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);">Post-transaction auditing</td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);">Real-time graph constraint validation</td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light); color: var(--hempin-green); font-weight: 600;">Prevention vs. detection</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);"><strong>Infrastructure</strong></td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);">US-based APIs (OpenAI, AWS)</td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light);">EU sovereign (Mistral, OVH, Memgraph)</td>
-                        <td style="padding: 16px; border-bottom: 1px solid var(--gray-light); color: var(--hempin-green); font-weight: 600;">Data sovereignty</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 16px;"><strong>Verification</strong></td>
-                        <td style="padding: 16px;">Reactive audits, paper trails</td>
-                        <td style="padding: 16px;">Proactive graph constraints, immutable audit trail</td>
-                        <td style="padding: 16px; color: var(--hempin-green); font-weight: 600;">Trust by architecture</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <p style="text-align: center; margin-top: 20px;">
-            <a href="architecture.html#breakthroughs" style="color: var(--inos-blue); font-weight: 500;">Read Full Technical Analysis →</a>
-        </p>
-    </div>
-</section>
-
-    <!-- NEW: Solarpunk 2045 Transformation Timeline -->
-<section id="solarpunk-timeline" class="features" style="background: var(--light);">
-    <div class="container">
-        <h2>The Path to Solarpunk 2045</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-            From verified hemp supply chains to planetary regeneration infrastructure
-        </p>
-        
-        <div class="features-grid">
-            <div class="feature-card purple">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🌱</div>
-                <h3>2026 — Bootstrap Phase</h3>
-                <ul style="margin: 16px 0 0 20px; color: var(--gray);">
-                    <li>Documentation complete</li>
-                    <li>Thailand partnership (TiHTA LOI)</li>
-                    <li>EIC Pathfinder application</li>
-                    <li>Advisor board formation</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card blue">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🌿</div>
-                <h3>2030 — Hemp Deployment</h3>
-                <ul style="margin: 16px 0 0 20px; color: var(--gray);">
-                    <li>HEMPIN live in 5 countries</li>
-                    <li>10,000+ verified entities</li>
-                    <li>€1M+ Regeneration Fund</li>
-                    <li>57 jurisdictions encoded</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card green">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🌾</div>
-                <h3>2035 — Multi-Industry</h3>
-                <ul style="margin: 16px 0 0 20px; color: var(--gray);">
-                    <li>Agriculture, textiles, minerals</li>
-                    <li>100,000+ verified entities</li>
-                    <li>€100M+ Regeneration Fund</li>
-                    <li>Open protocol launched</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card" style="border-left-color: var(--ssot-purple);">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🌍</div>
-                <h3>2045 — Planetary Infrastructure</h3>
-                <ul style="margin: 16px 0 0 20px; color: var(--gray);">
-                    <li>All major industries verified</li>
-                    <li>10M+ verified entities</li>
-                    <li>€1B+ Regeneration Fund</li>
-                    <li>Net-negative global economy</li>
-                </ul>
-            </div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 30px;">
-            <a href="why-nada.html" style="color: var(--inos-blue); font-weight: 500;">Read Full Solarpunk Mandate →</a>
-        </p>
-    </div>
-</section>
-
-    <!-- Core Architecture Section -->
-    <section id="core-architecture" class="architecture-section">
+    <!-- Proof Points: Credibility in 3 Bullets -->
+    <section class="proof-section">
         <div class="container">
-            <h2>Core Architecture</h2>
-            <div class="arch-cards">
-                
-                <div class="arch-card blue" id="ssot">
-                    <h3>🌐 SSOT</h3>
-                    <p><strong>Single Source of Truth</strong> — A living knowledge graph that encodes every verified actor, relationship, regulation, and value flow.</p>
-                    <ul>
-                        <li>Entity layer: Canonical representation of every verified actor</li>
-                        <li>Relationship layer: Every interaction between entities</li>
-                        <li>Compliance layer: Per-jurisdiction regulatory encoding as machine-readable constraints</li>
-                        <li>Value layer: Economic flow graph with embedded Regeneration Fund</li>
-                    </ul>
-                    <a href="architecture.html#ssot" class="learn-more">Deep dive into SSOT →</a>
-                </div>
-
-                <div class="arch-card green" id="inos">
-                    <h3>⚙️ INOS</h3>
-                    <p><strong>Operating System</strong> — The architecture that produces SSOT: Microservices + Event Sourcing + Graph Database + Sovereign EU infrastructure.</p>
-                    <ul>
-                        <li>Sovereign stack: OVHcloud, Memgraph, Mistral AI (zero US dependency)</li>
-                        <li>Event-sourced architecture for immutable, auditable truth</li>
-                        <li>GDPR-by-design with data minimization and explicit consent flows</li>
-                        <li>Scalable to planetary-level verified infrastructure</li>
-                    </ul>
-                    <a href="architecture.html#inos" class="learn-more">Deep dive into INOS →</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Tools & Mission Section -->
-    <section id="tools-mission" class="tools-section">
-        <div class="container">
-            <h2>Tools & Mission</h2>
-            <div class="tools-grid">
-                
-                <div class="tool-card" id="bud">
-                    <h3>🤖 BUD AI</h3>
-                    <span class="tooltip">BUD AI: Natural language onboarding for verified supply chains</span>
-                    <p>Natural language onboarding agent that converts farmer conversations into verified graph data. Self-hosted, sovereign AI with confidence scoring and human-in-the-loop validation.</p>
-                    <ul>
-                        <li>Confidence scoring >0.85 threshold for auto-approval</li>
-                        <li>Human-in-the-loop console for low-confidence extractions</li>
-                        <li>Multi-language support (EN, FR, TH, RO + expanding)</li>
-                        <li>Reduces onboarding friction from weeks to minutes</li>
-                    </ul>
-                </div>
-
-                <div class="tool-card fund" id="fund">
-                    <h3>💧 Regeneration Fund</h3>
-                    <div class="fund-ripple">
-                        <div class="ripple-icon"></div>
-                        <span>30% of ALL industry profits fund regeneration</span>
-                    </div>
-                    <p>Starting with hemp, scaling to all industries. Profits fund environmental cleanup, not shareholder enrichment. Mission-locked economics embedded in the architecture.</p>
-                    <ul>
-                        <li>30% of transaction value flows to verified environmental projects</li>
-                        <li>Transparent impact metrics linking every transaction to cleanup</li>
-                        <li>Community-driven governance via INOS Foundation (non-profit)</li>
-                        <li>Scalable funding mechanism independent of philanthropy</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Future Ripples Section -->
-    <section id="future-ripples" class="future-section">
-        <div class="container">
-            <h2>Future Ripples: Expanding to All Industries</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-                Once proven in hemp, the NADA architecture generalizes to any supply chain requiring verified trust.
+            <h2>Early Traction</h2>
+            <p class="intro">Building verified truth infrastructure requires trusted partners. Here's our progress.</p>
+            
+            <ul class="proof-list">
+                <li>
+                    <span class="icon">🇹🇭</span>
+                    <span><strong>Thailand Pilot:</strong> Letter of Intent with <span class="resonant">TiHTA</span> for 2026-2027 deployment</span>
+                </li>
+                <li>
+                    <span class="icon">🛡️</span>
+                    <span><strong>Sovereign Stack:</strong> 100% EU infrastructure (OVHcloud, Memgraph, Mistral) — <span class="resonant">no US dependency</span></span>
+                </li>
+                <li>
+                    <span class="icon">📝</span>
+                    <span><strong>Grant-Ready:</strong> EIC Pathfinder application in progress (€4M target) — <a href="strategy.html">View Strategy</a></span>
+                </li>
+            </ul>
+            
+            <p style="text-align: center; margin-top: 32px;">
+                <a href="team.html" style="color: var(--inos-blue); font-weight: 600; text-decoration: none;">Meet the Team & Partners →</a>
             </p>
-            
-            <div class="future-timeline">
-                <div class="future-item">
-                    <div class="icon">🌱</div>
-                    <h4>Hemp</h4>
-                    <p>Industry #1 deployment</p>
-                </div>
-                <div class="future-item">
-                    <div class="icon">🌾</div>
-                    <h4>Organic Agriculture</h4>
-                    <p>Verified provenance for food</p>
-                </div>
-                <div class="future-item">
-                    <div class="icon">🧵</div>
-                    <h4>Textiles</h4>
-                    <p>Transparent supply chains</p>
-                </div>
-                <div class="future-item">
-                    <div class="icon">⚡</div>
-                    <h4>Critical Minerals</h4>
-                    <p>Ethical sourcing verification</p>
-                </div>
-                <div class="future-item">
-                    <div class="icon">🌍</div>
-                    <h4>Global Trade</h4>
-                    <p>Planetary verified infrastructure</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Solarpunk 2045 Vision Section -->
-    <section id="solarpunk-vision" class="vision-section">
-        <div class="container">
-            <h2>Solarpunk 2045</h2>
-            <p>Our long-term vision: Verified supply chains for all industries, sovereign technology for data autonomy, and regenerative finance at global scale. Starting with hemp, scaling to planetary regeneration infrastructure.</p>
-            <a href="why-nada.html" class="hero-button secondary" style="background: transparent; border: 2px solid white; color: white;">Learn About the NADA Philosophy →</a>
-        </div>
-    </section>
+    <!-- Sacred Geometry Wave Divider (Reversed) -->
+    <div class="section-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,20 Q300,40 600,20 T1200,20 L1200,0 L0,0 Z"/>
+        </svg>
+    </div>
 
-    <!-- Join the Mission CTA Section -->
-    <section class="cta-section">
+    <!-- Final CTA: Join the Ripple -->
+    <section class="final-cta">
         <div class="container">
-            <h2>Join the Mission</h2>
-            <p>Whether you're an advisor, researcher, pilot site, or just curious — your perspective matters. Let's build Solarpunk infrastructure together.</p>
+            <h2>Join the Ripple</h2>
+            <p>
+                Verified truth infrastructure for planetary regeneration.<br>
+                Starting with hemp. Scaling to <span class="resonant">Solarpunk 2045</span>.
+            </p>
             <div class="cta-buttons">
                 <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button">View Documentation</a>
                 <a href="involved.html" class="cta-button secondary">Get Involved</a>
