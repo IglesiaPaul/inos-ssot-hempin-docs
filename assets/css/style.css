@@ -529,3 +529,8 @@ a:focus, button:focus, .cta-button:focus, .hero-button:focus {
     transition: none !important;
   }
 }
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
