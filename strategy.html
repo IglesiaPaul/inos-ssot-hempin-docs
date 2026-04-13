@@ -3,111 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategy - HEMPIN</title>
+    <meta name="description" content="NADA/HEMPIN strategic scenarios: Bootstrap, Grant-Funded, and Hybrid pathways. Cost breakdown, funding strategy, and pivot options for verified truth infrastructure.">
+    <title>Strategy & Scenarios | HEMPIN</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
-    <!-- Mermaid.js for diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
-<script>
-  // Initialize Mermaid with clean theme
-  document.addEventListener('DOMContentLoaded', function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        primaryColor: '#3B82F6',    // inos-blue
-        primaryTextColor: '#1F2937', // dark
-        primaryBorderColor: '#3B82F6',
-        lineColor: '#6B7280',        // gray
-        secondaryColor: '#10B981',   // hempin-green
-        tertiaryColor: '#F9FAFB'     // light
-      },
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      flowchart: { useMaxWidth: true, htmlLabels: true },
-      gantt: { useMaxWidth: true }
-    });
-  });
-</script>
     <style>
-        .info-box { background: #DBEAFE; border-left: 4px solid var(--inos-blue); padding: 20px; margin: 30px 0; border-radius: 0 var(--radius) var(--radius) 0; }
-        .breakthrough { background: #F0FDF4; border-left: 4px solid var(--hempin-green); padding: 20px; margin: 30px 0; border-radius: 0 var(--radius) var(--radius) 0; }
+        /* Strategy Page Specific Styles */
+        .strategy-hero {
+            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .strategy-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+        .strategy-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+        }
+        .scenarios-section, .cost-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .scenarios-section h2, .cost-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        .scenarios-section .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        /* Scenario Tabs */
+        .scenario-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .scenario-tabs .tab {
+            padding: 12px 24px;
+            background: var(--light);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius);
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .scenario-tabs .tab:hover {
+            background: var(--inos-blue);
+            color: var(--white);
+            border-color: var(--inos-blue);
+        }
+        .scenario-tabs .tab.active {
+            background: var(--inos-blue);
+            color: var(--white);
+            border-color: var(--inos-blue);
+        }
+        .scenario-content {
+            display: none;
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 30px;
+        }
+        .scenario-content.active {
+            display: block;
+        }
+        .scenario-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        .scenario-content ul {
+            margin: 20px 0 0 30px;
+            color: var(--gray);
+        }
+        .scenario-content li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .scenario-content strong {
+            color: var(--dark);
+        }
+        .scenario-content a {
+            color: var(--inos-blue);
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .scenario-content a:hover {
+            text-decoration: underline;
+        }
+        /* Cost Table */
+        .cost-table {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+        .cost-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .cost-table th {
+            background: var(--inos-blue);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .cost-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .cost-table tr:last-child td {
+            border-bottom: none;
+        }
+        .cost-table tr.total {
+            background: var(--light);
+            font-weight: 700;
+        }
+        .cost-table strong {
+            color: var(--hempin-green);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .strategy-hero { padding: 80px 0; }
+            .strategy-hero h1 { font-size: 2.2rem; }
+            .strategy-hero p { font-size: 1.1rem; }
+            .scenario-tabs { flex-direction: column; align-items: center; }
+            .scenario-tabs .tab { width: 100%; max-width: 300px; }
+            .cost-table table { font-size: 0.9rem; }
+            .cost-table th, .cost-table td { padding: 12px 10px; }
+        }
     </style>
+    <script>
+        // Simple tab switching logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.scenario-tabs .tab');
+            const contents = document.querySelectorAll('.scenario-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const scenarioId = this.getAttribute('data-scenario');
+                    document.getElementById(scenarioId).classList.add('active');
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <!-- Navbar injected by navbar.js -->
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
-    <main>
+    <section class="strategy-hero">
         <div class="container">
-            <h1>Strategy</h1>
-            <p class="subtitle"><strong>Version:</strong> 1.0 | <strong>Last Updated:</strong> 2026-04 | <strong>Status:</strong> Active</p>
+            <h1>Strategic Scenarios</h1>
+            <p>Flexible pathways to verified truth infrastructure, adapted to funding outcomes and market conditions</p>
+        </div>
+    </section>
+
+    <!-- Scenario Analysis Section -->
+    <section class="scenarios-section">
+        <div class="container">
+            <h2>Strategic Scenarios & Pivot Options</h2>
+            <p class="intro">We've modeled multiple pathways based on funding outcomes and market conditions. Each scenario maintains our core mission while adapting to resource availability.</p>
             
-            <div class="info-box"><strong>The Problem:</strong> The global hemp industry is a coordination failure at scale: 57 jurisdictions with incompatible regulations, no shared identity standard, no cross-border provenance, no verified trust layer. Result: $17B market cannot trade efficiently.</div>
-            
-            <h2>The Solution</h2>
-            <h3>SSOT (Single Source of Truth)</h3>
-            <p>A continuously updating, multi-dimensional knowledge graph — a living representation of the hemp economy at:</p>
-            <ul>
-                <li><strong>Entity layer:</strong> Canonical representation of every verified actor</li>
-                <li><strong>Relationship layer:</strong> Every interaction between entities</li>
-                <li><strong>Compliance layer:</strong> Per-jurisdiction regulatory encoding as machine-readable constraints</li>
-                <li><strong>Value layer:</strong> Economic flow graph with embedded Regeneration Fund (30% to environmental cleanup)</li>
-            </ul>
-            
-            <h3>INOS (Operating System)</h3>
-            <p>The architecture that produces SSOT: Microservices + Event Sourcing + Graph Database + Sovereign EU infrastructure (OVHcloud, Memgraph, Mistral AI). Zero US dependency.</p>
-            
-            <h3>HEMPIN (First Deployment)</h3>
-            <p>The application layer: Hemp Commons (regulatory Q&A), Hemp Swap (verified trading), Hemp Globe (geospatial map), BUD AI Agent (natural language onboarding with confidence scoring).</p>
-            
-            <div class="breakthrough">
-                <strong>🔬 Core Scientific Breakthroughs:</strong>
-                <ul style="margin-top: 10px;">
-                    <li><strong>Natural-Language-to-Graph (NL2G):</strong> BUD AI converts farmer conversations into verified graph nodes with >85% confidence scoring</li>
-                    <li><strong>Regulatory Ontology as Code:</strong> Machine-readable encoding of 57 jurisdictions as graph constraints (SHACL/Cypher) for real-time compliance validation</li>
-                    <li><strong>Sovereign AI Stack:</strong> Self-hosted Mistral 7B on EU cloud infrastructure, eliminating US API dependency for sensitive commercial data</li>
-                </ul>
+            <div class="scenario-tabs">
+                <button class="tab active" data-scenario="bootstrap">Bootstrap Path</button>
+                <button class="tab" data-scenario="grant">Grant-Funded Path</button>
+                <button class="tab" data-scenario="hybrid">Hybrid Path</button>
             </div>
             
-            <h2>Solarpunk 2045 Mission</h2>
-            <p>This is not just a hemp platform. This is <strong>critical infrastructure for planetary regeneration</strong>.</p>
-            <table>
-                <tr><th>Year</th><th>Milestone</th></tr>
-                <tr><td>2026</td><td>Hemp pilot (Thailand), 500 verified entities, proof-of-principle (TRL 4)</td></tr>
-                <tr><td>2028</td><td>5 industries, 15 countries, 50,000 entities, VaaS commercial launch</td></tr>
-                <tr><td>2030</td><td>UN partnership, 30 countries, 200,000 entities, Regeneration Fund operational</td></tr>
-                <tr><td>2035</td><td>Global standard adopted, 1M+ entities, open protocol for verified trade</td></tr>
-                <tr><td>2040</td><td>Regenerative finance mainstream, $1T+ verified green flows</td></tr>
-                <tr><td>2045</td><td>Solarpunk civilization enabled, net-negative global economy</td></tr>
-            </table>
+            <div class="scenario-content active" id="bootstrap">
+                <h3>Bootstrap Path (No External Funding)</h3>
+                <ul>
+                    <li><strong>Timeline:</strong> 3-5 years to first revenue</li>
+                    <li><strong>Team Size:</strong> 1-3 people (founder + contractors)</li>
+                    <li><strong>Scope:</strong> Single-country pilot (Thailand), minimal AI features</li>
+                    <li><strong>Cost:</strong> ~€200K over 2 years</li>
+                    <li><strong>Revenue Model:</strong> SaaS fees from early adopters</li>
+                    <li><strong>Risk Mitigation:</strong> Focus on core SSOT architecture; defer advanced AI features</li>
+                </ul>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/strategy/scenarios-comparison.md">Full Bootstrap Analysis →</a>
+            </div>
             
-            <h2>Funding Strategy</h2>
-            <p>Mission-aligned capital structure designed for long-term impact, not short-term exit:</p>
-            <table>
-                <tr><th>Source</th><th>Target %</th><th>5-Year Target</th><th>Dilution</th></tr>
-                <tr><td>Grants (EU Horizon, UN, etc.)</td><td>57%</td><td>€240M</td><td>0%</td></tr>
-                <tr><td>Private Impact Capital</td><td>22%</td><td>€92M</td><td>20-30%</td></tr>
-                <tr><td>Revenue (VaaS subscriptions)</td><td>21%</td><td>€88M</td><td>0%</td></tr>
-                <tr><td><strong>TOTAL</strong></td><td><strong>100%</strong></td><td><strong>€420M</strong></td><td><strong>20-30%</strong></td></tr>
-            </table>
+            <div class="scenario-content" id="grant">
+                <h3>Grant-Funded Path (EIC Pathfinder Success)</h3>
+                <ul>
+                    <li><strong>Timeline:</strong> 48 months (2026-2030)</li>
+                    <li><strong>Team Size:</strong> 8-12 people (consortium)</li>
+                    <li><strong>Scope:</strong> Multi-country pilots, full SSOT/INOS/HEMPIN stack</li>
+                    <li><strong>Cost:</strong> €4M (100% grant-funded)</li>
+                    <li><strong>Revenue Model:</strong> Post-grant commercialization via OpCo</li>
+                    <li><strong>Risk Mitigation:</strong> Consortium diversification; milestone-based funding</li>
+                </ul>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/grants/EIC-pathfinder-2026-FULL/readme.md">Grant Application Details →</a>
+            </div>
             
-            <h2>Innovation Potential: Verification-as-a-Service (VaaS)</h2>
-            <p>Our breakthrough enables a new market category: <strong>Verification-as-a-Service</strong> — proactive compliance infrastructure that prevents non-compliant transactions rather than auditing them after the fact.</p>
-            <ul>
-                <li><strong>Phase 1 (2026-2030):</strong> Hemp industry pilot → €170-340M annual revenue potential</li>
-                <li><strong>Phase 2 (2030-2035):</strong> Regulated agriculture expansion → €1-2B annual revenue potential</li>
-                <li><strong>Phase 3 (2035+):</strong> Global verified trade protocol → Multi-trillion dollar opportunity</li>
-            </ul>
-            
-            <h2>Organizational Structure: Mission Lock</h2>
-            <p>To ensure long-term alignment with Solarpunk 2045 vision:</p>
-            <ul>
-                <li><strong>INOS Foundation (non-profit):</strong> Holds open-source schema, regulatory ontology, Regeneration Fund protocol. Ensures mission lock.</li>
-                <li><strong>INOS OpCo (for-profit):</strong> Licenses patented NL2G algorithm, provides VaaS subscriptions. Generates revenue to sustain operations.</li>
-            </ul>
-            
-            <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/STRATEGY.md" class="cta-button" target="_blank">Read Full Strategy on GitHub</a>
+            <div class="scenario-content" id="hybrid">
+                <h3>Hybrid Path (Mixed Funding)</h3>
+                <ul>
+                    <li><strong>Timeline:</strong> 2-3 years to product-market fit</li>
+                    <li><strong>Team Size:</strong> 4-6 people</li>
+                    <li><strong>Scope:</strong> Thailand pilot + lightweight EU pilot, core features only</li>
+                    <li><strong>Cost:</strong> €1M (€500K grant, €500K private)</li>
+                    <li><strong>Revenue Model:</strong> Pilot revenue + follow-on grants</li>
+                    <li><strong>Risk Mitigation:</strong> Phased feature rollout; revenue validation before scaling</li>
+                </ul>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/strategy/funding-strategy.md">Funding Strategy Doc →</a>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Cost Breakdown Section -->
+    <section class="cost-section" style="background: var(--light);">
+        <div class="container">
+            <h2>Cost Structure (Grant-Funded Scenario)</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: var(--gray);">
+                Total Grant Target: €4M (EIC Pathfinder Open 2026)
+            </p>
+            
+            <div class="cost-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>% of Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Personnel</strong> (8-12 FTE across consortium)</td>
+                            <td>€2.8M</td>
+                            <td style="color: var(--hempin-green); font-weight: 600;">70%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Equipment</strong> (GPU servers, dev hardware)</td>
+                            <td>€600K</td>
+                            <td style="color: var(--hempin-green); font-weight: 600;">15%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Travel & Dissemination</strong></td>
+                            <td>€300K</td>
+                            <td style="color: var(--hempin-green); font-weight: 600;">7.5%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Other Direct Costs</strong> (pilots, licenses)</td>
+                            <td>€300K</td>
+                            <td style="color: var(--hempin-green); font-weight: 600;">7.5%</td>
+                        </tr>
+                        <tr class="total">
+                            <td><strong>TOTAL</strong></td>
+                            <td><strong>€4M</strong></td>
+                            <td style="color: var(--hempin-green); font-weight: 700;">100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/strategy/cost-breakdown.md" style="color: var(--inos-blue); font-weight: 500;">Detailed Cost Breakdown →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
 </body>
 </html>
