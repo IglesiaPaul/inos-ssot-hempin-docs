@@ -8,21 +8,27 @@ document.addEventListener('DOMContentLoaded', function() {
         <nav>
           <a href="index.html" class="logo">NADA<span>.</span></a>
           <ul class="nav-links">
-            <li><a href="why-nada.html">Why NADA?</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-              <a href="hempin.html" class="dropbtn">HEMPIN ▾</a>
+              <a href="#" class="dropbtn">About ▾</a>
               <div class="dropdown-content">
-                <a href="hempin.html">Industry #1 Overview</a>
-                <a href="hempin.html#bud">BUD AI Tool</a>
-                <a href="hempin.html#fund">Regeneration Fund</a>
+                <a href="why-nada.html">Why NADA?</a>
+                <a href="team.html">Team & Consortium</a>
+                <a href="strategy.html">Strategy</a>
               </div>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropbtn">Grant Proposal ▾</a>
+              <a href="#" class="dropbtn">Platform ▾</a>
               <div class="dropdown-content">
-                <a href="strategy.html">Strategy</a>
-                <a href="roadmap.html">Roadmap</a>
+                <a href="architecture.html">Architecture</a>
                 <a href="technology.html">Technology</a>
+                <a href="hempin.html">HEMPIN</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropbtn">Progress ▾</a>
+              <div class="dropdown-content">
+                <a href="roadmap.html">Roadmap</a>
                 <a href="workpackages.html">Work Packages</a>
               </div>
             </li>
