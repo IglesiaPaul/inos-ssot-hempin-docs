@@ -626,7 +626,7 @@
             <p class="intro">Just as the first sound creates the universe, verified truth creates regenerative economies. Click any node to explore deeper.</p>
             
             <div class="diagram-container">
-                <div class="mermaid">
+    <div class="mermaid">
 flowchart TD
     NADA["🌌 NADA<br/><i>Primordial Vibration</i>"]:::nada
     CORE["🌐 SSOT + ⚙️ INOS<br/>Core Architecture"]:::core
@@ -639,6 +639,12 @@ flowchart TD
     HEMPIN --> TOOLS
     TOOLS --> VISION
     
+    %% Native Mermaid click handlers (more reliable than JS)
+    click CORE "architecture.html" "View Core Architecture"
+    click HEMPIN "hempin.html" "Explore HEMPIN Deployment"
+    click TOOLS "hempin.html#bud" "View BUD AI & Regeneration Fund"
+    click VISION "why-nada.html" "Read Solarpunk Philosophy"
+    
     classDef nada fill:#7C3AED,stroke:#6D28D9,stroke-width:3px,color:white,rx:12,ry:12;
     classDef core fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:white,rx:10,ry:10;
     classDef hempin fill:#10B981,stroke:#059669,stroke-width:2px,color:white,rx:10,ry:10;
@@ -650,9 +656,9 @@ flowchart TD
     class HEMPIN hempin;
     class TOOLS tools;
     class VISION vision;
-                </div>
-                <p class="diagram-note">Interactive: Click nodes to explore details</p>
-            </div>
+    </div>
+    <p class="diagram-note">Interactive: Click nodes to explore deeper</p>
+</div>
         </div>
     </section>
 
