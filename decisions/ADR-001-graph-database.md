@@ -18,7 +18,7 @@ We need a database that can:
 
 ## Decision
 
-**Selected:** Neo4j Enterprise 5.21+
+**Selected:** Memgraph (Slovenia-based, EU sovereign)
 
 ---
 
@@ -26,22 +26,25 @@ We need a database that can:
 
 | Option | Pros | Cons | Verdict |
 |--------|------|------|---------|
-| **Neo4j** | Native graph, mature, enterprise support | Cost at scale | ✅ Selected |
-| **Amazon Neptune** | Managed, AWS integration | Less mature graph features | ⚠️ Backup |
-| **JanusGraph** | Open source, scalable | Complex operations | ❌ Rejected |
+| **Memgraph** | EU-based (Slovenia), in-memory performance, Cypher support, Apache 2.0 | Smaller community than Neo4j | ✅ Selected |
+| **Neo4j** | Mature, large community, enterprise support | US-based (Cloud Act risk), licensing cost at scale | ❌ Rejected |
+| **Amazon Neptune** | Managed, AWS integration | US Cloud Act exposure, less mature graph features | ❌ Rejected |
+| **JanusGraph** | Open source, scalable | Complex operations, no commercial support | ❌ Rejected |
 
 ---
 
 ## Consequences
 
 ### Positive
-- Native Cypher query language
-- Graph Data Science Library for analytics
-- Enterprise support available
+- **EU Data Sovereignty:** All data remains in EU jurisdiction (Slovenia)
+- **No US Cloud Act Exposure:** Critical for grant eligibility and GDPR compliance
+- **In-Memory Performance:** Real-time compliance queries (<500ms latency)
+- **Cypher Query Language:** Industry standard, easy hiring
+- **Apache 2.0 License:** Commercial-friendly, no vendor lock-in
 
 ### Negative
-- Licensing cost at scale
-- Vendor lock-in
+- **Smaller Community:** Less documentation than Neo4j
+- **Mitigation:** Active participation in Memgraph community, internal documentation
 
 ---
 
