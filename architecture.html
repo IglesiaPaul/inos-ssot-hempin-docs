@@ -384,6 +384,76 @@ flowchart LR
         </div>
     </section>
 
+    <!-- NEW: Architecture Decision Records Section -->
+<section id="decisions" class="features" style="background: var(--light);">
+    <div class="container">
+        <h2>Architecture Decision Records</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
+            Key technical choices and their justifications. Each decision was evaluated against alternatives with clear criteria.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card purple">
+                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">📊</div>
+                <div style="display: inline-block; background: var(--ssot-purple); color: var(--white); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">ADR-001</div>
+                <h3>Graph Database (Memgraph)</h3>
+                <p><strong>Decision:</strong> Use Memgraph over Neo4j or TigerGraph</p>
+                <p><strong>Rationale:</strong> EU-based (Slovenia), in-memory performance for real-time compliance queries, supports Cypher query language, Apache 2.0 license</p>
+                <p><strong>Alternatives Considered:</strong> Neo4j (US-based), TigerGraph (US-based), JanusGraph (complex deployment)</p>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/decisions/ADR-001-graph-database.md" style="color: var(--inos-blue); font-weight: 500; display: inline-block; margin-top: 16px;">Read Full ADR →</a>
+            </div>
+            
+            <div class="feature-card blue">
+                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🛡️</div>
+                <div style="display: inline-block; background: var(--inos-blue); color: var(--white); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">ADR-002</div>
+                <h3>Sovereign EU Stack</h3>
+                <p><strong>Decision:</strong> 100% EU infrastructure (OVHcloud, Mistral AI, Memgraph)</p>
+                <p><strong>Rationale:</strong> Data sovereignty, GDPR compliance, no US Cloud Act exposure, strategic autonomy for critical infrastructure</p>
+                <p><strong>Alternatives Considered:</strong> AWS/Azure (US Cloud Act risk), OpenAI API (data leaves EU), US-based graph databases</p>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/decisions/ADR-002-sovereign-stack.md" style="color: var(--inos-blue); font-weight: 500; display: inline-block; margin-top: 16px;">Read Full ADR →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEW: Technical Breakthroughs Section -->
+<section id="breakthroughs" class="features" style="background: var(--white);">
+    <div class="container">
+        <h2>Technical Breakthroughs Explained</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
+            Moving from "trust but verify" to "verify by design"
+        </p>
+        
+        <div class="feature-card green" style="margin-bottom: 30px;">
+            <h3>Breakthrough 1: Natural-Language-to-Graph (NL2G) Pipeline</h3>
+            <p><strong>Current State:</strong> Manual form filling, weeks of verification, high friction for farmers</p>
+            <p><strong>INOS Innovation:</strong> BUD Agent uses fine-tuned Mistral 7B to convert farmer conversations into verified graph nodes with confidence scoring (&gt;0.85 threshold)</p>
+            <p><strong>Novelty:</strong> Human-in-the-loop validation for low-confidence extractions. Reduces onboarding from weeks to minutes.</p>
+            <p><strong>TRL Advancement:</strong> From chatbot (TRL 6) to verified data ingestion pipeline (TRL 4)</p>
+        </div>
+        
+        <div class="feature-card blue" style="margin-bottom: 30px;">
+            <h3>Breakthrough 2: Regulatory Ontology as Graph Constraints</h3>
+            <p><strong>Current State:</strong> Regulatory compliance via static PDFs, post-transaction auditing</p>
+            <p><strong>INOS Innovation:</strong> 57 jurisdictions encoded as graph schema constraints (Cypher queries). Transactions that violate compliance rules cannot be recorded.</p>
+            <p><strong>Novelty:</strong> Active prevention vs. passive detection. Graph enforces compliance inherently.</p>
+            <p><strong>TRL Advancement:</strong> From document management (TRL 5) to executable compliance logic (TRL 3-4)</p>
+        </div>
+        
+        <div class="feature-card purple" style="margin-bottom: 30px;">
+            <h3>Breakthrough 3: Sovereign AI Stack</h3>
+            <p><strong>Current State:</strong> AI tools rely on US clouds (AWS, Azure) and APIs (OpenAI)</p>
+            <p><strong>INOS Innovation:</strong> Full EU stack: OVHcloud (France), Memgraph (Slovenia), Mistral AI (France). All data stays in EU jurisdiction.</p>
+            <p><strong>Novelty:</strong> Proof that sovereign EU stack can handle real-time AI inference without US dependency</p>
+            <p><strong>TRL Advancement:</strong> From theoretical feasibility (TRL 2) to validated performance (TRL 4)</p>
+        </div>
+        
+        <p style="text-align: center; margin-top: 30px;">
+            <a href="technology.html" style="color: var(--inos-blue); font-weight: 500;">View Full Technology Stack →</a>
+        </p>
+    </div>
+</section>
+
     <section class="cta-section">
         <div class="container">
             <h2>Want to Contribute to the Architecture?</h2>
