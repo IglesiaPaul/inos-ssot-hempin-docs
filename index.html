@@ -28,28 +28,36 @@
           flowchart: { 
             useMaxWidth: true, 
             htmlLabels: true,
-            nodeSpacing: 50,
-            rankSpacing: 70,
-            curve: 'basis',
-            padding: 20,
-            diagramPadding: 32
-          },
-          gantt: { 
-            useMaxWidth: true,
-            barHeight: 30,
-            topPadding: 20
+            nodeSpacing: 40,
+            rankSpacing: 50
           }
         });
+        
+        // Add click handlers to Mermaid nodes
+        setTimeout(function() {
+          document.querySelectorAll('.mermaid .node').forEach(node => {
+            node.style.cursor = 'pointer';
+            node.addEventListener('click', function() {
+              const text = this.querySelector('text').textContent;
+              if (text.includes('SSOT')) window.location.href = 'architecture.html#ssot';
+              if (text.includes('INOS')) window.location.href = 'architecture.html#inos';
+              if (text.includes('HEMPIN')) window.location.href = 'hempin.html';
+              if (text.includes('BUD')) window.location.href = 'hempin.html#bud';
+              if (text.includes('Fund')) window.location.href = 'hempin.html#fund';
+              if (text.includes('Solarpunk')) window.location.href = 'why-nada.html';
+            });
+          });
+        }, 2000);
       });
     </script>
     <style>
-        /* NADA Soul: Creative Visuals */
+        /* NADA Soul: Vision-First Design */
         
-        /* Animated hero ripple (subtle, not distracting) */
+        /* Animated hero ripple */
         .hero {
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 50%, var(--hempin-green) 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 120px 0;
+            padding: 140px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -62,8 +70,8 @@
             left: 50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
-            animation: ripple 12s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+            animation: ripple 15s ease-in-out infinite;
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 0;
@@ -71,7 +79,7 @@
         
         @keyframes ripple {
             0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.1; }
             100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
         }
         
@@ -81,27 +89,28 @@
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             margin-bottom: 20px;
-            line-height: 1.1;
+            line-height: 1;
             color: var(--white);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            letter-spacing: -0.02em;
-        }
-        
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            max-width: 700px;
-            margin: 0 auto 32px;
-            opacity: 0.95;
-            color: var(--white);
-            font-weight: 300;
-            line-height: 1.5;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.03em;
+            font-weight: 900;
         }
         
         .hero .tagline {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            max-width: 600px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.3;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
             margin: 0 auto 48px;
             opacity: 0.9;
             color: var(--white);
@@ -110,504 +119,812 @@
         
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
         
         .hero-button {
             background: var(--white);
-            color: var(--inos-blue);
-            padding: 14px 32px;
+            color: #3B82F6;
+            padding: 16px 40px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
         }
         
         .hero-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-            color: var(--ssot-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.3);
         }
         
         .hero-button.secondary {
             background: transparent;
-            border: 2px solid var(--white);
+            border: 3px solid var(--white);
             color: var(--white);
         }
         
         .hero-button.secondary:hover {
             background: var(--white);
-            color: var(--inos-blue);
+            color: #8B5CF6;
         }
         
-        /* Sacred Geometry Section Dividers */
-        .section-divider {
-            height: 40px;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-            background: transparent;
+        /* Vision Section - Before/After Comparison */
+        .vision-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(236,72,153,0.05) 0%, rgba(139,92,246,0.05) 100%);
         }
         
-        .wave-svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        
-        .wave-path {
-            fill: url(#waveGradient);
-            animation: waveFlow 20s ease-in-out infinite;
-        }
-        
-        @keyframes waveFlow {
-            0%, 100% { d: path("M0,20 Q300,0 600,20 T1200,20 L1200,40 L0,40 Z"); }
-            50% { d: path("M0,20 Q300,40 600,20 T1200,20 L1200,40 L0,40 Z"); }
-        }
-        
-        /* Ripple Architecture Section */
-        .ripple-section {
-            padding: 80px 0;
-            background: var(--white);
-            position: relative;
-        }
-        
-        .ripple-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 100%;
-            background: 
-                radial-gradient(ellipse at top, rgba(124,58,237,0.02) 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, rgba(59,130,246,0.02) 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0.5;
-        }
-        
-        .ripple-section .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .ripple-section h2 {
+        .vision-section h2 {
             text-align: center;
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 16px;
             color: var(--dark);
+            font-weight: 800;
         }
         
-        .ripple-section .intro {
+        .vision-section .intro {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 800px;
+            margin: 0 auto 60px;
             color: var(--gray);
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.2rem;
         }
         
-        /* FIXED: Diagram Container - Aggressive Overflow Handling */
-        .diagram-container {
-            max-width: 100% !important;
-            margin: 0 auto 40px;
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .comparison-column {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 40px 32px;
+            padding: 40px;
             box-shadow: var(--shadow);
-            text-align: center;
-            overflow: visible !important;
-            border: 1px solid var(--gray-light);
-            min-height: 650px; /* Increased for desktop */
-            width: 100%;
         }
         
-        .mermaid {
-            display: block !important;
-            width: 100% !important;
-            min-width: 100% !important;
-            margin: 0 auto;
-            overflow: visible !important;
+        .comparison-column.before {
+            border-top: 6px solid #EF4444;
         }
         
-        /* FIXED: Force Mermaid SVG to render fully */
-        .mermaid svg {
-            overflow: visible !important;
-            max-height: none !important;
-            width: 100% !important;
-            height: auto !important;
-            clip: auto !important;
-            clip-path: none !important;
+        .comparison-column.after {
+            border-top: 6px solid #10B981;
         }
         
-        .mermaid > g {
-            overflow: visible !important;
-        }
-        
-        .diagram-note {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 12px;
-            font-style: italic;
-        }
-        
-        /* Enhanced Mermaid node styling for clickability */
-        .mermaid .node rect {
-            cursor: pointer;
-            transition: all 0.2s ease;
-            rx: 8 !important;
-            ry: 8 !important;
-        }
-        
-        .mermaid .node rect:hover {
-            stroke-width: 3px !important;
-            stroke: var(--inos-blue) !important;
-            filter: drop-shadow(0 4px 12px rgba(59,130,246,0.2));
-            transform: scale(1.02);
-        }
-        
-        /* Why Hemp First Section */
-        .why-hemp {
-            padding: 80px 0;
-            background: var(--light);
-            position: relative;
-        }
-        
-        .why-hemp::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(16,185,129,0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(59,130,246,0.03) 0%, transparent 50%);
-            pointer-events: none;
-            opacity: 0.5;
-        }
-        
-        .why-hemp .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .why-hemp h2 {
-            text-align: center;
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
+        .comparison-column h3 {
+            font-size: 1.6rem;
             margin-bottom: 32px;
-            color: var(--dark);
-        }
-        
-        .why-hemp .single-stat {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 32px;
-        }
-        
-        .why-hemp .stat-number {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 700;
-            color: var(--hempin-green);
-            line-height: 1;
-            margin-bottom: 12px;
-            display: block;
-        }
-        
-        .why-hemp .stat-label {
-            font-size: 1.1rem;
-            color: var(--gray);
-            display: block;
-            margin-bottom: 24px;
-        }
-        
-        .why-hemp .explanation {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 32px;
-            color: var(--gray);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        .why-hemp .connection {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 24px;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(8px);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(59,130,246,0.2);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-        
-        .why-hemp .connection a {
-            display: inline-block;
-            margin-top: 16px;
-            color: var(--inos-blue);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .why-hemp .connection a:hover {
-            text-decoration: underline;
-            color: var(--inos-blue-hover);
-        }
-        
-        /* Proof Points Section */
-        .proof-section {
-            padding: 80px 0;
-            background: var(--white);
-            position: relative;
-        }
-        
-        .proof-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 100%;
-            background: 
-                radial-gradient(ellipse at top, rgba(124,58,237,0.02) 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0.3;
-        }
-        
-        .proof-section .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .proof-section h2 {
-            text-align: center;
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-        
-        .proof-section .intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: var(--gray);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        .proof-list {
-            max-width: 700px;
-            margin: 0 auto;
-            list-style: none;
-            padding: 0;
-        }
-        
-        .proof-list li {
             display: flex;
-            align-items: flex-start;
-            gap: 16px;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .comparison-column.before h3 {
+            color: #EF4444;
+        }
+        
+        .comparison-column.after h3 {
+            color: #10B981;
+        }
+        
+        .comparison-column ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .comparison-column li {
             padding: 16px 0;
             border-bottom: 1px solid var(--gray-light);
             font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
         
-        .proof-list li:last-child {
+        .comparison-column li:last-child {
             border-bottom: none;
         }
         
-        .proof-list .icon {
+        .comparison-column .icon {
             font-size: 1.5rem;
-            margin-top: 4px;
             flex-shrink: 0;
         }
         
-        .proof-list strong {
-            color: var(--dark);
-            font-weight: 600;
+        .comparison-column.before .icon {
+            color: #EF4444;
         }
         
-        .proof-list a {
-            color: var(--inos-blue);
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 8px;
+        .comparison-column.after .icon {
+            color: #10B981;
         }
         
-        .proof-list a:hover {
-            text-decoration: underline;
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 60px auto 0;
         }
         
-        /* Final CTA Section */
-        .final-cta {
-            padding: 100px 0;
-            background: linear-gradient(135deg, rgba(124,58,237,0.05) 0%, rgba(59,130,246,0.05) 50%, rgba(16,185,129,0.05) 100%);
+        .stat-box {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
             text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-box .number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .stat-box .label {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(31,41,55,0.95) 0%, rgba(71,85,105,0.95) 100%);
+            color: var(--white);
             position: relative;
             overflow: hidden;
         }
         
-        .final-cta::before {
+        .problem-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(124,58,237,0.02) 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(16,185,129,0.02) 0%, transparent 30%);
-            animation: particleDrift 40s linear infinite;
-            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
         }
         
-        @keyframes particleDrift {
-            0% { background-position: 0 0, 0 0; }
-            100% { background-position: 100px 100px, -100px -100px; }
-        }
-        
-        .final-cta .container {
+        .problem-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--white);
+            font-weight: 800;
             position: relative;
             z-index: 1;
         }
         
-        .final-cta h2 {
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
+        .problem-section .warning {
+            display: inline-block;
+            background: #EF4444;
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .problem-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .problem-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+        
+        .problem-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .problem-result {
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 32px;
+            background: rgba(239,68,68,0.2);
+            border-radius: var(--radius-lg);
+            border: 2px solid #EF4444;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .problem-result h4 {
+            color: #EF4444;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .problem-result p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .solution-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+        
+        .solution-section .sparkle {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .architecture-stack {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .stack-layer {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .stack-layer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+        }
+        
+        .stack-layer.nada {
+            border-color: #8B5CF6;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.1) 100%);
+        }
+        
+        .stack-layer.ssot {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
+        }
+        
+        .stack-layer.inos {
+            border-color: #10B981;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(16,185,129,0.1) 100%);
+        }
+        
+        .stack-layer.hempin {
+            border-color: #F59E0B;
+            background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0.1) 100%);
+        }
+        
+        .stack-layer .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .stack-layer h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .stack-layer p {
+            color: var(--gray);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stack-arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--gray-light);
+            margin: -8px 0;
+        }
+        
+        /* Breakthroughs Section */
+        .breakthroughs-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .breakthroughs-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+        
+        .breakthroughs-section .rocket {
+            display: inline-block;
+            background: linear-gradient(135deg, #F59E0B, #EC4899);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .breakthroughs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .breakthrough-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid #10B981;
+            transition: all 0.3s ease;
+        }
+        
+        .breakthrough-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .breakthrough-card .number {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            color: var(--white);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 48px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .breakthrough-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
         
-        .final-cta p {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            color: var(--gray);
-            font-size: 1.15rem;
-            line-height: 1.7;
+        .breakthrough-card .comparison {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--radius);
         }
         
-        .final-cta .cta-buttons {
+        .breakthrough-card .comparison-row {
             display: flex;
-            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .breakthrough-card .comparison-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .breakthrough-card .current {
+            color: var(--gray);
+        }
+        
+        .breakthrough-card .nada-solution {
+            color: #10B981;
+            font-weight: 600;
+        }
+        
+        .breakthrough-card .improvement {
+            color: #8B5CF6;
+            font-weight: 700;
+        }
+        
+        /* Pathway Section */
+        .pathway-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .pathway-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+        
+        .pathway-section .map {
+            display: inline-block;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 60px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, #8B5CF6, #3B82F6, #10B981, #F59E0B);
+            z-index: 0;
+        }
+        
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-node {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-node:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .timeline-node.phase-1 { border-color: #8B5CF6; }
+        .timeline-node.phase-2 { border-color: #3B82F6; }
+        .timeline-node.phase-3 { border-color: #10B981; }
+        .timeline-node.phase-4 { border-color: #F59E0B; }
+        
+        .timeline-node .year {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-node.phase-1 .year { color: #8B5CF6; }
+        .timeline-node.phase-2 .year { color: #3B82F6; }
+        .timeline-node.phase-3 .year { color: #10B981; }
+        .timeline-node.phase-4 .year { color: #F59E0B; }
+        
+        .timeline-node .phase-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+        
+        .timeline-node ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: left;
+        }
+        
+        .timeline-node li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .timeline-node li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* Hemp Section */
+        .hemp-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(59,130,246,0.05) 100%);
+        }
+        
+        .hemp-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+        
+        .hemp-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .hemp-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .hemp-stat {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .hemp-stat .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #10B981;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .hemp-stat .label {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .hemp-explanation h3 {
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .hemp-explanation ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .hemp-explanation li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: var(--gray);
+        }
+        
+        .hemp-explanation li:last-child {
+            border-bottom: none;
+        }
+        
+        .hemp-explanation .check {
+            color: #10B981;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        /* Traction Section */
+        .traction-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .traction-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+        
+        .traction-section .proof {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .traction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .traction-card {
+            background: var(--light);
+            padding: 40px 32px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border-top: 5px solid #10B981;
+            transition: all 0.3s ease;
+        }
+        
+        .traction-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .traction-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .traction-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .traction-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* CTA Section */
+        .cta-final {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .cta-final .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-final h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+        }
+        
+        .cta-final p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 48px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .cta-final .cta-buttons {
+            display: flex;
+            gap: 24px;
             justify-content: center;
             flex-wrap: wrap;
         }
         
-        .final-cta .cta-button {
-            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
-            color: var(--white);
-            padding: 16px 40px;
+        .cta-final .cta-button {
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.15rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
         
-        .final-cta .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(16,185,129,0.5);
-            background: linear-gradient(135deg, var(--inos-blue), var(--ssot-purple));
-            color: var(--white);
-        }
-        
-        .final-cta .cta-button.secondary {
-            background: transparent;
-            border: 2px solid var(--inos-blue);
-            color: var(--inos-blue);
-        }
-        
-        .final-cta .cta-button.secondary:hover {
-            background: var(--inos-blue);
-            color: var(--white);
-        }
-        
-        /* Typography: Resonant Emphasis */
-        .resonant {
-            position: relative;
-            display: inline-block;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        .resonant::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--ssot-purple), transparent);
-            border-radius: 2px;
-            animation: underlineGlow 4s ease-in-out infinite;
-            opacity: 0.6;
-        }
-        
-        @keyframes underlineGlow {
-            0%, 100% { opacity: 0.3; transform: scaleX(0.9); }
-            50% { opacity: 0.8; transform: scaleX(1); }
-        }
-        
-        /* Glassmorphism Cards */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-        
-        .glass-card:hover {
+        .cta-final .cta-button:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 0 0 1px rgba(124,58,237,0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
         }
         
-        /* Desktop-specific diagram fix */
-        @media (min-width: 769px) {
-            .diagram-container {
-                min-height: 700px;
-                padding: 48px 40px;
-            }
+        .cta-final .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--white);
+            color: var(--white);
         }
         
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .hero { padding: 90px 0; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .hero-button { width: 100%; max-width: 300px; }
-            
-            .section-divider { height: 30px; }
-            
-            .proof-list li {
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
+        .cta-final .cta-button.secondary:hover {
+            background: var(--white);
+            color: #8B5CF6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .comparison-grid,
+            .hemp-content {
+                grid-template-columns: 1fr;
             }
             
-            .proof-list .icon {
-                margin: 0 auto;
+            .timeline-line {
+                display: none;
             }
             
-            .final-cta .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .hero {
+                padding: 100px 0;
             }
             
-            .final-cta .cta-button {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .mermaid {
-                min-width: 100% !important;
-                font-size: 12px;
+            .vision-section,
+            .problem-section,
+            .solution-section,
+            .breakthroughs-section,
+            .pathway-section,
+            .hemp-section,
+            .traction-section,
+            .cta-final {
+                padding: 80px 0;
             }
         }
         
-        /* Reduced Motion Support */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -615,178 +932,347 @@
 <body>
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
-    <!-- Hero Section: The First Ripple -->
+    <!-- Hero Section: The Vision -->
     <section class="hero">
         <div class="container hero-content">
             <h1>NADA</h1>
-            <p class="subtitle">Before systems, there is signal. Before structure, there is resonance.</p>
-            <p class="tagline">Verified truth infrastructure for planetary regeneration</p>
+            <p class="tagline">From the first ripple to Solarpunk 2045</p>
+            <p class="subtitle">Verified truth infrastructure for planetary regeneration. Starting with hemp. Scaling to all supply chains.</p>
             <div class="hero-buttons">
-                <a href="#architecture" class="hero-button">Explore the Architecture</a>
-                <a href="involved.html" class="hero-button secondary">Join the Mission</a>
+                <a href="#solution" class="hero-button">Explore the Solution</a>
+                <a href="why-nada.html" class="hero-button secondary">See the Vision →</a>
             </div>
         </div>
     </section>
 
-    <!-- Sacred Geometry Wave Divider -->
-    <div class="section-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,20 Q300,0 600,20 T1200,20 L1200,40 L0,40 Z"/>
-        </svg>
-    </div>
-
-    <!-- The Ripple Architecture: Visual Hub -->
-    <section id="architecture" class="ripple-section">
+    <!-- Solarpunk Vision: The Destination -->
+    <section class="vision-section">
         <div class="container">
-            <h2>The Ripple Architecture</h2>
-            <p class="intro">Just as the first sound creates the universe, verified truth creates regenerative economies. Click any node to explore deeper.</p>
+            <h2>🌍 Solarpunk 2045: The World We're Building</h2>
+            <p class="intro">A future where every supply chain regenerates instead of extracts</p>
             
-            <div class="diagram-container">
-                <div class="mermaid">
-flowchart TD
-    NADA["🌌 NADA<br/><i>Primordial Vibration</i>"]:::nada
-    CORE["🌐 SSOT + ⚙️ INOS<br/>Core Architecture"]:::core
-    HEMPIN["🌱 HEMPIN<br/>Industry #1"]:::hempin
-    TOOLS["🤖 BUD AI + 💧 Fund<br/>Tools & Mission"]:::tools
-    VISION["🌍 Solarpunk 2045<br/>Planetary Regeneration"]:::vision
-    
-    NADA --> CORE
-    CORE --> HEMPIN
-    HEMPIN --> TOOLS
-    TOOLS --> VISION
-    
-    click CORE "architecture.html" "View Core Architecture"
-    click HEMPIN "hempin.html" "Explore HEMPIN Deployment"
-    click TOOLS "hempin.html#bud" "View BUD AI & Regeneration Fund"
-    click VISION "why-nada.html" "Read Solarpunk Philosophy"
-    
-    classDef nada fill:#7C3AED,stroke:#6D28D9,stroke-width:3px,color:white,rx:12,ry:12;
-    classDef core fill:#3B82F6,stroke:#2563EB,stroke-width:2px,color:white,rx:10,ry:10;
-    classDef hempin fill:#10B981,stroke:#059669,stroke-width:2px,color:white,rx:10,ry:10;
-    classDef tools fill:#F59E0B,stroke:#D97706,stroke-width:2px,color:white,rx:10,ry:10;
-    classDef vision fill:#EC4899,stroke:#DB2777,stroke-width:2px,color:white,rx:10,ry:10;
-    
-    class NADA nada;
-    class CORE core;
-    class HEMPIN hempin;
-    class TOOLS tools;
-    class VISION vision;
+            <div class="comparison-grid">
+                <div class="comparison-column before">
+                    <h3>❌ Current State</h3>
+                    <ul>
+                        <li><span class="icon">🌑</span>Opaque supply chains with no verification</li>
+                        <li><span class="icon">💰</span>100% profit extraction, 0% to environment</li>
+                        <li><span class="icon">📄</span>Reactive compliance audits months later</li>
+                        <li><span class="icon">🌍</span>Environmental degradation unchecked</li>
+                        <li><span class="icon">📊</span>Trust but verify — fraud costs billions</li>
+                    </ul>
                 </div>
-                <p class="diagram-note">Interactive: Click nodes to explore deeper</p>
+                
+                <div class="comparison-column after">
+                    <h3>✅ Solarpunk 2045</h3>
+                    <ul>
+                        <li><span class="icon">🔍</span>Verified provenance for all products</li>
+                        <li><span class="icon">🌱</span>30% of every transaction funds cleanup</li>
+                        <li><span class="icon">✅</span>Proactive validation before transactions</li>
+                        <li><span class="icon">🌳</span>Ecosystem restoration automatically funded</li>
+                        <li><span class="icon">🔐</span>Verify by design — trust embedded</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span class="number">All Major</span>
+                    <span class="label">Supply Chains Verified</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">€1B+</span>
+                    <span class="label">Annually to Regeneration</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">Net-Negative</span>
+                    <span class="label">Global Carbon Economy</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sacred Geometry Wave Divider (Reversed) -->
-    <div class="section-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,20 Q300,40 600,20 T1200,20 L1200,0 L0,0 Z"/>
-        </svg>
-    </div>
-
-    <!-- Why Hemp First: One Clear Answer -->
-    <section class="why-hemp">
+    <!-- The Problem: Why This Matters -->
+    <section class="problem-section">
         <div class="container">
-            <h2>Why Hemp First?</h2>
+            <h2>⚠️ The Problem: Broken Supply Chains</h2>
+            <span class="warning">Why Change Is Urgent</span>
             
-            <div class="single-stat">
-                <span class="stat-number">57+</span>
-                <span class="stat-label">jurisdictions to encode</span>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon">📄</div>
+                    <h3>Regulatory Chaos</h3>
+                    <p>Global jurisdictions with conflicting rules. Farmers drown in paperwork. Processors can't keep up with compliance requirements.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="icon">💸</div>
+                    <h3>Extractive Economics</h3>
+                    <p>100% of profits to shareholders. 0% to environmental cleanup. Externalized costs create planetary crisis.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="icon">🔍</div>
+                    <h3>Opacity & Mistrust</h3>
+                    <p>Consumers can't verify claims. Regulators audit months later. Fraud costs billions annually across supply chains.</p>
+                </div>
             </div>
             
-            <p class="explanation">
-                Hemp is the perfect testbed: high regulatory fragmentation, strong sustainability mandate, fragmented SME landscape, and global growth. 
-                <span class="resonant">Once proven in hemp, NADA scales to all industries requiring verified trust.</span>
-            </p>
-            
-            <div class="connection glass-card">
-                <strong>Learn more about HEMPIN:</strong> Our industry-specific deployment layer with BUD AI onboarding, compliance engine, and pilot validation.
-                <br>
-                <a href="hempin.html">Explore HEMPIN Details →</a>
+            <div class="problem-result">
+                <h4>Result:</h4>
+                <p>Farmers struggle to sell legally • Ecosystems degrade unchecked • Trust erodes across entire supply chains</p>
             </div>
         </div>
     </section>
 
-    <!-- Sacred Geometry Wave Divider -->
-    <div class="section-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,20 Q300,0 600,20 T1200,20 L1200,40 L0,40 Z"/>
-        </svg>
-    </div>
-
-    <!-- Proof Points: Credibility in 3 Bullets -->
-    <section class="proof-section">
+    <!-- The Solution: NADA Architecture -->
+    <section id="solution" class="solution-section">
         <div class="container">
-            <h2>Early Traction</h2>
-            <p class="intro">Building verified truth infrastructure requires trusted partners. Here's our progress.</p>
+            <h2>✨ The Solution: Verified Truth Infrastructure</h2>
+            <span class="sparkle">From Philosophy to Practice</span>
             
-            <ul class="proof-list">
-                <li>
-                    <span class="icon">🇹🇭</span>
-                    <span><strong>Thailand Pilot:</strong> Letter of Intent with <span class="resonant">TiHTA</span> for 2026-2027 deployment</span>
-                </li>
-                <li>
-                    <span class="icon">🛡️</span>
-                    <span><strong>Sovereign Stack:</strong> 100% EU infrastructure (OVHcloud, Memgraph, Mistral) — <span class="resonant">no US dependency</span></span>
-                </li>
-                <li>
-                    <span class="icon">📝</span>
-                    <span><strong>Grant-Ready:</strong> EIC Pathfinder application in progress (€4M target) — <a href="strategy.html">View Strategy</a></span>
-                </li>
-            </ul>
-            
-            <p style="text-align: center; margin-top: 32px;">
-                <a href="team.html" style="color: var(--inos-blue); font-weight: 600; text-decoration: none;">Meet the Team & Partners →</a>
-            </p>
+            <div class="architecture-stack">
+                <div class="stack-layer nada">
+                    <div class="icon">🌌</div>
+                    <h3>NADA</h3>
+                    <p>"Before structure, resonance" — The philosophical foundation</p>
+                </div>
+                
+                <div class="stack-arrow">↓</div>
+                
+                <div class="stack-layer ssot">
+                    <div class="icon">🌐</div>
+                    <h3>SSOT (Knowledge Graph)</h3>
+                    <p>Living knowledge of all entities, relationships, and regulations</p>
+                </div>
+                
+                <div class="stack-arrow">↓</div>
+                
+                <div class="stack-layer inos">
+                    <div class="icon">⚙️</div>
+                    <h3>INOS (Operating System)</h3>
+                    <p>Sovereign EU stack with event-sourced core</p>
+                </div>
+                
+                <div class="stack-arrow">↓</div>
+                
+                <div class="stack-layer hempin">
+                    <div class="icon">🌱</div>
+                    <h3>HEMPIN (Industry Deployment)</h3>
+                    <p>BUD AI onboarding + Compliance engine + Regeneration Fund</p>
+                </div>
+                
+                <div class="stack-arrow">↓</div>
+                
+                <div style="text-align: center; padding: 24px; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(236,72,153,0.1) 100%); border-radius: var(--radius-lg); border: 3px solid #F59E0B;">
+                    <div class="icon">💧</div>
+                    <h3 style="margin: 8px 0;">Regeneration Fund</h3>
+                    <p style="margin: 0;">30% to environmental cleanup</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Sacred Geometry Wave Divider (Reversed) -->
-    <div class="section-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,20 Q300,40 600,20 T1200,20 L1200,0 L0,0 Z"/>
-        </svg>
-    </div>
-
-    <!-- Final CTA: Join the Ripple -->
-    <section class="final-cta">
+    <!-- Key Breakthroughs -->
+    <section class="breakthroughs-section">
         <div class="container">
-            <h2>Join the Ripple</h2>
-            <p>
-                Verified truth infrastructure for planetary regeneration.<br>
-                Starting with hemp. Scaling to <span class="resonant">Solarpunk 2045</span>.
-            </p>
+            <h2>🚀 Three Breakthrough Innovations</h2>
+            <span class="rocket">What Makes This Different</span>
+            
+            <div class="breakthroughs-grid">
+                <div class="breakthrough-card">
+                    <div class="number">1</div>
+                    <h3>Natural Language → Graph</h3>
+                    <p>Farmers chat with AI → verified data in minutes, not weeks</p>
+                    
+                    <div class="comparison">
+                        <div class="comparison-row">
+                            <span class="current">Current: 2-4 weeks paperwork</span>
+                            <span class="improvement">10x faster</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="nada-solution">NADA: 5-15 minutes conversation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="breakthrough-card">
+                    <div class="number">2</div>
+                    <h3>Executable Compliance</h3>
+                    <p>Regulations as code, not PDFs. Blocked before recorded.</p>
+                    
+                    <div class="comparison">
+                        <div class="comparison-row">
+                            <span class="current">Current: 15-20% failure rate</span>
+                            <span class="improvement">0% failure</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="nada-solution">NADA: Prevention vs. detection</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="breakthrough-card">
+                    <div class="number">3</div>
+                    <h3>Regenerative Economics</h3>
+                    <p>30% of every transaction funds environmental cleanup</p>
+                    
+                    <div class="comparison">
+                        <div class="comparison-row">
+                            <span class="current">Current: 0% to environment</span>
+                            <span class="improvement">30% automatic</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="nada-solution">NADA: Extraction → Regeneration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Pathway: How We Get There -->
+    <section class="pathway-section">
+        <div class="container">
+            <h2>🗺️ The Pathway: From Hemp to Planetary Scale</h2>
+            <span class="map">Our Roadmap to 2045</span>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-grid">
+                    <div class="timeline-node phase-1">
+                        <div class="year">2026</div>
+                        <div class="phase-name">Bootstrap Phase</div>
+                        <ul>
+                            <li>Documentation complete</li>
+                            <li>Thailand partnership (TiHTA)</li>
+                            <li>EIC Pathfinder application</li>
+                            <li>Advisor board formation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-node phase-2">
+                        <div class="year">2030</div>
+                        <div class="phase-name">Hemp Deployment</div>
+                        <ul>
+                            <li>HEMPIN live in 5 countries</li>
+                            <li>10,000+ verified entities</li>
+                            <li>€1M+ Regeneration Fund</li>
+                            <li>100+ jurisdictions encoded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-node phase-3">
+                        <div class="year">2035</div>
+                        <div class="phase-name">Multi-Industry</div>
+                        <ul>
+                            <li>Agriculture, textiles, minerals</li>
+                            <li>100,000+ verified entities</li>
+                            <li>€100M+ Regeneration Fund</li>
+                            <li>Open protocol launched</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-node phase-4">
+                        <div class="year">2045</div>
+                        <div class="phase-name">Planetary Infrastructure</div>
+                        <ul>
+                            <li>All major industries verified</li>
+                            <li>10M+ verified entities</li>
+                            <li>€1B+ Regeneration Fund</li>
+                            <li>Net-negative global economy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Starting with Hemp -->
+    <section class="hemp-section">
+        <div class="container">
+            <h2>🌱 Industry #1: HEMPIN Deployment</h2>
+            
+            <div class="hemp-content">
+                <div class="hemp-stats">
+                    <div class="hemp-stat">
+                        <span class="number">$17B</span>
+                        <span class="label">Global Hemp Market</span>
+                    </div>
+                    <div class="hemp-stat">
+                        <span class="number">25%</span>
+                        <span class="label">Annual Growth Rate</span>
+                    </div>
+                    <div class="hemp-stat">
+                        <span class="number">57+</span>
+                        <span class="label">Jurisdictions to Encode</span>
+                    </div>
+                    <div class="hemp-stat">
+                        <span class="number">100%</span>
+                        <span class="label">SME-Focused</span>
+                    </div>
+                </div>
+                
+                <div class="hemp-explanation">
+                    <h3>Why Hemp First?</h3>
+                    <ul>
+                        <li><span class="check">✓</span>High regulatory fragmentation (different rules everywhere)</li>
+                        <li><span class="check">✓</span>Strong sustainability mandate (carbon-negative crop)</li>
+                        <li><span class="check">✓</span>Fragmented SME landscape (needs low-friction tools)</li>
+                        <li><span class="check">✓</span>Global growth trajectory (proven market demand)</li>
+                    </ul>
+                    <p style="margin-top: 24px; font-size: 1.1rem; color: var(--gray);">
+                        <strong>Once proven in hemp</strong> → generalizes to organic agriculture, textiles, critical minerals, and all verified supply chains.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress & Traction -->
+    <section class="traction-section">
+        <div class="container">
+            <h2>✅ Progress & Traction</h2>
+            <span class="proof">Building Credibility</span>
+            
+            <div class="traction-grid">
+                <div class="traction-card">
+                    <div class="icon">🇹🇭</div>
+                    <h3>Thailand Pilot</h3>
+                    <p>Letter of Intent secured with TiHTA (Thai Industrial Hemp Trade Association) for 2026-2027 deployment. 50+ farmers, 10+ processors targeted.</p>
+                </div>
+                
+                <div class="traction-card">
+                    <div class="icon">🎓</div>
+                    <h3>Consortium Building</h3>
+                    <p>Active discussions with Nova-Institut (DE), EIHA (EU), InterChanvre (FR), and University of Iași (RO) for EIC Pathfinder consortium.</p>
+                </div>
+                
+                <div class="traction-card">
+                    <div class="icon">🧠</div>
+                    <h3>Advisor Network</h3>
+                    <p>Building advisory board with hemp industry leaders including legal and technical experts.</p>
+                </div>
+                
+                <div class="traction-card">
+                    <div class="icon">📝</div>
+                    <h3>Grant Application</h3>
+                    <p>EIC Pathfinder Open 2026 application in progress (€4M target, 48-month duration). Deadline: May 12, 2026.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>🌊 From the First Ripple to Planetary Regeneration</h2>
+            <p>"Before systems, there is signal. Before structure, there is resonance."</p>
+            <p style="font-size: 1.15rem; margin-bottom: 48px;">We're building verified truth infrastructure for a regenerative future. Starting with hemp. Scaling to Solarpunk 2045.</p>
             <div class="cta-buttons">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button">View Documentation</a>
-                <a href="involved.html" class="cta-button secondary">Get Involved</a>
+                <a href="architecture.html" class="cta-button">Explore the Architecture →</a>
+                <a href="involved.html" class="cta-button secondary">Join the Mission</a>
             </div>
         </div>
     </section>
