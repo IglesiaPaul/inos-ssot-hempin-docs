@@ -301,6 +301,166 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(16,185,129,0.3);
         }
+
+        /* Pilot Partner CTA Section */
+.pilot-cta-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(16,185,129,0.03) 0%, rgba(59,130,246,0.03) 100%);
+}
+
+.pilot-cta-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.pilot-cta-card .icon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+}
+
+.pilot-cta-card h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 16px;
+    color: var(--dark);
+    font-weight: 800;
+    font-family: 'Georgia', serif;
+}
+
+.pilot-cta-card .intro {
+    font-size: 1.15rem;
+    color: var(--gray);
+    margin-bottom: 40px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pilot-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.pilot-benefits .benefit {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.pilot-benefits .check {
+    color: var(--hempin-green);
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.pilot-benefits .benefit strong {
+    display: block;
+    color: var(--dark);
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.pilot-benefits .benefit p {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.pilot-requirements {
+    background: var(--light);
+    padding: 24px;
+    border-radius: var(--radius);
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.pilot-requirements h3 {
+    color: var(--dark);
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+}
+
+.pilot-requirements ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pilot-requirements li {
+    padding: 8px 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.pilot-requirements li:last-child {
+    border-bottom: none;
+}
+
+.pilot-requirements li strong {
+    color: var(--dark);
+}
+
+.pilot-email-cta {
+    text-align: center;
+}
+
+.pilot-email-cta .cta-text {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 24px;
+}
+
+.pilot-email-cta .email-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+    color: var(--white);
+    padding: 18px 48px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(16,185,129,0.3);
+}
+
+.pilot-email-cta .email-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(16,185,129,0.5);
+}
+
+.pilot-email-cta .email-note {
+    margin-top: 24px;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pilot-cta-section {
+        padding: 80px 0;
+    }
+    
+    .pilot-cta-card {
+        padding: 32px 24px;
+    }
+    
+    .pilot-benefits {
+        grid-template-columns: 1fr;
+    }
+}
         
         /* Why Join Us Section */
         .why-join {
@@ -1125,70 +1285,73 @@
         </div>
     </section>
 
-    <!-- Application Form Section -->
-    <section class="application-section">
-        <div class="container">
-            <div class="application-form">
-                <h3>📝 Express Your Interest</h3>
-                <form action="https://formspree.io/f/your-form-id" method="POST">
-                    <input type="hidden" name="_subject" value="NADA/HEMPIN Interest Form">
-                    
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name">
+    <!-- Become a Pilot Partner Section -->
+<section id="pilot-cta" class="pilot-cta-section">
+    <div class="container">
+        <div class="pilot-cta-card">
+            <div class="icon">🌍</div>
+            <h2>Become a Pilot Partner</h2>
+            <p class="intro">
+                Help bring verified truth infrastructure to your region. 
+                We're seeking country representatives, farmer cooperatives, and industry associations 
+                to deploy HEMPIN in new markets.
+            </p>
+            
+            <div class="pilot-benefits">
+                <div class="benefit">
+                    <span class="check">✅</span>
+                    <div>
+                        <strong>Early Access</strong>
+                        <p>Free tier access to HEMPIN platform for pilot participants</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="benefit">
+                    <span class="check">✅</span>
+                    <div>
+                        <strong>Influence Features</strong>
+                        <p>Shape development for your regulatory context</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="interest">I'm Interested In *</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Select your interest...</option>
-                            <option value="technical-cto">Technical Role: CTO</option>
-                            <option value="technical-ai">Technical Role: AI Engineer</option>
-                            <option value="technical-graph">Technical Role: Graph Specialist</option>
-                            <option value="technical-fullstack">Technical Role: Full-Stack</option>
-                            <option value="technical-devops">Technical Role: DevOps</option>
-                            <option value="pilot-partner">Pilot Partner / Country Representative</option>
-                            <option value="advisor">Strategic Advisor</option>
-                            <option value="investor">Mission-Aligned Investor</option>
-                            <option value="community">Community Contributor</option>
-                            <option value="other">Other (please specify)</option>
-                        </select>
+                </div>
+                <div class="benefit">
+                    <span class="check">✅</span>
+                    <div>
+                        <strong>Global Network</strong>
+                        <p>Connect with pilot partners worldwide</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="organization">Organization (if applicable)</label>
-                        <input type="text" id="organization" name="organization" placeholder="Your company, association, or institution">
+                </div>
+                <div class="benefit">
+                    <span class="check">✅</span>
+                    <div>
+                        <strong>Direct Impact</strong>
+                        <p>Every transaction funds environmental cleanup via Regeneration Fund</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="country">Country/Region</label>
-                        <input type="text" id="country" name="country" placeholder="Where are you based?">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Why This Mission Resonates With You *</label>
-                        <textarea id="message" name="message" required placeholder="Brief note on why verified truth infrastructure matters to you..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="links">Links (GitHub, LinkedIn, Portfolio, Website)</label>
-                        <input type="text" id="links" name="links" placeholder="https://github.com/yourname, https://linkedin.com/in/yourname">
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit">Send Message</button>
-                    </div>
-                    
-                    <p class="form-note">We respond within 5 business days. No formal cover letter required — we care more about your curiosity and alignment than perfect credentials.</p>
-                </form>
+                </div>
+            </div>
+            
+            <div class="pilot-requirements">
+                <h3>What We Ask</h3>
+                <ul>
+                    <li><strong>Commitment:</strong> 5-10 hours/month for pilot coordination</li>
+                    <li><strong>Network:</strong> Access to 10+ potential participants (farmers, processors, certifiers)</li>
+                    <li><strong>Feedback:</strong> Regular input on platform usability and regulatory fit</li>
+                    <li><strong>Advocacy:</strong> Share pilot results with your community</li>
+                </ul>
+            </div>
+            
+            <div class="pilot-email-cta">
+                <p class="cta-text">
+                    Ready to propose your region or learn more?
+                </p>
+                <a href="mailto:pilots@hempin.org?subject=Pilot Partner Interest&body=Hello NADA Team,%0D%0A%0D%0AI'm interested in becoming a pilot partner for NADA/HEMPIN.%0D%0A%0D%0AOrganization: %0D%0ACountry/Region: %0D%0AMy Role: %0D%0A%0D%0ABrief note on why I'm interested:%0D%0A%0D%0AThank you!" class="email-button">
+                    📧 Email Us: pilots@hempin.org
+                </a>
+                <p class="email-note">
+                    We respond within 5 business days. No formal proposal required — let's start with a conversation.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Advisors & Investors Section -->
     <section id="advisors-section" class="advisors-section">
