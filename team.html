@@ -3,41 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet the team building NADA/HEMPIN: verified truth infrastructure for hemp supply chains. Advisors, consortium partners, and pilot sites in Thailand and EU.">
-    <title>Team & Consortium | HEMPIN</title>
+    <meta name="description" content="Meet the team building NADA/HEMPIN: verified truth infrastructure for hemp supply chains. Join our consortium as technical contributor, advisor, pilot partner, or research collaborator.">
+    <title>Team & Consortium — Build Verified Truth Infrastructure | HEMPIN</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <style>
-        /* Team Page Specific Styles */
+        /* Team Page — Warm, Inviting, Action-Oriented */
+        
+        /* Hero Section */
         .team-hero {
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 100px 0;
+            padding: 140px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .team-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .team-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
         .team-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 16px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
             color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .team-hero p {
-            font-size: 1.3rem;
+        
+        .team-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             max-width: 800px;
             margin: 0 auto;
             opacity: 0.95;
             color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
         }
+        
+        /* Section Styling */
         .team-section, .advisors-section, .consortium-section, .pilots-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
         }
+        
         .team-section h2, .advisors-section h2, .consortium-section h2, .pilots-section h2 {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
             color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        /* Team Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -45,24 +94,29 @@
             max-width: 1000px;
             margin: 0 auto;
         }
+        
         .team-card {
             text-align: center;
-            background: var(--light);
-            padding: 30px;
+            background: var(--white);
+            padding: 40px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
         }
+        
         .team-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--inos-blue);
         }
+        
         .team-card .avatar {
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--ssot-purple), var(--inos-blue));
-            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -70,52 +124,122 @@
             font-size: 3rem;
             font-weight: 700;
         }
+        
         .team-card h3 {
             font-size: 1.4rem;
             margin-bottom: 8px;
             color: var(--dark);
         }
+        
         .team-card .role {
             color: var(--inos-blue);
             font-weight: 600;
             margin-bottom: 16px;
+            font-size: 1.05rem;
         }
+        
         .team-card p {
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.7;
+            margin-bottom: 0;
         }
+        
+        /* CTA Card (for recruitment) */
+        .cta-card {
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
+            border: 2px solid var(--inos-blue);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cta-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(59,130,246,0.2);
+            border-color: var(--ssot-purple);
+        }
+        
+        .cta-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .cta-card p {
+            color: var(--gray);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        
+        .cta-card .cta-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-card .cta-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+        }
+        
+        /* Advisors Grid */
         .advisors-grid, .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 32px;
             max-width: 1000px;
             margin: 0 auto;
         }
+        
         .advisor-card, .partner-card {
-            background: var(--light);
-            padding: 24px;
+            background: var(--white);
+            padding: 32px;
             border-radius: var(--radius-lg);
-            border-top: 4px solid var(--hempin-green);
-            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--hempin-green);
+            transition: all 0.3s ease;
         }
+        
         .advisor-card:hover, .partner-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
+        
         .advisor-card h3, .partner-card h3 {
             font-size: 1.3rem;
             margin-bottom: 8px;
             color: var(--dark);
         }
+        
         .advisor-card .expertise, .partner-card .expertise {
             color: var(--inos-blue);
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            font-size: 1rem;
         }
+        
         .advisor-card p, .partner-card p {
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.7;
+            margin-bottom: 0;
         }
+        
         .partner-card .status {
             display: inline-block;
             padding: 6px 16px;
@@ -124,36 +248,55 @@
             font-weight: 600;
             margin-bottom: 16px;
         }
+        
         .partner-card .status.discussion {
             background: #DBEAFE;
             color: var(--inos-blue);
         }
-        .partner-card .status.confirmed {
-            background: #D1FAE5;
-            color: var(--hempin-green);
+        
+        .partner-card .status.contacted {
+            background: #FEF3C7;
+            color: #F59E0B;
         }
+        
+        /* Pilot Cards */
         .pilots-section {
-            background: var(--light);
+            background: linear-gradient(135deg, rgba(16,185,129,0.03) 0%, rgba(59,130,246,0.03) 100%);
         }
+        
         .pilot-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 32px;
             max-width: 900px;
             margin: 0 auto;
         }
+        
         .pilot-card {
             background: var(--white);
-            padding: 30px;
+            padding: 32px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
+            transition: all 0.3s ease;
         }
+        
+        .pilot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
         .pilot-card.confirmed {
             border-left: 5px solid var(--hempin-green);
         }
+        
         .pilot-card.target {
             border-left: 5px solid var(--inos-blue);
         }
+        
+        .pilot-card.open {
+            border-left: 5px solid #F59E0B;
+        }
+        
         .pilot-card .status {
             display: inline-block;
             padding: 6px 16px;
@@ -162,59 +305,134 @@
             font-weight: 600;
             margin-bottom: 16px;
         }
+        
         .pilot-card.confirmed .status {
             background: #D1FAE5;
             color: var(--hempin-green);
         }
+        
         .pilot-card.target .status {
             background: #DBEAFE;
             color: var(--inos-blue);
         }
+        
+        .pilot-card.open .status {
+            background: #FEF3C7;
+            color: #F59E0B;
+        }
+        
         .pilot-card h3 {
             font-size: 1.4rem;
             margin-bottom: 12px;
             color: var(--dark);
         }
+        
         .pilot-card p {
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 8px;
         }
+        
         .pilot-card p strong {
             color: var(--dark);
         }
-        .join-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%);
+        
+        /* Final CTA Section */
+        .final-cta {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .join-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .final-cta .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
             color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .join-section p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
             opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .final-cta .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+        
+        .final-cta .cta-button {
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .final-cta .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .final-cta .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--white);
             color: var(--white);
         }
-        .join-section .cta-button {
+        
+        .final-cta .cta-button.secondary:hover {
             background: var(--white);
-            color: var(--hempin-green);
+            color: #8B5CF6;
         }
-        .join-section .cta-button:hover {
-            background: var(--light);
-            color: var(--inos-blue);
-        }
-        @media (max-width: 768px) {
-            .team-hero { padding: 80px 0; }
-            .team-hero h1 { font-size: 2.2rem; }
-            .team-hero p { font-size: 1.1rem; }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .team-hero {
+                padding: 100px 0;
+            }
+            
+            .team-section, .advisors-section, .consortium-section, .pilots-section, .final-cta {
+                padding: 80px 0;
+            }
+            
             .team-grid, .advisors-grid, .partners-grid, .pilot-cards {
                 grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
             }
         }
     </style>
@@ -222,10 +440,11 @@
 <body>
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
+    <!-- Hero Section -->
     <section class="team-hero">
         <div class="container">
             <h1>Team & Consortium</h1>
-            <p>Building verified truth infrastructure for planetary regeneration</p>
+            <p class="subtitle">Building verified truth infrastructure for planetary regeneration — together</p>
         </div>
     </section>
 
@@ -233,6 +452,8 @@
     <section class="team-section">
         <div class="container">
             <h2>Core Team</h2>
+            <p class="section-intro">The founding team driving the NADA/HEMPIN vision from philosophy to deployed infrastructure</p>
+            
             <div class="team-grid">
                 <div class="team-card">
                     <div class="avatar">PI</div>
@@ -240,7 +461,14 @@
                     <div class="role">Founder & Technical Lead</div>
                     <p>Building verified truth infrastructure starting with the hemp industry. Background in software architecture, product management, and regenerative systems design. Leading the EIC Pathfinder Open 2026 application.</p>
                 </div>
-                <!-- Add additional core team members here as they join -->
+                
+                <!-- CTA Card: Technical Recruitment -->
+                <div class="cta-card" onclick="window.location.href='involved.html#technical-section'">
+                    <div class="icon">🔧</div>
+                    <h3>Build With Us</h3>
+                    <p>We're seeking CTO, AI Engineers, Graph Specialists, DevOps to join the core technical team</p>
+                    <span class="cta-link">View Technical Roles →</span>
+                </div>
             </div>
         </div>
     </section>
@@ -248,33 +476,39 @@
     <!-- Advisors Section -->
     <section id="advisors" class="advisors-section" style="background: var(--light);">
         <div class="container">
-            <h2>Advisors (Under Discussion</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-                We're in active discussions with leading researchers, industry veterans and leaders for the EIC Pathfinder consortium. Names will be revealed at a later stage. 
-            </p>
+            <h2>Advisors</h2>
+            <p class="section-intro">Strategic guidance from industry veterans, technical experts, and mission-aligned leaders</p>
+            
             <div class="advisors-grid">
                 <div class="advisor-card">
-                    <h3>USA</h3>
-                    <div class="expertise">Hemp Industry Expert</div>
+                    <h3>Joseph Carringer</h3>
+                    <div class="expertise">🇺 Hemp Industry Expert</div>
                     <p>Deep expertise in hemp supply chains, regulatory compliance, and industry standards. Advising on pilot deployment strategy and industry partnerships.</p>
                 </div>
+                
                 <div class="advisor-card">
-                    <h3>INDIA</h3>
-                    <div class="expertise">Technology & Strategy</div>
+                    <h3>Haneesh Katnawer</h3>
+                    <div class="expertise">🇮🇳 Technology & Strategy</div>
                     <p>Expertise in scalable architecture, grant strategy, and mission-aligned technology development. Advising on technical roadmap and funding pathways.</p>
                 </div>
-                <!-- Add additional advisors here as they join -->
+                
+                <!-- CTA Card: Advisor Recruitment -->
+                <div class="cta-card" onclick="window.location.href='involved.html#advisors-section'">
+                    <div class="icon">🧠</div>
+                    <h3>Become an Advisor</h3>
+                    <p>Share your expertise in hemp, tech, policy, or strategy. Flexible commitment (2-5 hours/month)</p>
+                    <span class="cta-link">Explore Advisory Roles →</span>
+                </div>
             </div>
         </div>
     </section>
 
- <!-- Consortium Partners Section -->
-<section id="consortium" class="consortium-section">
+    <!-- Consortium Partners Section -->
+    <section id="consortium" class="consortium-section">
         <div class="container">
-            <h2>Consortium Partners (Under Discussion)</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-                We're in active discussions with leading research institutions and industry associations for the EIC Pathfinder consortium.
-            </p>
+            <h2>Consortium Partners</h2>
+            <p class="section-intro">Research institutions and industry associations collaborating on EIC Pathfinder 2026</p>
+            
             <div class="partners-grid">
                 <div class="partner-card">
                     <span class="status discussion">🔄 In Discussion</span>
@@ -283,26 +517,37 @@
                     <p><strong>Expertise:</strong> Hemp policy, market analysis, sustainability assessment</p>
                     <p><strong>Proposed Role:</strong> EU regulatory encoding, market validation, dissemination</p>
                 </div>
+                
                 <div class="partner-card">
-                    <span class="status discussion">🔄 Contacted</span>
+                    <span class="status contacted">📧 Contacted</span>
                     <h3>EIHA (European Industrial Hemp Association)</h3>
                     <div class="expertise">Industry Standards & Advocacy</div>
                     <p><strong>Expertise:</strong> Hemp industry standards, policy advocacy, member network</p>
                     <p><strong>Proposed Role:</strong> Industry validation, pilot site recruitment, policy engagement</p>
                 </div>
+                
                 <div class="partner-card">
-                    <span class="status discussion">🔄 Contacted</span>
+                    <span class="status contacted">📧 Contacted</span>
                     <h3>InterChanvre (France)</h3>
                     <div class="expertise">French Hemp Supply Chains</div>
                     <p><strong>Expertise:</strong> Farmer cooperatives, French regulatory landscape</p>
                     <p><strong>Proposed Role:</strong> French pilot coordination, farmer onboarding</p>
                 </div>
+                
                 <div class="partner-card">
-                    <span class="status discussion">🔄 Contacted</span>
+                    <span class="status contacted">📧 Contacted</span>
                     <h3>University of Iași (Romania)</h3>
                     <div class="expertise">Agricultural Research</div>
                     <p><strong>Expertise:</strong> Hemp cultivation, agronomic data validation</p>
                     <p><strong>Proposed Role:</strong> Romanian pilot site, agronomic validation</p>
+                </div>
+                
+                <!-- CTA Card: Consortium Recruitment -->
+                <div class="cta-card" onclick="window.location.href='involved.html'">
+                    <div class="icon">🤝</div>
+                    <h3>Join the Consortium</h3>
+                    <p>Research institutes, universities, industry associations — explore partnership pathways</p>
+                    <span class="cta-link">Explore Partnership Opportunities →</span>
                 </div>
             </div>
         </div>
@@ -312,6 +557,8 @@
     <section id="pilots" class="pilots-section">
         <div class="container">
             <h2>Pilot Deployment Sites</h2>
+            <p class="section-intro">Real-world validation across multiple jurisdictions — from secured partnerships to open opportunities</p>
+            
             <div class="pilot-cards">
                 <div class="pilot-card confirmed">
                     <div class="status">✅ Letter of Intent Secured</div>
@@ -321,6 +568,7 @@
                     <p><strong>Scope:</strong> 50+ farmers, 10+ processors, 5+ brands</p>
                     <p><strong>Goal:</strong> Validate BUD onboarding, test compliance engine for Thailand regulations</p>
                 </div>
+                
                 <div class="pilot-card target">
                     <div class="status">🎯 Target Sites</div>
                     <h3>🇪🇺 European Union</h3>
@@ -329,16 +577,35 @@
                     <p><strong>Scope:</strong> Multi-country supply chain (DE, FR, RO)</p>
                     <p><strong>Goal:</strong> Test cross-border compliance, validate GDPR-by-design architecture</p>
                 </div>
+                
+                <!-- CTA Card: Your Country -->
+                <div class="pilot-card open" onclick="window.location.href='involved.html#pilot-section'">
+                    <div class="status">❓ Your Country?</div>
+                    <h3>🌍 Open for Proposals</h3>
+                    <p><strong>Seeking:</strong> Country representatives, farmer cooperatives, industry associations</p>
+                    <p><strong>Commitment:</strong> 5-10 hours/month for pilot coordination</p>
+                    <p><strong>Benefits:</strong> Early platform access, influence over features, global network</p>
+                    <p style="margin-top: 16px;"><strong style="color: var(--hempin-green);">→ Propose Your Region</strong></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Join Section -->
-    <section class="join-section">
+    <!-- Final CTA Section -->
+    <section class="final-cta">
         <div class="container">
-            <h2>Join Our Consortium</h2>
-            <p>We're seeking research partners, pilot sites, and advisors. If your organization aligns with our mission, let's talk.</p>
-            <a href="involved.html" class="cta-button">Get Involved →</a>
+            <h2>Join the Resonance</h2>
+            <p>This isn't just infrastructure.<br>It's a gathering point for people who believe verified truth can regenerate the planet.</p>
+            
+            <p style="font-size: 1.5rem; margin-top: 40px;">
+                <strong>Find your pathway below.</strong>
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="involved.html#technical-section" class="cta-button">Technical Roles →</a>
+                <a href="involved.html#pilot-section" class="cta-button secondary">Pilot Partners →</a>
+                <a href="involved.html#advisors-section" class="cta-button secondary">Advisory Roles →</a>
+            </div>
         </div>
     </section>
 
