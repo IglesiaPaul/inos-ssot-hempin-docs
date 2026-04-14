@@ -3,113 +3,1163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technology - HEMPIN</title>
+    <meta name="description" content="NADA's sovereign technology stack: EU-based infrastructure, open-source AI, and graph database for verified supply chains. Philosophy-driven technical choices for planetary regeneration.">
+    <title>Technology Stack — Sovereign by Design | HEMPIN</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <!-- Mermaid.js for diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
-<script>
-  // Initialize Mermaid with clean theme
-  document.addEventListener('DOMContentLoaded', function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        primaryColor: '#3B82F6',    // inos-blue
-        primaryTextColor: '#1F2937', // dark
-        primaryBorderColor: '#3B82F6',
-        lineColor: '#6B7280',        // gray
-        secondaryColor: '#10B981',   // hempin-green
-        tertiaryColor: '#F9FAFB'     // light
-      },
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      flowchart: { useMaxWidth: true, htmlLabels: true },
-      gantt: { useMaxWidth: true }
-    });
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#3B82F6',
+            primaryTextColor: '#1F2937',
+            primaryBorderColor: '#3B82F6',
+            lineColor: '#6B7280',
+            secondaryColor: '#10B981',
+            tertiaryColor: '#F9FAFB',
+            fontSize: 14
+          },
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          flowchart: { useMaxWidth: true, htmlLabels: true, nodeSpacing: 40, rankSpacing: 50 }
+        });
+      });
+    </script>
     <style>
-        .sovereign-badge { display: inline-block; background: var(--hempin-green); color: var(--white); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .ai-robustness { background: #F0FDF4; border-left: 4px solid var(--hempin-green); padding: 20px; margin: 30px 0; border-radius: 0 var(--radius) var(--radius) 0; }
+        /* Technology Stack Page — Narrative, Interactive, Warm */
+        
+        /* Hero Section */
+        .tech-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .tech-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .tech-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .tech-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .tech-hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: var(--white);
+            font-style: italic;
+        }
+        
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
+        }
+        
+        .philosophy-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .philosophy-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 32px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+            text-align: center;
+        }
+        
+        .philosophy-section .narrative {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .philosophy-section .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        
+        .comparison-column {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .comparison-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .comparison-column.us {
+            border-top: 5px solid #EF4444;
+        }
+        
+        .comparison-column.sovereign {
+            border-top: 5px solid #10B981;
+        }
+        
+        .comparison-column ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .comparison-column li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .comparison-column li:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-column .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .comparison-column.us .icon { color: #EF4444; }
+        .comparison-column.sovereign .icon { color: #10B981; }
+        
+        /* Stack Section */
+        .stack-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .stack-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .stack-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .layer-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 60px 0 40px;
+            color: var(--dark);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .layer-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #8B5CF6, #3B82F6, #10B981);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--inos-blue);
+        }
+        
+        .tech-card.expanded {
+            border-color: var(--hempin-green);
+            box-shadow: 0 12px 36px rgba(16,185,129,0.2);
+        }
+        
+        .tech-card .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-card .icon {
+            font-size: 2.5rem;
+        }
+        
+        .tech-card h3 {
+            font-size: 1.4rem;
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .tech-card .origin {
+            display: inline-block;
+            background: var(--light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+        
+        .tech-card .summary {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .tech-card .details {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .tech-card.expanded .details {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tech-card .details h4 {
+            font-size: 1.1rem;
+            margin: 16px 0 12px;
+            color: var(--dark);
+        }
+        
+        .tech-card .details ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .tech-card .details li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .tech-card .details li::before {
+            content: '→';
+            color: var(--inos-blue);
+            font-weight: 700;
+        }
+        
+        .tech-card .sovereignty-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+        
+        /* AI Section */
+        .ai-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .ai-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .ai-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .ai-diagram {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .ai-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .ai-node {
+            background: var(--light);
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            border-left: 4px solid var(--inos-blue);
+        }
+        
+        .ai-node h4 {
+            margin: 0 0 8px;
+            color: var(--dark);
+        }
+        
+        .ai-node p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .ai-arrow {
+            font-size: 2rem;
+            color: var(--gray-light);
+        }
+        
+        .ai-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .ai-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-top: 4px solid #8B5CF6;
+        }
+        
+        .ai-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .ai-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .ai-robustness {
+            max-width: 900px;
+            margin: 60px auto 0;
+            background: #F0FDF4;
+            border-left: 5px solid #10B981;
+            padding: 32px;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        
+        .ai-robustness h3 {
+            margin: 0 0 16px;
+            color: #10B981;
+        }
+        
+        .ai-robustness ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .ai-robustness li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(16,185,129,0.2);
+            color: var(--gray);
+        }
+        
+        .ai-robustness li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Trade-offs Section */
+        .tradeoffs-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .tradeoffs-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .tradeoffs-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .tradeoffs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tradeoff-card {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            border-left: 5px solid #F59E0B;
+        }
+        
+        .tradeoff-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .tradeoff-card .tradeoff {
+            color: #EF4444;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .tradeoff-card .benefit {
+            color: #10B981;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .tradeoff-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .sovereignty-score {
+            text-align: center;
+            max-width: 600px;
+            margin: 60px auto 0;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.1) 100%);
+            border-radius: var(--radius-lg);
+        }
+        
+        .sovereignty-score .score {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .sovereignty-score p {
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        /* Invitation Section */
+        .invitation-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(16,185,129,0.05) 100%);
+            text-align: center;
+        }
+        
+        .invitation-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .invitation-section p {
+            max-width: 700px;
+            margin: 0 auto 24px;
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        
+        .invitation-section .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .invitation-section .cta-button {
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+        }
+        
+        .invitation-section .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(16,185,129,0.5);
+            background: linear-gradient(135deg, var(--inos-blue), var(--ssot-purple));
+            color: var(--white);
+        }
+        
+        .invitation-section .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--inos-blue);
+            color: var(--inos-blue);
+        }
+        
+        .invitation-section .cta-button.secondary:hover {
+            background: var(--inos-blue);
+            color: var(--white);
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-hero {
+                padding: 100px 0;
+            }
+            
+            .philosophy-section,
+            .stack-section,
+            .ai-section,
+            .tradeoffs-section,
+            .invitation-section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar injected by navbar.js -->
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
-    <main>
+    <!-- Hero Section -->
+    <section class="tech-hero">
         <div class="container">
-            <h1>Technology Stack</h1>
-            <p class="subtitle"><strong>Principle:</strong> Maximum sovereignty, zero US dependency, open source first</p>
+            <h1>Technology Aligned with Values</h1>
+            <p class="subtitle">A 100% EU, open-source, community-governed infrastructure for verified truth</p>
+            <p class="tagline">Every line of code reflects our philosophy: sovereignty, transparency, regeneration</p>
+        </div>
+    </section>
+
+    <!-- Philosophy Section: Why Sovereignty Matters -->
+    <section class="philosophy-section">
+        <div class="container">
+            <h2>🌍 Why Build Sovereign?</h2>
             
-            <div style="background: var(--hempin-green); color: var(--white); padding: 20px; border-radius: var(--radius); margin: 30px 0;"><strong>✅ Sovereign Stack:</strong> 9.5/10 sovereignty score. All data in EU jurisdiction, no US Cloud Act exposure, community-governed open source.</div>
+            <p class="narrative">
+                This isn't about rejecting innovation. It's about aligning technology with values.
+            </p>
             
-            <h2>Infrastructure Layer</h2>
-            <table>
-                <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
-                <tr><td>Cloud Provider</td><td>OVHcloud + Hetzner</td><td>🇫🇷 France + 🇩🇪 Germany</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>IaC</td><td>OpenTofu</td><td>🌍 Linux Foundation</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Containers</td><td>Podman + Kubernetes</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>CI/CD</td><td>Woodpecker CI</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Code Repo</td><td>Forgejo (self-hosted)</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-            </table>
+            <div class="comparison">
+                <div class="comparison-column us">
+                    <h3>❌ Current Model</h3>
+                    <ul>
+                        <li><span class="icon">⚖️</span>Data accessible via extraterritorial laws (Cloud Act)</li>
+                        <li><span class="icon">🏢</span>European SMEs depend on foreign platforms</li>
+                        <li><span class="icon">💰</span>Profits flow to shareholders, not communities</li>
+                        <li><span class="icon">🌑</span>Innovation serves extraction, not regeneration</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-column sovereign">
+                    <h3>✅ Sovereign Model</h3>
+                    <ul>
+                        <li><span class="icon">🔐</span>Data stays in EU jurisdiction (GDPR-by-design)</li>
+                        <li><span class="icon">🤝</span>Open source = community governance, not vendor lock-in</li>
+                        <li><span class="icon">🌱</span>Profits fund regeneration, not just growth</li>
+                        <li><span class="icon">✨</span>Technology serves people, planet, and prosperity</li>
+                    </ul>
+                </div>
+            </div>
             
-            <h2>Data Layer</h2>
-            <table>
-                <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
-                <tr><td>Graph Database</td><td>Memgraph</td><td>🇸🇮 Slovenia</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Event Stream</td><td>Apache Kafka (self-hosted)</td><td>🌍 Apache Foundation</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Object Storage</td><td>Ceph (self-hosted)</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Relational DB</td><td>PostgreSQL</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-            </table>
+            <p class="narrative" style="margin-top: 40px;">
+                <strong>Sovereignty isn't a limitation. It's a foundation for trust.</strong><br>
+                When supply chain infrastructure is built on values, verification becomes inherent — not audited after.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stack Section: Layer by Layer -->
+    <section class="stack-section">
+        <div class="container">
+            <h2>🏗️ The Stack: Layer by Layer</h2>
+            <p class="subtitle">Click any card to explore technical details, benchmarks, and migration paths</p>
             
-            <h2>AI/ML Layer</h2>
-            <table>
-                <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
-                <tr><td>LLM</td><td>Mistral 7B (self-hosted)</td><td>🇫🇷 France</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Hosting</td><td>Ollama + vLLM</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Orchestration</td><td>Haystack</td><td>🇩🇪 Germany</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Vector DB</td><td>Qdrant</td><td>🇬🇧 UK / 🇪🇪 Estonia</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-            </table>
+            <!-- Infrastructure Layer -->
+            <h3 class="layer-title">Infrastructure Layer</h3>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                The foundation that holds everything up — EU-based, community-governed, reproducible
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">☁️</div>
+                        <h3>Cloud Provider</h3>
+                    </div>
+                    <div class="origin">🇫🇷 OVHcloud + 🇩🇪 Hetzner</div>
+                    <p class="summary">EU-based infrastructure with no Cloud Act exposure, competitive pricing, and multi-region redundancy.</p>
+                    <div class="sovereignty-badge">✅ EU Sovereign</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>100% data residency in EU jurisdiction</li>
+                            <li>GDPR compliance built into infrastructure</li>
+                            <li>Competitive pricing vs. US hyperscalers</li>
+                            <li>Multi-region deployment for redundancy</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Kubernetes clusters across FR/DE regions</li>
+                            <li>Object storage for immutable audit trails</li>
+                            <li>Private networking for secure microservices</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Terraform/OpenTofu modules for reproducible deployments</li>
+                            <li>Documented runbooks for disaster recovery</li>
+                            <li>Annual review of alternative EU providers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">📦</div>
+                        <h3>Infrastructure as Code</h3>
+                    </div>
+                    <div class="origin">🌍 OpenTofu (Linux Foundation)</div>
+                    <p class="summary">Community-governed IaC tool (fork of Terraform) for reproducible, auditable infrastructure deployments.</p>
+                    <div class="sovereignty-badge">✅ Community-Governed</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>Linux Foundation governance (not vendor-controlled)</li>
+                            <li>Compatible with Terraform modules (easy migration)</li>
+                            <li>Open source = community review, no black boxes</li>
+                            <li>BSL license allows commercial use</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Declarative definitions for all infrastructure</li>
+                            <li>Version-controlled deployments via GitOps</li>
+                            <li>Automated testing of infrastructure changes</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Existing Terraform modules work with OpenTofu</li>
+                            <li>Gradual migration strategy documented</li>
+                            <li>Community contribution plan for new providers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">🐳</div>
+                        <h3>Containers & Orchestration</h3>
+                    </div>
+                    <div class="origin">🌍 Podman + Kubernetes</div>
+                    <p class="summary">Rootless containers with community-governed orchestration for secure, scalable workloads.</p>
+                    <div class="sovereignty-badge">✅ Community-Governed</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>Podman: Rootless containers (security by default)</li>
+                            <li>Kubernetes: Industry standard, CNCF governance</li>
+                            <li>No vendor lock-in (vs. AWS EKS, GKE)</li>
+                            <li>Self-hostable on any EU cloud</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Immutable container images for all services</li>
+                            <li>Horizontal pod autoscaling for load handling</li>
+                            <li>Network policies for microservice isolation</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Docker-compatible Podman CLI (easy adoption)</li>
+                            <li>Helm charts for reproducible deployments</li>
+                            <li>Documentation for on-premises deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Layer -->
+            <h3 class="layer-title">Data Layer</h3>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Truth as a living graph — relationships, regulations, and value flows as interconnected nodes
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">🕸️</div>
+                        <h3>Graph Database</h3>
+                    </div>
+                    <div class="origin">🇸🇮 Memgraph</div>
+                    <p class="summary">In-memory graph database for real-time compliance validation, with Cypher query language and EU sovereignty.</p>
+                    <div class="sovereignty-badge">✅ EU Sovereign</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>In-memory performance for real-time constraint checks</li>
+                            <li>Cypher query language (industry standard)</li>
+                            <li>Slovenia-based company (EU data sovereignty)</li>
+                            <li>Apache 2.0 license (commercial-friendly)</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Entity/Relationship/Compliance/Value layers</li>
+                            <li>Real-time validation: block non-compliant transactions</li>
+                            <li>Graph traversals for supply chain provenance</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Cypher compatibility with Neo4j (easy migration)</li>
+                            <li>Backup/restore procedures documented</li>
+                            <li>Annual review of alternative EU graph databases</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">📡</div>
+                        <h3>Event Stream</h3>
+                    </div>
+                    <div class="origin">🌍 Apache Kafka (self-hosted)</div>
+                    <p class="summary">Distributed event streaming for immutable audit trails and real-time data propagation.</p>
+                    <div class="sovereignty-badge">✅ Community-Governed</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>Apache Foundation governance (community, not vendor)</li>
+                            <li>Self-hostable on EU infrastructure</li>
+                            <li>Proven scalability for high-throughput systems</li>
+                            <li>Exactly-once semantics for audit integrity</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Event sourcing: every change is an immutable event</li>
+                            <li>Real-time propagation to compliance engine</li>
+                            <li>Audit trail reconstruction for regulators</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Kafka Connect for data integration</li>
+                            <li>Schema Registry for backward compatibility</li>
+                            <li>Documentation for multi-region deployment</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">💾</div>
+                        <h3>Object Storage</h3>
+                    </div>
+                    <div class="origin">🌍 Ceph (self-hosted)</div>
+                    <p class="summary">Distributed object storage for immutable documents, media, and audit artifacts.</p>
+                    <div class="sovereignty-badge">✅ Community-Governed</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>Community-governed (not vendor-controlled)</li>
+                            <li>Self-hostable on any EU cloud or on-premises</li>
+                            <li>Erasure coding for durability without replication overhead</li>
+                            <li>S3-compatible API for easy integration</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Immutable storage for certifications, lab reports</li>
+                            <li>WORM (Write Once, Read Many) for audit compliance</li>
+                            <li>Versioning for document provenance</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>S3 API compatibility with existing tools</li>
+                            <li>rclone for data migration</li>
+                            <li>Documentation for multi-site replication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Layer -->
+            <h3 class="layer-title">AI/ML Layer</h3>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Intelligence without dependency — sovereign AI that serves European farmers
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">🤖</div>
+                        <h3>Large Language Model</h3>
+                    </div>
+                    <div class="origin">🇫🇷 Mistral 7B (self-hosted)</div>
+                    <p class="summary">Open-weights LLM fine-tuned for agricultural domain, self-hosted for full data sovereignty.</p>
+                    <div class="sovereignty-badge">✅ EU Sovereign</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>French origin (EU sovereignty)</li>
+                            <li>Open weights = self-hostable, no API dependency</li>
+                            <li>Apache 2.0 license (commercial use allowed)</li>
+                            <li>Strong performance for domain-specific fine-tuning</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>BUD Agent: Natural language → graph node extraction</li>
+                            <li>Confidence scoring (>0.85 = auto-approve)</li>
+                            <li>Human-in-the-loop for low-confidence extractions</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Model cards for reproducibility</li>
+                            <li>Quantization for efficient inference</li>
+                            <li>Annual review of alternative EU/OS models</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">⚡</div>
+                        <h3>Inference Engine</h3>
+                    </div>
+                    <div class="origin">🌍 Ollama + vLLM</div>
+                    <p class="summary">Community tools for efficient, self-hosted LLM inference with minimal latency.</p>
+                    <div class="sovereignty-badge">✅ Community-Governed</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>Ollama: Simple local LLM management</li>
+                            <li>vLLM: High-throughput inference with PagedAttention</li>
+                            <li>Both open source, self-hostable</li>
+                            <li>GPU optimization for cost efficiency</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Model serving with auto-scaling</li>
+                            <li>Batch inference for bulk data processing</li>
+                            <li>Latency monitoring for SLA compliance</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Standard model formats (GGUF, Safetensors)</li>
+                            <li>Containerized deployment for portability</li>
+                            <li>Documentation for multi-GPU setup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-card" onclick="toggleCard(this)">
+                    <div class="header">
+                        <div class="icon">🧭</div>
+                        <h3>Vector Database</h3>
+                    </div>
+                    <div class="origin">🇬🇧/🇪🇪 Qdrant</div>
+                    <p class="summary">EU-based vector database for semantic search and RAG pipelines in the BUD Agent.</p>
+                    <div class="sovereignty-badge">✅ EU Sovereign</div>
+                    
+                    <div class="details">
+                        <h4>Why This Choice?</h4>
+                        <ul>
+                            <li>UK/Estonia-based company (EU jurisdiction)</li>
+                            <li>Open source with commercial support option</li>
+                            <li>High-performance approximate nearest neighbor search</li>
+                            <li>Self-hostable on EU infrastructure</li>
+                        </ul>
+                        
+                        <h4>How We Use It</h4>
+                        <ul>
+                            <li>Semantic search for regulatory document retrieval</li>
+                            <li>RAG (Retrieval-Augmented Generation) for BUD Agent</li>
+                            <li>Embedding storage for farmer conversation history</li>
+                        </ul>
+                        
+                        <h4>Migration Path</h4>
+                        <ul>
+                            <li>Standard embedding formats (OpenAI-compatible)</li>
+                            <li>Backup/restore procedures documented</li>
+                            <li>Annual review of alternative EU vector databases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section: Sovereign Intelligence -->
+    <section class="ai-section">
+        <div class="container">
+            <h2>🤖 Sovereign AI: Intelligence Without Dependency</h2>
+            <p class="subtitle">How we keep data, models, and inference in EU jurisdiction</p>
+            
+            <div class="ai-diagram">
+                <div class="mermaid">
+flowchart LR
+    Farmer["👨‍🌾 Farmer Conversation"] --> BUD["🤖 BUD Agent<br/>(Mistral 7B, self-hosted)"]
+    BUD --> Graph["🕸️ Graph Nodes<br/>(Memgraph)"]
+    Graph --> Compliance["⚖️ Compliance Check<br/>(Executable constraints)"]
+    Compliance --> Result["✅ Verified Transaction<br/>or ❌ Blocked"]
+    
+    classDef farmer fill:#DBEAFE,stroke:#3B82F6,stroke-width:2px,color:#1F2937,rx:8,ry:8;
+    classDef bud fill:#D1FAE5,stroke:#10B981,stroke-width:2px,color:#1F2937,rx:8,ry:8;
+    classDef graph fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px,color:#1F2937,rx:8,ry:8;
+    classDef compliance fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px,color:#1F2937,rx:8,ry:8;
+    classDef result fill:#FCE7F3,stroke:#EC4899,stroke-width:2px,color:#1F2937,rx:8,ry:8;
+    
+    class Farmer farmer;
+    class BUD bud;
+    class Graph graph;
+    class Compliance compliance;
+    class Result result;
+                </div>
+            </div>
+            
+            <div class="ai-cards">
+                <div class="ai-card">
+                    <h3>🇫🇷 Mistral 7B</h3>
+                    <p>Open-weights LLM from France, fine-tuned for agricultural domain. Self-hosted for full data sovereignty — no API calls to US services.</p>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>🌍 Ollama + vLLM</h3>
+                    <p>Community tools for efficient inference. Ollama simplifies model management; vLLM provides high-throughput serving with PagedAttention.</p>
+                </div>
+                
+                <div class="ai-card">
+                    <h3>🇩🇪 Haystack</h3>
+                    <p>German-built framework for RAG pipelines. Orchestrates retrieval, generation, and validation in the BUD Agent workflow.</p>
+                </div>
+            </div>
             
             <div class="ai-robustness">
-                <strong>🤖 AI Robustness Measures (EIC Requirement):</strong>
-                <ul style="margin-top: 10px;">
+                <h3>🛡️ AI Robustness Measures (EIC Requirement)</h3>
+                <ul>
                     <li><strong>Technical Robustness:</strong> Confidence scoring (>0.85 threshold) + human-in-the-loop validation for low-confidence extractions</li>
                     <li><strong>Social Robustness:</strong> Training data diversified across languages (EN, FR, TH, RO) to reduce bias; human review for sensitive regulatory decisions</li>
                     <li><strong>Reliability:</strong> Service-level agreements (99.9% uptime); error logging and incident response protocols</li>
                     <li><strong>Explainability:</strong> Each graph node includes provenance trail (source text, confidence score, reviewer ID) for auditability</li>
                 </ul>
             </div>
-            
-            <h2>Frontend Layer</h2>
-            <table>
-                <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
-                <tr><td>Framework</td><td>Vue.js + Nuxt</td><td>🇫🇷 France</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Maps</td><td>MapLibre + OpenStreetMap</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Diagrams</td><td>Mermaid + PlantUML</td><td>🌍 / 🇫🇷 France</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-            </table>
-            
-            <h2>Security Layer</h2>
-            <table>
-                <tr><th>Component</th><th>Technology</th><th>Origin</th><th>Sovereignty</th></tr>
-                <tr><td>Authentication</td><td>Zitadel</td><td>🇨🇭 Switzerland</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Secrets</td><td>HashiCorp Vault (self-hosted)</td><td>🌍 Community</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>Monitoring</td><td>Prometheus + Grafana</td><td>🌍 / 🇨🇭 Switzerland</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-                <tr><td>SSL/TLS</td><td>ZeroSSL</td><td>🇦🇹 Austria</td><td><span class="sovereign-badge">✅✅✅</span></td></tr>
-            </table>
-            
-            <h2>Why Sovereignty Matters</h2>
-            <p>Building on EU infrastructure isn't just a technical choice — it's a strategic necessity:</p>
-            <ul>
-                <li><strong>Data Sovereignty:</strong> Ensures European SMEs control their commercial relationships, not US platforms</li>
-                <li><strong>Regulatory Compliance:</strong> GDPR-by-design with data minimization and explicit consent flows</li>
-                <li><strong>Strategic Autonomy:</strong> Reduces exposure to extraterritorial laws (US Cloud Act) for critical trade infrastructure</li>
-                <li><strong>Mission Alignment:</strong> Sovereign tech enables the Solarpunk 2045 vision of decentralized, community-governed infrastructure</li>
-            </ul>
-            
-            <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/specs/technology-stack.md" class="cta-button" target="_blank">View Full Tech Specs on GitHub</a>
         </div>
-    </main>
+    </section>
+
+    <!-- Trade-offs Section: Honest About Challenges -->
+    <section class="tradeoffs-section">
+        <div class="container">
+            <h2>⚖️ The Trade-offs: Honesty About Sovereignty</h2>
+            <p class="subtitle">Building sovereign isn't always easier. Here's what we gave up — and why it was worth it.</p>
+            
+            <div class="tradeoffs-grid">
+                <div class="tradeoff-card">
+                    <h3>Smaller Community</h3>
+                    <p class="tradeoff">Trade-off: Some tools have smaller communities than US alternatives</p>
+                    <p class="benefit">Benefit: Community governance, not vendor control</p>
+                    <p>We actively contribute to open source projects to help them grow. Our participation shapes the future of these tools.</p>
+                </div>
+                
+                <div class="tradeoff-card">
+                    <h3>More Ops Overhead</h3>
+                    <p class="tradeoff">Trade-off: Self-hosting requires more operational expertise</p>
+                    <p class="benefit">Benefit: Full control, no vendor lock-in</p>
+                    <p>We invest in documentation, automation, and training to make self-hosting sustainable. The control is worth the effort.</p>
+                </div>
+                
+                <div class="tradeoff-card">
+                    <h3>GPU Hardware Reality</h3>
+                    <p class="tradeoff">Trade-off: High-performance GPUs still come from US companies (NVIDIA)</p>
+                    <p class="benefit">Benefit: Self-hosting + model optimization reduces dependency</p>
+                    <p>We optimize models to run on fewer GPUs, support open GPU initiatives, and review alternatives annually.</p>
+                </div>
+            </div>
+            
+            <div class="sovereignty-score">
+                <span class="score">9.5/10</span>
+                <p><strong>Sovereignty Score</strong><br>
+                All data in EU jurisdiction • No US Cloud Act exposure • Community-governed open source • Self-hosted where possible</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Section -->
+    <section class="invitation-section">
+        <div class="container">
+            <h2>🤝 Help Build the Sovereign Stack</h2>
+            <p>This isn't our stack. It's our shared infrastructure for regenerative supply chains.</p>
+            
+            <p style="margin-bottom: 32px;">
+                <strong>Ways to contribute:</strong><br>
+                🔧 Developers: Improve self-hosting docs, optimize inference, add integrations<br>
+                🔍 Security researchers: Audit our architecture, suggest hardening<br>
+                🌍 Community builders: Advocate for sovereign alternatives, share best practices<br>
+                💡 Innovators: Propose new components that align with our values
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/specs/technology-stack.md" target="_blank" class="cta-button">Explore Full Tech Specs →</a>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button secondary">Contribute on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+
+    <!-- Interactive Card Script -->
+    <script>
+        function toggleCard(card) {
+            // Close all other cards
+            document.querySelectorAll('.tech-card').forEach(c => {
+                if (c !== card) c.classList.remove('expanded');
+            });
+            // Toggle this card
+            card.classList.toggle('expanded');
+        }
+        
+        // Close cards when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.tech-card')) {
+                document.querySelectorAll('.tech-card').forEach(c => {
+                    c.classList.remove('expanded');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
