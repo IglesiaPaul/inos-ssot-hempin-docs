@@ -3,475 +3,855 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Why NADA? — Nada Brahma philosophy: before form, frequency. Learn how verified truth infrastructure emerges from primordial vibration. | HEMPIN">
+    <meta name="description" content="Why NADA? — Nada Brahma philosophy meets verified truth infrastructure. Where ancient wisdom, modern science, and solarpunk vision converge for planetary regeneration.">
     <title>Why NADA? — The Philosophy | HEMPIN</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <style>
-        /* Philosophy Hero with Shader Background */
+        /* NADA Philosophy Page — Warm, Organic, Story-Driven */
+        
+        /* Hero Section — Lightweight Gradient + Particles */
         .philosophy-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 140px 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            padding: 0;
-            margin: 0;
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
-            color: var(--white);
         }
         
-        .philosophy-hero canvas {
+        .philosophy-hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            display: block;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
         }
         
         .philosophy-hero .container {
             position: relative;
             z-index: 1;
-            padding: 120px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .philosophy-hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             margin-bottom: 20px;
             color: var(--white);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            animation: fadeInUp 0.8s ease-out forwards;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.03em;
+            font-weight: 900;
+            font-family: 'Georgia', serif;
         }
         
         .philosophy-hero .subtitle {
-            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
             opacity: 0.95;
             color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
             font-style: italic;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-            animation: fadeInUp 0.8s ease-out 0.2s forwards;
-            opacity: 0;
         }
         
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .philosophy-hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: var(--white);
         }
         
-        /* Fallback gradient for mobile/low-end */
-        #shader-fallback {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Sacred Geometry Wave Divider */
+        .wave-divider {
+            height: 60px;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .wave-svg {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
-            z-index: 0;
+            display: block;
         }
         
-        /* Mobile Optimizations */
-        @media (max-width: 768px) {
-            .philosophy-hero { min-height: 80vh; }
-            .philosophy-hero .container { padding: 80px 20px; }
+        .wave-path {
+            fill: url(#waveGradient);
+            animation: waveFlow 20s ease-in-out infinite;
+        }
+        
+        @keyframes waveFlow {
+            0%, 100% { d: path("M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"); }
+            50% { d: path("M0,30 Q300,50 600,30 T1200,30 L1200,60 L0,60 Z"); }
+        }
+        
+        /* Philosophy Section — Narrative Prose */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
+        }
+        
+        .philosophy-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .philosophy-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 32px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+            text-align: center;
+        }
+        
+        .philosophy-section .sanskrit {
+            display: block;
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--ssot-purple);
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+        
+        .philosophy-section .narrative {
+            font-size: 1.25rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .philosophy-section .highlight {
+            background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.1) 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+            border-left: 5px solid var(--ssot-purple);
+        }
+        
+        .philosophy-section .highlight p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin: 0;
+            font-style: italic;
+        }
+        
+        /* Science Convergence Section */
+        .convergence-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .convergence-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .convergence-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .convergence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .convergence-column {
+            background: var(--light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .convergence-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .convergence-column .ancient {
+            color: #8B5CF6;
+        }
+        
+        .convergence-column .modern {
+            color: #3B82F6;
+        }
+        
+        .convergence-column ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .convergence-column li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .convergence-column li:last-child {
+            border-bottom: none;
+        }
+        
+        .convergence-column .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .convergence-bridge {
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--ssot-purple);
+        }
+        
+        .convergence-bridge p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        /* Bridge Section — Resonance to Verification */
+        .bridge-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .bridge-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .bridge-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .bridge-diagram {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .bridge-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .bridge-node {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 600px;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .bridge-node:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .bridge-node.philosophy {
+            border-color: #8B5CF6;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.1) 100%);
+        }
+        
+        .bridge-node.technology {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
+        }
+        
+        .bridge-node h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .bridge-node p {
+            color: var(--gray);
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        
+        .bridge-arrow {
+            font-size: 2.5rem;
+            color: var(--gray-light);
+        }
+        
+        /* Architecture Stack Section */
+        .stack-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .stack-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .stack-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .architecture-stack {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .stack-layer {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .stack-layer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+        }
+        
+        .stack-layer.nada {
+            border-color: #8B5CF6;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.1) 100%);
+        }
+        
+        .stack-layer.ssot {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
+        }
+        
+        .stack-layer.inos {
+            border-color: #10B981;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(16,185,129,0.1) 100%);
+        }
+        
+        .stack-layer.hempin {
+            border-color: #F59E0B;
+            background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0.1) 100%);
+        }
+        
+        .stack-layer .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .stack-layer h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .stack-layer p {
+            color: var(--gray);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stack-arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--gray-light);
+            margin: -8px 0;
+        }
+        
+        /* Convergence Section — Three Pillars */
+        .pillars-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .pillars-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .pillars-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pillar-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 5px solid #10B981;
+            transition: all 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .pillar-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .pillar-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .pillar-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* Invitation Section */
+        .invitation-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invitation-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .invitation-section .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .invitation-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .invitation-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .invitation-section .highlight {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 32px auto;
+            display: block;
+        }
+        
+        .invitation-section .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+        
+        .invitation-section .cta-button {
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .invitation-section .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .invitation-section .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--white);
+            color: var(--white);
+        }
+        
+        .invitation-section .cta-button.secondary:hover {
+            background: var(--white);
+            color: #8B5CF6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .convergence-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .philosophy-hero {
+                padding: 100px 0;
+                min-height: 70vh;
+            }
+            
+            .philosophy-section,
+            .convergence-section,
+            .bridge-section,
+            .stack-section,
+            .pillars-section,
+            .invitation-section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body class="nada-page">
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
-    <!-- NADA Volumetric Hero (Shader-Based) -->
+    <!-- Hero Section: The First Vibration -->
     <section class="philosophy-hero">
-        <!-- Shader Canvas -->
-        <canvas id="nada-volume"></canvas>
-        
-        <!-- Content Overlay -->
         <div class="container">
             <h1>Why NADA?</h1>
-            <p class="subtitle">"Before systems, there is signal. Before structure, there is resonance."</p>
-        </div>
-        
-        <!-- Fallback Gradient (shown if WebGL fails) -->
-        <div id="shader-fallback"></div>
-    </section>
-
-    <!-- Sacred Geometry Wave Divider -->
-    <div class="wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="wave-svg">
-            <path class="wave-path" d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"/>
-        </svg>
-    </div>
-
-    <!-- Shader Script (High-Quality Volumetric Sacred Geometry) -->
-    <script>
-    (function() {
-        const TEST_MODE = true;
-        const canvas = document.getElementById("nada-volume");
-        const fallback = document.getElementById("shader-fallback");
-        const hero = document.querySelector(".philosophy-hero");
-        
-        if (!canvas || canvas.dataset.nadaInitialized === "true") return;
-        canvas.dataset.nadaInitialized = "true";
-        
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
-        
-        if (!TEST_MODE && (isMobile || isLowEnd)) {
-            fallback.style.display = "block";
-            canvas.style.display = "none";
-            return;
-        }
-        
-        const gl = canvas.getContext("webgl", { preserveDrawingBuffer: true, alpha: false });
-        if (!gl) {
-            fallback.style.display = "block";
-            canvas.style.display = "none";
-            return;
-        }
-        
-        function resize() {
-            if (!hero) return;
-            const rect = hero.getBoundingClientRect();
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-            gl.viewport(0, 0, canvas.width, canvas.height);
-        }
-        window.addEventListener("resize", resize);
-        resize();
-        
-        let mouse = [0.5, 0.5];
-        canvas.addEventListener("mousemove", e => {
-            const rect = canvas.getBoundingClientRect();
-            mouse[0] = (e.clientX - rect.left) / rect.width;
-            mouse[1] = 1.0 - (e.clientY - rect.top) / rect.height;
-        });
-        
-        const vertexSrc = `attribute vec2 position; void main() { gl_Position = vec4(position, 0.0, 1.0); }`;
-        
-        const fragmentSrc = `
-            precision highp float;
-            uniform vec2 iResolution;
-            uniform float iTime;
-            uniform vec2 iMouse;
-            #define MAX_STEPS 100
-            #define MAX_DIST 40.0
-            #define SURF_DIST 0.001
-            
-            mat2 rot(float a) { float s = sin(a), c = cos(a); return mat2(c, -s, s, c); }
-            float sphere(vec3 p, float r) { return length(p) - r; }
-            
-            float flowerOfLife(vec3 p) {
-                float d = sphere(p, 1.0);
-                for (int i = 0; i < 6; i++) {
-                    float a = float(i) * 3.14159 / 3.0;
-                    vec3 o = vec3(cos(a), sin(a), 0.0);
-                    d = min(d, sphere(p - o, 1.0));
-                    d = min(d, sphere(p - o.yzx, 1.0));
-                }
-                return d;
-            }
-            
-            float fractal(vec3 p) {
-                float res = 0.0;
-                float scale = 1.0;
-                for (int i = 0; i < 4; i++) {
-                    p = abs(p);
-                    float denom = max(dot(p, p), 0.2);
-                    p = p / denom - 0.7;
-                    res += exp(-length(p) * scale);
-                    scale *= 1.5;
-                }
-                return res;
-            }
-            
-            float map(vec3 p) {
-                p.xy *= rot(iTime * 0.15);
-                p.yz *= rot(iTime * 0.1);
-                float geo = flowerOfLife(p);
-                float f = fractal(p * 1.2);
-                return geo + f * 0.25;
-            }
-            
-            vec3 getNormal(vec3 p) {
-                float d = map(p);
-                vec2 e = vec2(0.002, 0.0);
-                vec3 n = d - vec3(map(p - e.xyy), map(p - e.yxy), map(p - e.yyx));
-                return normalize(n);
-            }
-            
-            vec3 volumetric(vec3 ro, vec3 rd) {
-                float t = 0.0;
-                float glow = 0.0;
-                for (int i = 0; i < 40; i++) {
-                    vec3 p = ro + rd * t;
-                    float d = map(p);
-                    float density = exp(-abs(d) * 4.0);
-                    glow += density * 0.015;
-                    t += clamp(d, 0.02, 0.2);
-                    if (t > MAX_DIST) break;
-                }
-                vec3 col = vec3(0.03, 0.18, 0.4) * glow;
-                col += vec3(0.7, 0.45, 0.1) * pow(glow, 2.0);
-                return col;
-            }
-            
-            vec3 raymarch(vec3 ro, vec3 rd) {
-                float t = 0.0;
-                for (int i = 0; i < MAX_STEPS; i++) {
-                    vec3 p = ro + rd * t;
-                    float d = map(p);
-                    if (d < SURF_DIST) {
-                        vec3 n = getNormal(p);
-                        vec3 light = normalize(vec3(0.5, 1.0, 0.8));
-                        float diff = max(dot(n, light), 0.0);
-                        vec3 col = vec3(0.12, 0.5, 0.8) * diff;
-                        col += vec3(0.85, 0.45, 0.1) * pow(diff, 4.0);
-                        return col;
-                    }
-                    t += d * 0.6;
-                    if (t > MAX_DIST) break;
-                }
-                return vec3(0.0);
-            }
-            
-            vec3 getRay(vec2 uv, vec3 ro, vec3 target) {
-                vec3 f = normalize(target - ro);
-                vec3 r = normalize(cross(vec3(0.0, 1.0, 0.0), f));
-                vec3 u = cross(f, r);
-                return normalize(f + uv.x * r + uv.y * u);
-            }
-            
-            void main() {
-                vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
-                vec2 m = iMouse;
-                vec3 ro = vec3(sin(iTime * 0.15 + m.x * 3.14) * 3.0, 1.0 + m.y * 1.5, cos(iTime * 0.15 + m.x * 3.14) * 3.0);
-                vec3 target = vec3(0.0);
-                vec3 rd = getRay(uv, ro, target);
-                vec3 col = raymarch(ro, rd);
-                col += volumetric(ro, rd) * 0.4;
-                col = col / (1.0 + col);
-                col = pow(col, vec3(0.4545));
-                gl_FragColor = vec4(col, 1.0);
-            }
-        `;
-        
-        function compile(type, source) {
-            const shader = gl.createShader(type);
-            gl.shaderSource(shader, source);
-            gl.compileShader(shader);
-            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                fallback.style.display = "block";
-                canvas.style.display = "none";
-                return null;
-            }
-            return shader;
-        }
-        
-        const vs = compile(gl.VERTEX_SHADER, vertexSrc);
-        const fs = compile(gl.FRAGMENT_SHADER, fragmentSrc);
-        if (!vs || !fs) return;
-        
-        const program = gl.createProgram();
-        gl.attachShader(program, vs);
-        gl.attachShader(program, fs);
-        gl.linkProgram(program);
-        gl.useProgram(program);
-        
-        const buffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
-        
-        const position = gl.getAttribLocation(program, "position");
-        gl.enableVertexAttribArray(position);
-        gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-        
-        const uRes = gl.getUniformLocation(program, "iResolution");
-        const uTime = gl.getUniformLocation(program, "iTime");
-        const uMouse = gl.getUniformLocation(program, "iMouse");
-        
-        let start = performance.now();
-        let isPaused = false;
-        
-        const observer = new IntersectionObserver(([entry]) => { isPaused = !entry.isIntersecting; }, { threshold: 0.1 });
-        observer.observe(canvas);
-        
-        function render() {
-            if (isPaused) { requestAnimationFrame(render); return; }
-            const time = (performance.now() - start) / 1000;
-            gl.uniform2f(uRes, canvas.width, canvas.height);
-            gl.uniform1f(uTime, time);
-            gl.uniform2f(uMouse, mouse[0], mouse[1]);
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
-            requestAnimationFrame(render);
-        }
-        render();
-    })();
-    </script>
-
-    <!-- Scroll Reveal Script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-        document.querySelectorAll('.content-section').forEach(section => {
-            observer.observe(section);
-        });
-    });
-    </script>
-
-    <section class="content-section is-visible">
-        <div class="container">
-            <h2>🔊 Nada (नाद): The Primordial Sound</h2>
-            <p>In Sanskrit, <span class="sanskrit">Nāda</span> literally means <strong>sound, vibration, or flow of energy</strong>. But in deeper philosophical traditions like Hindu philosophy and Yoga, it goes much further.</p>
-            
-            <p><strong>Nāda is the primordial vibration from which the entire universe emerges.</strong></p>
-            
-            <div class="quote-box">
-                <strong>🌌 Nada Brahma — "The Universe is Sound"</strong><br><br>
-                This idea says: Before matter, there was vibration. Before form, there was frequency. Creation begins as resonance, not substance.
-            </div>
-            
-            <p>This aligns eerily well with modern physics:</p>
-            <ul>
-                <li><strong>Quantum fields</strong> → vibration patterns</li>
-                <li><strong>String theory</strong> → reality as vibrating strings</li>
-                <li><strong>Sound</strong> → structure through frequency</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sacred Geometry Wave Divider (Reversed) -->
-    <div class="wave-divider wave-divider-reversed" aria-hidden="true">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="wave-svg">
-            <path class="wave-path" d="M0,60 Q300,100 600,60 T1200,60 L1200,0 L0,0 Z"/>
-        </svg>
-    </div>
-
-    <section class="content-section alt-bg">
-        <div class="container">
-            <h2>🕉️ The First Sound: OM (AUM)</h2>
-            <p>In this framework, the first manifestation of <span class="sanskrit">Om</span> is <strong>Om (AUM)</strong>. It represents:</p>
-            <ul>
-                <li>The initial vibration of the universe</li>
-                <li>The seed of all creation</li>
-                <li>The cosmic ripple that unfolds reality</li>
-            </ul>
-            
-            <p>Think of it like: <strong>a Big Bang… but as sound.</strong></p>
-            
-            <div class="connection-box">
-                <h3>🌊 The Ripple Effect</h3>
-                <p>Your intuition about "ripple effect" is spot-on. Nāda is often described as a subtle inner sound (heard in deep meditation), a wave that expands outward, shaping reality, a frequency that organizes matter and consciousness.</p>
-                <p style="margin-top: 12px;"><strong>The sequence is:</strong> Silence → Vibration (Nāda) → Sound (Om) → Form → World</p>
-            </div>
+            <p class="subtitle">Before structure, resonance. Before systems, signal.</p>
+            <p class="tagline">Where ancient wisdom meets verified truth infrastructure</p>
         </div>
     </section>
 
     <!-- Sacred Geometry Wave Divider -->
     <div class="wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="wave-svg">
-            <path class="wave-path" d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"/>
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
         </svg>
     </div>
 
-    <section class="content-section">
+    <!-- Philosophy Section: Nada Brahma -->
+    <section class="philosophy-section">
         <div class="container">
-            <h2>🧬 How This Connects to Our Project</h2>
-            <p>This is where it gets powerful for branding and philosophy. If our project is NADA, we're implicitly saying:</p>
+            <span class="sanskrit">नाद ब्रह्म — Nada Brahma</span>
+            <h2>The Universe is Sound</h2>
             
-            <ul>
-                <li><strong>You are the origin layer:</strong> Not a product. Not a platform. → The foundational vibration from which everything emerges.</li>
-                <li><strong>You are about resonance, not force:</strong> Aligning systems instead of controlling them. Creating harmony across ecosystems (nature, hemp, economy, humans).</li>
-                <li><strong>You're building a "frequency architecture":</strong> This maps beautifully to our ecosystem:</li>
-            </ul>
+            <p class="narrative">
+                In the beginning, there was no matter. No form. No structure.<br>
+                There was only vibration.
+            </p>
             
-            <div class="ecosystem-grid">
-                <div class="ecosystem-card">
-                    <div class="icon">📡</div>
-                    <strong>Directory</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal discovery</span>
+            <p class="narrative">
+                The ancient Vedic sages called it <strong>Nāda</strong> — the primordial sound from which all creation emerges. Not metaphor. Not poetry. Literal truth: before the universe took shape, it resonated.
+            </p>
+            
+            <div class="highlight">
+                <p>
+                    "This idea says: Before matter, there was vibration. Before form, there was frequency. Creation begins as resonance, not substance."
+                </p>
+            </div>
+            
+            <p class="narrative">
+                This is <strong>Nada Brahma</strong>: the understanding that reality itself is frequency made manifest. And if reality is vibration, then <strong>trust is alignment</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Science Convergence Section -->
+    <section class="convergence-section">
+        <div class="container">
+            <h2>The Same Truth, Different Languages</h2>
+            <p class="subtitle">Ancient wisdom and modern physics arriving at the same conclusion</p>
+            
+            <div class="convergence-grid">
+                <div class="convergence-column">
+                    <h3 class="ancient">🕉️ Ancient India (3000 BCE)</h3>
+                    <ul>
+                        <li><span class="icon">🌊</span><strong>Nāda:</strong> Primordial vibration from which all emerges</li>
+                        <li><span class="icon">💫</span><strong>Spanda:</strong> Cosmic pulse, the universe breathing</li>
+                        <li><span class="icon">🔊</span><strong>Om (AUM):</strong> Fundamental frequency of existence</li>
+                        <li><span class="icon">🌍</span><strong>Prakriti:</strong> Manifest reality from vibration</li>
+                    </ul>
                 </div>
-                <div class="ecosystem-card">
-                    <div class="icon">🔄</div>
-                    <strong>Marketplace</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal exchange</span>
-                </div>
-                <div class="ecosystem-card">
-                    <div class="icon">⚖️</div>
-                    <strong>Carbon / Environment</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal balancing</span>
-                </div>
-                <div class="ecosystem-card">
-                    <div class="icon">📢</div>
-                    <strong>Community</strong><br><span style="color: var(--gray); font-size: 0.9rem;">Signal amplification</span>
+                
+                <div class="convergence-column">
+                    <h3 class="modern">🔬 Modern Physics (2026)</h3>
+                    <ul>
+                        <li><span class="icon">🌊</span><strong>Quantum Fields:</strong> Vibration patterns in spacetime</li>
+                        <li><span class="icon">💫</span><strong>Wave-Particle Duality:</strong> Matter as frequency</li>
+                        <li><span class="icon">🔊</span><strong>String Theory:</strong> Reality as vibrating strings</li>
+                        <li><span class="icon">🌍</span><strong>Emergent Complexity:</strong> Form from simple rules</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="quote-box">
-                <strong>A Possible Interpretation for Our Narrative:</strong><br><br>
-                <em>NADA is the foundational signal — the first vibration that aligns systems, people, and nature into harmony.</em><br><br>
-                Or more poetic:<br><br>
-                <em>Before systems, there is signal.<br>Before structure, there is resonance.<br>NADA is where it begins.</em>
+            <div class="convergence-bridge">
+                <p>
+                    <strong>They're describing the same reality.</strong><br>
+                    One through meditation. One through mathematics.<br>
+                    Both arriving at: <strong>vibration creates form.</strong>
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Sacred Geometry Wave Divider (Reversed) -->
     <div class="wave-divider wave-divider-reversed" aria-hidden="true">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="wave-svg">
-            <path class="wave-path" d="M0,60 Q300,100 600,60 T1200,60 L1200,0 L0,0 Z"/>
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,50 600,30 T1200,30 L1200,0 L0,0 Z"/>
         </svg>
     </div>
 
-    <section class="content-section alt-bg">
+    <!-- Bridge Section: From Philosophy to Architecture -->
+    <section class="bridge-section">
         <div class="container">
-            <h2>🌱 From Philosophy to Infrastructure</h2>
-            <p>How does ancient Vedic philosophy connect to verified truth infrastructure for hemp supply chains?</p>
+            <h2>From Resonance to Verification</h2>
+            <p class="subtitle">The pattern repeats at every scale</p>
             
-            <p><strong>The connection is in the architecture:</strong></p>
-            <ul>
-                <li><strong>NADA (Primordial Vibration)</strong> → The vision of verified truth as foundational layer</li>
-                <li><strong>SSOT + INOS (Organizing Frequency)</strong> → The architecture that produces verified truth</li>
-                <li><strong>HEMPIN (First Manifestation)</strong> → Industry #1 deployment where the vision becomes reality</li>
-                <li><strong>BUD AI + Regeneration Fund (Tools + Balance)</strong> → Harmonic tools that maintain system integrity</li>
-                <li><strong>Solarpunk 2045 (Complete Harmonic System)</strong> → Planetary regeneration infrastructure</li>
-            </ul>
+            <div class="bridge-diagram">
+                <div class="bridge-flow">
+                    <div class="bridge-node philosophy">
+                        <h3>🌌 Cosmos</h3>
+                        <p>Silence → Vibration → Form</p>
+                    </div>
+                    
+                    <div class="bridge-arrow">↓</div>
+                    
+                    <div class="bridge-node technology">
+                        <h3>⚙️ Supply Chains</h3>
+                        <p>Fragmentation → Verification → Trust</p>
+                    </div>
+                    
+                    <div class="bridge-arrow">↓</div>
+                    
+                    <div class="bridge-node philosophy">
+                        <h3>🌍 Planetary</h3>
+                        <p>Extraction → Regeneration → Harmony</p>
+                    </div>
+                </div>
+            </div>
             
-            <div class="connection-box">
-                <h3>🔗 Back to Practical</h3>
-                <p>While NADA provides the philosophical foundation, our work is deeply practical: building verified truth infrastructure starting with the $17B hemp industry, scaling to all industries by 2045.</p>
-                <p style="margin-top: 12px;"><a href="index.html" style="color: var(--inos-blue); font-weight: 500;">Return to Homepage →</a> | <a href="hempin.html" style="color: var(--inos-blue); font-weight: 500;">Explore HEMPIN Details →</a></p>
+            <div class="convergence-bridge" style="margin-top: 60px;">
+                <p>
+                    <strong>NADA isn't just a name. It's an architectural principle:</strong><br>
+                    verified truth emerges not from force, but from resonance.<br>
+                    Just as the first sound organized chaos into cosmos,<br>
+                    our infrastructure organizes fragmentation into verified truth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Stack Section -->
+    <section class="stack-section">
+        <div class="container">
+            <h2>The Frequency Stack</h2>
+            <p class="subtitle">Each layer vibrates at a different frequency, but all emerge from the same source</p>
+            
+            <div class="architecture-stack">
+                <div class="stack-layer nada">
+                    <div class="icon">🌌</div>
+                    <h3>NADA</h3>
+                    <p>"The signal before structure" — Philosophical foundation</p>
+                </div>
+                
+                <div class="stack-arrow">↓ resonates into</div>
+                
+                <div class="stack-layer ssot">
+                    <div class="icon">🌐</div>
+                    <h3>SSOT (Knowledge Graph)</h3>
+                    <p>Living truth of all entities, relationships, regulations</p>
+                </div>
+                
+                <div class="stack-arrow">↓ organizes into</div>
+                
+                <div class="stack-layer inos">
+                    <div class="icon">⚙️</div>
+                    <h3>INOS (Operating System)</h3>
+                    <p>Sovereign EU stack with event-sourced core</p>
+                </div>
+                
+                <div class="stack-arrow">↓ deploys as</div>
+                
+                <div class="stack-layer hempin">
+                    <div class="icon">🌱</div>
+                    <h3>HEMPIN (Industry #1)</h3>
+                    <p>BUD AI onboarding + Compliance + Regeneration Fund</p>
+                </div>
+                
+                <div class="stack-arrow">↓ funds</div>
+                
+                <div style="text-align: center; padding: 24px; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(236,72,153,0.1) 100%); border-radius: var(--radius-lg); border: 3px solid #F59E0B;">
+                    <div class="icon">💧</div>
+                    <h3 style="margin: 8px 0;">Regeneration Fund</h3>
+                    <p style="margin: 0;">30% to environmental cleanup</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Sacred Geometry Wave Divider -->
     <div class="wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="wave-svg">
-            <path class="wave-path" d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"/>
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
         </svg>
     </div>
 
-    <section class="cta-section">
+    <!-- Three Pillars Convergence Section -->
+    <section class="pillars-section">
         <div class="container">
-            <h2>Ready to Join the Ripple?</h2>
-            <p>Whether you're an advisor, researcher, or mission-aligned collaborator — your perspective matters. Let's build Solarpunk infrastructure together.</p>
-            <a href="involved.html" class="cta-button">Get Involved</a>
+            <h2>✨ The Convergence</h2>
+            <p class="subtitle">Three languages. One truth.</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="icon">🕉️</div>
+                    <h3>Philosophy</h3>
+                    <p>Nada Brahma — reality as vibration<br>Resonance creates harmony<br>Trust emerges from alignment</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="icon">🔬</div>
+                    <h3>Science</h3>
+                    <p>Quantum fields as vibration<br>Wave-particle duality<br>String theory fundamentals</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Technology</h3>
+                    <p>Graph database verification<br>Executable compliance logic<br>Sovereign AI infrastructure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Section -->
+    <section class="invitation-section">
+        <div class="container">
+            <h2>🌊 Join the Resonance</h2>
+            <p>This isn't just infrastructure.<br>It's a gathering point.</p>
+            
+            <p class="highlight">
+                For philosophers who see technology as applied wisdom.<br>
+                For scientists who recognize ancient truths in new forms.<br>
+                For builders who want their code to serve regeneration.<br>
+                For dreamers who believe another world is possible.
+            </p>
+            
+            <p style="font-size: 1.5rem; margin-top: 40px;">
+                <strong>NADA is where these currents converge.</strong>
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="architecture.html" class="cta-button">Explore the Architecture →</a>
+                <a href="involved.html" class="cta-button secondary">Join the Mission</a>
+                <a href="why-nada.html" class="cta-button secondary">Read Solarpunk Mandate</a>
+            </div>
         </div>
     </section>
 
