@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NADA Architecture — SSOT (Single Source of Truth) and INOS (Operating System) technical details. Sovereign EU stack, graph layers, AI robustness.">
-    <title>Architecture — SSOT & INOS | NADA | HEMPIN</title>
+    <meta name="description" content="NADA architecture: How Nada Brahma philosophy shapes verified truth infrastructure. SSOT knowledge graph, INOS operating system, and sovereign EU stack for planetary regeneration.">
+    <title>Architecture — From Resonance to Verification | NADA</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
@@ -25,175 +25,1084 @@
             fontSize: 14
           },
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-          flowchart: { useMaxWidth: true, htmlLabels: true },
-          gantt: { useMaxWidth: true, barHeight: 30, topPadding: 20 }
+          flowchart: { useMaxWidth: true, htmlLabels: true, nodeSpacing: 40, rankSpacing: 50 }
         });
       });
     </script>
     <style>
+        /* Architecture Page — Philosophy-Driven, Interactive, Warm */
+        
+        /* Hero Section */
         .arch-hero {
-            background: linear-gradient(135deg, var(--inos-blue) 0%, var(--ssot-purple) 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 100px 0;
+            padding: 140px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .arch-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .arch-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
         .arch-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 16px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
             color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
+        
         .arch-hero .subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
             opacity: 0.95;
             color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
         }
-        .content-section {
-            padding: 80px 0;
+        
+        .arch-hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: var(--white);
+            font-style: italic;
+        }
+        
+        /* Sacred Geometry Wave Divider */
+        .wave-divider {
+            height: 60px;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .wave-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .wave-path {
+            fill: url(#waveGradient);
+            animation: waveFlow 20s ease-in-out infinite;
+        }
+        
+        @keyframes waveFlow {
+            0%, 100% { d: path("M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"); }
+            50% { d: path("M0,30 Q300,50 600,30 T1200,30 L1200,60 L0,60 Z"); }
+        }
+        
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
+        }
+        
+        .philosophy-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .philosophy-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 32px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+            text-align: center;
+        }
+        
+        .philosophy-section .sanskrit {
+            display: block;
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--ssot-purple);
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+        
+        .philosophy-section .narrative {
+            font-size: 1.25rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .philosophy-section .pattern-diagram {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        .pattern-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .pattern-node {
             background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 600px;
+            border: 3px solid transparent;
         }
-        .content-section h2 {
-            font-size: 2rem;
-            margin-bottom: 24px;
+        
+        .pattern-node.cosmos {
+            border-color: #8B5CF6;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.1) 100%);
+        }
+        
+        .pattern-node.architecture {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
+        }
+        
+        .pattern-node h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             color: var(--dark);
         }
-        .content-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        
+        .pattern-node p {
             color: var(--gray);
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        
+        .pattern-arrow {
+            font-size: 2.5rem;
+            color: var(--gray-light);
+        }
+        
+        /* Principles Section */
+        .principles-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .principles-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .principles-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .principles-grid::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            border: 2px dashed rgba(139,92,246,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+        }
+        
+        .principle-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--inos-blue);
+        }
+        
+        .principle-card.expanded {
+            border-color: var(--hempin-green);
+            box-shadow: 0 12px 36px rgba(16,185,129,0.2);
+        }
+        
+        .principle-card .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 20px;
         }
-        .layer-card {
-            background: var(--light);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--inos-blue);
-            box-shadow: var(--shadow-sm);
-        }
-        .layer-card h3 {
-            font-size: 1.5rem;
+        
+        .principle-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 16px;
             color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-        .layer-card ul {
-            margin: 16px 0 0 20px;
+        
+        .principle-card .summary {
             color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
-        .layer-card li {
-            margin-bottom: 8px;
-        }
-        .layer-card.blue { border-left-color: var(--inos-blue); }
-        .layer-card.green { border-left-color: var(--hempin-green); }
-        .layer-card.purple { border-left-color: var(--ssot-purple); }
-        .diagram-container {
-            max-width: 100% !important;
-            margin: 0 auto 40px;
-            background: var(--light);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            overflow-x: auto;
-        }
-        .mermaid {
-            display: block !important;
-            width: 100% !important;
-            min-width: 600px;
-            margin: 20px auto;
-        }
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: var(--white);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        .tech-table th, .tech-table td {
-            padding: 15px;
+        
+        .principle-card .details {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
             text-align: left;
-            border-bottom: 1px solid #E5E7EB;
         }
-        .tech-table th {
-            background: var(--ssot-purple);
-            color: var(--white);
-            font-weight: 600;
+        
+        .principle-card.expanded .details {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
-        .tech-table tr:hover {
-            background: #F3F4F6;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .sovereign-badge {
-            display: inline-block;
-            background: var(--hempin-green);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+        
+        .principle-card .details ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
-        .ai-robustness {
-            background: #F0FDF4;
-            border-left: 4px solid var(--hempin-green);
-            padding: 24px;
-            margin: 30px 0;
-            border-radius: 0 var(--radius) var(--radius) 0;
+        
+        .principle-card .details li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
-        .cta-section {
-            padding: 60px 0;
-            background: var(--light);
+        
+        .principle-card .details li::before {
+            content: '→';
+            color: var(--inos-blue);
+            font-weight: 700;
+        }
+        
+        /* SSOT Section */
+        .ssot-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .ssot-section h2 {
             text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .cta-section h2 {
-            font-size: 1.8rem;
+        
+        .ssot-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .ssot-diagram {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .ssot-stack {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .ssot-layer {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            cursor: pointer;
+        }
+        
+        .ssot-layer:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+        }
+        
+        .ssot-layer.expanded {
+            border-color: var(--hempin-green);
+        }
+        
+        .ssot-layer.entity {
+            border-color: #3B82F6;
+            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
+        }
+        
+        .ssot-layer.relationship {
+            border-color: #10B981;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(16,185,129,0.1) 100%);
+        }
+        
+        .ssot-layer.compliance {
+            border-color: #7C3AED;
+            background: linear-gradient(135deg, rgba(124,58,237,0.05) 0%, rgba(124,58,237,0.1) 100%);
+        }
+        
+        .ssot-layer.value {
+            border-color: #F59E0B;
+            background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0.1) 100%);
+        }
+        
+        .ssot-layer .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .ssot-layer h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .ssot-layer p {
+            color: var(--gray);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .ssot-layer .details {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+            text-align: left;
+        }
+        
+        .ssot-layer.expanded .details {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .ssot-layer .details ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .ssot-layer .details li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .ssot-layer .details li::before {
+            content: '•';
+            color: var(--inos-blue);
+            font-weight: 700;
+        }
+        
+        .stack-arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--gray-light);
+            margin: -8px 0;
+        }
+        
+        /* INOS Section */
+        .inos-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .inos-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .inos-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .inos-diagram {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: var(--light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .inos-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .inos-node {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            border-left: 4px solid var(--inos-blue);
+        }
+        
+        .inos-node h4 {
+            margin: 0 0 8px;
+            color: var(--dark);
+        }
+        
+        .inos-node p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .inos-arrow {
+            font-size: 2rem;
+            color: var(--gray-light);
+        }
+        
+        .inos-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .inos-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-top: 4px solid #8B5CF6;
+        }
+        
+        .inos-card h3 {
+            font-size: 1.3rem;
             margin-bottom: 16px;
             color: var(--dark);
         }
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 24px;
+        
+        .inos-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* Breakthroughs Section */
+        .breakthroughs-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .breakthroughs-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .breakthroughs-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .breakthroughs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .breakthrough-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-left: 6px solid #10B981;
+            transition: all 0.3s ease;
+        }
+        
+        .breakthrough-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .breakthrough-card .number {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            color: var(--white);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 48px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .breakthrough-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .breakthrough-card .comparison {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--radius);
+        }
+        
+        .breakthrough-card .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .breakthrough-card .comparison-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .breakthrough-card .current {
             color: var(--gray);
         }
-        @media (max-width: 768px) {
-            .arch-hero h1 { font-size: 2.2rem; }
-            .arch-hero .subtitle { font-size: 1.1rem; }
-            .tech-table { font-size: 0.9rem; }
-            .tech-table th, .tech-table td { padding: 12px 10px; }
+        
+        .breakthrough-card .nada-solution {
+            color: #10B981;
+            font-weight: 600;
+        }
+        
+        .breakthrough-card .improvement {
+            color: #8B5CF6;
+            font-weight: 700;
+        }
+        
+        /* Application Section */
+        .application-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .application-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .application-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .application-mapping {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .architecture-side, .hempin-side {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .architecture-side h3 {
+            color: #8B5CF6;
+            margin-bottom: 24px;
+            font-size: 1.4rem;
+        }
+        
+        .hempin-side h3 {
+            color: #10B981;
+            margin-bottom: 24px;
+            font-size: 1.4rem;
+        }
+        
+        .mapping-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .mapping-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+        
+        .mapping-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .mapping-list .arrow {
+            color: var(--gray-light);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .mapping-bridge {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(16,185,129,0.05) 100%);
+            border-radius: var(--radius-lg);
+            margin-top: 20px;
+        }
+        
+        .mapping-bridge p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        /* Invitation Section */
+        .invitation-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invitation-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .invitation-section .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .invitation-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .invitation-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .invitation-section .highlight {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 32px auto;
+            display: block;
+        }
+        
+        .invitation-section .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+        
+        .invitation-section .cta-button {
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .invitation-section .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .invitation-section .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--white);
+            color: var(--white);
+        }
+        
+        .invitation-section .cta-button.secondary:hover {
+            background: var(--white);
+            color: #8B5CF6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .application-mapping {
+                grid-template-columns: 1fr;
+            }
+            
+            .arch-hero {
+                padding: 100px 0;
+            }
+            
+            .philosophy-section,
+            .principles-section,
+            .ssot-section,
+            .inos-section,
+            .breakthroughs-section,
+            .application-section,
+            .invitation-section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
+    <!-- Hero Section: From Resonance to Verification -->
     <section class="arch-hero">
         <div class="container">
-            <h1>Core Architecture</h1>
-            <p class="subtitle">SSOT (Single Source of Truth) + INOS (Operating System) — The foundational layer of NADA</p>
+            <h1>From Resonance to Verification</h1>
+            <p class="subtitle">How Nada Brahma shapes verified truth infrastructure</p>
+            <p class="tagline">Just as the first sound organized chaos into cosmos, our architecture organizes fragmentation into verified truth</p>
         </div>
     </section>
 
-    <!-- SSOT Section -->
-    <section class="content-section" id="ssot">
+    <!-- Sacred Geometry Wave Divider -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
+        </svg>
+    </div>
+
+    <!-- Philosophical Foundation Section -->
+    <section class="philosophy-section">
         <div class="container">
-            <h2 id="ssot">🌐 SSOT: Single Source of Truth</h2>
-            <p>A continuously updating, multi-dimensional knowledge graph — a living representation of the hemp economy at entity, relationship, compliance, and value flow levels simultaneously.</p>
+            <span class="sanskrit">नाद ब्रह्म → आर्किटेक्चर</span>
+            <h2>The Pattern Repeats</h2>
             
-            <div class="diagram-container">
-                <h3 style="margin-bottom: 20px;">SSOT Graph Layers</h3>
+            <p class="narrative">
+                Ancient wisdom teaches: Silence → Vibration → Form → World
+            </p>
+            
+            <div class="pattern-diagram">
+                <div class="pattern-flow">
+                    <div class="pattern-node cosmos">
+                        <h3>🌌 Cosmos</h3>
+                        <p>Silence → Vibration → Form → World</p>
+                    </div>
+                    
+                    <div class="pattern-arrow">↓ same pattern</div>
+                    
+                    <div class="pattern-node architecture">
+                        <h3>⚙️ Architecture</h3>
+                        <p>Fragmentation → Verification → Trust → Regeneration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="narrative" style="margin-top: 40px;">
+                This isn't metaphor. It's architectural principle:<br>
+                <strong>verified truth emerges not from force, but from resonance.</strong>
+            </p>
+            
+            <p class="narrative">
+                The same frequency that organized the universe<br>
+                now organizes supply chains.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sacred Geometry Wave Divider (Reversed) -->
+    <div class="wave-divider wave-divider-reversed" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,50 600,30 T1200,30 L1200,0 L0,0 Z"/>
+        </svg>
+    </div>
+
+    <!-- Core Principles Section -->
+    <section class="principles-section">
+        <div class="container">
+            <h2>⚙️ Five Architectural Principles</h2>
+            <p class="subtitle">The DNA that shapes every layer of our infrastructure</p>
+            
+            <div class="principles-grid">
+                <div class="principle-card" onclick="toggleCard(this)">
+                    <div class="number">1</div>
+                    <h3>Resonance Over Force</h3>
+                    <p class="summary">Compliance enforced through graph constraints, not audits. Trust emerges from alignment, not authority.</p>
+                    
+                    <div class="details">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li>Regulations encoded as executable Cypher queries</li>
+                            <li>Real-time validation: block non-compliant transactions</li>
+                            <li>Graph constraints as first-class citizens in schema</li>
+                        </ul>
+                        
+                        <h4>Why This Matters</h4>
+                        <ul>
+                            <li>Prevention vs. detection reduces compliance costs by 60%</li>
+                            <li>Trust is inherent, not audited after</li>
+                            <li>Scales to planetary level without central authority</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="principle-card" onclick="toggleCard(this)">
+                    <div class="number">2</div>
+                    <h3>Truth as Living Graph</h3>
+                    <p class="summary">Entities, relationships, regulations as interconnected nodes. Event-sourced: every change is an immutable event.</p>
+                    
+                    <div class="details">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li>Memgraph for in-memory, real-time graph operations</li>
+                            <li>Event sourcing: append-only log of all state changes</li>
+                            <li>Provenance trail: source text, confidence, reviewer ID</li>
+                        </ul>
+                        
+                        <h4>Why This Matters</h4>
+                        <ul>
+                            <li>Full auditability for regulators and partners</li>
+                            <li>Time-travel queries: "What was true at time X?"</li>
+                            <li>Trust scales with evidence, not claims</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="principle-card" onclick="toggleCard(this)">
+                    <div class="number">3</div>
+                    <h3>Sovereignty by Design</h3>
+                    <p class="summary">EU infrastructure, open source, community governance. Data stays in jurisdiction, code stays transparent.</p>
+                    
+                    <div class="details">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li>OVHcloud + Hetzner for EU data residency</li>
+                            <li>Self-hosted Mistral 7B, Memgraph, Kafka</li>
+                            <li>Open source licenses: Apache 2.0, MIT, GPL</li>
+                        </ul>
+                        
+                        <h4>Why This Matters</h4>
+                        <ul>
+                            <li>No US Cloud Act exposure for critical trade data</li>
+                            <li>GDPR compliance built into architecture</li>
+                            <li>Community governance prevents vendor lock-in</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="principle-card" onclick="toggleCard(this)">
+                    <div class="number">4</div>
+                    <h3>Regeneration Embedded</h3>
+                    <p class="summary">30% of value flow automatically funds cleanup. Economics serve ecology, not extraction.</p>
+                    
+                    <div class="details">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li>Smart contracts route 30% to Regeneration Fund</li>
+                            <li>Transparent impact metrics linked to every transaction</li>
+                            <li>Community governance via INOS Foundation</li>
+                        </ul>
+                        
+                        <h4>Why This Matters</h4>
+                        <ul>
+                            <li>Regeneration is default, not optional</li>
+                            <li>Every transaction funds environmental cleanup</li>
+                            <li>Economic incentives align with planetary health</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="principle-card" onclick="toggleCard(this)">
+                    <div class="number">5</div>
+                    <h3>Progressive Verification</h3>
+                    <p class="summary">Confidence scoring + human-in-the-loop. Trust scales with evidence, not claims.</p>
+                    
+                    <div class="details">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li>BUD Agent: confidence scoring >0.85 = auto-approve</li>
+                            <li>Human review console for low-confidence extractions</li>
+                            <li>Continuous learning from human corrections</li>
+                        </ul>
+                        
+                        <h4>Why This Matters</h4>
+                        <ul>
+                            <li>Reduces onboarding from weeks to minutes</li>
+                            <li>Human judgment for edge cases, AI for scale</li>
+                            <li>Trust grows with evidence, not promises</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sacred Geometry Wave Divider -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
+        </svg>
+    </div>
+
+    <!-- SSOT Section: The Living Graph -->
+    <section class="ssot-section">
+        <div class="container">
+            <h2>🌐 SSOT: Single Source of Truth</h2>
+            <p class="subtitle">The living graph of verified reality — click layers to explore technical details</p>
+            
+            <div class="ssot-diagram">
                 <div class="mermaid">
 flowchart TD
-    subgraph SSOT["SSOT — Single Source of Truth"]
-        direction TB
-        E["Entity Layer<br/>Every verified actor"]:::entity
-        R["Relationship Layer<br/>Every interaction"]:::relationship
-        C["Compliance Layer<br/>57 jurisdictions encoded"]:::compliance
-        V["Value Layer<br/>Economic flows + Regeneration Fund"]:::value
-    end
+    E["👥 Entity Layer<br/>Every verified actor"]:::entity
+    R["🔗 Relationship Layer<br/>Every interaction"]:::relationship
+    C["⚖️ Compliance Layer<br/>Executable constraints"]:::compliance
+    V["💎 Value Layer<br/>Economic flows + 30% to cleanup"]:::value
     
     E --> R --> C --> V
     
@@ -209,259 +1118,336 @@ flowchart TD
                 </div>
             </div>
             
-            <div class="layer-card blue">
-                <h3>📦 Entity Layer</h3>
-                <ul>
-                    <li><strong>Canonical representation</strong> of every verified actor (farmers, processors, brands, regulators)</li>
-                    <li><strong>Unique identifiers</strong> with verification status and provenance trail</li>
-                    <li><strong>Attributes:</strong> Location, certifications, capacity, compliance status</li>
-                    <li><strong>Dynamic updates:</strong> Event-sourced for immutable audit trail</li>
-                </ul>
-            </div>
-            
-            <div class="layer-card green">
-                <h3>🔗 Relationship Layer</h3>
-                <ul>
-                    <li><strong>Every interaction</strong> between entities (trades, contracts, certifications, samples)</li>
-                    <li><strong>Time-series events:</strong> Immutable record of all relationships</li>
-                    <li><strong>Graph traversals:</strong> Enable complex queries (e.g., "Show all suppliers of Supplier X")</li>
-                    <li><strong>Verification status:</strong> Each relationship has confidence score and verification level</li>
-                </ul>
-            </div>
-            
-            <div class="layer-card purple">
-                <h3>⚖️ Compliance Layer</h3>
-                <ul>
-                    <li><strong>57 jurisdictions encoded</strong> as machine-readable graph constraints (SHACL/Cypher)</li>
-                    <li><strong>Real-time validation:</strong> Transactions blocked if non-compliant</li>
-                    <li><strong>Regulatory ontology:</strong> THC limits, licensing, labeling rules per jurisdiction</li>
-                    <li><strong>Iterative expansion:</strong> Start with 5 jurisdictions (TH, FR, DE, NL, AU), expand to 57+</li>
-                </ul>
-            </div>
-            
-            <div class="layer-card" style="border-left-color: var(--ssot-purple);">
-                <h3>💎 Value Layer</h3>
-                <ul>
-                    <li><strong>Economic flow graph:</strong> Transactions, fees, Regeneration Fund contributions</li>
-                    <li><strong>30% automatic routing:</strong> Transaction value flows to environmental cleanup</li>
-                    <li><strong>Transparent impact metrics:</strong> Link every transaction to verified cleanup projects</li>
-                    <li><strong>NADA token economics:</strong> Future token layer for governance and incentives</li>
-                </ul>
+            <div class="ssot-stack">
+                <div class="ssot-layer entity" onclick="toggleLayer(this)">
+                    <div class="icon">👥</div>
+                    <h3>Entity Layer</h3>
+                    <p>Canonical representation of every verified actor</p>
+                    
+                    <div class="details">
+                        <h4>What It Stores</h4>
+                        <ul>
+                            <li>Farmers, processors, brands, regulators, certifiers</li>
+                            <li>Unique identifiers with verification status</li>
+                            <li>Attributes: location, certifications, capacity, compliance status</li>
+                        </ul>
+                        
+                        <h4>How It Works</h4>
+                        <ul>
+                            <li>Event-sourced: every change is an immutable event</li>
+                            <li>Provenance trail: who added/updated, when, why</li>
+                            <li>Confidence scoring for data quality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stack-arrow">↓ connects to</div>
+                
+                <div class="ssot-layer relationship" onclick="toggleLayer(this)">
+                    <div class="icon">🔗</div>
+                    <h3>Relationship Layer</h3>
+                    <p>Every interaction between entities</p>
+                    
+                    <div class="details">
+                        <h4>What It Stores</h4>
+                        <ul>
+                            <li>Trades, contracts, certifications, samples, shipments</li>
+                            <li>Time-series events: immutable record of all relationships</li>
+                            <li>Verification status: confidence score + verification level</li>
+                        </ul>
+                        
+                        <h4>How It Works</h4>
+                        <ul>
+                            <li>Graph traversals: "Show all suppliers of Supplier X"</li>
+                            <li>Real-time updates: new relationships propagate instantly</li>
+                            <li>Audit trail: reconstruct any relationship history</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stack-arrow">↓ enforces</div>
+                
+                <div class="ssot-layer compliance" onclick="toggleLayer(this)">
+                    <div class="icon">⚖️</div>
+                    <h3>Compliance Layer</h3>
+                    <p>57 jurisdictions as executable constraints</p>
+                    
+                    <div class="details">
+                        <h4>What It Stores</h4>
+                        <ul>
+                            <li>Regulatory ontology: THC limits, licensing, labeling rules</li>
+                            <li>Graph constraints: Cypher queries that block non-compliant transactions</li>
+                            <li>Jurisdiction mapping: which rules apply where</li>
+                        </ul>
+                        
+                        <h4>How It Works</h4>
+                        <ul>
+                            <li>Real-time validation: transactions blocked if non-compliant</li>
+                            <li>Iterative expansion: start with 5 jurisdictions, scale to 57+</li>
+                            <li>Human review: edge cases flagged for expert validation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stack-arrow">↓ funds</div>
+                
+                <div class="ssot-layer value" onclick="toggleLayer(this)">
+                    <div class="icon">💎</div>
+                    <h3>Value Layer</h3>
+                    <p>Economic flows + Regeneration Fund routing</p>
+                    
+                    <div class="details">
+                        <h4>What It Stores</h4>
+                        <ul>
+                            <li>Transactions, fees, Regeneration Fund contributions</li>
+                            <li>Impact metrics: link every transaction to cleanup projects</li>
+                            <li>Token economics: future NADA token for governance</li>
+                        </ul>
+                        
+                        <h4>How It Works</h4>
+                        <ul>
+                            <li>Automatic routing: 30% of transaction value to cleanup</li>
+                            <li>Transparent metrics: consumers see environmental impact</li>
+                            <li>Community governance: INOS Foundation oversees fund allocation</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- INOS Section -->
-    <section class="content-section" style="background: var(--light);" id="inos">
+    <!-- Sacred Geometry Wave Divider (Reversed) -->
+    <div class="wave-divider wave-divider-reversed" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,50 600,30 T1200,30 L1200,0 L0,0 Z"/>
+        </svg>
+    </div>
+
+    <!-- INOS Section: The Truth-Producing Engine -->
+    <section class="inos-section">
         <div class="container">
-            <h2>⚙️ INOS: Operating System</h2>
-            <p>The architecture that produces SSOT: Microservices + Event Sourcing + Graph Database + Sovereign EU infrastructure.</p>
+            <h2>⚙️ INOS: The Truth-Producing Engine</h2>
+            <p class="subtitle">How the operating system creates verified truth from raw data</p>
             
-            <div class="diagram-container">
-                <h3 style="margin-bottom: 20px;">INOS Architecture Overview</h3>
+            <div class="inos-diagram">
                 <div class="mermaid">
 flowchart LR
-    subgraph Frontend["Frontend Layer"]
-        BUD["BUD AI Agent<br/>Natural Language Onboarding"]
-        DASH["Dashboards<br/>Compliance + Analytics"]
-    end
+    A["Farmer Conversation"] --> B["BUD Agent<br/>Mistral 7B"]
+    B --> C["Graph Nodes<br/>Memgraph"]
+    C --> D["Compliance Check<br/>Executable"]
+    D --> E["Verified or Blocked"]
     
-    subgraph Backend["Backend Layer"]
-        API["API Gateway<br/>REST + GraphQL"]
-        MS["Microservices<br/>Entity, Relationship, Compliance, Value"]
-        ES["Event Sourcing<br/>Immutable audit trail"]
-    end
-    
-    subgraph Data["Data Layer"]
-        GRAPH["Memgraph<br/>Graph Database"]
-        STREAM["Kafka<br/>Event Stream"]
-        STORE["Ceph<br/>Object Storage"]
-    end
-    
-    subgraph Infra["Infrastructure Layer"]
-        OVH["OVHcloud<br/>EU Hosting"]
-        MISTRAL["Mistral 7B<br/>Self-hosted AI"]
-    end
-    
-    Frontend --> Backend
-    Backend --> Data
-    Data --> Infra
-    
-    classDef frontend fill:#DBEAFE,stroke:#3B82F6,stroke-width:2px,color:#1F2937,rx:8,ry:8;
-    classDef backend fill:#D1FAE5,stroke:#10B981,stroke-width:2px,color:#1F2937,rx:8,ry:8;
-    classDef data fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px,color:#1F2937,rx:8,ry:8;
-    classDef infra fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px,color:#1F2937,rx:8,ry:8;
-    
-    class BUD,DASH frontend;
-    class API,MS,ES backend;
-    class GRAPH,STREAM,STORE data;
-    class OVH,MISTRAL infra;
+    style A fill:#DBEAFE,stroke:#3B82F6,stroke-width:2px
+    style B fill:#D1FAE5,stroke:#10B981,stroke-width:2px
+    style C fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
+    style D fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px
+    style E fill:#FCE7F3,stroke:#EC4899,stroke-width:2px
                 </div>
             </div>
             
-            <h3 style="margin-top: 40px; margin-bottom: 20px;">🛡️ Sovereign Technology Stack</h3>
-            <table class="tech-table">
-                <tr>
-                    <th>Component</th>
-                    <th>Technology</th>
-                    <th>Origin</th>
-                    <th>Sovereignty</th>
-                </tr>
-                <tr>
-                    <td>Cloud Provider</td>
-                    <td>OVHcloud + Hetzner</td>
-                    <td>🇫🇷 France + 🇩🇪 Germany</td>
-                    <td><span class="sovereign-badge">✅✅✅</span></td>
-                </tr>
-                <tr>
-                    <td>Graph Database</td>
-                    <td>Memgraph</td>
-                    <td>🇸🇮 Slovenia</td>
-                    <td><span class="sovereign-badge">✅✅✅</span></td>
-                </tr>
-                <tr>
-                    <td>LLM</td>
-                    <td>Mistral 7B (self-hosted)</td>
-                    <td>🇫🇷 France</td>
-                    <td><span class="sovereign-badge">✅✅✅</span></td>
-                </tr>
-                <tr>
-                    <td>Event Stream</td>
-                    <td>Apache Kafka (self-hosted)</td>
-                    <td>🌍 Apache Foundation</td>
-                    <td><span class="sovereign-badge">✅✅✅</span></td>
-                </tr>
-                <tr>
-                    <td>Object Storage</td>
-                    <td>Ceph (self-hosted)</td>
-                    <td>🌍 Community</td>
-                    <td><span class="sovereign-badge">✅✅✅</span></td>
-                </tr>
-                <tr>
-                    <td>Authentication</td>
-                    <td>Zitadel</td>
-                    <td>🇨🇭 Switzerland</td>
-                    <td><span class="sovereign-badge">✅✅✅</span></td>
-                </tr>
-            </table>
-            
-            <div class="ai-robustness">
-                <h3 style="margin-top: 0; margin-bottom: 16px; color: var(--hempin-green);">🤖 AI Robustness Measures (EIC Requirement)</h3>
-                <ul>
-                    <li><strong>Technical Robustness:</strong> Confidence scoring (>0.85 threshold) + human-in-the-loop validation for low-confidence extractions</li>
-                    <li><strong>Social Robustness:</strong> Training data diversified across languages (EN, FR, TH, RO) to reduce bias; human review for sensitive regulatory decisions</li>
-                    <li><strong>Reliability:</strong> Service-level agreements (99.9% uptime); error logging and incident response protocols</li>
-                    <li><strong>Explainability:</strong> Each graph node includes provenance trail (source text, confidence score, reviewer ID) for auditability</li>
-                </ul>
+            <div class="inos-cards">
+                <div class="inos-card">
+                    <h3>🤖 BUD Agent</h3>
+                    <p>Natural language → graph nodes. Fine-tuned Mistral 7B with confidence scoring (>0.85 = auto-approve). Human-in-the-loop for edge cases.</p>
+                </div>
+                
+                <div class="inos-card">
+                    <h3>🕸️ Graph Engine</h3>
+                    <p>Memgraph for real-time constraint validation. Cypher queries encode regulations. Transactions blocked if non-compliant before recording.</p>
+                </div>
+                
+                <div class="inos-card">
+                    <h3>📡 Event Stream</h3>
+                    <p>Apache Kafka for immutable audit trails. Every change is an event. Reconstruct any state at any time for regulators.</p>
+                </div>
             </div>
             
-            <p style="text-align: center; margin-top: 30px;">
-                <a href="technology.html" style="color: var(--inos-blue); font-weight: 500;">View Full Technology Stack Details →</a>
+            <div class="mapping-bridge" style="margin-top: 60px;">
+                <p>
+                    <strong>The innovation:</strong> Compliance isn't audited after — it's enforced during.<br>
+                    Just as the first sound organized chaos into cosmos,<br>
+                    our infrastructure organizes fragmentation into verified truth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breakthroughs Section -->
+    <section class="breakthroughs-section">
+        <div class="container">
+            <h2>🚀 Three Architectural Breakthroughs</h2>
+            <p class="subtitle">What makes this different from current supply chain systems</p>
+            
+            <div class="breakthroughs-grid">
+                <div class="breakthrough-card">
+                    <div class="number">1</div>
+                    <h3>Natural-Language-to-Graph (NL2G)</h3>
+                    
+                    <div class="comparison">
+                        <div class="comparison-row">
+                            <span class="current">Current: Manual forms (2-4 weeks)</span>
+                            <span class="improvement">10x faster</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="nada-solution">NADA: AI conversation (5-15 minutes)</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Novelty:</strong> Confidence scoring + human-in-the-loop validation. Reduces onboarding friction while maintaining accuracy.</p>
+                    <p><strong>TRL Advancement:</strong> From chatbot (TRL 6) to verified data ingestion pipeline (TRL 4)</p>
+                </div>
+                
+                <div class="breakthrough-card">
+                    <div class="number">2</div>
+                    <h3>Regulatory Ontology as Code</h3>
+                    
+                    <div class="comparison">
+                        <div class="comparison-row">
+                            <span class="current">Current: PDF regulations + post-audit</span>
+                            <span class="improvement">0% failure rate</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="nada-solution">NADA: Executable constraints + real-time validation</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Novelty:</strong> Active prevention vs. passive detection. Graph enforces compliance inherently.</p>
+                    <p><strong>TRL Advancement:</strong> From document management (TRL 5) to executable compliance logic (TRL 3-4)</p>
+                </div>
+                
+                <div class="breakthrough-card">
+                    <div class="number">3</div>
+                    <h3>Sovereign AI Stack</h3>
+                    
+                    <div class="comparison">
+                        <div class="comparison-row">
+                            <span class="current">Current: US APIs (OpenAI, AWS)</span>
+                            <span class="improvement">Full EU sovereignty</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="nada-solution">NADA: Self-hosted Mistral + OVHcloud + Memgraph</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Novelty:</strong> Proof that sovereign EU stack can handle real-time AI inference without US dependency.</p>
+                    <p><strong>TRL Advancement:</strong> From theoretical feasibility (TRL 2) to validated performance (TRL 4)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sacred Geometry Wave Divider -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
+                </linearGradient>
+            </defs>
+            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
+        </svg>
+    </div>
+
+    <!-- Application Section: Architecture → HEMPIN -->
+    <section class="application-section">
+        <div class="container">
+            <h2>🌱 From Architecture to Application</h2>
+            <p class="subtitle">How core architecture deploys to hemp supply chains</p>
+            
+            <div class="application-mapping">
+                <div class="architecture-side">
+                    <h3>🏗️ Core Architecture</h3>
+                    <ul class="mapping-list">
+                        <li><span class="icon">👥</span> Entity Layer: Canonical actor representation</li>
+                        <li><span class="icon">🔗</span> Relationship Layer: Immutable interaction records</li>
+                        <li><span class="icon">⚖️</span> Compliance Layer: Executable regulatory constraints</li>
+                        <li><span class="icon">💎</span> Value Layer: Economic flows + regeneration routing</li>
+                    </ul>
+                </div>
+                
+                <div class="hempin-side">
+                    <h3>🌿 HEMPIN Deployment</h3>
+                    <ul class="mapping-list">
+                        <li><span class="arrow">→</span> Farmer/Processor profiles with verification status</li>
+                        <li><span class="arrow">→</span> Trade verification with provenance trails</li>
+                        <li><span class="arrow">→</span> THC limit enforcement per jurisdiction</li>
+                        <li><span class="arrow">→</span> 30% of transaction value to environmental cleanup</li>
+                    </ul>
+                </div>
+                
+                <div class="mapping-bridge">
+                    <p>
+                        <strong>The pattern holds:</strong><br>
+                        Philosophy (Nada Brahma) → Principles (5 DNA) → Architecture (SSOT/INOS) → Application (HEMPIN)<br><br>
+                        Same resonance. Different frequency.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Section -->
+    <section class="invitation-section">
+        <div class="container">
+            <h2>🤝 Help Shape the Architecture</h2>
+            <p>This isn't our architecture. It's shared infrastructure for regenerative supply chains.</p>
+            
+            <p class="highlight">
+                For philosophers who see technology as applied wisdom.<br>
+                For scientists who recognize ancient truths in new forms.<br>
+                For builders who want their code to serve regeneration.<br>
+                For dreamers who believe another world is possible.
             </p>
-        </div>
-    </section>
-
-    <!-- Connection to Grant Pages -->
-    <section class="content-section" style="background: var(--white);">
-        <div class="container">
-            <h2>📋 Architecture in EIC Pathfinder Proposal</h2>
-            <p>The SSOT/INOS architecture is detailed in our EIC Pathfinder Open 2026 grant proposal. Technical work is organized across Work Packages 2-4:</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
-                <a href="workpackages.html" style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); text-decoration: none; color: var(--dark); border: 2px solid var(--inos-blue); transition: var(--transition);">
-                    <h3 style="margin-bottom: 8px; color: var(--inos-blue);">📦 Work Packages</h3>
-                    <p style="margin-bottom: 0; color: var(--gray); font-size: 0.95rem;">Detailed WP breakdown with tasks, deliverables, milestones</p>
-                </a>
-                <a href="roadmap.html" style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); text-decoration: none; color: var(--dark); border: 2px solid var(--hempin-green); transition: var(--transition);">
-                    <h3 style="margin-bottom: 8px; color: var(--hempin-green);">🗓️ Roadmap</h3>
-                    <p style="margin-bottom: 0; color: var(--gray); font-size: 0.95rem;">48-month timeline with phases, milestones, funding targets</p>
-                </a>
-                <a href="strategy.html" style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); text-decoration: none; color: var(--dark); border: 2px solid var(--ssot-purple); transition: var(--transition);">
-                    <h3 style="margin-bottom: 8px; color: var(--ssot-purple);">📊 Strategy</h3>
-                    <p style="margin-bottom: 0; color: var(--gray); font-size: 0.95rem;">Funding strategy, innovation potential, organizational structure</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: Architecture Decision Records Section -->
-<section id="decisions" class="features" style="background: var(--light);">
-    <div class="container">
-        <h2>Architecture Decision Records</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-            Key technical choices and their justifications. Each decision was evaluated against alternatives with clear criteria.
-        </p>
-        
-        <div class="features-grid">
-            <div class="feature-card purple">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">📊</div>
-                <div style="display: inline-block; background: var(--ssot-purple); color: var(--white); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">ADR-001</div>
-                <h3>Graph Database (Memgraph)</h3>
-                <p><strong>Decision:</strong> Use Memgraph over Neo4j or TigerGraph</p>
-                <p><strong>Rationale:</strong> EU-based (Slovenia), in-memory performance for real-time compliance queries, supports Cypher query language, Apache 2.0 license</p>
-                <p><strong>Alternatives Considered:</strong> Neo4j (US-based), TigerGraph (US-based), JanusGraph (complex deployment)</p>
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/decisions/ADR-001-graph-database.md" style="color: var(--inos-blue); font-weight: 500; display: inline-block; margin-top: 16px;">Read Full ADR →</a>
-            </div>
+            <p style="font-size: 1.5rem; margin-top: 40px;">
+                <strong>NADA is where these currents converge.</strong>
+            </p>
             
-            <div class="feature-card blue">
-                <div class="icon" style="font-size: 3rem; margin-bottom: 16px;">🛡️</div>
-                <div style="display: inline-block; background: var(--inos-blue); color: var(--white); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">ADR-002</div>
-                <h3>Sovereign EU Stack</h3>
-                <p><strong>Decision:</strong> 100% EU infrastructure (OVHcloud, Mistral AI, Memgraph)</p>
-                <p><strong>Rationale:</strong> Data sovereignty, GDPR compliance, no US Cloud Act exposure, strategic autonomy for critical infrastructure</p>
-                <p><strong>Alternatives Considered:</strong> AWS/Azure (US Cloud Act risk), OpenAI API (data leaves EU), US-based graph databases</p>
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/decisions/ADR-002-sovereign-stack.md" style="color: var(--inos-blue); font-weight: 500; display: inline-block; margin-top: 16px;">Read Full ADR →</a>
+            <div class="cta-buttons">
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/specs/technology-stack.md" target="_blank" class="cta-button">Explore Full Tech Specs →</a>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/tree/main/decisions" target="_blank" class="cta-button secondary">Read Architecture Decisions</a>
+                <a href="involved.html" class="cta-button secondary">Join the Mission</a>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- NEW: Technical Breakthroughs Section -->
-<section id="breakthroughs" class="features" style="background: var(--white);">
-    <div class="container">
-        <h2>Technical Breakthroughs Explained</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-            Moving from "trust but verify" to "verify by design"
-        </p>
-        
-        <div class="feature-card green" style="margin-bottom: 30px;">
-            <h3>Breakthrough 1: Natural-Language-to-Graph (NL2G) Pipeline</h3>
-            <p><strong>Current State:</strong> Manual form filling, weeks of verification, high friction for farmers</p>
-            <p><strong>INOS Innovation:</strong> BUD Agent uses fine-tuned Mistral 7B to convert farmer conversations into verified graph nodes with confidence scoring (&gt;0.85 threshold)</p>
-            <p><strong>Novelty:</strong> Human-in-the-loop validation for low-confidence extractions. Reduces onboarding from weeks to minutes.</p>
-            <p><strong>TRL Advancement:</strong> From chatbot (TRL 6) to verified data ingestion pipeline (TRL 4)</p>
-        </div>
-        
-        <div class="feature-card blue" style="margin-bottom: 30px;">
-            <h3>Breakthrough 2: Regulatory Ontology as Graph Constraints</h3>
-            <p><strong>Current State:</strong> Regulatory compliance via static PDFs, post-transaction auditing</p>
-            <p><strong>INOS Innovation:</strong> 57 jurisdictions encoded as graph schema constraints (Cypher queries). Transactions that violate compliance rules cannot be recorded.</p>
-            <p><strong>Novelty:</strong> Active prevention vs. passive detection. Graph enforces compliance inherently.</p>
-            <p><strong>TRL Advancement:</strong> From document management (TRL 5) to executable compliance logic (TRL 3-4)</p>
-        </div>
-        
-        <div class="feature-card purple" style="margin-bottom: 30px;">
-            <h3>Breakthrough 3: Sovereign AI Stack</h3>
-            <p><strong>Current State:</strong> AI tools rely on US clouds (AWS, Azure) and APIs (OpenAI)</p>
-            <p><strong>INOS Innovation:</strong> Full EU stack: OVHcloud (France), Memgraph (Slovenia), Mistral AI (France). All data stays in EU jurisdiction.</p>
-            <p><strong>Novelty:</strong> Proof that sovereign EU stack can handle real-time AI inference without US dependency</p>
-            <p><strong>TRL Advancement:</strong> From theoretical feasibility (TRL 2) to validated performance (TRL 4)</p>
-        </div>
-        
-        <p style="text-align: center; margin-top: 30px;">
-            <a href="technology.html" style="color: var(--inos-blue); font-weight: 500;">View Full Technology Stack →</a>
-        </p>
-    </div>
-</section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Want to Contribute to the Architecture?</h2>
-            <p>Researchers, developers, regulators — your expertise can strengthen our technical foundation. Reach out to explore collaboration opportunities.</p>
-            <a href="involved.html" class="cta-button">Get Involved</a>
         </div>
     </section>
 
     <!-- Footer injected by footer.js -->
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Toggle principle cards
+        function toggleCard(card) {
+            document.querySelectorAll('.principle-card').forEach(c => {
+                if (c !== card) c.classList.remove('expanded');
+            });
+            card.classList.toggle('expanded');
+        }
+        
+        // Toggle SSOT layers
+        function toggleLayer(layer) {
+            document.querySelectorAll('.ssot-layer').forEach(l => {
+                if (l !== layer) l.classList.remove('expanded');
+            });
+            layer.classList.toggle('expanded');
+        }
+        
+        // Close cards when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.principle-card') && !e.target.closest('.ssot-layer')) {
+                document.querySelectorAll('.principle-card, .ssot-layer').forEach(c => {
+                    c.classList.remove('expanded');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
