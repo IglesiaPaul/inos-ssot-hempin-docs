@@ -3,148 +3,808 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get involved with NADA/HEMPIN: verified truth infrastructure for hemp supply chains. Join as pilot site, research partner, advisor, or investor.">
-    <title>Get Involved | HEMPIN</title>
+    <meta name="description" content="Join NADA/HEMPIN: Build verified truth infrastructure for planetary regeneration. Technical roles, pilot partnerships, advisory positions, and community contribution pathways.">
+    <title>Join the Mission — Build Verified Truth Infrastructure | HEMPIN</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <style>
-        /* Involved Page Specific Styles */
+        /* Involved Page — Warm, Inviting, Action-Oriented */
+        
+        /* Hero Section */
         .involved-hero {
-            background: linear-gradient(135deg, var(--hempin-green) 0%, var(--inos-blue) 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 100px 0;
+            padding: 140px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .involved-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .involved-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
         .involved-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 16px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
             color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .involved-hero p {
-            font-size: 1.3rem;
+        
+        .involved-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
             opacity: 0.95;
             color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
         }
-        .funding-section, .partnerships-section, .contact-section {
-            padding: 80px 0;
+        
+        .involved-hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: var(--white);
+            font-style: italic;
+        }
+        
+        /* Pathways Grid */
+        .pathways-section {
+            padding: 100px 0;
             background: var(--white);
         }
-        .funding-section h2, .partnerships-section h2, .contact-section h2 {
+        
+        .pathways-section h2 {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
             color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .funding-timeline {
+        
+        .pathways-section .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .pathways-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
+            gap: 32px;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .funding-stage {
-            background: var(--light);
-            padding: 30px;
+        
+        .pathway-card {
+            background: var(--white);
+            padding: 40px;
             border-radius: var(--radius-lg);
-            border-top: 4px solid var(--inos-blue);
-            transition: var(--transition);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        .funding-stage:hover {
-            transform: translateY(-4px);
+        
+        .pathway-card:hover {
+            transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
         }
-        .funding-stage h3 {
+        
+        .pathway-card.technical { border-color: #3B82F6; }
+        .pathway-card.pilots { border-color: #10B981; }
+        .pathway-card.advisors { border-color: #8B5CF6; }
+        .pathway-card.community { border-color: #F59E0B; }
+        
+        .pathway-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .pathway-card h3 {
             font-size: 1.4rem;
             margin-bottom: 16px;
             color: var(--dark);
         }
-        .funding-stage p {
+        
+        .pathway-card p {
             color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 12px;
+            line-height: 1.7;
+            margin-bottom: 24px;
         }
-        .funding-stage strong {
+        
+        .pathway-card .cta-link {
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .pathway-card .cta-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Section Styling */
+        .recruitment-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(59,130,246,0.03) 100%);
+        }
+        
+        .recruitment-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
             color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .partnership-grid {
+        
+        .recruitment-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        /* Roles Grid */
+        .roles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
         }
-        .partnership-card {
-            background: var(--light);
-            padding: 30px;
+        
+        .role-card {
+            background: var(--white);
+            padding: 32px;
             border-radius: var(--radius-lg);
-            border-left: 5px solid var(--hempin-green);
-            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border-left: 5px solid #3B82F6;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        .partnership-card:hover {
+        
+        .role-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
-        .partnership-card h4 {
-            font-size: 1.3rem;
+        
+        .role-card.expanded {
+            border-left-color: #10B981;
+            box-shadow: 0 12px 36px rgba(16,185,129,0.2);
+        }
+        
+        .role-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 12px;
             color: var(--dark);
         }
-        .partnership-card p {
+        
+        .role-card .mission {
             color: var(--gray);
+            margin-bottom: 16px;
             line-height: 1.6;
-            margin-bottom: 8px;
         }
-        .partnership-card em {
-            color: var(--inos-blue);
-            font-style: normal;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .contact-card {
-            text-align: center;
+        
+        .role-card .stack {
             background: var(--light);
-            padding: 30px;
+            padding: 12px;
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .role-card .stack strong {
+            color: var(--dark);
+        }
+        
+        .role-card .impact {
+            color: var(--hempin-green);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .role-card .requirements {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .role-card .details {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .role-card.expanded .details {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .role-card .details h4 {
+            font-size: 1.1rem;
+            margin: 16px 0 12px;
+            color: var(--dark);
+        }
+        
+        .role-card .details ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .role-card .details li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .role-card .details li::before {
+            content: '→';
+            color: var(--inos-blue);
+            font-weight: 700;
+        }
+        
+        .role-card .apply-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        
+        .role-card .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+        }
+        
+        /* Why Join Us Section */
+        .why-join {
+            max-width: 900px;
+            margin: 60px auto 0;
+            background: var(--white);
+            padding: 40px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
         }
-        .contact-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-        }
-        .contact-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
+        
+        .why-join h3 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 32px;
             color: var(--dark);
         }
-        .contact-card a {
+        
+        .why-join-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .why-join-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .why-join-column ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .why-join-column li {
+            padding: 12px 0;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .why-join-column li::before {
+            content: '✓';
+            color: var(--hempin-green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* Pilot Partners Section */
+        .pilot-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .pilot-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .pilot-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .pilot-role {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(59,130,246,0.05) 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border-left: 5px solid #10B981;
+        }
+        
+        .pilot-role h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .pilot-role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .pilot-role-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .pilot-role-column ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .pilot-role-column li {
+            padding: 12px 0;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .pilot-role-column li::before {
+            content: '•';
+            color: var(--hempin-green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* Pilot Map */
+        .pilot-map {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .pilot-map h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+            color: var(--dark);
+        }
+        
+        .pilot-status-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .pilot-status-list li {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1.05rem;
+        }
+        
+        .pilot-status-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .pilot-status-list .status {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .pilot-status-list .location {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .pilot-status-list .details {
+            color: var(--gray);
+        }
+        
+        /* Application Forms */
+        .application-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .application-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .application-form h3 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 32px;
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--inos-blue);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 32px;
+        }
+        
+        .form-submit button {
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+        }
+        
+        .form-submit button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(16,185,129,0.5);
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Advisors & Investors Section */
+        .advisors-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .advisors-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .advisors-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .advisors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .advisor-card {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-top: 5px solid #8B5CF6;
+        }
+        
+        .advisor-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .advisor-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .advisor-card .cta-link {
             color: var(--inos-blue);
             font-weight: 600;
             text-decoration: none;
         }
-        .contact-card a:hover {
+        
+        .advisor-card .cta-link:hover {
             text-decoration: underline;
         }
-        .cta-buttons {
+        
+        /* Community Section */
+        .community-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(245,158,11,0.03) 0%, rgba(236,72,153,0.03) 100%);
+        }
+        
+        .community-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .community-section .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .community-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .community-card:hover {
+            border-color: #F59E0B;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .community-card .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .community-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .community-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .community-card .cta-link {
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .community-card .cta-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .final-cta .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .final-cta .highlight {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 32px auto;
+            display: block;
+        }
+        
+        .final-cta .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 40px;
+            margin-top: 48px;
         }
-        @media (max-width: 768px) {
-            .involved-hero { padding: 80px 0; }
-            .involved-hero h1 { font-size: 2.2rem; }
-            .involved-hero p { font-size: 1.1rem; }
-            .funding-timeline, .partnership-grid, .contact-grid {
+        
+        .final-cta .cta-button {
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .final-cta .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .final-cta .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--white);
+            color: var(--white);
+        }
+        
+        .final-cta .cta-button.secondary:hover {
+            background: var(--white);
+            color: #8B5CF6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .why-join-grid,
+            .pilot-role-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .involved-hero {
+                padding: 100px 0;
+            }
+            
+            .pathways-section,
+            .recruitment-section,
+            .pilot-section,
+            .application-section,
+            .advisors-section,
+            .community-section,
+            .final-cta {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
             }
         }
     </style>
@@ -152,134 +812,506 @@
 <body>
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
+    <!-- Hero Section -->
     <section class="involved-hero">
         <div class="container">
-            <h1>Get Involved</h1>
-            <p>Building verified truth infrastructure for planetary regeneration requires mission-aligned collaborators. Find your pathway below.</p>
+            <h1>Join the Resonance</h1>
+            <p class="subtitle">We're gathering philosophers, scientists, builders, and dreamers who believe verified truth can regenerate the planet</p>
+            <p class="tagline">Find your pathway below</p>
         </div>
     </section>
 
-    <!-- Funding & Partnership Pathways -->
-    <section class="funding-section">
+    <!-- Pathways Grid -->
+    <section class="pathways-section">
         <div class="container">
-            <h2>Funding & Partnership Pathways</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-                We're pursuing multiple funding pathways to ensure long-term viability. Here's where we are and how you can engage.
-            </p>
+            <h2>Four Pathways to Contribute</h2>
+            <p class="intro">Whether you build code, organize communities, advise strategically, or contribute openly — there's a place for you in this mission</p>
             
-            <div class="funding-timeline">
-                <div class="funding-stage">
-                    <h3>🌱 Current: Bootstrap Phase (2026)</h3>
-                    <p><strong>Status:</strong> Pre-seed, building documentation and initial partnerships</p>
-                    <p><strong>Opportunities:</strong> Advisory roles, Letters of Intent for consortium participation, pilot site commitments</p>
-                    <p><strong>Next Milestone:</strong> EIC Pathfinder Open 2026 application (deadline: May 12, 2026)</p>
-                    <a href="team.html" style="color: var(--inos-blue); font-weight: 500;">View Team & Consortium →</a>
+            <div class="pathways-grid">
+                <div class="pathway-card technical" onclick="scrollToSection('technical-section')">
+                    <div class="icon">🔧</div>
+                    <h3>Build the Architecture</h3>
+                    <p>CTO, AI Engineers, Graph Specialists, DevOps, Full-Stack Developers</p>
+                    <span class="cta-link">See Technical Roles ↓</span>
                 </div>
                 
-                <div class="funding-stage" style="border-top-color: var(--hempin-green);">
-                    <h3>🚀 Next: Horizon Europe (2026-2030)</h3>
-                    <p><strong>Target:</strong> EIC Pathfinder Open 2026 (€4M, 48 months)</p>
-                    <p><strong>Opportunities:</strong> Consortium partners, pilot site hosts, research collaborators, technical advisors</p>
-                    <p><strong>Requirements:</strong> EU-based entities preferred, alignment with Solarpunk Mandate</p>
-                    <a href="strategy.html" style="color: var(--inos-blue); font-weight: 500;">View Strategy & Scenarios →</a>
+                <div class="pathway-card pilots" onclick="scrollToSection('pilot-section')">
+                    <div class="icon">🌍</div>
+                    <h3>Expand the Network</h3>
+                    <p>Country Representatives, Industry Associations, Farmer Cooperatives, Pilot Sites</p>
+                    <span class="cta-link">Become a Pilot Partner ↓</span>
                 </div>
                 
-                <div class="funding-stage" style="border-top-color: var(--ssot-purple);">
-                    <h3>🌍 Future: Scale Phase (2027+)</h3>
-                    <p><strong>Pathways:</strong> EIC Accelerator, private impact investment, pilot revenue</p>
-                    <p><strong>Opportunities:</strong> Strategic partnerships, deployment partners, mission-aligned capital</p>
-                    <p><strong>Vision:</strong> Self-sustaining planetary infrastructure by 2045</p>
-                    <a href="why-nada.html" style="color: var(--inos-blue); font-weight: 500;">Read Solarpunk Mandate →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partnership Types -->
-    <section class="partnerships-section" style="background: var(--light);">
-        <div class="container">
-            <h2>How Organizations Can Partner</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-                Whether you're a farmer cooperative, research institute, or impact investor — there's a role for you.
-            </p>
-            
-            <div class="partnership-grid">
-                <div class="partnership-card">
-                    <h4>🏭 Pilot Sites</h4>
-                    <p>Host early deployment, provide real-world feedback, co-develop features for your regulatory context.</p>
-                    <p><em>Examples:</em> Hemp processors, farmer cooperatives, certification bodies, supply chain operators</p>
-                    <p style="margin-top: 16px;"><a href="team.html#pilots" style="color: var(--inos-blue); font-weight: 500;">View Pilot Opportunities →</a></p>
-                </div>
-                
-                <div class="partnership-card">
-                    <h4>🎓 Research Partners</h4>
-                    <p>Join the EIC Pathfinder consortium, contribute to work packages, co-author publications, validate methodology.</p>
-                    <p><em>Examples:</em> Universities, research institutes, think tanks, standards organizations</p>
-                    <p style="margin-top: 16px;"><a href="team.html#consortium" style="color: var(--inos-blue); font-weight: 500;">View Consortium Roles →</a></p>
-                </div>
-                
-                <div class="partnership-card">
-                    <h4>🏢 Industry Partners</h4>
-                    <p>Provide industry validation, market access, regulatory expertise, and adoption pathways for verified infrastructure.</p>
-                    <p><em>Examples:</em> Industry associations, certification bodies, standards orgs, trade groups</p>
-                    <p style="margin-top: 16px;"><a href="hempin.html" style="color: var(--inos-blue); font-weight: 500;">Explore HEMPIN Use Cases →</a></p>
-                </div>
-                
-                <div class="partnership-card">
-                    <h4>💰 Mission-Aligned Investors</h4>
-                    <p>Pre-seed participation, grant co-funding, or strategic capital for scaling verified truth infrastructure.</p>
-                    <p><em>Looking for:</em> Impact investors, climate tech funds, EU grant co-funders, regenerative finance partners</p>
-                    <p style="margin-top: 16px;"><a href="strategy.html#funding" style="color: var(--inos-blue); font-weight: 500;">View Funding Strategy →</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Direct Contact Pathways -->
-    <section class="contact-section">
-        <div class="container">
-            <h2>Start a Conversation</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--gray);">
-                Not sure which pathway fits? Reach out directly. We read every message.
-            </p>
-            
-            <div class="contact-grid">
-                <div class="contact-card">
+                <div class="pathway-card advisors" onclick="scrollToSection('advisors-section')">
                     <div class="icon">🧠</div>
-                    <h3>Advisors</h3>
-                    <p>Strategic guidance, network access, grant expertise</p>
-                    <a href="mailto:advisors@hempin.org">advisors@hempin.org</a>
+                    <h3>Shape the Vision</h3>
+                    <p>Strategic Advisors, Mission-Aligned Capital, Research Collaborators</p>
+                    <span class="cta-link">Explore Opportunities ↓</span>
                 </div>
                 
-                <div class="contact-card">
-                    <div class="icon">🔬</div>
-                    <h3>Research Partners</h3>
-                    <p>Consortium participation, technical validation, publications</p>
-                    <a href="mailto:partners@hempin.org">partners@hempin.org</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="icon">🌱</div>
-                    <h3>Pilot Sites</h3>
-                    <p>Early deployment, feedback, co-development</p>
-                    <a href="mailto:pilots@hempin.org">pilots@hempin.org</a>
-                </div>
-                
-                <div class="contact-card">
+                <div class="pathway-card community" onclick="scrollToSection('community-section')">
                     <div class="icon">💬</div>
-                    <h3>General Inquiries</h3>
-                    <p>Media, collaboration ideas, or just curious</p>
-                    <a href="mailto:contact@hempin.org">contact@hempin.org</a>
+                    <h3>Join the Conversation</h3>
+                    <p>GitHub Contributors, Forum Discussions, Newsletter, Open Source</p>
+                    <span class="cta-link">Get Involved Today ↓</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Technical Recruitment Section -->
+    <section id="technical-section" class="recruitment-section">
+        <div class="container">
+            <h2>🔧 Build the Architecture That Verifies Truth</h2>
+            <p class="subtitle">We're seeking technical leaders who want to apply their skills to planetary regeneration</p>
+            
+            <div class="roles-grid">
+                <!-- CTO Role -->
+                <div class="role-card" onclick="toggleRole(this)">
+                    <h3>CTO / Technical Co-Founder</h3>
+                    <p class="mission">Lead the technical vision for SSOT/INOS/HEMPIN</p>
+                    <div class="stack"><strong>Stack:</strong> Memgraph, Mistral 7B, Kubernetes, Vue.js, EU sovereign infrastructure</div>
+                    <p class="impact">🌍 Impact: Build the foundation for verified supply chains across industries</p>
+                    <p class="requirements">✅ You: 8+ years architecture experience, passion for open source, belief in regenerative tech</p>
+                    
+                    <div class="details">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Define technical roadmap aligned with grant milestones</li>
+                            <li>Lead architecture decisions for SSOT graph schema</li>
+                            <li>Manage engineering team (post-grant)</li>
+                            <li>Represent technical vision to partners and evaluators</li>
+                        </ul>
+                        
+                        <h4>What We Offer</h4>
+                        <ul>
+                            <li>Equity/token options (post-grant commercialization)</li>
+                            <li>Voice in architectural direction</li>
+                            <li>Remote-first, flexible collaboration</li>
+                            <li>Learning budget for conferences and courses</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:cto@hempin.org?subject=CTO Application" class="apply-btn">Apply: cto@hempin.org</a>
+                </div>
+                
+                <!-- AI Engineer Role -->
+                <div class="role-card" onclick="toggleRole(this)">
+                    <h3>AI/ML Engineer</h3>
+                    <p class="mission">Improve BUD Agent's natural-language-to-graph pipeline</p>
+                    <div class="stack"><strong>Stack:</strong> Mistral 7B, Haystack, Qdrant, Python, self-hosted inference</div>
+                    <p class="impact">🌍 Impact: Reduce farmer onboarding from weeks to minutes</p>
+                    <p class="requirements">✅ You: Experience with LLMs, RAG, confidence scoring, interest in agricultural domain</p>
+                    
+                    <div class="details">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Fine-tune Mistral 7B for agricultural domain</li>
+                            <li>Improve confidence scoring algorithms</li>
+                            <li>Build human-in-the-loop validation console</li>
+                            <li>Optimize inference for EU cloud deployment</li>
+                        </ul>
+                        
+                        <h4>What We Offer</h4>
+                        <ul>
+                            <li>Work on novel NL2G pipeline (publishable research)</li>
+                            <li>Access to GPU resources for training</li>
+                            <li>Collaboration with academic partners</li>
+                            <li>Remote-first, flexible hours</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:ai@hempin.org?subject=AI Engineer Application" class="apply-btn">Apply: ai@hempin.org</a>
+                </div>
+                
+                <!-- Graph Specialist Role -->
+                <div class="role-card" onclick="toggleRole(this)">
+                    <h3>Graph Database Specialist</h3>
+                    <p class="mission">Encode regulatory compliance as executable graph constraints</p>
+                    <div class="stack"><strong>Stack:</strong> Memgraph, Cypher, SHACL, event sourcing, real-time validation</div>
+                    <p class="impact">🌍 Impact: Prevent non-compliant transactions before they occur</p>
+                    <p class="requirements">✅ You: Graph database expertise, regulatory domain knowledge, love for elegant data modeling</p>
+                    
+                    <div class="details">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Design SSOT graph schema (Entity/Relationship/Compliance/Value layers)</li>
+                            <li>Encode regulations as Cypher constraints</li>
+                            <li>Implement real-time validation engine</li>
+                            <li>Optimize query performance for compliance checks</li>
+                        </ul>
+                        
+                        <h4>What We Offer</h4>
+                        <ul>
+                            <li>Work on novel regulatory ontology</li>
+                            <li>Direct collaboration with legal/regulatory experts</li>
+                            <li>Open source contribution opportunities</li>
+                            <li>Flexible collaboration model</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:graph@hempin.org?subject=Graph Specialist Application" class="apply-btn">Apply: graph@hempin.org</a>
+                </div>
+                
+                <!-- Full-Stack Role -->
+                <div class="role-card" onclick="toggleRole(this)">
+                    <h3>Full-Stack Engineer</h3>
+                    <p class="mission">Build the frontend/backend that makes verified truth accessible</p>
+                    <div class="stack"><strong>Stack:</strong> Vue.js, Nuxt, GraphQL, REST, sovereign EU hosting</div>
+                    <p class="impact">🌍 Impact: Create intuitive interfaces for farmers, processors, regulators</p>
+                    <p class="requirements">✅ You: Full-stack experience, UX sensibility, interest in mission-driven tech</p>
+                    
+                    <div class="details">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Build farmer onboarding interface (BUD Agent UI)</li>
+                            <li>Create compliance dashboards for regulators</li>
+                            <li>Implement analytics and impact tracking</li>
+                            <li>Ensure accessibility and multi-language support</li>
+                        </ul>
+                        
+                        <h4>What We Offer</h4>
+                        <ul>
+                            <li>End-to-end ownership of features</li>
+                            <li>Direct user feedback from pilot participants</li>
+                            <li>Modern tech stack (Vue 3, Nuxt 3, GraphQL)</li>
+                            <li>Remote-first, flexible hours</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:frontend@hempin.org?subject=Full-Stack Application" class="apply-btn">Apply: frontend@hempin.org</a>
+                </div>
+                
+                <!-- DevOps Role -->
+                <div class="role-card" onclick="toggleRole(this)">
+                    <h3>DevOps / Infrastructure Engineer</h3>
+                    <p class="mission">Keep our sovereign stack running, secure, and scalable</p>
+                    <div class="stack"><strong>Stack:</strong> Kubernetes, Podman, OpenTofu, OVHcloud, Prometheus/Grafana</div>
+                    <p class="impact">🌍 Impact: Ensure 99.9% uptime for critical supply chain infrastructure</p>
+                    <p class="requirements">✅ You: Cloud infrastructure expertise, security mindset, experience with EU data residency</p>
+                    
+                    <div class="details">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Deploy and maintain Kubernetes clusters on EU cloud</li>
+                            <li>Implement monitoring and alerting (Prometheus/Grafana)</li>
+                            <li>Ensure GDPR compliance in infrastructure</li>
+                            <li>Automate CI/CD pipelines (Woodpecker CI)</li>
+                        </ul>
+                        
+                        <h4>What We Offer</h4>
+                        <ul>
+                            <li>Build sovereign infrastructure from the ground up</li>
+                            <li>Security-first culture</li>
+                            <li>Modern DevOps tooling (OpenTofu, Podman)</li>
+                            <li>Flexible collaboration model</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:devops@hempin.org?subject=DevOps Application" class="apply-btn">Apply: devops@hempin.org</a>
+                </div>
+            </div>
+            
+            <!-- Why Join Us -->
+            <div class="why-join">
+                <h3>✨ Why Build With Us?</h3>
+                <div class="why-join-grid">
+                    <div class="why-join-column">
+                        <h4>What You'll Gain</h4>
+                        <ul>
+                            <li>Technical Challenge: Novel problems (NL2G, executable compliance, sovereign AI)</li>
+                            <li>Mission Alignment: Every line of code serves planetary regeneration</li>
+                            <li>Open Source Ethos: Contribute to community-governed infrastructure</li>
+                            <li>Sovereign Stack: Build on EU infrastructure, no US Cloud Act exposure</li>
+                            <li>Impact Visibility: See your work deployed in real supply chains</li>
+                        </ul>
+                    </div>
+                    <div class="why-join-column">
+                        <h4>What We Offer</h4>
+                        <ul>
+                            <li>Flexible Collaboration: Full-time, part-time, contract, or advisory</li>
+                            <li>Mission-First Compensation: Competitive + equity/token options (post-grant)</li>
+                            <li>Remote-First: Work from anywhere in EU/Associated Countries</li>
+                            <li>Learning Budget: Conferences, courses, community contributions</li>
+                            <li>Voice in Architecture: Your ideas shape the technical direction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Partners Section -->
+    <section id="pilot-section" class="pilot-section">
+        <div class="container">
+            <h2>🌍 Expand the Network: Become a Pilot Partner</h2>
+            <p class="subtitle">Verified truth infrastructure needs local champions. If you represent a hemp association, farmer cooperative, or industry body, you can help bring NADA to your region</p>
+            
+            <div class="pilot-role">
+                <h3>What Is a Country Representative?</h3>
+                <div class="pilot-role-grid">
+                    <div class="pilot-role-column">
+                        <h4>🎯 Your Role</h4>
+                        <ul>
+                            <li>Coordinate pilot deployment in your country/region</li>
+                            <li>Connect us with local farmers, processors, certifiers</li>
+                            <li>Provide feedback on regulatory encoding for your jurisdiction</li>
+                            <li>Advocate for verified, regenerative supply chains in your network</li>
+                        </ul>
+                    </div>
+                    <div class="pilot-role-column">
+                        <h4>✅ What You Get</h4>
+                        <ul>
+                            <li>Early access to HEMPIN platform (free tier for pilot participants)</li>
+                            <li>Influence over feature development for your regulatory context</li>
+                            <li>Network access: Connect with other pilot partners globally</li>
+                            <li>Recognition: Featured as founding partner on our site + materials</li>
+                            <li>Impact: Directly fund environmental cleanup via Regeneration Fund</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pilot-role-column" style="margin-top: 24px;">
+                    <h4>🤝 What We Ask</h4>
+                    <ul>
+                        <li>Commitment: 5-10 hours/month for pilot coordination</li>
+                        <li>Network: Access to 10+ potential pilot participants (farmers, processors)</li>
+                        <li>Feedback: Regular input on platform usability + regulatory fit</li>
+                        <li>Advocacy: Share pilot results with your community (successes + lessons)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Pilot Map -->
+            <div class="pilot-map">
+                <h3>🗺️ Where We're Deploying</h3>
+                <ul class="pilot-status-list">
+                    <li>
+                        <span class="status">✅</span>
+                        <div>
+                            <span class="location">Thailand (TiHTA)</span>
+                            <span class="details"> — LOI secured, pilot planning 2026-2027</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="status">🎯</span>
+                        <div>
+                            <span class="location">Germany</span>
+                            <span class="details"> — In discussion with Nova-Institut</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="status">🎯</span>
+                        <div>
+                            <span class="location">France</span>
+                            <span class="details"> — In discussion with InterChanvre</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="status">🎯</span>
+                        <div>
+                            <span class="location">Romania</span>
+                            <span class="details"> — In discussion with University of Iași</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="status">❓</span>
+                        <div>
+                            <span class="location">Your Country?</span>
+                            <span class="details"> — Let's talk about bringing NADA to your region</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="application-section">
+        <div class="container">
+            <div class="application-form">
+                <h3>📝 Express Your Interest</h3>
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <input type="hidden" name="_subject" value="NADA/HEMPIN Interest Form">
+                    
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">I'm Interested In *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select your interest...</option>
+                            <option value="technical-cto">Technical Role: CTO</option>
+                            <option value="technical-ai">Technical Role: AI Engineer</option>
+                            <option value="technical-graph">Technical Role: Graph Specialist</option>
+                            <option value="technical-fullstack">Technical Role: Full-Stack</option>
+                            <option value="technical-devops">Technical Role: DevOps</option>
+                            <option value="pilot-partner">Pilot Partner / Country Representative</option>
+                            <option value="advisor">Strategic Advisor</option>
+                            <option value="investor">Mission-Aligned Investor</option>
+                            <option value="community">Community Contributor</option>
+                            <option value="other">Other (please specify)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Organization (if applicable)</label>
+                        <input type="text" id="organization" name="organization" placeholder="Your company, association, or institution">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Country/Region</label>
+                        <input type="text" id="country" name="country" placeholder="Where are you based?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Why This Mission Resonates With You *</label>
+                        <textarea id="message" name="message" required placeholder="Brief note on why verified truth infrastructure matters to you..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="links">Links (GitHub, LinkedIn, Portfolio, Website)</label>
+                        <input type="text" id="links" name="links" placeholder="https://github.com/yourname, https://linkedin.com/in/yourname">
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit">Send Message</button>
+                    </div>
+                    
+                    <p class="form-note">We respond within 5 business days. No formal cover letter required — we care more about your curiosity and alignment than perfect credentials.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisors & Investors Section -->
+    <section id="advisors-section" class="advisors-section">
+        <div class="container">
+            <h2>🧠 Shape the Vision</h2>
+            <p class="subtitle">Strategic advisors and mission-aligned capital accelerate our path to Solarpunk 2045</p>
+            
+            <div class="advisors-grid">
+                <div class="advisor-card">
+                    <h3>Strategic Advisors</h3>
+                    <p>Share your expertise in hemp industry, regulatory policy, grant strategy, or technical architecture. Advisory roles are flexible (2-5 hours/month) and impactful.</p>
+                    <p><strong>Current Advisors:</strong> Joseph Carringer (Hemp Industry), Haneesh Katnawer (Technology & Strategy)</p>
+                    <a href="mailto:advisors@hempin.org" class="cta-link">Contact: advisors@hempin.org →</a>
+                </div>
+                
+                <div class="advisor-card">
+                    <h3>Mission-Aligned Investors</h3>
+                    <p>We're pursuing EIC Pathfinder Open 2026 (€4M) with potential for follow-on funding. Pre-seed participation and grant co-funding opportunities available for aligned capital.</p>
+                    <p><strong>Pathways:</strong> Bootstrap → Horizon Europe → EIC Accelerator → Revenue</p>
+                    <a href="mailto:investors@hempin.org" class="cta-link">Contact: investors@hempin.org →</a>
+                </div>
+                
+                <div class="advisor-card">
+                    <h3>Research Collaborators</h3>
+                    <p>Universities and research institutes can contribute to work packages, co-author publications, and validate methodology. Consortium participation for EIC Pathfinder welcome.</p>
+                    <p><strong>Prospective Partners:</strong> Nova-Institut (DE), EIHA (EU), InterChanvre (FR), Univ. Iași (RO)</p>
+                    <a href="mailto:partners@hempin.org" class="cta-link">Contact: partners@hempin.org →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community-section" class="community-section">
+        <div class="container">
+            <h2>💬 Join the Conversation</h2>
+            <p class="subtitle">You don't need to be a core contributor to participate. Join our community in ways that fit your capacity</p>
+            
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="icon">🐙</div>
+                    <h3>GitHub Contributions</h3>
+                    <p>Improve documentation, suggest features, report issues, or contribute code to our open-source components</p>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-link">Explore GitHub →</a>
+                </div>
+                
+                <div class="community-card">
+                    <div class="icon">📬</div>
+                    <h3>Newsletter</h3>
+                    <p>Monthly updates on pilot progress, technical breakthroughs, and partnership announcements</p>
+                    <a href="mailto:newsletter@hempin.org?subject=Newsletter Subscription" class="cta-link">Subscribe →</a>
+                </div>
+                
+                <div class="community-card">
+                    <div class="icon">💭</div>
+                    <h3>Discussions</h3>
+                    <p>Join GitHub Discussions or Matrix channel for technical questions, philosophical debates, and community support</p>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions" target="_blank" class="cta-link">Join Discussions →</a>
+                </div>
+                
+                <div class="community-card">
+                    <div class="icon">📢</div>
+                    <h3>Spread the Word</h3>
+                    <p>Share our mission with your network. Every introduction to a potential partner or contributor accelerates the vision</p>
+                    <a href="index.html" class="cta-link">Share Our Site →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>🌊 From the First Ripple to Planetary Regeneration</h2>
+            <p>This isn't just infrastructure.<br>It's a gathering point.</p>
+            
+            <p class="highlight">
+                For philosophers who see technology as applied wisdom.<br>
+                For scientists who recognize ancient truths in new forms.<br>
+                For builders who want their code to serve regeneration.<br>
+                For dreamers who believe another world is possible.
+            </p>
+            
+            <p style="font-size: 1.5rem; margin-top: 40px;">
+                <strong>NADA is where these currents converge.</strong>
+            </p>
             
             <div class="cta-buttons">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button">View Documentation on GitHub</a>
+                <a href="index.html" class="cta-button">Explore the Architecture →</a>
+                <a href="team.html" class="cta-button secondary">Meet the Team</a>
                 <a href="mailto:contact@hempin.org" class="cta-button secondary">Send a Message</a>
             </div>
         </div>
     </section>
 
     <!-- Footer injected by footer.js -->
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Toggle role card expansion
+        function toggleRole(card) {
+            document.querySelectorAll('.role-card').forEach(c => {
+                if (c !== card) c.classList.remove('expanded');
+            });
+            card.classList.toggle('expanded');
+        }
+        
+        // Scroll to section from pathway cards
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // Close cards when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.role-card') && !e.target.closest('.pathway-card')) {
+                document.querySelectorAll('.role-card').forEach(c => {
+                    c.classList.remove('expanded');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
