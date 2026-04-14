@@ -1031,26 +1031,26 @@
             <p class="subtitle">How we keep data, models, and inference in EU jurisdiction</p>
             
             <div class="ai-diagram">
-                <div class="mermaid">
+    <div class="mermaid">
 flowchart LR
-    Farmer["👨‍🌾 Farmer Conversation"] --> BUD["🤖 BUD Agent<br/>(Mistral 7B, self-hosted)"]
-    BUD --> Graph["🕸️ Graph Nodes<br/>(Memgraph)"]
-    Graph --> Compliance["⚖️ Compliance Check<br/>(Executable constraints)"]
-    Compliance --> Result["✅ Verified Transaction<br/>or ❌ Blocked"]
+    A["Farmer Conversation"] --> B["BUD Agent<br/>Mistral 7B"]
+    B --> C["Graph Nodes<br/>Memgraph"]
+    C --> D["Compliance Check<br/>Executable"]
+    D --> E["Verified or Blocked"]
     
-    classDef farmer fill:#DBEAFE,stroke:#3B82F6,stroke-width:2px,color:#1F2937,rx:8,ry:8;
+    classDef default fill:#DBEAFE,stroke:#3B82F6,stroke-width:2px,color:#1F2937,rx:8,ry:8;
     classDef bud fill:#D1FAE5,stroke:#10B981,stroke-width:2px,color:#1F2937,rx:8,ry:8;
     classDef graph fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px,color:#1F2937,rx:8,ry:8;
     classDef compliance fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px,color:#1F2937,rx:8,ry:8;
     classDef result fill:#FCE7F3,stroke:#EC4899,stroke-width:2px,color:#1F2937,rx:8,ry:8;
     
-    class Farmer farmer;
-    class BUD bud;
-    class Graph graph;
-    class Compliance compliance;
-    class Result result;
-                </div>
-            </div>
+    class A default;
+    class B bud;
+    class C graph;
+    class D compliance;
+    class E result;
+    </div>
+</div>
             
             <div class="ai-cards">
                 <div class="ai-card">
