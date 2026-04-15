@@ -3,48 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NADA/HEMPIN strategic scenarios: Bootstrap, Grant-Funded, and Hybrid pathways. Cost breakdown, funding strategy, and pivot options for verified truth infrastructure.">
-    <title>Strategy & Scenarios | HEMPIN</title>
+    <meta name="description" content="NADA strategy: Build verified truth infrastructure, deploy in pilot industries, scale to planetary regeneration. Funding pathways enable the mission.">
+    <title>Strategy — Build → Deploy → Scale → Regenerate | NADA</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <style>
-        /* Strategy Page Specific Styles */
+        /* Strategy Page — Mission-First Narrative */
+        
         .strategy-hero {
-            background: linear-gradient(135deg, var(--ssot-purple) 0%, var(--inos-blue) 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 100px 0;
+            padding: 140px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .strategy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .strategy-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
         .strategy-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 16px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
             color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
         }
-        .strategy-hero p {
-            font-size: 1.3rem;
+        
+        .strategy-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             max-width: 800px;
             margin: 0 auto;
             opacity: 0.95;
             color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
         }
-        .scenarios-section, .cost-section {
-            padding: 80px 0;
+        
+        /* Strategy Flow Section */
+        .flow-section {
+            padding: 100px 0;
             background: var(--white);
         }
-        .scenarios-section h2, .cost-section h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: var(--dark);
+        
+        .flow-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .scenarios-section .intro {
+        
+        .flow-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .flow-section .intro {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto 60px;
             color: var(--gray);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
+        
+        .strategy-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .strategy-flow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, #8B5CF6, #3B82F6, #10B981, #F59E0B, #EC4899);
+            transform: translateY(-50%);
+            z-index: 0;
+            display: none;
+        }
+        
+        @media (min-width: 968px) {
+            .strategy-flow::before {
+                display: block;
+            }
+        }
+        
+        .flow-step {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 180px;
+            max-width: 220px;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flow-step:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .flow-step.phase-1 { border-color: #8B5CF6; }
+        .flow-step.phase-2 { border-color: #3B82F6; }
+        .flow-step.phase-3 { border-color: #10B981; }
+        .flow-step.phase-4 { border-color: #F59E0B; }
+        .flow-step.phase-5 { border-color: #EC4899; }
+        
+        .flow-step .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .flow-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .flow-step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--gray-light);
+            display: none;
+        }
+        
+        @media (max-width: 968px) {
+            .strategy-flow {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .strategy-flow::before {
+                display: none;
+            }
+            .flow-arrow {
+                display: block;
+                text-align: center;
+                margin: 8px 0;
+            }
+        }
+        
+        /* Funding Pathways Section */
+        .funding-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .funding-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .funding-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .funding-section .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
         /* Scenario Tabs */
         .scenario-tabs {
             display: flex;
@@ -53,9 +218,10 @@
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
+        
         .scenario-tabs .tab {
             padding: 12px 24px;
-            background: var(--light);
+            background: var(--white);
             border: 2px solid var(--gray-light);
             border-radius: var(--radius);
             font-weight: 600;
@@ -63,57 +229,76 @@
             cursor: pointer;
             transition: var(--transition);
         }
+        
         .scenario-tabs .tab:hover {
             background: var(--inos-blue);
             color: var(--white);
             border-color: var(--inos-blue);
         }
+        
         .scenario-tabs .tab.active {
             background: var(--inos-blue);
             color: var(--white);
             border-color: var(--inos-blue);
         }
+        
         .scenario-content {
             display: none;
-            background: var(--light);
-            padding: 30px;
+            background: var(--white);
+            padding: 40px;
             border-radius: var(--radius-lg);
             margin-bottom: 30px;
+            border-left: 5px solid var(--inos-blue);
         }
+        
         .scenario-content.active {
             display: block;
+            animation: fadeIn 0.3s ease;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .scenario-content h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
+        
         .scenario-content ul {
             margin: 20px 0 0 30px;
             color: var(--gray);
         }
+        
         .scenario-content li {
             margin-bottom: 12px;
             line-height: 1.6;
         }
+        
         .scenario-content strong {
             color: var(--dark);
         }
+        
         .scenario-content a {
             color: var(--inos-blue);
             font-weight: 500;
             display: inline-block;
             margin-top: 20px;
         }
+        
         .scenario-content a:hover {
             text-decoration: underline;
         }
+        
         /* Cost Table */
         .cost-table {
             max-width: 800px;
             margin: 0 auto;
             overflow-x: auto;
         }
+        
         .cost-table table {
             width: 100%;
             border-collapse: collapse;
@@ -122,6 +307,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
         }
+        
         .cost-table th {
             background: var(--inos-blue);
             color: var(--white);
@@ -129,25 +315,95 @@
             text-align: left;
             font-weight: 600;
         }
+        
         .cost-table td {
             padding: 16px;
             border-bottom: 1px solid var(--gray-light);
         }
+        
         .cost-table tr:last-child td {
             border-bottom: none;
         }
+        
         .cost-table tr.total {
             background: var(--light);
             font-weight: 700;
         }
+        
         .cost-table strong {
             color: var(--hempin-green);
         }
+        
+        /* Regeneration CTA */
+        .regeneration-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .regeneration-cta .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .regeneration-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .regeneration-cta p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .regeneration-cta .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+        
+        .regeneration-cta .cta-button {
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .regeneration-cta .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .regeneration-cta .cta-button.secondary {
+            background: transparent;
+            border: 3px solid var(--white);
+            color: var(--white);
+        }
+        
+        .regeneration-cta .cta-button.secondary:hover {
+            background: var(--white);
+            color: #8B5CF6;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
-            .strategy-hero { padding: 80px 0; }
-            .strategy-hero h1 { font-size: 2.2rem; }
-            .strategy-hero p { font-size: 1.1rem; }
+            .strategy-hero { padding: 100px 0; }
+            .flow-section, .funding-section, .regeneration-cta { padding: 80px 0; }
             .scenario-tabs { flex-direction: column; align-items: center; }
             .scenario-tabs .tab { width: 100%; max-width: 300px; }
             .cost-table table { font-size: 0.9rem; }
@@ -178,18 +434,71 @@
 <body>
     <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
+    <!-- Hero Section -->
     <section class="strategy-hero">
         <div class="container">
-            <h1>Strategic Scenarios</h1>
-            <p>Flexible pathways to verified truth infrastructure, adapted to funding outcomes and market conditions</p>
+            <h1>Our Strategy</h1>
+            <p class="subtitle">Build → Deploy → Scale → Regenerate</p>
         </div>
     </section>
 
-    <!-- Scenario Analysis Section -->
-    <section class="scenarios-section">
+    <!-- Strategy Flow Section -->
+    <section class="flow-section">
         <div class="container">
-            <h2>Strategic Scenarios & Pivot Options</h2>
-            <p class="intro">We've modeled multiple pathways based on funding outcomes and market conditions. Each scenario maintains our core mission while adapting to resource availability.</p>
+            <h2>The Journey: From Code to Regeneration</h2>
+            <p class="intro">Our strategy isn't about funding—it's about building infrastructure that regenerates. Funding pathways enable the mission, not define it.</p>
+            
+            <div class="strategy-flow">
+                <div class="flow-step phase-1">
+                    <div class="icon">🔧</div>
+                    <h3>Build the Tech</h3>
+                    <p>SSOT graph schema, sovereign AI stack, BUD pipeline</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step phase-2">
+                    <div class="icon">🌍</div>
+                    <h3>Deploy in Pilots</h3>
+                    <p>Thailand + EU pilots feed the same graph simultaneously</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step phase-3">
+                    <div class="icon">🧠</div>
+                    <h3>Feed Intelligence</h3>
+                    <p>Every transaction → graph node → improved AI training</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step phase-4">
+                    <div class="icon">📈</div>
+                    <h3>Scale Adoption</h3>
+                    <p>Lower friction → more actors → network effects</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step phase-5">
+                    <div class="icon">💧</div>
+                    <h3>Fund Regeneration</h3>
+                    <p>30% of revenue → verified environmental cleanup</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; max-width: 800px; margin: 40px auto 0; color: var(--gray); font-size: 1.1rem;">
+                <strong>This loop compounds:</strong> More adoption → more data → better AI → lower friction → more adoption → more regeneration.
+            </p>
+        </div>
+    </section>
+
+    <!-- Funding Pathways Section -->
+    <section class="funding-section">
+        <div class="container">
+            <h2>Funding Pathways Enable the Strategy</h2>
+            <p class="intro">We've modeled multiple funding scenarios. Each maintains our core mission while adapting to resource availability.</p>
             
             <div class="scenario-tabs">
                 <button class="tab active" data-scenario="bootstrap">Bootstrap Path</button>
@@ -198,52 +507,55 @@
             </div>
             
             <div class="scenario-content active" id="bootstrap">
-                <h3>Bootstrap Path (No External Funding)</h3>
+                <h3>🌱 Bootstrap Path (No External Funding)</h3>
+                <p><strong>How it enables the strategy:</strong> Validates core tech with minimal resources before seeking scale funding.</p>
                 <ul>
                     <li><strong>Timeline:</strong> 3-5 years to first revenue</li>
-                    <li><strong>Team Size:</strong> 1-3 people (founder + contractors)</li>
-                    <li><strong>Scope:</strong> Single-country pilot (Thailand), minimal AI features</li>
+                    <li><strong>Team:</strong> 1-3 people (founder + contractors)</li>
+                    <li><strong>Scope:</strong> Single-country pilot (Thailand), core SSOT architecture</li>
                     <li><strong>Cost:</strong> ~€200K over 2 years</li>
-                    <li><strong>Revenue Model:</strong> SaaS fees from early adopters</li>
-                    <li><strong>Risk Mitigation:</strong> Focus on core SSOT architecture; defer advanced AI features</li>
+                    <li><strong>Strategy Impact:</strong> Validates Build phase; defers Scale until funding secured</li>
+                    <li><strong>Risk Mitigation:</strong> Focus on open-source schema to build community while bootstrapping</li>
                 </ul>
                 <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/strategy/scenarios-comparison.md">Full Bootstrap Analysis →</a>
             </div>
             
             <div class="scenario-content" id="grant">
-                <h3>Grant-Funded Path (EIC Pathfinder Success)</h3>
+                <h3>🏛️ Grant-Funded Path (EIC Pathfinder Success)</h3>
+                <p><strong>How it enables the strategy:</strong> Non-dilutive funding accelerates Build → Deploy → Validate without commercial pressure.</p>
                 <ul>
                     <li><strong>Timeline:</strong> 48 months (2026-2030)</li>
-                    <li><strong>Team Size:</strong> 8-12 people (consortium)</li>
+                    <li><strong>Team:</strong> 8-12 people (consortium)</li>
                     <li><strong>Scope:</strong> Multi-country pilots, full SSOT/INOS/HEMPIN stack</li>
                     <li><strong>Cost:</strong> €4M (100% grant-funded)</li>
-                    <li><strong>Revenue Model:</strong> Post-grant commercialization via OpCo</li>
+                    <li><strong>Strategy Impact:</strong> Enables full Build + Deploy phases; de-risks Scale for private investment</li>
                     <li><strong>Risk Mitigation:</strong> Consortium diversification; milestone-based funding</li>
                 </ul>
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/grants/EIC-pathfinder-2026-FULL/readme.md">Grant Application Details →</a>
+                <a href="grants/eic-pathfinder-2026/">View Grant Details →</a>
             </div>
             
             <div class="scenario-content" id="hybrid">
-                <h3>Hybrid Path (Mixed Funding)</h3>
+                <h3>🤝 Hybrid Path (Mixed Funding)</h3>
+                <p><strong>How it enables the strategy:</strong> Balances grant de-risking with private capital agility for faster iteration.</p>
                 <ul>
                     <li><strong>Timeline:</strong> 2-3 years to product-market fit</li>
-                    <li><strong>Team Size:</strong> 4-6 people</li>
+                    <li><strong>Team:</strong> 4-6 people</li>
                     <li><strong>Scope:</strong> Thailand pilot + lightweight EU pilot, core features only</li>
                     <li><strong>Cost:</strong> €1M (€500K grant, €500K private)</li>
-                    <li><strong>Revenue Model:</strong> Pilot revenue + follow-on grants</li>
+                    <li><strong>Strategy Impact:</strong> Enables Build + partial Deploy; validates revenue model before Scale</li>
                     <li><strong>Risk Mitigation:</strong> Phased feature rollout; revenue validation before scaling</li>
                 </ul>
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/strategy/funding-strategy.md">Funding Strategy Doc →</a>
+                <a href="funding/investors.html">Investor Opportunity →</a>
             </div>
         </div>
     </section>
 
     <!-- Cost Breakdown Section -->
-    <section class="cost-section" style="background: var(--light);">
+    <section class="cost-section" style="background: var(--white);">
         <div class="container">
             <h2>Cost Structure (Grant-Funded Scenario)</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: var(--gray);">
-                Total Grant Target: €4M (EIC Pathfinder Open 2026)
+                Total Grant Target: €4M (EIC Pathfinder Open 2026) — enables Build + Deploy phases
             </p>
             
             <div class="cost-table">
@@ -286,8 +598,21 @@
             </div>
             
             <p style="text-align: center; margin-top: 30px;">
-                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/strategy/cost-breakdown.md" style="color: var(--inos-blue); font-weight: 500;">Detailed Cost Breakdown →</a>
+                <a href="grants/eic-pathfinder-2026/budget.html" style="color: var(--inos-blue); font-weight: 500;">View Detailed Budget →</a>
             </p>
+        </div>
+    </section>
+
+    <!-- Regeneration CTA -->
+    <section class="regeneration-cta">
+        <div class="container">
+            <h2>💧 Regeneration by Design</h2>
+            <p>Unlike traditional ventures, NADA embeds regeneration into its economic layer. Every transaction funds environmental cleanup — not as an add-on, but as core infrastructure.</p>
+            <p style="font-size: 1.5rem; margin-top: 32px;"><strong>This is Verification-as-a-Service with purpose.</strong></p>
+            <div class="cta-buttons">
+                <a href="funding/regeneration-fund.html" class="cta-button">How the Fund Works →</a>
+                <a href="funding/investors.html" class="cta-button secondary">Investor Opportunity →</a>
+            </div>
         </div>
     </section>
 
