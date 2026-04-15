@@ -1,5 +1,4 @@
 // assets/js/navbar.js
-// Lightweight navbar loader with dropdown support for static GitHub Pages sites
 
 document.addEventListener('DOMContentLoaded', function() {
   const navbarHTML = `
@@ -9,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <a href="index.html" class="logo">NADA<span>.</span></a>
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+            
             <li class="dropdown">
               <a href="#" class="dropbtn">About ▾</a>
               <div class="dropdown-content">
@@ -17,22 +17,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="strategy.html">Strategy</a>
               </div>
             </li>
+            
             <li class="dropdown">
               <a href="#" class="dropbtn">Platform ▾</a>
               <div class="dropdown-content">
                 <a href="architecture.html">Architecture</a>
                 <a href="technology.html">Technology</a>
                 <a href="hempin.html">HEMPIN</a>
-                <a href="case-study.html">Simple Case</a>
+                <a href="case-study.html">Case Study</a>
               </div>
             </li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropbtn">Funding ▾</a>
+              <div class="dropdown-content">
+                <a href="grants/">Grants Overview</a>
+                <a href="grants/eic-pathfinder-2026/">EIC Pathfinder 2026</a>
+                <a href="funding/investors.html">Investors</a>
+                <a href="funding/regeneration-fund.html">Regeneration Fund</a>
+              </div>
+            </li>
+            
             <li class="dropdown">
               <a href="#" class="dropbtn">Progress ▾</a>
               <div class="dropdown-content">
-                <a href="roadmap.html">Roadmap</a>
-                <a href="workpackages.html">Work Packages</a>
+                <a href="roadmap.html">Public Roadmap</a>
+                <a href="grants/eic-pathfinder-2026/workpackages.html">Grant Work Packages</a>
               </div>
             </li>
+            
             <li><a href="involved.html">Get Involved</a></li>
             <li><a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></li>
           </ul>
