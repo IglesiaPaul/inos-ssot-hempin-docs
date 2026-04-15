@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Timeline and milestones for EIC Pathfinder 2026: INOS/SSOT/HEMPIN project implementation plan.">
+    <title>Timeline — EIC Pathfinder 2026 | NADA</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/navbar.js" defer></script>
+    <script src="../../assets/js/footer.js" defer></script>
+    <style>
+        /* Same styles as overview/index.html + timeline-specific */
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .timeline-gantt {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin: 32px 0;
+            overflow-x: auto;
+        }
+        
+        .gantt-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .gantt-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .gantt-label {
+            width: 200px;
+            font-weight: 600;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+        
+        .gantt-bar {
+            flex: 1;
+            height: 32px;
+            background: linear-gradient(135deg, var(--inos-blue), var(--ssot-purple));
+            border-radius: 16px;
+            position: relative;
+            margin: 0 16px;
+        }
+        
+        .gantt-bar.milestone {
+            background: var(--hempin-green);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin: 0 8px;
+        }
+        
+        .gantt-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .milestones-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .milestones-table th {
+            background: var(--inos-blue);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .milestones-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .milestones-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .milestone-badge {
+            display: inline-block;
+            background: var(--hempin-green);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .gantt-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .gantt-label {
+                width: 100%;
+            }
+            .gantt-bar {
+                width: 100%;
+                margin: 0;
+            }
+            .milestones-table {
+                font-size: 0.9rem;
+            }
+            .milestones-table th, .milestones-table td {
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section (same as overview) -->
+    <section class="grant-detail-hero">
+        <div class="container">
+            <h1>EIC Pathfinder Open 2026</h1>
+            <p class="subtitle">Project Timeline & Key Milestones</p>
+        </div>
+    </section>
+
+    <!-- Grant Navigation (same as overview) -->
+    <nav class="grant-nav">
+        <div class="container">
+            <a href="index.html#overview">Overview</a>
+            <a href="workpackages.html">Work Packages</a>
+            <a href="budget.html">Budget</a>
+            <a href="timeline.html" class="active">Timeline</a>
+            <a href="consortium.html">Consortium</a>
+            <a href="../">← Back to Grants</a>
+        </div>
+    </nav>
+
+    <!-- Timeline Section -->
+    <section class="grant-section">
+        <div class="timeline-container">
+            <a href="index.html" class="back-link">← Back to Executive Summary</a>
+            
+            <h2>48-Month Implementation Timeline</h2>
+            <p style="color: var(--gray); margin-bottom: 32px;">
+                The project follows an agile research methodology with iterative development cycles and regular validation checkpoints.
+            </p>
+            
+            <!-- Simplified Gantt-style Timeline -->
+            <div class="timeline-gantt">
+                <div class="gantt-row">
+                    <div class="gantt-label">WP1: Management</div>
+                    <div class="gantt-bar" style="width: 100%;" data-label="M1-48"></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label">WP2: Architecture</div>
+                    <div class="gantt-bar" style="width: 75%;" data-label="M1-36"></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label">WP3: BUD AI</div>
+                    <div class="gantt-bar" style="width: 75%; margin-left: 12.5%;" data-label="M6-42"></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label">WP4: Compliance</div>
+                    <div class="gantt-bar" style="width: 87.5%; margin-left: 12.5%;" data-label="M6-48"></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label">WP5: Pilots</div>
+                    <div class="gantt-bar" style="width: 75%; margin-left: 25%;" data-label="M12-48"></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label">WP6: Dissemination</div>
+                    <div class="gantt-bar" style="width: 100%;" data-label="M1-48"></div>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 48px;">Key Milestones</h2>
+            
+            <table class="milestones-table">
+                <thead>
+                    <tr>
+                        <th>Milestone</th>
+                        <th>WP</th>
+                        <th>Due (Month)</th>
+                        <th>Verification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>M1:</strong> Consortium Agreement Signed</td>
+                        <td>WP1</td>
+                        <td>1</td>
+                        <td><span class="milestone-badge">Signed Document</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>M2:</strong> SSOT Graph Schema v1 Finalized</td>
+                        <td>WP2</td>
+                        <td>12</td>
+                        <td>Schema document + peer review</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M3:</strong> BUD AI Agent Alpha (Confidence >0.85)</td>
+                        <td>WP3</td>
+                        <td>18</td>
+                        <td>Test report with accuracy metrics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M4:</strong> Compliance Engine Live (5 Jurisdictions)</td>
+                        <td>WP4</td>
+                        <td>24</td>
+                        <td>Working prototype + validation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M5:</strong> Thailand Pilot Launch</td>
+                        <td>WP5</td>
+                        <td>24</td>
+                        <td>Pilot launch report + participants</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M6:</strong> EU Pilot Launch</td>
+                        <td>WP5</td>
+                        <td>30</td>
+                        <td>Pilot launch report + participants</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M7:</strong> Sovereign Stack Audit Complete</td>
+                        <td>WP2</td>
+                        <td>36</td>
+                        <td>Third-party audit report</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M8:</strong> Proof of Principle Achieved (TRL 4)</td>
+                        <td>WP5</td>
+                        <td>42</td>
+                        <td>Technical validation report</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M9:</strong> Final Review & Exploitation Plan</td>
+                        <td>WP1</td>
+                        <td>48</td>
+                        <td>Final report + roadmap</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); margin-top: 32px;">
+                <p style="margin: 0; color: var(--gray);">
+                    <strong>Note:</strong> Timeline assumes EIC Pathfinder grant award in Q4 2026. Actual start date may vary based on evaluation outcome.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
