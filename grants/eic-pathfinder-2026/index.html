@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EIC Pathfinder Open 2026 application for INOS/SSOT/HEMPIN: verified truth infrastructure for hemp supply chains. Executive summary, work packages, budget, and consortium details.">
+    <title>EIC Pathfinder 2026 — Executive Summary | NADA</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/navbar.js" defer></script>
+    <script src="../../assets/js/footer.js" defer></script>
+    <style>
+        /* Grant Detail Page Styles */
+        .grant-detail-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grant-detail-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .grant-detail-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .grant-detail-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 16px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .grant-detail-hero .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .grant-nav {
+            background: var(--light);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .grant-nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .grant-nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        
+        .grant-nav a:hover,
+        .grant-nav a.active {
+            color: var(--inos-blue);
+            background: rgba(59,130,246,0.1);
+        }
+        
+        .grant-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .grant-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .grant-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 24px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .grant-section p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .grant-section ul {
+            margin: 24px 0;
+            padding-left: 24px;
+            color: var(--gray);
+        }
+        
+        .grant-section li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .grant-section .highlight {
+            background: var(--light);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--inos-blue);
+            margin: 32px 0;
+        }
+        
+        .grant-section .highlight p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .download-section {
+            padding: 80px 0;
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .download-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .download-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 24px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        
+        .download-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .download-card .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .download-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .download-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .download-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .download-card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .grant-detail-hero { padding: 80px 0; }
+            .grant-nav .container { gap: 16px; }
+            .grant-nav a { padding: 8px 12px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="grant-detail-hero">
+        <div class="container">
+            <h1>EIC Pathfinder Open 2026</h1>
+            <p class="subtitle">INOS/SSOT/HEMPIN: Verified Truth Infrastructure for Hemp Supply Chains</p>
+        </div>
+    </section>
+
+    <!-- Grant Navigation -->
+    <nav class="grant-nav">
+        <div class="container">
+            <a href="#overview" class="active">Overview</a>
+            <a href="workpackages.html">Work Packages</a>
+            <a href="budget.html">Budget</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="consortium.html">Consortium</a>
+            <a href="../">← Back to Grants</a>
+        </div>
+    </nav>
+
+    <!-- Overview Section -->
+    <section id="overview" class="grant-section">
+        <div class="container">
+            <a href="../" class="back-link">← Back to Grants Overview</a>
+            
+            <h2>Executive Summary</h2>
+            
+            <p>
+                <strong>Project:</strong> INOS/SSOT/HEMPIN — Verified Truth Infrastructure for Hemp Supply Chains<br>
+                <strong>Call:</strong> EIC Pathfinder Open 2026 (HORIZON-EIC-2026-PATHFINDEROPEN-01)<br>
+                <strong>Submission Deadline:</strong> May 12, 2026, 17:00 Brussels time<br>
+                <strong>Requested Grant:</strong> €4,000,000 (100% funding rate, RIA topic)<br>
+                <strong>Duration:</strong> 48 months (Months 1-48)<br>
+                <strong>Coordinator:</strong> INOS Foundation (France)
+            </p>
+            
+            <div class="highlight">
+                <p>🎯 Objective: Proof-of-principle (TRL 4) for Regulatory-Encoding Knowledge Graphs that enable proactive compliance validation in fragmented supply chains.</p>
+            </div>
+            
+            <h3>Core Innovation</h3>
+            <p>
+                The project converges three scientific domains to create a radically new architecture:
+            </p>
+            <ul>
+                <li><strong>Graph Theory + Event Sourcing:</strong> A Single Source of Truth (SSOT) that encodes entities, relationships, and value flows as immutable, time-series events.</li>
+                <li><strong>Regulatory Science as Code:</strong> Machine-readable encoding of 57+ jurisdictional regulations directly into the graph schema, enabling real-time compliance validation.</li>
+                <li><strong>Sovereign AI Onboarding (BUD Agent):</strong> A natural-language-to-graph pipeline that allows non-technical actors to verify onto the network via conversational AI.</li>
+            </ul>
+            
+            <h3>Expected Outcomes (Month 48)</h3>
+            <ul>
+                <li>✅ Validated graph schema supporting 50+ entity types (WP2)</li>
+                <li>✅ BUD Agent with >85% confidence scoring for entity onboarding (WP3)</li>
+                <li>✅ Regulatory ontology for 5 jurisdictions encoded as graph constraints (WP4)</li>
+                <li>✅ 500+ verified entities onboarded in Thailand + EU pilot environments (WP5)</li>
+                <li>✅ 3+ open-access publications + open-source schema release (WP6)</li>
+            </ul>
+            
+            <h3>Long-Term Vision</h3>
+            <p>
+                By 2045, this architecture extends to all industries requiring verified supply chains — organic agriculture, textiles, coffee, cocoa, fisheries. Starting with hemp, scaling to planetary regeneration infrastructure.
+            </p>
+            
+            <div class="highlight">
+                <p>🔗 Learn more about the vision: <a href="../../why-nada.html" style="color: var(--inos-blue);">Solarpunk 2045 Mandate</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="download-section">
+        <div class="container">
+            <h2>Download Proposal Documents</h2>
+            <p>Full proposal documents for evaluators and partners</p>
+            
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="icon">📄</div>
+                    <h3>Part B: Technical Description</h3>
+                    <p>Full 22-page proposal (Sections 1-3: Excellence, Impact, Implementation)</p>
+                    <a href="download/Part-B-EIC-Pathfinder-2026.pdf" target="_blank">Download PDF</a>
+                </div>
+                
+                <div class="download-card">
+                    <div class="icon">📊</div>
+                    <h3>Budget Table</h3>
+                    <p>Horizon Europe lump sum budget (INOS: €2.3M)</p>
+                    <a href="download/Budget-INOS-2.3M.xlsx" target="_blank">Download Excel</a>
+                </div>
+                
+                <div class="download-card">
+                    <div class="icon">🤝</div>
+                    <h3>Consortium LOIs</h3>
+                    <p>Letters of Intent from prospective partners (TiHTA, etc.)</p>
+                    <a href="download/LOIs-EIC-Pathfinder-2026.zip" target="_blank">Download ZIP</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
