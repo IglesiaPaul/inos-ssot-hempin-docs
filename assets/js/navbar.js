@@ -33,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </li>
             
             <li class="dropdown">
-    <a href="#" class="dropbtn">Funding ▾</a>
-    <div class="dropdown-content">
-        <a href="funding/index.html">Funding Overview</a>
-        <a href="funding/investors.html">Investors</a>
-        <a href="funding/regeneration-fund.html">Regeneration Fund</a>
-        <a href="grants/">Grants</a>
-    </div>
-</li>
+              <a href="#" class="dropbtn">Funding ▾</a>
+              <div class="dropdown-content">
+                <a href="${BASE_PATH}/funding/index.html">Funding Overview</a>
+                <a href="${BASE_PATH}/funding/investors.html">Investors</a>
+                <a href="${BASE_PATH}/funding/regeneration-fund.html">Regeneration Fund</a>
+                <a href="${BASE_PATH}/grants/">Grants</a>
+              </div>
+            </li>
             
             <li class="dropdown">
               <a href="#" class="dropbtn">Progress ▾</a>
