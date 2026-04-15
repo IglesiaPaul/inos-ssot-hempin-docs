@@ -1,24 +1,10 @@
 # Architecture Documentation
 
-Diagrams use **D2 Language**. Render locally.
+**For interactive diagrams, visit:** https://iglesiapaul.github.io/inos-ssot-hempin-docs/architecture.html
 
----
+This folder contained early D2 diagram files that have been superseded by the static site.
 
-## Diagram Index
-
-| Diagram | File |
-|---------|------|
-| System Overview | overview.d2 |
-| SSOT Layers | ssot-layers.d2 |
-| Event Flow | event-flow.d2 |
-| BUD Pipeline | bud-pipeline.d2 |
-| Activation Protocol | activation-protocol.d2 |
-| Roadmap | roadmap.d2 |
-
----
-
-## Render Diagrams
-
-```bash
-curl -fsSL https://d2lang.com/install.sh | sh -s --
-d2 architecture/overview.d2 overview.svg
+## Current Architecture Docs
+- [SSOT Layers](https://iglesiapaul.github.io/inos-ssot-hempin-docs/architecture.html#ssot)
+- [INOS Operating System](https://iglesiapaul.github.io/inos-ssot-hempin-docs/architecture.html#inos)
+- [Technical Specifications](../specs/)
