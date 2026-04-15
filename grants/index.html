@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NADA/HEMPIN grant funding: EIC Pathfinder Open 2026 application, budget, work packages, and consortium details.">
+    <title>Grants — EIC Pathfinder 2026 | NADA</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/navbar.js" defer></script>
+    <script src="../assets/js/footer.js" defer></script>
+    <style>
+        /* Grants Page Styles */
+        .grants-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grants-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .grants-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .grants-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .grants-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .grants-list {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .grants-list .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .grants-list h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .grants-list .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .grant-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 32px;
+            border-left: 5px solid var(--inos-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .grant-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .grant-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .grant-card .meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .grant-card .meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .grant-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .grant-card .cta-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .grant-card .cta-button {
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .grant-card .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+        }
+        
+        .grant-card .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--inos-blue);
+            color: var(--inos-blue);
+        }
+        
+        .grant-card .cta-button.secondary:hover {
+            background: var(--inos-blue);
+            color: var(--white);
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--light);
+            color: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            .grants-hero { padding: 100px 0; }
+            .grants-list { padding: 80px 0; }
+            .grant-card .meta { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="grants-hero">
+        <div class="container">
+            <h1>Grant Funding</h1>
+            <p class="subtitle">Transparent, mission-aligned funding for verified truth infrastructure</p>
+        </div>
+    </section>
+
+    <!-- Grants List -->
+    <section class="grants-list">
+        <div class="container">
+            <h2>Active Grants</h2>
+            <p class="intro">NADA/HEMPIN is currently pursuing Horizon Europe funding to validate our Regulatory-Encoding Knowledge Graph architecture</p>
+            
+            <!-- EIC Pathfinder 2026 Card -->
+            <div class="grant-card">
+                <h3>🚀 EIC Pathfinder Open 2026</h3>
+                <div class="meta">
+                    <span>📅 Deadline: May 12, 2026</span>
+                    <span>💰 Requested: €4M (100% grant)</span>
+                    <span>⏱️ Duration: 48 months</span>
+                    <span>🎯 Topic: HORIZON-EIC-2026-PATHFINDEROPEN-01</span>
+                </div>
+                <p>
+                    <strong>Objective:</strong> Proof-of-principle (TRL 4) for Regulatory-Encoding Knowledge Graphs in hemp supply chains.
+                </p>
+                <p>
+                    This grant will fund the development of SSOT (Single Source of Truth) graph architecture, BUD AI onboarding pipeline, and pilot validation in Thailand + EU environments.
+                </p>
+                <div class="cta-buttons">
+                    <a href="eic-pathfinder-2026/" class="cta-button">View Details →</a>
+                    <a href="eic-pathfinder-2026/download/Part-B-EIC-Pathfinder-2026.pdf" target="_blank" class="cta-button secondary">Download Part B (PDF)</a>
+                    <a href="eic-pathfinder-2026/download/Budget-INOS-2.3M.xlsx" target="_blank" class="cta-button secondary">Download Budget (Excel)</a>
+                </div>
+            </div>
+            
+            <!-- Future Grants Placeholder -->
+            <div class="grant-card" style="border-left-color: var(--gray-light); opacity: 0.7;">
+                <h3>🔜 EIC Accelerator 2027 (Planned)</h3>
+                <div class="meta">
+                    <span>📅 Expected: Q1 2027</span>
+                    <span>💰 Target: €10-15M (grant + equity)</span>
+                    <span>⏱️ Duration: 24-36 months</span>
+                    <span>🎯 Topic: HORIZON-EIC-2027-ACCELERATOR</span>
+                </div>
+                <p>
+                    <strong>Objective:</strong> Commercial deployment (TRL 6-7) of VaaS platform for verified supply chains.
+                </p>
+                <p>
+                    Follow-on funding to scale from pilot validation to market deployment, with revenue from Verification-as-a-Service subscriptions.
+                </p>
+                <div class="cta-buttons">
+                    <span class="cta-button secondary" style="cursor: not-allowed;">Details Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <div class="container">
+            <p>
+                <strong>Looking for private investment opportunities?</strong><br>
+                Visit our <a href="../funding/investors.html" style="color: var(--inos-blue); font-weight: 600;">Investor Portal</a> for commercial funding pathways.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
