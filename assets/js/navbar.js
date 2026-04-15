@@ -1,55 +1,59 @@
 // assets/js/navbar.js
+// Lightweight navbar loader with dropdown support for static GitHub Pages sites
+
+// Define base path for GitHub Pages project site
+const BASE_PATH = '/inos-ssot-hempin-docs';
 
 document.addEventListener('DOMContentLoaded', function() {
   const navbarHTML = `
     <header>
       <div class="container">
         <nav>
-          <a href="index.html" class="logo">NADA<span>.</span></a>
+          <a href="${BASE_PATH}/index.html" class="logo">NADA<span>.</span></a>
           <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="${BASE_PATH}/index.html">Home</a></li>
             
             <li class="dropdown">
               <a href="#" class="dropbtn">About ▾</a>
               <div class="dropdown-content">
-                <a href="why-nada.html">Why NADA?</a>
-                <a href="team.html">Team & Consortium</a>
-                <a href="strategy.html">Strategy</a>
+                <a href="${BASE_PATH}/why-nada.html">Why NADA?</a>
+                <a href="${BASE_PATH}/team.html">Team & Consortium</a>
+                <a href="${BASE_PATH}/strategy.html">Strategy</a>
               </div>
             </li>
             
             <li class="dropdown">
               <a href="#" class="dropbtn">Platform ▾</a>
               <div class="dropdown-content">
-                <a href="architecture.html">Architecture</a>
-                <a href="technology.html">Technology</a>
-                <a href="hempin.html">HEMPIN</a>
-                <a href="case-study.html">Case Study</a>
+                <a href="${BASE_PATH}/architecture.html">Architecture</a>
+                <a href="${BASE_PATH}/technology.html">Technology</a>
+                <a href="${BASE_PATH}/hempin.html">HEMPIN</a>
+                <a href="${BASE_PATH}/case-study.html">Case Study</a>
               </div>
             </li>
             
             <li class="dropdown">
               <a href="#" class="dropbtn">Funding ▾</a>
               <div class="dropdown-content">
-                <a href="grants/">Grants Overview</a>
-                <a href="grants/eic-pathfinder-2026/">EIC Pathfinder 2026</a>
-                <a href="funding/investors.html">Investors</a>
-                <a href="funding/regeneration-fund.html">Regeneration Fund</a>
+                <a href="${BASE_PATH}/grants/">Grants Overview</a>
+                <a href="${BASE_PATH}/grants/eic-pathfinder-2026/">EIC Pathfinder 2026</a>
+                <a href="${BASE_PATH}/funding/investors.html">Investors</a>
+                <a href="${BASE_PATH}/funding/regeneration-fund.html">Regeneration Fund</a>
               </div>
             </li>
             
             <li class="dropdown">
               <a href="#" class="dropbtn">Progress ▾</a>
               <div class="dropdown-content">
-                <a href="roadmap.html">Public Roadmap</a>
-                <a href="grants/eic-pathfinder-2026/workpackages.html">Grant Work Packages</a>
+                <a href="${BASE_PATH}/roadmap.html">Public Roadmap</a>
+                <a href="${BASE_PATH}/grants/eic-pathfinder-2026/workpackages.html">Grant Work Packages</a>
               </div>
             </li>
             
-            <li><a href="involved.html">Get Involved</a></li>
+            <li><a href="${BASE_PATH}/involved.html">Get Involved</a></li>
             <li><a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></li>
           </ul>
-          <a href="involved.html" class="cta-button">Join the Mission</a>
+          <a href="${BASE_PATH}/involved.html" class="cta-button">Join the Mission</a>
         </nav>
       </div>
     </header>
@@ -63,8 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.nav-links a:not(.dropbtn)');
   navLinks.forEach(link => {
     const linkHref = link.getAttribute('href');
-    const linkPage = linkHref.includes('#') ? linkHref.split('#')[0] : linkHref;
-    if (linkPage === currentPage) {
+    // Extract just the filename from the href (remove base path)
+    const linkPage = linkHref.replace(BASE_PATH + '/', '').split('#')[0];
+    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
       link.classList.add('active');
       // Also highlight parent dropdown if applicable
       const dropdown = link.closest('.dropdown');
