@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Investment opportunity in NADA/HEMPIN: verified truth infrastructure for supply chains. Mission-aligned capital, regenerative returns, sovereign EU tech stack.">
+    <title>Investment Opportunity — NADA/HEMPIN</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/navbar.js" defer></script>
+    <script src="../assets/js/footer.js" defer></script>
+    <style>
+        /* Same styles as funding/index.html + investor-specific */
+        .investor-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .investor-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .investor-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .investor-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .investor-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .investor-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .investor-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .investor-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .investor-section p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin: 40px 0;
+        }
+        
+        .market-stat {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border-top: 4px solid var(--hempin-green);
+        }
+        
+        .market-stat .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--hempin-green);
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .market-stat .label {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        
+        .why-invest {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .why-invest .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .why-invest h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .why-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--inos-blue);
+        }
+        
+        .why-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .why-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .why-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .investment-terms {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .investment-terms .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .terms-table th {
+            background: var(--inos-blue);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .terms-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .terms-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .contact-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact-cta .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .contact-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .contact-cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .contact-cta .email-link {
+            display: inline-block;
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .contact-cta .email-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .investor-hero { padding: 100px 0; }
+            .investor-section, .why-invest, .investment-terms, .contact-cta { padding: 80px 0; }
+            .market-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="investor-hero">
+        <div class="container">
+            <h1>Investment Opportunity</h1>
+            <p class="subtitle">Verification-as-a-Service for Planetary Regeneration</p>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="investor-section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Funding Overview</a>
+            
+            <h2>The Opportunity</h2>
+            <p>
+                NADA/HEMPIN is building verified truth infrastructure for supply chains — starting with hemp, scaling to all industries requiring regulatory compliance and provenance verification.
+            </p>
+            
+            <div class="market-grid">
+                <div class="market-stat">
+                    <span class="number">$17B</span>
+                    <span class="label">Hemp Market (2026)</span>
+                </div>
+                <div class="market-stat">
+                    <span class="number">25%</span>
+                    <span class="label">Annual Growth Rate</span>
+                </div>
+                <div class="market-stat">
+                    <span class="number">$200B+</span>
+                    <span class="label">Addressable Market (2030)</span>
+                </div>
+                <div class="market-stat">
+                    <span class="number">€1B+</span>
+                    <span class="label">Regeneration Fund (2045)</span>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 48px;">Business Model: Verification-as-a-Service (VaaS)</h3>
+            <p>
+                Revenue from subscription fees for verified actors (farmers, processors, brands) accessing the SSOT graph. 30% of all revenue automatically routes to the Regeneration Fund — mission-locked by architecture, not policy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Invest -->
+    <section class="why-invest">
+        <div class="container">
+            <h2>Why Invest in NADA?</h2>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="icon">🚀</div>
+                    <h3>First-Mover Advantage</h3>
+                    <p>First Regulatory-Encoding Knowledge Graph for supply chains. Patent-pending NL2G pipeline creates defensible moat.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🛡️</div>
+                    <h3>De-Risked by Grants</h3>
+                    <p>EIC Pathfinder (€4M) covers R&D phase. EIC Accelerator (€10-15M) funds commercialization. Private capital scales proven model.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🌍</div>
+                    <h3>Mission-Locked</h3>
+                    <p>30% of revenue funds regeneration — encoded in architecture. Foundation + OpCo structure prevents mission drift.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🇪🇺</div>
+                    <h3>Sovereign Stack</h3>
+                    <p>100% EU infrastructure (OVHcloud, Memgraph, Mistral). Strategic autonomy aligns with EU policy priorities.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">📈</div>
+                    <h3>Scalable Model</h3>
+                    <p>From hemp ($17B) to organic agriculture, textiles, critical minerals ($trillions). Same architecture, new markets.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🤝</div>
+                    <h3>Strong Traction</h3>
+                    <p>Thailand LOI secured (TiHTA). Consortium discussions with Nova-Institut, EIHA, InterChanvre, Univ. Iași.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Terms -->
+    <section class="investment-terms">
+        <div class="container">
+            <h2>Investment Pathway</h2>
+            
+            <table class="terms-table">
+                <thead>
+                    <tr>
+                        <th>Round</th>
+                        <th>Timeline</th>
+                        <th>Target</th>
+                        <th>Use of Funds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pre-Seed</strong></td>
+                        <td>2026</td>
+                        <td>€200K</td>
+                        <td>Documentation, grant applications, initial team</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EIC Pathfinder</strong></td>
+                        <td>2026-2030</td>
+                        <td>€4M (grant)</td>
+                        <td>R&D, pilot validation, TRL 4 proof</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EIC Accelerator</strong></td>
+                        <td>2027-2032</td>
+                        <td>€10-15M</td>
+                        <td>Commercial deployment, team scaling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Series A</strong></td>
+                        <td>2030+</td>
+                        <td>€20-30M</td>
+                        <td>Multi-industry expansion, protocol launch</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); margin-top: 32px;">
+                <p style="margin: 0; color: var(--gray);">
+                    <strong>Note:</strong> Investment terms are indicative and subject to due diligence. Foundation + OpCo structure ensures mission alignment while enabling commercial flexibility.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Interested in Investing?</h2>
+            <p>We're currently engaging with mission-aligned investors for pre-seed and Series A opportunities. Let's start a conversation.</p>
+            <a href="mailto:investors@hempin.org" class="email-link">📧 investors@hempin.org</a>
+            <p style="margin-top: 24px; font-size: 1rem; opacity: 0.8;">
+                We respond within 5 business days. Investor deck and financial projections available under NDA.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
