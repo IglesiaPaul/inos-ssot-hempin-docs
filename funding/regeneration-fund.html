@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NADA Regeneration Fund: 30% of all transaction value funds environmental cleanup. Mission-locked economics embedded in verified truth infrastructure.">
+    <title>Regeneration Fund — 30% to Environmental Cleanup | NADA</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/navbar.js" defer></script>
+    <script src="../assets/js/footer.js" defer></script>
+    <style>
+        /* Same styles as investors.html + fund-specific */
+        .fund-hero {
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 50%, #8B5CF6 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fund-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fund-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .fund-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .fund-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .fund-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .fund-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .fund-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .fund-section p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .fund-flow {
+            background: var(--light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .fund-flow .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+        }
+        
+        .fund-flow .box {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            min-width: 180px;
+        }
+        
+        .fund-flow .box.transaction {
+            border-top: 4px solid var(--inos-blue);
+        }
+        
+        .fund-flow .box.split {
+            border-top: 4px solid #F59E0B;
+        }
+        
+        .fund-flow .box.supplier {
+            border-top: 4px solid var(--hempin-green);
+        }
+        
+        .fund-flow .box.fund {
+            border-top: 4px solid #10B981;
+        }
+        
+        .fund-flow .box h4 {
+            margin: 0 0 8px;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .fund-flow .box p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .fund-flow .arrow {
+            font-size: 2rem;
+            color: var(--gray-light);
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin: 40px 0;
+        }
+        
+        .impact-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--hempin-green);
+        }
+        
+        .impact-card .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .impact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .impact-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .governance-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .governance-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .governance-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .governance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .governance-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .governance-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .governance-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .fund-hero { padding: 100px 0; }
+            .fund-section, .governance-section { padding: 80px 0; }
+            .fund-flow .diagram { flex-direction: column; }
+            .fund-flow .arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="fund-hero">
+        <div class="container">
+            <h1>💧 Regeneration Fund</h1>
+            <p class="subtitle">30% of all transaction value funds environmental cleanup</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="fund-section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Funding Overview</a>
+            
+            <h2>How the Fund Works</h2>
+            <p>
+                Unlike traditional CSR or carbon offset programs, the Regeneration Fund is <strong>embedded in the architecture</strong> — not an add-on, not optional, not dependent on corporate goodwill.
+            </p>
+            
+            <div class="fund-flow">
+                <h3>Transaction Flow</h3>
+                <div class="diagram">
+                    <div class="box transaction">
+                        <h4>€1,000 Transaction</h4>
+                        <p>Hemp trade on HEMPIN</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="box split">
+                        <h4>Automatic Split</h4>
+                        <p>Encoded in smart contract</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="box supplier">
+                        <h4>€700 to Supplier</h4>
+                        <p>70% of transaction value</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="box fund">
+                        <h4>€300 to Fund</h4>
+                        <p>30% to verified cleanup</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 48px;">Mission-Locked by Design</h3>
+            <p>
+                The 30% allocation is encoded in the Value Layer of the SSOT graph. It cannot be changed without community governance approval. This ensures regeneration continues even if leadership changes or the company is acquired.
+            </p>
+        </div>
+    </section>
+
+    <!-- Impact Areas -->
+    <section class="fund-section" style="background: var(--light);">
+        <div class="container">
+            <h2>Impact Areas</h2>
+            <p>The Regeneration Fund supports verified environmental cleanup projects aligned with planetary regeneration goals.</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="icon">🌱</div>
+                    <h3>Soil Remediation</h3>
+                    <p>Restoring degraded agricultural land through regenerative farming practices and phytoremediation.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="icon">💧</div>
+                    <h3>Water Restoration</h3>
+                    <p>Cleaning contaminated waterways, restoring wetlands, and protecting freshwater ecosystems.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="icon">🌳</div>
+                    <h3>Carbon Sequestration</h3>
+                    <p>Supporting reforestation, soil carbon capture, and blue carbon projects (mangroves, seagrass).</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="icon">♻️</div>
+                    <h3>Waste Cleanup</h3>
+                    <p>Removing plastic pollution, agricultural waste, and industrial contaminants from ecosystems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance -->
+    <section class="governance-section">
+        <div class="container">
+            <h2>Governance & Transparency</h2>
+            
+            <div class="governance-grid">
+                <div class="governance-card">
+                    <h3>🏛️ INOS Foundation</h3>
+                    <p>Non-profit entity holds the Regeneration Fund protocol. Ensures mission lock and prevents acquisition by misaligned entities.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>🔍 Verified Projects</h3>
+                    <p>All cleanup projects undergo third-party verification. Impact metrics tracked and published transparently.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>📊 Public Dashboard</h3>
+                    <p>Real-time tracking of fund contributions, project allocations, and environmental impact metrics.</p>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>🤝 Community Governance</h3>
+                    <p>Long-term: token holders and stakeholders vote on fund allocation priorities and project selection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
