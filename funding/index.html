@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NADA/HEMPIN funding strategy: grants, private investment, and regenerative economics. Pathway from bootstrap to Solarpunk 2045.">
+    <title>Funding Strategy — Grants & Investment | NADA</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/navbar.js" defer></script>
+    <script src="../assets/js/footer.js" defer></script>
+    <style>
+        /* Funding Page Styles */
+        .funding-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .funding-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .funding-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .funding-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .funding-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .pathway-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .pathway-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .pathway-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .pathway-section .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .pathway-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .pathway-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, #8B5CF6, #3B82F6, #10B981, #F59E0B);
+            z-index: 0;
+            display: none;
+        }
+        
+        @media (min-width: 968px) {
+            .pathway-timeline::before {
+                display: block;
+            }
+        }
+        
+        .pathway-phase {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pathway-phase:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .pathway-phase.phase-1 { border-color: #8B5CF6; }
+        .pathway-phase.phase-2 { border-color: #3B82F6; }
+        .pathway-phase.phase-3 { border-color: #10B981; }
+        .pathway-phase.phase-4 { border-color: #F59E0B; }
+        
+        .pathway-phase .phase-number {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .pathway-phase.phase-2 .phase-number {
+            background: linear-gradient(135deg, #3B82F6, #10B981);
+        }
+        
+        .pathway-phase.phase-3 .phase-number {
+            background: linear-gradient(135deg, #10B981, #F59E0B);
+        }
+        
+        .pathway-phase.phase-4 .phase-number {
+            background: linear-gradient(135deg, #F59E0B, #EC4899);
+        }
+        
+        .pathway-phase h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .pathway-phase .timeline {
+            color: var(--inos-blue);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .pathway-phase p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .pathway-phase .target {
+            background: var(--light);
+            padding: 12px;
+            border-radius: var(--radius);
+            margin-top: 16px;
+        }
+        
+        .pathway-phase .target strong {
+            color: var(--hempin-green);
+            font-size: 1.1rem;
+        }
+        
+        .funding-options {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .funding-options .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .funding-options h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .funding-options .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 0 auto;
+        }
+        
+        .funding-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--inos-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .funding-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .funding-card.grants { border-left-color: #3B82F6; }
+        .funding-card.investors { border-left-color: #10B981; }
+        .funding-card.bootstrap { border-left-color: #F59E0B; }
+        
+        .funding-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .funding-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .funding-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .funding-card .amount {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--hempin-green);
+            margin-bottom: 16px;
+        }
+        
+        .funding-card .cta-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .funding-card .cta-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+        }
+        
+        .regeneration-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .regeneration-cta .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .regeneration-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--white);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .regeneration-cta p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .regeneration-cta .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: #8B5CF6;
+            padding: 18px 48px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .regeneration-cta .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .funding-hero { padding: 100px 0; }
+            .pathway-section, .funding-options, .regeneration-cta { padding: 80px 0; }
+            .pathway-timeline { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="funding-hero">
+        <div class="container">
+            <h1>Funding Strategy</h1>
+            <p class="subtitle">Mission-aligned capital for verified truth infrastructure</p>
+        </div>
+    </section>
+
+    <!-- Funding Pathway Timeline -->
+    <section class="pathway-section">
+        <div class="container">
+            <h2>From Bootstrap to Solarpunk 2045</h2>
+            <p class="intro">Our funding pathway balances grant funding, private investment, and revenue generation to maintain mission alignment while scaling impact</p>
+            
+            <div class="pathway-timeline">
+                <div class="pathway-phase phase-1">
+                    <div class="phase-number">1</div>
+                    <h3>Bootstrap</h3>
+                    <span class="timeline">2024-2026</span>
+                    <p>Documentation, technical architecture, initial partnerships, grant applications</p>
+                    <div class="target">
+                        <strong>Target: €200K</strong>
+                        <p style="margin: 8px 0 0; font-size: 0.85rem;">Pre-seed, founder capital, advisors</p>
+                    </div>
+                </div>
+                
+                <div class="pathway-phase phase-2">
+                    <div class="phase-number">2</div>
+                    <h3>EIC Pathfinder</h3>
+                    <span class="timeline">2026-2030</span>
+                    <p>Grant-funded R&D, pilot validation, TRL 4 proof-of-principle</p>
+                    <div class="target">
+                        <strong>Target: €4M</strong>
+                        <p style="margin: 8px 0 0; font-size: 0.85rem;">100% non-dilutive grant</p>
+                    </div>
+                </div>
+                
+                <div class="pathway-phase phase-3">
+                    <div class="phase-number">3</div>
+                    <h3>EIC Accelerator</h3>
+                    <span class="timeline">2027-2032</span>
+                    <p>Commercial deployment, VaaS subscriptions, market expansion</p>
+                    <div class="target">
+                        <strong>Target: €10-15M</strong>
+                        <p style="margin: 8px 0 0; font-size: 0.85rem;">Grant + equity mix</p>
+                    </div>
+                </div>
+                
+                <div class="pathway-phase phase-4">
+                    <div class="phase-number">4</div>
+                    <h3>Scale & Regenerate</h3>
+                    <span class="timeline">2030-2045</span>
+                    <p>Multi-industry expansion, protocol launch, regeneration at scale</p>
+                    <div class="target">
+                        <strong>Target: €1B+ Fund</strong>
+                        <p style="margin: 8px 0 0; font-size: 0.85rem;">Revenue-driven regeneration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Options -->
+    <section class="funding-options">
+        <div class="container">
+            <h2>Funding Pathways</h2>
+            <p class="intro">Choose how you want to engage with NADA/HEMPIN</p>
+            
+            <div class="funding-grid">
+                <!-- Grants Card -->
+                <div class="funding-card grants">
+                    <div class="icon">🏛️</div>
+                    <h3>Grant Funding</h3>
+                    <p>Non-dilutive funding for R&D and pilot validation through Horizon Europe programs.</p>
+                    <span class="amount">€4M (EIC Pathfinder)</span>
+                    <p style="font-size: 0.95rem; margin-bottom: 20px;">Currently pursuing EIC Pathfinder Open 2026. Follow-on: EIC Accelerator 2027.</p>
+                    <a href="../grants/" class="cta-link">View Grant Details →</a>
+                </div>
+                
+                <!-- Investors Card -->
+                <div class="funding-card investors">
+                    <div class="icon">💼</div>
+                    <h3>Private Investment</h3>
+                    <p>Mission-aligned capital for commercialization and scale. Equity + impact returns.</p>
+                    <span class="amount">€10-15M (Series A)</span>
+                    <p style="font-size: 0.95rem; margin-bottom: 20px;">Opening for pre-seed and Series A investors aligned with regenerative mission.</p>
+                    <a href="investors.html" class="cta-link">Investor Opportunity →</a>
+                </div>
+                
+                <!-- Bootstrap Card -->
+                <div class="funding-card bootstrap">
+                    <div class="icon">🌱</div>
+                    <h3>Regeneration Fund</h3>
+                    <p>30% of all transaction value automatically funds environmental cleanup projects.</p>
+                    <span class="amount">30% of Revenue</span>
+                    <p style="font-size: 0.95rem; margin-bottom: 20px;">Mission-locked economics embedded in the architecture from day one.</p>
+                    <a href="regeneration-fund.html" class="cta-link">How It Works →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regeneration CTA -->
+    <section class="regeneration-cta">
+        <div class="container">
+            <h2>💧 Regeneration by Design</h2>
+            <p>Unlike traditional ventures, NADA embeds regeneration into its economic layer. Every transaction funds environmental cleanup — not as an add-on, but as core infrastructure.</p>
+            <p style="font-size: 1.5rem; margin-top: 32px;"><strong>This is Verification-as-a-Service with purpose.</strong></p>
+            <a href="investors.html" class="cta-button">Learn More for Investors →</a>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
