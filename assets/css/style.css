@@ -534,3 +534,234 @@ a:focus, button:focus, .cta-button:focus, .hero-button:focus {
 html {
   scroll-behavior: smooth;
 }
+
+/* ============================================
+   Grant Detail Page Styles
+   For /grants/eic-pathfinder-2026/ pages
+   ============================================ */
+
+.grant-detail-hero {
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.grant-detail-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+    animation: float 25s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.grant-detail-hero .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.grant-detail-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 16px;
+    color: var(--white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-weight: 800;
+    font-family: 'Georgia', serif;
+}
+
+.grant-detail-hero .subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.95;
+    color: var(--white);
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+/* Grant Navigation (Sticky) */
+.grant-nav {
+    background: var(--light);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.grant-nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.grant-nav a {
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+}
+
+.grant-nav a:hover,
+.grant-nav a.active {
+    color: var(--inos-blue);
+    background: rgba(59,130,246,0.1);
+}
+
+/* Grant Content Sections */
+.grant-section {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.grant-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grant-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 24px;
+    color: var(--dark);
+    font-weight: 800;
+    font-family: 'Georgia', serif;
+}
+
+.grant-section p {
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+}
+
+.grant-section ul {
+    margin: 24px 0;
+    padding-left: 24px;
+    color: var(--gray);
+}
+
+.grant-section li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.grant-section .highlight {
+    background: var(--light);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--inos-blue);
+    margin: 32px 0;
+}
+
+.grant-section .highlight p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Download Section */
+.download-section {
+    padding: 80px 0;
+    background: var(--light);
+    text-align: center;
+}
+
+.download-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.download-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 24px;
+    color: var(--dark);
+    font-weight: 800;
+    font-family: 'Georgia', serif;
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.download-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.download-card .icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.download-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--dark);
+}
+
+.download-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.download-card a {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+    color: var(--white);
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.download-card a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--inos-blue);
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 32px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .grant-detail-hero { padding: 80px 0; }
+    .grant-nav .container { gap: 16px; }
+    .grant-nav a { padding: 8px 12px; font-size: 0.9rem; }
+}
