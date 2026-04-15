@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Budget breakdown for EIC Pathfinder 2026: INOS/SSOT/HEMPIN project.">
+    <title>Budget — EIC Pathfinder 2026 | NADA</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/navbar.js" defer></script>
+    <script src="../../assets/js/footer.js" defer></script>
+    <style>
+        /* Same styles as workpackages.html + budget-specific */
+        .budget-summary {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        .budget-summary .total {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--hempin-green);
+            margin: 16px 0;
+        }
+        
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .budget-table th {
+            background: var(--inos-blue);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .budget-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .budget-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .budget-table tr.total {
+            background: var(--light);
+            font-weight: 700;
+        }
+        
+        .budget-table .amount {
+            text-align: right;
+            font-family: monospace;
+        }
+        
+        .budget-note {
+            background: #F0FDF4;
+            border-left: 4px solid var(--hempin-green);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        
+        .budget-note p {
+            margin: 0;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .budget-table {
+                font-size: 0.9rem;
+            }
+            .budget-table th, .budget-table td {
+                padding: 12px 10px;
+            }
+            .budget-table .amount {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="grant-detail-hero">
+        <div class="container">
+            <h1>EIC Pathfinder Open 2026</h1>
+            <p class="subtitle">Budget Breakdown — INOS Foundation (France)</p>
+        </div>
+    </section>
+
+    <!-- Grant Navigation -->
+    <nav class="grant-nav">
+        <div class="container">
+            <a href="index.html#overview">Overview</a>
+            <a href="workpackages.html">Work Packages</a>
+            <a href="budget.html" class="active">Budget</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="consortium.html">Consortium</a>
+            <a href="../">← Back to Grants</a>
+        </div>
+    </nav>
+
+    <!-- Budget Section -->
+    <section class="grant-section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Executive Summary</a>
+            
+            <h2>Budget Overview (INOS Only)</h2>
+            
+            <div class="budget-summary">
+                <p><strong>Total Requested Grant:</strong></p>
+                <div class="total">€2,300,000</div>
+                <p>Project Duration: 48 months | Funding Rate: 100% (RIA topic)</p>
+            </div>
+            
+            <div class="budget-note">
+                <p><strong>⚠️ Important:</strong> This budget reflects only confirmed beneficiaries at submission time. Only INOS Foundation (France) is a confirmed beneficiary. Prospective partners (EIHA, Univ. Iași, Nova-Institut) will be added upon LOI signature and PIC validation.</p>
+            </div>
+            
+            <h3 style="margin-top: 48px;">Cost Breakdown</h3>
+            
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Cost Category</th>
+                        <th>Amount (€)</th>
+                        <th>% of Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>A. Direct Personnel Costs</strong></td>
+                        <td class="amount">467,500</td>
+                        <td class="amount">20.3%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>B. Direct Subcontracting Costs</strong></td>
+                        <td class="amount">300,000</td>
+                        <td class="amount">13.0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>C. Direct Purchase Costs</strong></td>
+                        <td class="amount">600,000</td>
+                        <td class="amount">26.1%</td>
+                    </tr>
+                    <tr style="padding-left: 24px;">
+                        <td>└─ C.1 Travel & Subsistence</td>
+                        <td class="amount">100,000</td>
+                        <td class="amount">4.3%</td>
+                    </tr>
+                    <tr style="padding-left: 24px;">
+                        <td>└─ C.2 Equipment</td>
+                        <td class="amount">200,000</td>
+                        <td class="amount">8.7%</td>
+                    </tr>
+                    <tr style="padding-left: 24px;">
+                        <td>└─ C.3 Other Goods/Services</td>
+                        <td class="amount">300,000</td>
+                        <td class="amount">13.0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D. Other Direct Costs</strong></td>
+                        <td class="amount">0</td>
+                        <td class="amount">0.0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E. Indirect Costs (25% of A+C)</strong></td>
+                        <td class="amount">247,500</td>
+                        <td class="amount">10.8%</td>
+                    </tr>
+                    <tr class="total">
+                        <td><strong>F. TOTAL COSTS</strong></td>
+                        <td class="amount"><strong>2,300,000</strong></td>
+                        <td class="amount"><strong>100.0%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-top: 48px;">Personnel Costs Detail</h3>
+            <p><strong>Total Personnel Costs:</strong> €467,500 (117 person-months)</p>
+            
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Monthly Rate (€)</th>
+                        <th>Person-Months</th>
+                        <th>Total Cost (€)</th>
+                        <th>Related WP(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Senior Scientist</td>
+                        <td class="amount">4,500</td>
+                        <td class="amount">65</td>
+                        <td class="amount">292,500</td>
+                        <td>WP1-6</td>
+                    </tr>
+                    <tr>
+                        <td>Junior Scientist</td>
+                        <td class="amount">3,200</td>
+                        <td class="amount">31</td>
+                        <td class="amount">99,200</td>
+                        <td>WP2-5</td>
+                    </tr>
+                    <tr>
+                        <td>Technical Personnel</td>
+                        <td class="amount">3,800</td>
+                        <td class="amount">16</td>
+                        <td class="amount">60,800</td>
+                        <td>WP2-4</td>
+                    </tr>
+                    <tr>
+                        <td>Administrative Personnel</td>
+                        <td class="amount">3,000</td>
+                        <td class="amount">5</td>
+                        <td class="amount">15,000</td>
+                        <td>WP1</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="budget-note">
+                <p><strong>Note:</strong> Rates reflect French market conditions for tech/AI roles. Justification for high senior scientist rates provided in Excel <code>Any comments</code> sheet (need for experienced graph/AI specialists in competitive EU market).</p>
+            </div>
+            
+            <h3 style="margin-top: 48px;">Equipment Justification</h3>
+            <p><strong>GPU servers for self-hosted Mistral 7B inference:</strong> €200,000</p>
+            <ul>
+                <li>Required for sovereign AI stack (no US API dependency)</li>
+                <li>Enables self-hosted LLM inference for BUD agent</li>
+                <li>Critical for EU grant eligibility and data sovereignty</li>
+                <li>Equipment ratio: 16.7% of INOS personnel costs (>15% threshold)</li>
+            </ul>
+            
+            <div class="budget-note">
+                <p><strong>Depreciation Calculation:</strong> Purchase cost: €200,000 | % used for project: 80% | % useful life in project: 75% (36 months / 48-month depreciation period) | Charged depreciation: €120,000 (entered manually in Excel <code>BE1</code> sheet under WP2, C.2 Equipment)</p>
+            </div>
+            
+            <h3 style="margin-top: 48px;">Download Full Budget</h3>
+            <p>Complete Horizon Europe lump sum budget table with all calculations:</p>
+            <div style="margin-top: 24px;">
+                <a href="download/Budget-INOS-2.3M.xlsx" target="_blank" class="cta-button" style="background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue)); color: var(--white); padding: 14px 36px; border-radius: 50px; font-weight: 600; text-decoration: none;">📊 Download Budget Excel File</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
