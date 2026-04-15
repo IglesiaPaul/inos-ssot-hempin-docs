@@ -3,129 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roadmap - HEMPIN</title>
+    <meta name="description" content="NADA public roadmap: From concept to Solarpunk 2045. Verified truth infrastructure for planetary regeneration, starting with hemp.">
+    <title>Public Roadmap — From Concept to Solarpunk 2045 | NADA</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/navbar.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
-<!-- Mermaid.js for diagrams -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
-<script>
-  // Initialize Mermaid with clean theme
-  document.addEventListener('DOMContentLoaded', function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        primaryColor: '#3B82F6',    // inos-blue
-        primaryTextColor: '#1F2937', // dark
-        primaryBorderColor: '#3B82F6',
-        lineColor: '#6B7280',        // gray
-        secondaryColor: '#10B981',   // hempin-green
-        tertiaryColor: '#F9FAFB'     // light
-      },
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      flowchart: { useMaxWidth: true, htmlLabels: true },
-      gantt: { useMaxWidth: true }
-    });
-  });
-</script>
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#3B82F6',
+            primaryTextColor: '#1F2937',
+            primaryBorderColor: '#3B82F6',
+            lineColor: '#6B7280',
+            secondaryColor: '#10B981',
+            tertiaryColor: '#F9FAFB',
+            fontSize: 14
+          },
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          flowchart: { useMaxWidth: true, htmlLabels: true, nodeSpacing: 40, rankSpacing: 50 }
+        });
+      });
+    </script>
     <style>
-        .phase { background: var(--white); border-radius: var(--radius-lg); padding: 30px; margin: 30px 0; border-left: 5px solid var(--inos-blue); box-shadow: var(--shadow); }
-        .phase h3 { color: var(--inos-blue); margin-top: 0; }
-        .objective { background: #F0FDF4; border-left: 4px solid var(--hempin-green); padding: 15px; margin: 15px 0; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; }
+        /* Roadmap Page — Public-Facing, Narrative-Driven */
+        
+        .roadmap-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 140px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .roadmap-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .roadmap-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .roadmap-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .roadmap-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .journey-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .journey-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .journey-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .journey-section .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: linear-gradient(180deg, #8B5CF6, #3B82F6, #10B981, #F59E0B);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--inos-blue);
+            z-index: 1;
+        }
+        
+        .timeline-item.phase-1::before { border-color: #8B5CF6; }
+        .timeline-item.phase-2::before { border-color: #3B82F6; }
+        .timeline-item.phase-3::before { border-color: #10B981; }
+        .timeline-item.phase-4::before { border-color: #F59E0B; }
+        
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .timeline-item .timeframe {
+            display: inline-block;
+            background: var(--light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .timeline-item p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .timeline-item ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .timeline-item li {
+            padding: 8px 0;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+        
+        .timeline-item li .status {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .timeline-item li .status.done { color: var(--hempin-green); }
+        .timeline-item li .status.progress { color: var(--inos-blue); }
+        .timeline-item li .status.planned { color: var(--gray-light); }
+        
+        .vision-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .vision-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .vision-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        
+        .vision-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 5px solid var(--hempin-green);
+            transition: all 0.3s ease;
+        }
+        
+        .vision-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .vision-card .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .vision-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .vision-card .metric {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--hempin-green);
+            display: block;
+            margin: 16px 0;
+        }
+        
+        .vision-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: var(--white);
+            text-align: center;
+        }
+        
+        .cta-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .cta-section p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        
+        .cta-section .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-section .cta-button {
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+        }
+        
+        .cta-section .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(16,185,129,0.5);
+        }
+        
+        .cta-section .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--inos-blue);
+            color: var(--inos-blue);
+        }
+        
+        .cta-section .cta-button.secondary:hover {
+            background: var(--inos-blue);
+            color: var(--white);
+        }
+        
+        @media (max-width: 768px) {
+            .roadmap-hero { padding: 100px 0; }
+            .journey-section, .vision-section, .cta-section { padding: 80px 0; }
+            .timeline { padding-left: 20px; }
+            .timeline::before { left: 3px; }
+            .timeline-item { padding-left: 30px; }
+            .timeline-item::before { left: -22px; }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar injected by navbar.js -->
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
 
-    <main>
+    <!-- Hero Section -->
+    <section class="roadmap-hero">
         <div class="container">
-            <h1>Roadmap</h1>
-            <p class="subtitle"><strong>Version:</strong> 1.0 | <strong>Last Updated:</strong> 2026-04</p>
-            
-            <div class="phase">
-                <h3>Phase 0: Bootstrap (Months 1-6)</h3>
-                <p><strong>Goal:</strong> Secure first funding | <strong>Focus:</strong> Proof-of-concept validation</p>
-                <div class="objective"><strong>Key Objectives:</strong> O1 (Governance), O2 (Graph schema), O3 (Sovereign stack benchmark)</div>
-                <h4>Milestones:</h4>
-                <ul>
-                    <li>✅ GitHub organization + documentation (Complete)</li>
-                    <li>✅ Landing page deployed (Complete)</li>
-                    <li>🔄 Advisory board formation - In Progress</li>
-                    <li>🔄 EU grant applications (EIC Pathfinder Open) - In Progress</li>
-                    <li>⏳ Thailand pilot LOI finalization - Planned</li>
-                    <li>⏳ Basic SSOT graph prototype - Planned</li>
-                </ul>
-            </div>
-            
-            <div class="phase">
-                <h3>Phase 1: MVP (Months 7-12)</h3>
-                <p><strong>Goal:</strong> Working MVP with 500 verified entities | <strong>Focus:</strong> Technical validation</p>
-                <div class="objective"><strong>Key Objectives:</strong> O4 (BUD Agent confidence >0.85), O5 (5 jurisdictions encoded), O6 (Pilot validation)</div>
-                <h4>Milestones:</h4>
-                <ul>
-                    <li>Legal entity formation (Foundation + OpCo structure)</li>
-                    <li>First technical team hires</li>
-                    <li>Deploy basic SSOT graph with event-sourcing architecture</li>
-                    <li>Onboard 500+ entities via BUD AI in Thailand pilot</li>
-                    <li>Validate sovereign AI stack performance (latency <500ms)</li>
-                    <li>Apply for €2M+ follow-on EU grants</li>
-                </ul>
-            </div>
-            
-            <div class="phase">
-                <h3>Phase 2: Expansion (Year 2)</h3>
-                <p><strong>Goal:</strong> 5 countries, commercial VaaS launch | <strong>Focus:</strong> Market validation</p>
-                <div class="objective"><strong>Key Objectives:</strong> O7 (3+ publications), O6 expanded (EU pilot), O5 expanded (20 jurisdictions)</div>
-                <h4>Milestones:</h4>
-                <ul>
-                    <li>Expand to 4 new jurisdictions (5 total encoded)</li>
-                    <li>Launch Hemp Swap (verified trading platform)</li>
-                    <li>Deploy Compliance Engine with real-time constraint validation</li>
-                    <li>5,000+ verified entities across hemp value chain</li>
-                    <li>Series A raise (€2M-5M) from impact investors</li>
-                    <li>First commercial VaaS subscriptions</li>
-                </ul>
-            </div>
-            
-            <div class="phase">
-                <h3>Phase 3: Scale (Year 3)</h3>
-                <p><strong>Goal:</strong> 15+ countries, multi-industry expansion | <strong>Focus:</strong> Protocol adoption</p>
-                <h4>Milestones:</h4>
-                <ul>
-                    <li>Global infrastructure deployment (EU + associated countries)</li>
-                    <li>NADA token launch with Regeneration Fund protocol</li>
-                    <li>Expand beyond hemp: organic agriculture, textiles, critical minerals</li>
-                    <li>50,000+ verified entities</li>
-                    <li>Path to profitability via VaaS subscriptions + token economics</li>
-                </ul>
-            </div>
-            
-            <div class="phase">
-                <h3>Phase 4: Solarpunk (Years 5-20)</h3>
-                <p><strong>Goal:</strong> Planetary regeneration infrastructure | <strong>Focus:</strong> Self-sustaining impact</p>
-                <h4>Milestones:</h4>
-                <ul>
-                    <li>Year 5: 40+ countries, 200,000+ entities, €50M revenue</li>
-                    <li>Year 10: 80+ countries, 1M+ entities, €200M revenue</li>
-                    <li>Year 15: 120+ countries, 5M+ entities, €500M revenue</li>
-                    <li>Year 20 (2045): 150+ countries, 10M+ entities, self-sustaining</li>
-                    <li>€1B+ cumulative funding to Regeneration Fund</li>
-                </ul>
-            </div>
-            
-            <h2>Critical Path Summary</h2>
-            <table>
-                <tr><th>Phase</th><th>Timeline</th><th>Funding Target</th><th>Key Outcome</th></tr>
-                <tr><td>Bootstrap</td><td>Months 1-6</td><td>€50K-100K</td><td>Proof-of-concept (TRL 4)</td></tr>
-                <tr><td>MVP</td><td>Months 7-12</td><td>€500K-1M</td><td>500 verified entities, sovereign stack validated</td></tr>
-                <tr><td>Expansion</td><td>Year 2</td><td>€5M-10M</td><td>Commercial VaaS launch, 5 jurisdictions</td></tr>
-                <tr><td>Scale</td><td>Year 3</td><td>€10M+ revenue</td><td>Multi-industry expansion, protocol adoption</td></tr>
-                <tr><td>Solarpunk</td><td>Years 5-20</td><td>€50M+ revenue</td><td>Self-sustaining planetary infrastructure</td></tr>
-            </table>
-            
-            <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/blob/main/ROADMAP.md" class="cta-button" target="_blank">Read Full Roadmap on GitHub</a>
+            <h1>Public Roadmap</h1>
+            <p class="subtitle">From Concept to Solarpunk 2045</p>
         </div>
-    </main>
+    </section>
+
+    <!-- Journey Timeline Section -->
+    <section class="journey-section">
+        <div class="container">
+            <h2>The Journey: Where We've Been & Where We're Going</h2>
+            <p class="intro">Verified truth infrastructure for planetary regeneration — built transparently, deployed incrementally, scaled globally</p>
+            
+            <div class="timeline">
+                <!-- Origins -->
+                <div class="timeline-item phase-1">
+                    <h3>🌱 Origins</h3>
+                    <span class="timeframe">2023-2025</span>
+                    <p>The concept takes shape: verified truth infrastructure for supply chains, starting with hemp as the testbed.</p>
+                    <ul>
+                        <li><span class="status done">✅</span> Concept research: Graph theory + regulatory science + sovereign AI convergence</li>
+                        <li><span class="status done">✅</span> Documentation: 20+ technical files on GitHub</li>
+                        <li><span class="status done">✅</span> Landing page deployed: <a href="https://iglesiapaul.github.io/inos-ssot-hempin-docs/" style="color: var(--inos-blue);">iglesiapaul.github.io</a></li>
+                        <li><span class="status done">✅</span> Technical architecture validated (SSOT/INOS/HEMPIN)</li>
+                        <li><span class="status progress">🔄</span> Advisory board formation (Joseph Carringer, Haneesh Katnawer)</li>
+                    </ul>
+                </div>
+                
+                <!-- Current -->
+                <div class="timeline-item phase-2">
+                    <h3>🚀 Current</h3>
+                    <span class="timeframe">2026</span>
+                    <p>Building momentum: grant applications, partnerships, and pilot preparation.</p>
+                    <ul>
+                        <li><span class="status done">✅</span> Thailand LOI secured with TiHTA (50+ farmers, 10+ processors)</li>
+                        <li><span class="status done">✅</span> Technical documentation complete and public</li>
+                        <li><span class="status done">✅</span> Sovereign EU tech stack defined (OVHcloud, Memgraph, Mistral)</li>
+                        <li><span class="status progress">🔄</span> EIC Pathfinder Open 2026 application in progress (€4M target)</li>
+                        <li><span class="status progress">🔄</span> Consortium outreach: Nova-Institut, EIHA, InterChanvre, Univ. Iași</li>
+                        <li><span class="status planned">⏳</span> BUD Agent alpha development</li>
+                    </ul>
+                </div>
+                
+                <!-- Near Future -->
+                <div class="timeline-item phase-3">
+                    <h3>🌍 Near Future</h3>
+                    <span class="timeframe">2026-2027</span>
+                    <p>Pilot deployment and validation: proving the model in real-world conditions.</p>
+                    <ul>
+                        <li><span class="status planned">⏳</span> Thailand pilot launch: BUD Agent onboarding + compliance validation</li>
+                        <li><span class="status planned">⏳</span> EU pilot environments: DE, FR, RO test deployments</li>
+                        <li><span class="status planned">⏳</span> SSOT graph schema v1.0 open-source release</li>
+                        <li><span class="status planned">⏳</span> 500+ verified entities onboarded across pilots</li>
+                        <li><span class="status planned">⏳</span> First public impact report: transactions → regeneration fund</li>
+                    </ul>
+                </div>
+                
+                <!-- Long-Term Vision -->
+                <div class="timeline-item phase-4">
+                    <h3>✨ Long-Term Vision</h3>
+                    <span class="timeframe">2030-2045</span>
+                    <p>Scaling to planetary regeneration: verified truth as global infrastructure standard.</p>
+                    <ul>
+                        <li><span class="status planned">⏳</span> Scale to 5+ industries beyond hemp (organic agriculture, textiles, critical minerals)</li>
+                        <li><span class="status planned">⏳</span> €1B+ cumulative funding to Regeneration Fund</li>
+                        <li><span class="status planned">⏳</span> Verified truth protocol adopted as industry standard</li>
+                        <li><span class="status planned">⏳</span> Self-sustaining regeneration economy: commerce funds cleanup automatically</li>
+                        <li><span class="status planned">⏳</span> Solarpunk 2045: Planetary regeneration infrastructure at scale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Metrics Section -->
+    <section class="vision-section">
+        <div class="container">
+            <h2>Vision Metrics: Measuring Progress Toward 2045</h2>
+            
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <div class="icon">🌱</div>
+                    <h3>Industries</h3>
+                    <span class="metric">1 → 5+</span>
+                    <p>From hemp to organic agriculture, textiles, coffee, cocoa, critical minerals</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="icon">🌍</div>
+                    <h3>Countries</h3>
+                    <span class="metric">2 → 150+</span>
+                    <p>From Thailand + EU pilots to global verified truth infrastructure</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="icon">👥</div>
+                    <h3>Verified Entities</h3>
+                    <span class="metric">500 → 10M+</span>
+                    <p>From pilot farmers to millions of actors across global supply chains</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="icon">💧</div>
+                    <h3>Regeneration Fund</h3>
+                    <span class="metric">€0 → €1B+</span>
+                    <p>Cumulative funding for verified environmental cleanup projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join the Journey</h2>
+            <p>This roadmap is a living document. We build in public, learn from pilots, and adapt based on community feedback. Your perspective matters.</p>
+            <div class="cta-buttons">
+                <a href="involved.html" class="cta-button">Get Involved →</a>
+                <a href="grants/eic-pathfinder-2026/" class="cta-button secondary">View Grant Details →</a>
+                <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank" class="cta-button secondary">Explore GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
 </body>
 </html>
