@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Work Packages for EIC Pathfinder 2026: INOS/SSOT/HEMPIN project implementation plan.">
+    <title>Work Packages — EIC Pathfinder 2026 | NADA</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/navbar.js" defer></script>
+    <script src="../../assets/js/footer.js" defer></script>
+    <style>
+        /* Same styles as index.html + WP-specific */
+        .wp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .wp-table th {
+            background: var(--inos-blue);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .wp-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .wp-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .wp-card {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 32px;
+            border-left: 5px solid var(--inos-blue);
+        }
+        
+        .wp-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .wp-card .meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .wp-card ul {
+            margin: 16px 0 0 24px;
+            color: var(--gray);
+        }
+        
+        .wp-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .milestone-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .milestone-table th {
+            background: var(--ssot-purple);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .milestone-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .milestone-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .wp-table, .milestone-table {
+                font-size: 0.9rem;
+            }
+            .wp-table th, .wp-table td,
+            .milestone-table th, .milestone-table td {
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section (same as index.html) -->
+    <section class="grant-detail-hero">
+        <div class="container">
+            <h1>EIC Pathfinder Open 2026</h1>
+            <p class="subtitle">Work Packages & Implementation Plan</p>
+        </div>
+    </section>
+
+    <!-- Grant Navigation -->
+    <nav class="grant-nav">
+        <div class="container">
+            <a href="index.html#overview">Overview</a>
+            <a href="workpackages.html" class="active">Work Packages</a>
+            <a href="budget.html">Budget</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="consortium.html">Consortium</a>
+            <a href="../">← Back to Grants</a>
+        </div>
+    </nav>
+
+    <!-- Work Packages Section -->
+    <section class="grant-section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Executive Summary</a>
+            
+            <h2>Work Package Overview</h2>
+            
+            <table class="wp-table">
+                <thead>
+                    <tr>
+                        <th>WP</th>
+                        <th>Title</th>
+                        <th>Duration</th>
+                        <th>Lead</th>
+                        <th>Effort (PM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>WP1</strong></td>
+                        <td>Project Management & Coordination</td>
+                        <td>M1-48</td>
+                        <td>INOS</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WP2</strong></td>
+                        <td>SSOT Graph Architecture & Sovereign Infra</td>
+                        <td>M1-36</td>
+                        <td>INOS</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WP3</strong></td>
+                        <td>BUD AI Agent Development (NL2G)</td>
+                        <td>M6-42</td>
+                        <td>INOS</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WP4</strong></td>
+                        <td>Compliance Engine & Regulatory Encoding</td>
+                        <td>M6-48</td>
+                        <td>INOS</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WP5</strong></td>
+                        <td>Pilot Deployment & Validation</td>
+                        <td>M12-48</td>
+                        <td>INOS</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WP6</strong></td>
+                        <td>Dissemination, Ethics & Open Science</td>
+                        <td>M1-48</td>
+                        <td>INOS</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2 style="margin-top: 48px;">Detailed Work Packages</h2>
+            
+            <!-- WP1 -->
+            <div class="wp-card">
+                <h3>WP1: Project Management & Coordination</h3>
+                <div class="meta">
+                    <span>📅 Months 1-48</span>
+                    <span>👤 Lead: INOS (Paul Iglesia)</span>
+                    <span>⏱️ Effort: 12 person-months</span>
+                </div>
+                <p><strong>Objectives:</strong> Ensure governance, ethical compliance, and reporting.</p>
+                <ul>
+                    <li>Task 1.1: Consortium coordination (monthly calls, reporting)</li>
+                    <li>Task 1.2: Ethical compliance (GDPR, AI Act alignment)</li>
+                    <li>Task 1.3: Risk management (update risk register quarterly)</li>
+                    <li>Task 1.4: Financial management (budget tracking)</li>
+                </ul>
+            </div>
+            
+            <!-- WP2 -->
+            <div class="wp-card">
+                <h3>WP2: SSOT Graph Architecture & Sovereign Infra</h3>
+                <div class="meta">
+                    <span>📅 Months 1-36</span>
+                    <span>👤 Lead: INOS (Technical Lead)</span>
+                    <span>⏱️ Effort: 40 person-months</span>
+                </div>
+                <p><strong>Objectives:</strong> Design graph schema; benchmark sovereign stack.</p>
+                <ul>
+                    <li>Task 2.1: SSOT schema design (Entity/Relationship/Compliance/Value layers)</li>
+                    <li>Task 2.2: Sovereign stack deployment (OVHcloud, Memgraph, Mistral)</li>
+                    <li>Task 2.3: Performance benchmarking (latency, throughput)</li>
+                    <li>Task 2.4: Security audit (GDPR, data sovereignty)</li>
+                </ul>
+            </div>
+            
+            <!-- WP3 -->
+            <div class="wp-card">
+                <h3>WP3: BUD AI Agent Development (NL2G)</h3>
+                <div class="meta">
+                    <span>📅 Months 6-42</span>
+                    <span>👤 Lead: INOS (AI Lead)</span>
+                    <span>⏱️ Effort: 40 person-months</span>
+                </div>
+                <p><strong>Objectives:</strong> Build NL2G pipeline with confidence scoring >0.85.</p>
+                <ul>
+                    <li>Task 3.1: Ontology refinement for AI training</li>
+                    <li>Task 3.2: LLM fine-tuning (Mistral 7B)</li>
+                    <li>Task 3.3: Confidence scoring implementation</li>
+                    <li>Task 3.4: Human-in-loop console development</li>
+                </ul>
+            </div>
+            
+            <!-- WP4 -->
+            <div class="wp-card">
+                <h3>WP4: Compliance Engine & Regulatory Encoding</h3>
+                <div class="meta">
+                    <span>📅 Months 6-48</span>
+                    <span>👤 Lead: INOS (Compliance Lead)</span>
+                    <span>⏱️ Effort: 10 person-months</span>
+                </div>
+                <p><strong>Objectives:</strong> Encode 5 jurisdictions as machine-readable constraints.</p>
+                <ul>
+                    <li>Task 4.1: Regulatory ontology mapping (TH, FR, DE, NL, AU)</li>
+                    <li>Task 4.2: Graph constraint encoding (SHACL/Cypher)</li>
+                    <li>Task 4.3: Validation against test cases</li>
+                    <li>Task 4.4: Iterative expansion plan</li>
+                </ul>
+            </div>
+            
+            <!-- WP5 -->
+            <div class="wp-card">
+                <h3>WP5: Pilot Deployment & Validation</h3>
+                <div class="meta">
+                    <span>📅 Months 12-48</span>
+                    <span>👤 Lead: INOS (Pilot Lead)</span>
+                    <span>⏱️ Effort: 10 person-months</span>
+                </div>
+                <p><strong>Objectives:</strong> Validate with 500+ entities in Thailand + EU.</p>
+                <ul>
+                    <li>Task 5.1: Pilot site setup (Thailand via TiHTA LOI)</li>
+                    <li>Task 5.2: User onboarding (BUD Agent)</li>
+                    <li>Task 5.3: Transaction validation (Compliance Engine)</li>
+                    <li>Task 5.4: Feedback collection and iteration</li>
+                </ul>
+            </div>
+            
+            <!-- WP6 -->
+            <div class="wp-card">
+                <h3>WP6: Dissemination, Ethics & Open Science</h3>
+                <div class="meta">
+                    <span>📅 Months 1-48</span>
+                    <span>👤 Lead: INOS (Comms Lead)</span>
+                    <span>⏱️ Effort: 5 person-months</span>
+                </div>
+                <p><strong>Objectives:</strong> 3+ publications; open-source schema; stakeholder engagement.</p>
+                <ul>
+                    <li>Task 6.1: Open-access publications (Q1/Q2 journals)</li>
+                    <li>Task 6.2: GitHub repo maintenance (MIT license)</li>
+                    <li>Task 6.3: Industry workshops (Cannatec, EIHA)</li>
+                    <li>Task 6.4: Policy briefings (EU DG AGRI/CONNECT)</li>
+                </ul>
+            </div>
+            
+            <h2 style="margin-top: 48px;">Key Milestones</h2>
+            
+            <table class="milestone-table">
+                <thead>
+                    <tr>
+                        <th>Milestone</th>
+                        <th>WP</th>
+                        <th>Due (Month)</th>
+                        <th>Verification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>M1:</strong> Consortium Agreement Signed</td>
+                        <td>WP1</td>
+                        <td>1</td>
+                        <td>Signed document uploaded to portal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M2:</strong> SSOT Graph Schema v1 Finalized</td>
+                        <td>WP2</td>
+                        <td>12</td>
+                        <td>Schema document + peer review report</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M3:</strong> BUD AI Agent Alpha (Confidence >0.85)</td>
+                        <td>WP3</td>
+                        <td>18</td>
+                        <td>Test report with accuracy metrics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M4:</strong> Compliance Engine Live (5 Jurisdictions)</td>
+                        <td>WP4</td>
+                        <td>24</td>
+                        <td>Working prototype + validation report</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M5:</strong> Thailand Pilot Launch</td>
+                        <td>WP5</td>
+                        <td>24</td>
+                        <td>Pilot launch report + participant list</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M6:</strong> EU Pilot Launch</td>
+                        <td>WP5</td>
+                        <td>30</td>
+                        <td>Pilot launch report + participant list</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M7:</strong> Sovereign Stack Audit Complete</td>
+                        <td>WP2</td>
+                        <td>36</td>
+                        <td>Third-party audit report</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M8:</strong> Proof of Principle Achieved (TRL 4)</td>
+                        <td>WP5</td>
+                        <td>42</td>
+                        <td>Technical validation report</td>
+                    </tr>
+                    <tr>
+                        <td><strong>M9:</strong> Final Project Review & Exploitation Plan</td>
+                        <td>WP1</td>
+                        <td>48</td>
+                        <td>Final report + exploitation roadmap</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
