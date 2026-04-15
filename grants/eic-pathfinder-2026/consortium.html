@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consortium partners for EIC Pathfinder 2026: INOS/SSOT/HEMPIN project. Expertise, roles, and LOI status.">
+    <title>Consortium — EIC Pathfinder 2026 | NADA</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/navbar.js" defer></script>
+    <script src="../../assets/js/footer.js" defer></script>
+    <style>
+        /* Same styles as overview + consortium-specific */
+        .consortium-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .partner-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+            border-left: 5px solid var(--inos-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .partner-card.confirmed {
+            border-left-color: var(--hempin-green);
+        }
+        
+        .partner-card .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .partner-card h3 {
+            font-size: 1.4rem;
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .partner-card .status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .partner-card .status.confirmed {
+            background: #D1FAE5;
+            color: var(--hempin-green);
+        }
+        
+        .partner-card .status.discussion {
+            background: #DBEAFE;
+            color: var(--inos-blue);
+        }
+        
+        .partner-card .status.contacted {
+            background: #FEF3C7;
+            color: #F59E0B;
+        }
+        
+        .partner-card .expertise {
+            color: var(--inos-blue);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .partner-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .partner-card .details {
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 16px;
+        }
+        
+        .partner-card .details h4 {
+            font-size: 1.1rem;
+            margin: 0 0 12px;
+            color: var(--dark);
+        }
+        
+        .partner-card .details ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .partner-card .details li {
+            padding: 8px 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .partner-card .details li::before {
+            content: '•';
+            color: var(--inos-blue);
+            font-weight: 700;
+        }
+        
+        .lois-section {
+            background: var(--light);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            margin: 32px 0;
+        }
+        
+        .lois-section h3 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+        
+        .lois-section p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+        
+        .lois-section .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .lois-section .download-link:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--inos-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .partner-card .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section (same as overview) -->
+    <section class="grant-detail-hero">
+        <div class="container">
+            <h1>EIC Pathfinder Open 2026</h1>
+            <p class="subtitle">Consortium Partners & Expertise</p>
+        </div>
+    </section>
+
+    <!-- Grant Navigation (same as overview) -->
+    <nav class="grant-nav">
+        <div class="container">
+            <a href="index.html#overview">Overview</a>
+            <a href="workpackages.html">Work Packages</a>
+            <a href="budget.html">Budget</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="consortium.html" class="active">Consortium</a>
+            <a href="../">← Back to Grants</a>
+        </div>
+    </nav>
+
+    <!-- Consortium Section -->
+    <section class="grant-section">
+        <div class="consortium-container">
+            <a href="index.html" class="back-link">← Back to Executive Summary</a>
+            
+            <h2>Consortium Structure</h2>
+            <p style="color: var(--gray); margin-bottom: 32px;">
+                The project is coordinated by INOS Foundation (France) with prospective partners contributing domain expertise for regulatory encoding, pilot validation, and dissemination.
+            </p>
+            
+            <!-- Confirmed Beneficiary -->
+            <div class="partner-card confirmed">
+                <div class="header">
+                    <h3>🇫🇷 INOS Foundation (Coordinator)</h3>
+                    <span class="status confirmed">✅ Confirmed</span>
+                </div>
+                <span class="expertise">Computer Science, AI, Supply Chain Verification</span>
+                <p>
+                    <strong>Role:</strong> Project coordination, technical leadership (WP1-WP3), sovereign stack deployment.
+                </p>
+                <p>
+                    INOS brings core expertise in software architecture, product management, and regenerative systems design. The coordinator leads the EIC Pathfinder application and technical implementation.
+                </p>
+                <div class="details">
+                    <h4>Key Contributions</h4>
+                    <ul>
+                        <li>SSOT graph schema design and implementation</li>
+                        <li>BUD AI Agent development (NL2G pipeline)</li>
+                        <li>Sovereign EU stack benchmarking (OVHcloud, Memgraph, Mistral)</li>
+                        <li>Project management, ethics compliance, financial reporting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Prospective Partners -->
+            <h3 style="margin: 48px 0 24px;">Prospective Consortium Partners</h3>
+            <p style="color: var(--gray); margin-bottom: 32px;">
+                Advanced discussions underway with the following organizations. LOIs will be attached upon signature and PIC validation.
+            </p>
+            
+            <div class="partner-card">
+                <div class="header">
+                    <h3>🇩🇪 Nova-Institut</h3>
+                    <span class="status discussion">🔄 In Discussion</span>
+                </div>
+                <span class="expertise">Bio-based Economy Research, Hemp Policy</span>
+                <p>
+                    <strong>Proposed Role:</strong> EU regulatory encoding (WP4), market validation, dissemination (WP6).
+                </p>
+                <p>
+                    Nova-Institut's expertise in hemp policy, market analysis, and sustainability assessment will ensure the regulatory ontology reflects real-world requirements and supports widespread adoption.
+                </p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="header">
+                    <h3>🇪🇺 EIHA (European Industrial Hemp Association)</h3>
+                    <span class="status contacted">📧 Contacted</span>
+                </div>
+                <span class="expertise">Industry Standards, Policy Advocacy</span>
+                <p>
+                    <strong>Proposed Role:</strong> Industry validation, pilot site recruitment, policy engagement (WP5-WP6).
+                </p>
+                <p>
+                    As Europe's largest hemp industry association, EIHA provides access to farmer/processor networks and policy channels critical for pilot deployment and regulatory alignment.
+                </p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="header">
+                    <h3>🇫🇷 InterChanvre</h3>
+                    <span class="status contacted">📧 Contacted</span>
+                </div>
+                <span class="expertise">French Hemp Supply Chains</span>
+                <p>
+                    <strong>Proposed Role:</strong> French pilot coordination, farmer onboarding (WP5).
+                </p>
+                <p>
+                    InterChanvre's deep knowledge of French regulatory landscape and farmer cooperatives enables effective pilot deployment and user feedback collection.
+                </p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="header">
+                    <h3>🇷🇴 University of Life Sciences Iași</h3>
+                    <span class="status contacted">📧 Contacted</span>
+                </div>
+                <span class="expertise">Agricultural Research, Agronomy</span>
+                <p>
+                    <strong>Proposed Role:</strong> Romanian pilot site, agronomic validation (WP5).
+                </p>
+                <p>
+                    The university's expertise in hemp cultivation and agronomic data validation ensures the SSOT graph reflects biological reality and supports scientific rigor.
+                </p>
+            </div>
+            
+            <!-- LOIs Section -->
+            <div class="lois-section">
+                <h3>📄 Letters of Intent</h3>
+                <p>
+                    Signed LOIs from confirmed and prospective partners will be attached to the proposal upon submission.
+                </p>
+                <p>
+                    <strong>Current Status:</strong>
+                </p>
+                <ul style="margin: 0; padding-left: 24px; color: var(--gray);">
+                    <li>✅ TiHTA (Thailand) — LOI secured for pilot deployment</li>
+                    <li>🔄 Nova-Institut — Draft LOI under review</li>
+                    <li>📧 EIHA, InterChanvre, Univ. Iași — Initial contact made</li>
+                </ul>
+                <p style="margin-top: 16px;">
+                    <a href="download/LOIs-EIC-Pathfinder-2026.zip" class="download-link" target="_blank">
+                        📥 Download LOIs (ZIP)
+                    </a>
+                </p>
+            </div>
+            
+            <div style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); margin-top: 32px;">
+                <p style="margin: 0; color: var(--gray);">
+                    <strong>Note:</strong> Consortium composition may evolve based on grant evaluation feedback. All partners will be established in EU Member States or Associated Countries to ensure funding eligibility.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
