@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <a href="#" class="dropbtn">Progress ▾</a>
               <div class="dropdown-content">
                 <a href="${BASE_PATH}/roadmap.html">Public Roadmap</a>
+                <a href="${BASE_PATH}/discussions.html">Discussions</a>
               </div>
             </li>
             
