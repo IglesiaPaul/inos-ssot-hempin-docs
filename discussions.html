@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NADA insights and strategic discussions: verified truth infrastructure, hemp industry, regenerative economics, and Solarpunk vision.">
+    <title>Discussions — Insights & Strategy | NADA</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
+    <style>
+        /* Discussions Page — Timeless, Expandable, GitHub-Integrated */
+        
+        .discussions-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
+            color: var(--white);
+            padding: 140px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .discussions-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            animation: float 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .discussions-hero .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .discussions-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .discussions-hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: var(--white);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        /* Filter Tabs */
+        .filter-tabs {
+            background: var(--light);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .filter-tabs .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .filter-tabs button {
+            background: transparent;
+            border: 2px solid var(--gray-light);
+            color: var(--gray);
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .filter-tabs button:hover,
+        .filter-tabs button.active {
+            background: var(--inos-blue);
+            color: var(--white);
+            border-color: var(--inos-blue);
+        }
+        
+        /* Article Cards */
+        .articles-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .articles-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .article-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--inos-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .article-card.strategy { border-left-color: #3B82F6; }
+        .article-card.technology { border-left-color: #10B981; }
+        .article-card.philosophy { border-left-color: #8B5CF6; }
+        .article-card.partnerships { border-left-color: #F59E0B; }
+        .article-card.vision { border-left-color: #EC4899; }
+        
+        .article-card .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .article-card h3 {
+            font-size: 1.4rem;
+            margin: 0;
+            color: var(--dark);
+            flex: 1;
+        }
+        
+        .article-card .tag {
+            display: inline-block;
+            background: var(--light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--inos-blue);
+        }
+        
+        .article-card .tag.strategy { color: #3B82F6; background: rgba(59,130,246,0.1); }
+        .article-card .tag.technology { color: #10B981; background: rgba(16,185,129,0.1); }
+        .article-card .tag.philosophy { color: #8B5CF6; background: rgba(139,92,246,0.1); }
+        .article-card .tag.partnerships { color: #F59E0B; background: rgba(245,158,11,0.1); }
+        .article-card .tag.vision { color: #EC4899; background: rgba(236,72,153,0.1); }
+        
+        .article-card .preview {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .article-card .quote {
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--hempin-green);
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .article-card .quote::before {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: var(--gray-light);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .article-card .details {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .article-card.expanded .details {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .article-card .details p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .article-card .actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+        
+        .article-card .expand-btn {
+            background: transparent;
+            border: 2px solid var(--inos-blue);
+            color: var(--inos-blue);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .article-card .expand-btn:hover {
+            background: var(--inos-blue);
+            color: var(--white);
+        }
+        
+        .article-card .github-btn {
+            background: linear-gradient(135deg, var(--hempin-green), var(--inos-blue));
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .article-card .github-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .discussions-hero { padding: 100px 0; }
+            .filter-tabs .container { gap: 8px; }
+            .filter-tabs button { padding: 10px 16px; font-size: 0.9rem; }
+            .article-card { padding: 24px; }
+            .article-card .header { flex-direction: column; align-items: flex-start; }
+            .article-card .actions { flex-direction: column; }
+            .article-card .expand-btn,
+            .article-card .github-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    <script>
+        // Tab filtering + expand logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterTabs = document.querySelectorAll('.filter-tabs button');
+            const articleCards = document.querySelectorAll('.article-card');
+            const expandBtns = document.querySelectorAll('.expand-btn');
+            
+            // Filter by category
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-filter');
+                    
+                    // Show/hide articles
+                    articleCards.forEach(card => {
+                        if (category === 'all' || card.classList.contains(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Expand article preview
+            expandBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.article-card');
+                    card.classList.toggle('expanded');
+                    this.textContent = card.classList.contains('expanded') ? 'Show less' : 'Read more';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+
+    <!-- Hero Section -->
+    <section class="discussions-hero">
+        <div class="container">
+            <h1>Insights & Discussions</h1>
+            <p class="subtitle">Strategic thinking on verified truth infrastructure, hemp industry innovation, and regenerative economics</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <nav class="filter-tabs">
+        <div class="container">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="strategy">Strategy</button>
+            <button data-filter="technology">Technology</button>
+            <button data-filter="philosophy">Philosophy</button>
+            <button data-filter="partnerships">Partnerships</button>
+            <button data-filter="vision">Vision</button>
+        </div>
+    </nav>
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <div class="container">
+
+            <!-- Article 1: Traceability vs. Verification -->
+            <article class="article-card strategy">
+                <div class="header">
+                    <h3>Traceability vs. Verification: Why Infrastructure Matters</h3>
+                    <span class="tag strategy">Strategy</span>
+                </div>
+                <p class="preview">
+                    Most existing traceability platforms record transactions <em>after</em> they occur. INOS/SSOT encodes regulatory rules as machine-readable graph constraints so non-compliant transactions <em>cannot be recorded in the first place</em>. This is the paradigm shift from "trust but verify" to "verify by design".
+                </p>
+                <div class="quote">
+                    You cannot build a trustworthy marketplace on top of unverified data. Trust cannot be synthesized. It has to be earned.
+                </div>
+                <div class="details">
+                    <p>
+                        Existing platforms (TextileGenesis, Retraced, etc.) are valuable, but they operate on top of unverified data. They trust the brand's claim, then record it. SSOT is a verified counterparty graph: every entity, relationship, and compliance rule is validated before it enters the system. The graph itself enforces trust.
+                    </p>
+                    <p>
+                        Short-term: Existing systems can feed data INTO the SSOT graph via typed integration adapters. We're not asking anyone to rip and replace. Long-term: As the graph becomes denser and more verified, it becomes the authoritative source — not by competition, but by superior utility. Marginal value accelerates with density.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/6" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 2: Why Hemp First? -->
+            <article class="article-card strategy">
+                <div class="header">
+                    <h3>Why Hemp First? The Hardest Test Case</h3>
+                    <span class="tag strategy">Strategy</span>
+                </div>
+                <p class="preview">
+                    Hemp is more fragmented, more regulated, and more stigmatized than textiles. If INOS works for hemp — with 57 jurisdictions, no shared identity standard, and persistent stigma — it works for any plant-based industry. The pattern extends: HempIN → FlaxIN → TomatoIN → BambooIN.
+                </p>
+                <div class="quote">
+                    Hemp is not just a product category. It is a proof point for a different kind of economy.
+                </div>
+                <div class="details">
+                    <p>
+                        The global hemp industry operates as a coordination failure at scale: 57 jurisdictions with incompatible regulations, no shared identity standard for farmers, processors, brands, no machine-readable compliance layer, no verified counterparty graph. The result is an industry that, despite representing a $17 billion annual market growing at 25% compounded, cannot efficiently price, trade, or allocate capital because the foundational data infrastructure does not exist.
+                    </p>
+                    <p>
+                        If we can build verified truth infrastructure for hemp — the most fragmented, stigmatized, regulated plant-based industry — we can build it for anything. Hemp is the prototype. INOS is the pattern.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/7" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 3: The Verification Moat -->
+            <article class="article-card technology">
+                <div class="header">
+                    <h3>The Verification Moat: Why Graph Density Matters</h3>
+                    <span class="tag technology">Technology</span>
+                </div>
+                <p class="preview">
+                    "You cannot buy three years of verified, relationship-dense, event-sourced graph data. You have to earn it." This is your defensibility. Competitors can copy code. They can't copy accumulated trust. Marginal value accelerates with density — the first 10,000 verified entities across 15 countries make SSOT the authoritative data layer for the global industry.
+                </p>
+                <div class="quote">
+                    The cost of replication is not technical. It is temporal.
+                </div>
+                <div class="details">
+                    <p>
+                        Graph-based systems have a property that tabular databases do not: marginal value accelerates with density. The first 100 verified entities make the graph moderately useful. The first 10,000 entities across 15 countries make it the authoritative data layer for the global industry.
+                    </p>
+                    <p>
+                        At that point, the cost of replication is not technical. It is temporal. You cannot buy three years of verified, relationship-dense, event-sourced graph data. You have to earn it. This is the verification moat.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/9" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 4: Association-Led Onboarding -->
+            <article class="article-card partnerships">
+                <div class="header">
+                    <h3>Association-Led Onboarding: Acquiring the Chapter, Not the User</h3>
+                    <span class="tag partnerships">Partnerships</span>
+                </div>
+                <p class="preview">
+                    The canonical marketplace model fails for hemp for a structural reason: the precondition for a trustworthy match is not the match itself. It is the verification of the parties before the match occurs. National hemp associations are the trust proxy that makes verified onboarding possible at scale. The strategy is not to acquire users one by one. It is to acquire the chapter.
+                </p>
+                <div class="quote">
+                    Don't acquire users one by one. Acquire the chapter.
+                </div>
+                <div class="details">
+                    <p>
+                        Hemp is organized around national associations. In every country where the industry is active, there is a body that holds the membership list, runs the events, and speaks for the sector to government. These associations are the entry point into every market. They are the trust proxy that makes verified onboarding possible at scale.
+                    </p>
+                    <p>
+                        TIHTA in Thailand is the existence proof. The LOI structure is now a replicable template. Layer 0: Institutional anchoring via LOI. Layer 1: Entity registration via BUD conversation. Layer 2: Operational tool activation. The tool layer and the data layer are in mutual feedback.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/11" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 5: From Marketplace to Operating System -->
+            <article class="article-card philosophy">
+                <div class="header">
+                    <h3>From Marketplace to Operating System: The Big Leap</h3>
+                    <span class="tag philosophy">Philosophy</span>
+                </div>
+                <p class="preview">
+                    The most important conceptual shift came when the question changed from how to build a hemp marketplace to what the hemp industry actually needs at the infrastructure level. The answer was not a platform. It was an operating system. This is where INOS was born.
+                </p>
+                <div class="quote">
+                    INOS stands for Interconnected Nature Operating System — also read as Innovative Natural Operating System.
+                </div>
+                <div class="details">
+                    <p>
+                        INOS is an infrastructure model. It is a set of interconnected layers that allow an entire plant-based industry to organize, transact, and grow without depending on generalist platforms that were never built with their needs in mind.
+                    </p>
+                    <p>
+                        The double meaning: both technical and biological, since <em>inos</em> in its root sense refers to fiber, sinew, and the connective tissue of living things. INOS is not just a technical architecture. It is a philosophical claim: the world is alive, and the infrastructure we build should work with that logic rather than against it.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/12" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 6: The Country Activation Protocol -->
+            <article class="article-card strategy">
+                <div class="header">
+                    <h3>The Country Activation Protocol: Six Layers to Liquidity</h3>
+                    <span class="tag strategy">Strategy</span>
+                </div>
+                <p class="preview">
+                        Layer 0: Institutional anchoring (LOI with association). Layer 1: Entity registration via BUD conversation. Layer 2: Operational tool activation. Layer 3: Software integration. Layer 4: Emergent liquidity. Layer 5: Consumer bridge. This is the replicable protocol for each new market.
+                </p>
+                <div class="quote">
+                    The value proposition compounds backward in time.
+                </div>
+                <div class="details">
+                    <p>
+                        A Moroccan cooperative registering in Year 3 arrives into a graph that already holds verified relationship data for their most likely European buyers, compliance data for their target export markets, and price benchmarks from three years of real transactions. The value proposition compounds backward in time.
+                    </p>
+                    <p>
+                        The organization that builds the verified data layer for the global hemp industry in the next three years will hold a position that is a function of time, trust, and accumulated graph weight that cannot be purchased or replicated. Only grown.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/8" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 7: Regeneration by Design -->
+            <article class="article-card philosophy">
+                <div class="header">
+                    <h3>Regeneration by Design: 30% Embedded in the Architecture</h3>
+                    <span class="tag philosophy">Philosophy</span>
+                </div>
+                <p class="preview">
+                    Unlike traditional CSR or carbon offset programs, the Regeneration Fund is embedded in the architecture — not an add-on, not optional, not dependent on corporate goodwill. 30% of all transaction value automatically funds environmental cleanup projects, encoded in the Value Layer of SSOT.
+                </p>
+                <div class="quote">
+                    Regeneration is not a marketing layer. It is encoded in the economic layer of verified truth infrastructure.
+                </div>
+                <div class="details">
+                    <p>
+                        How it works: Transaction occurs on HEMPIN → 30% of value is automatically routed to Regeneration Fund → Fund allocates to verified environmental cleanup projects → Impact is tracked and published transparently. This is Verification-as-a-Service with purpose.
+                    </p>
+                    <p>
+                        Priority project types: Soil remediation using hemp phytoremediation, water restoration with hemp-based biofilters, carbon sequestration through regenerative hemp cultivation, waste cleanup using hemp-based bioplastics, biodiversity protection via hemp companion cropping.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/13" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 8: BUD: Intelligence Woven In -->
+            <article class="article-card technology">
+                <div class="header">
+                    <h3>BUD: Intelligence Woven In, Not Bolted On</h3>
+                    <span class="tag technology">Technology</span>
+                </div>
+                <p class="preview">
+                    BUD is not a chatbot, not a sidebar. It is contextual AI woven into every screen. When you open a product listing in Hemp Swap, BUD already knows seller verification, compliance in your country, price benchmarks. "Transmit to BUD" turns every read into graph enrichment.
+                </p>
+                <div class="quote">
+                    BUD is contextual intelligence woven into every interaction, not a separate chat interface.
+                </div>
+                <div class="details">
+                    <p>
+                        BUD facilitates Discovery Match introductions between verified professionals across the entire platform: producers matched to buyers, brands to distributors, service providers to operators. The match is logged on SSOT. The fee triggers only when both parties confirm the introduction as valuable. This is not a placement fee — it is intelligence monetised.
+                    </p>
+                    <p>
+                        The match quality improves with every confirmed introduction. Every trade, every verified data contribution feeds the SSOT graph that makes BUD progressively more useful. BUD is not a feature. It is the intelligence layer of the entire ecosystem.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/10" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 9: One Identity, Every Role -->
+            <article class="article-card philosophy">
+                <div class="header">
+                    <h3>One Identity, Every Role: Refusing Fixed-Role Logic</h3>
+                    <span class="tag philosophy">Philosophy</span>
+                </div>
+                <p class="preview">
+                    DEWII refuses the fixed-role logic of traditional platforms. One verified profile expresses every dimension: a farmer supplies fiber, trades equipment, discovers buyers, monitors compliance. The verified profile is the single passport through the entire ecosystem.
+                </p>
+                <div class="quote">
+                    One verified profile expresses every dimension. The platform adapts to them, not vice versa.
+                </div>
+                <div class="details">
+                    <p>
+                        DEWII uses six dedicated buttons across two bars in portrait mode and two strips in landscape mode. Wallet holds NADA balance and transaction history. BUD opens the contextual AI companion. Messages handles direct communication and trade negotiation. Home returns to the dashboard. ME is the verified professional profile. The + button creates content or listings depending on context.
+                    </p>
+                    <p>
+                        This is how real people work. The platform adapts to them, not vice versa. Gaming controller logic: six dedicated buttons, always reachable. No hidden menus. No role-switching. Just one identity, every role.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/14" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 10: The Pattern Extends -->
+            <article class="article-card vision">
+                <div class="header">
+                    <h3>The Pattern Extends: From Hemp to Planetary Regeneration</h3>
+                    <span class="tag vision">Vision</span>
+                </div>
+                <p class="preview">
+                    Hemp is the prototype. INOS is the pattern. Next industries: TomatoIN, BambooIN, FlaxIN, CoffeeIN. Solarpunk 2045: 150+ countries, 10M+ verified entities, €1B+ cumulative funding to Regeneration Fund. Self-sustaining regeneration economy: commerce funds cleanup automatically.
+                </p>
+                <div class="quote">
+                    Grow cannabis. Build infrastructure. Change the world.
+                </div>
+                <div class="details">
+                    <p>
+                        By 2045, this architecture extends to all industries requiring verified supply chains: organic agriculture, textiles, coffee, cocoa, fisheries. Starting with hemp, scaling to planetary regeneration infrastructure.
+                    </p>
+                    <p>
+                        The pattern: Start with the hardest case → Build verified truth infrastructure → Deploy through human-centered interface → Embed regeneration in economics → Scale to other industries. This is not just infrastructure. It's a gathering point for people who believe verified truth can regenerate the planet.
+                    </p>
+                </div>
+                <div class="actions">
+                    <button class="expand-btn">Read more</button>
+                    <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs/discussions/15" target="_blank" class="github-btn">
+                        Join discussion →
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Footer injected by footer.js -->
+</body>
+</html>
