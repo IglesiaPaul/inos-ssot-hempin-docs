@@ -3,160 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global CannaPeace — Where Hemp is Free to Grow</title>
-    
-    <!-- Leaflet CSS -->
+    <title>HEMPIN Global Network - INOS SSOT</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
-    
     <style>
-        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: #0f172a; color: white; }
-        #map { height: 100vh; width: 100%; z-index: 1; }
-        
-        /* Overlay UI */
-        .overlay {
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        .info-panel {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.9);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            max-width: 300px;
-            backdrop-filter: blur(10px);
-        }
-        
-        h1 { margin: 0 0 8px; font-size: 1.5rem; background: linear-gradient(135deg, #10B981, #3B82F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        p { margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5; }
-        
-        /* Tooltip Styling */
-        .leaflet-popup-content-wrapper {
-            background: rgba(15, 23, 42, 0.95);
-            color: white;
-            border: 1px solid #10B981;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 15px;
             border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-width: 300px;
         }
-        .leaflet-popup-tip { background: rgba(15, 23, 42, 0.95); }
-        .popup-title { font-weight: 800; color: #10B981; margin-bottom: 4px; }
-        .popup-fact { font-size: 0.85rem; color: #e2e8f0; }
-        
-        /* Loading Screen */
-        #loading {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #0f172a; z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-            flex-direction: column;
+        .info-panel h2 {
+            margin: 0 0 10px 0;
+            color: #2d5016;
         }
-        .spinner {
-            width: 40px; height: 40px; border: 4px solid #10B981;
-            border-top: 4px solid transparent; border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .country-info {
+            margin-top: 10px;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .status-positive {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        .status-neutral {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
-
-    <!-- Loading Screen -->
-    <div id="loading">
-        <div class="spinner"></div>
-        <p style="margin-top: 16px;">Loading Global CannaPeace Map...</p>
+    <div id="map"></div>
+    
+    <div class="info-panel">
+        <h2>🌿 HEMPIN Global Network</h2>
+        <p>Verified hemp industry infrastructure across <span id="country-count">0</span> countries</p>
+        <div id="country-details" class="country-info">
+            Click on a country to see details
+        </div>
     </div>
-
-    <!-- UI Overlay -->
-    <div class="overlay">
-        <h1>Global CannaPeace</h1>
-        <p>Where Hemp is Free to Grow & More.<br>Exploring the global landscape of hemp freedom.</p>
-        <div style="margin-top: 16px; font-size: 0.8rem; color: #10B981;">
-            ● Hemp Legal & Free<br>
-            ● Data by HEMPIN
+    
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background: #22c55e;"></div>
+            <span>Positive/Progressive</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #f59e0b;"></div>
+            <span>Neutral/Reform</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #6b7280;"></div>
+            <span>Restricted</span>
         </div>
     </div>
 
-    <!-- Map Container -->
-    <div id="map"></div>
-
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <!-- Map Logic -->
-    <script>
-        // 1. Initialize Map (Dark Mode)
-        const map = L.map('map', {
-            center: [20, 0],
-            zoom: 2,
-            zoomControl: false,
-            attributionControl: false
-        });
-
-        // 2. Add Dark Matter Tiles (Solarpunk Tech Vibe)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            maxZoom: 19
-        }).addTo(map);
-
-        // 3. Load Country Data & GeoJSON
-        let geojsonLayer;
-
-        // Fetch your data file
-        fetch('data/hemp-data.json')
-            .then(res => res.json())
-            .then(hempData => {
-                // Fetch world countries GeoJSON (public source)
-                fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
-                    .then(res => res.json())
-                    .then(worldData => {
-                        
-                        // Style Function: Color only countries in your data
-                        function style(feature) {
-                            const code = feature.id; // ISO code
-                            if (hempData[code]) {
-                                return {
-                                    fillColor: '#10B981', // HEMPIN Green
-                                    weight: 1,
-                                    opacity: 1,
-                                    color: '#10B981',
-                                    fillOpacity: 0.6
-                                };
-                            }
-                            return {
-                                fillColor: '#334155', // Neutral dark for others
-                                weight: 0.5,
-                                opacity: 0.3,
-                                color: '#475569',
-                                fillOpacity: 0.1
-                            };
-                        }
-
-                        // Interaction: Hover/Click
-                        function onEachFeature(feature, layer) {
-                            const code = feature.id;
-                            if (hempData[code]) {
-                                const data = hempData[code];
-                                layer.bindPopup(`
-                                    <div class="popup-title">${feature.properties.name}</div>
-                                    <div class="popup-fact">🌱 ${data.fact}</div>
-                                    <div class="popup-fact" style="margin-top:4px; opacity:0.7">Since ${data.year}</div>
-                                `);
-                            }
-                        }
-
-                        // Add to map
-                        geojsonLayer = L.geoJSON(worldData, {
-                            style: style,
-                            onEachFeature: onEachFeature
-                        }).addTo(map);
-
-                        // Remove loading screen
-                        document.getElementById('loading').style.display = 'none';
-                    });
-            })
-            .catch(err => {
-                console.error('Error loading map data:', err);
-                document.getElementById('loading').innerHTML = '<p>Error loading map. Please refresh.</p>';
-            });
-    </script>
+    <script src="map.js"></script>
 </body>
 </html>
