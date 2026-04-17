@@ -1,549 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Global CannaPeace Map — Cannabis legalization status worldwide. Interactive map for 4.20 International Cannabis Day.">
-    <title>Global CannaPeace Map — HEMPIN</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌿 Global Cannabis Policy Map · 2026</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; }
     
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    #map { height: 100vh; width: 100%; }
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Georgia:wght@400;700;800&display=swap" rel="stylesheet">
+    .header {
+      position: absolute; top: 20px; left: 20px; z-index: 1000;
+      background: rgba(15, 23, 42, 0.9); padding: 16px 20px; border-radius: 12px;
+      border: 1px solid #334155; max-width: 320px;
+    }
+    .header h1 { font-size: 1.25rem; margin-bottom: 8px; color: #22c55e; }
+    .header p { font-size: 0.9rem; color: #94a3b8; line-height: 1.4; }
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        /* Floating particles animation */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(139,92,246,0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(16,185,129,0.1) 0%, transparent 40%);
-            animation: float 25s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '🌿';
-            position: absolute;
-            font-size: 8rem;
-            opacity: 0.1;
-            left: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hero::after {
-            content: '🌿';
-            position: absolute;
-            font-size: 8rem;
-            opacity: 0.1;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            animation: float 6s ease-in-out infinite reverse;
-        }
-        
-        .hero h1 {
-            font-family: 'Georgia', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 16px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero p {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero .date {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
-            margin-top: 16px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: -40px auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .stat-card {
-            background: rgba(15, 15, 26, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 24px;
-            border-radius: 16px;
-            text-align: center;
-            border: 2px solid rgba(16,185,129,0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-4px);
-            border-color: #10B981;
-            box-shadow: 0 8px 32px rgba(16,185,129,0.2);
-        }
-        
-        .stat-card .number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #10B981;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .stat-card .label {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Map Container */
-        .map-container {
-            max-width: 1400px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        #map {
-            height: 600px;
-            border-radius: 16px;
-            border: 3px solid rgba(16,185,129,0.3);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-        
-        /* Legend */
-        .legend {
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            padding: 24px;
-            background: rgba(15, 15, 26, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 2px solid rgba(16,185,129,0.3);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .legend h3 {
-            color: #10B981;
-            margin-bottom: 16px;
-            font-family: 'Georgia', serif;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 12px 0;
-            padding: 8px;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-        
-        .legend-item:hover {
-            background: rgba(16,185,129,0.1);
-        }
-        
-        .legend-color {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            margin-right: 12px;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        
-        .legend-label {
-            flex: 1;
-            color: #e2e8f0;
-        }
-        
-        .legend-count {
-            color: #10B981;
-            font-weight: 700;
-        }
-        
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #64748b;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .footer a {
-            color: #10B981;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Loading State */
-        #loading {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 9999;
-        }
-        
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(16,185,129,0.3);
-            border-top: 4px solid #10B981;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Leaflet Popup Styling */
-        .leaflet-popup-content-wrapper {
-            background: rgba(15, 15, 26, 0.95);
-            color: #fff;
-            border: 2px solid #10B981;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .leaflet-popup-tip {
-            background: rgba(15, 15, 26, 0.95);
-            border: 2px solid #10B981;
-        }
-        
-        .popup-title {
-            color: #10B981;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        
-        .popup-status {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 8px 0;
-        }
-        
-        .popup-note {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero { padding: 60px 20px; }
-            #map { height: 400px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+    .legend {
+      position: absolute; bottom: 30px; right: 20px; z-index: 1000;
+      background: rgba(15, 23, 42, 0.95); padding: 14px 18px; border-radius: 10px;
+      border: 1px solid #334155; min-width: 220px;
+    }
+    .legend h4 { margin-bottom: 10px; font-size: 0.95rem; color: #cbd5e1; }
+    .legend-item { display: flex; align-items: center; gap: 10px; margin: 6px 0; font-size: 0.85rem; }
+    .legend-color { width: 20px; height: 20px; border-radius: 4px; border: 1px solid #475569; }
+    
+    .popup { font-size: 0.9rem; }
+    .popup h3 { color: #22c55e; margin-bottom: 8px; font-size: 1.1rem; }
+    .popup .status { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; margin: 4px 0; }
+    .popup .flags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .popup .flag { font-size: 0.75rem; padding: 2px 6px; background: #1e293b; border-radius: 3px; }
+    .popup .notes { margin-top: 8px; color: #94a3b8; font-style: italic; }
+    
+    .loading {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(15,23,42,0.95); padding: 20px 30px; border-radius: 12px;
+      border: 1px solid #334155; z-index: 2000; text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading">
-        <div class="spinner"></div>
-        <p>Loading Global CannaPeace Map...</p>
-    </div>
+  <div id="map"></div>
+  
+  <div class="header">
+    <h1>🌿 Cannabis Policy Map</h1>
+    <p>Global legalization status as of 2026. Click any country for details. Grey = no data available.</p>
+  </div>
+  
+  <div class="legend">
+    <h4>Legend</h4>
+    <div class="legend-item"><div class="legend-color" style="background:#22c55e"></div>Full Legalization</div>
+    <div class="legend-item"><div class="legend-color" style="background:#3b82f6"></div>Medical Positive</div>
+    <div class="legend-item"><div class="legend-color" style="background:#f59e0b"></div>Decriminalized</div>
+    <div class="legend-item"><div class="legend-color" style="background:#84cc16"></div>Home Grow Allowed</div>
+    <div class="legend-item"><div class="legend-color" style="background:#a855f7"></div>2026 Reform</div>
+    <div class="legend-item"><div class="legend-color" style="background:#c084fc"></div>Future Positive</div>
+    <div class="legend-item"><div class="legend-color" style="background:#64748b"></div>No Data</div>
+  </div>
+  
+  <div class="loading" id="loading">Loading map data…</div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>🌍 HEMPIN Global Map</h1>
-        <p>Cannabis Legalization Status Worldwide</p>
-        <div class="date">🌿 4.20 - International Cannabis Day 🌿</div>
-    </section>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script>
+    // Color mapping by category
+    const colorMap = {
+      'Full Legalization': '#22c55e',
+      'Medical Positive': '#3b82f6',
+      'Decriminalized': '#f59e0b',
+      'Home Grow Allowed': '#84cc16',
+      '2026 Reform': '#a855f7',
+      'Future Positive (2027)': '#c084fc',
+      'Future Positive (Discussion)': '#c084fc',
+      'Future Positive (2026-2027)': '#c084fc',
+      'Medical Only': '#60a5fa',
+      'Tolerated': '#fbbf24',
+      'No Data': '#64748b'
+    };
 
-    <!-- Stats Grid -->
-    <div class="stats-grid">
-        <div class="stat-card">
-            <span class="number" id="totalCountries">0</span>
-            <span class="label">Countries Tracked</span>
-        </div>
-        <div class="stat-card">
-            <span class="number" id="fullLegal">0</span>
-            <span class="label">Fully Legal</span>
-        </div>
-        <div class="stat-card">
-            <span class="number" id="medicalPositive">0</span>
-            <span class="label">Medical Positive</span>
-        </div>
-        <div class="stat-card">
-            <span class="number" id="decriminalized">0</span>
-            <span class="label">Decriminalized</span>
-        </div>
-    </div>
-
-    <!-- Map Container -->
-    <div class="map-container">
-        <div id="map"></div>
-    </div>
-
-    <!-- Legend -->
-    <div class="legend">
-        <h3>📊 Legalization Status Legend</h3>
-        <div id="legendContent">
-            <!-- Populated by JavaScript -->
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Built with 🌿 by <a href="https://hempin.org" target="_blank">HEMPIN</a> | 
-           <a href="https://github.com/IglesiaPaul/inos-ssot-hempin-docs" target="_blank">GitHub</a></p>
-        <p style="margin-top: 12px; font-size: 0.9rem;">Data source: cannapeace-data.csv | Map: Leaflet + OpenStreetMap</p>
-    </footer>
-
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    // Initialize map
+    const map = L.map('map', {
+      center: [20, 0],
+      zoom: 2,
+      minZoom: 2,
+      maxZoom: 6,
+      zoomControl: false
+    });
     
-    <!-- PapaParse for CSV -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
     
-    <script>
-        // Color mapping for status categories
-        const statusColors = {
-            'Full Legalization': '#10B981',
-            'Home Grow Allowed': '#34D399',
-            'Medical Positive': '#3B82F6',
-            'Decriminalized': '#F59E0B',
-            'Medical Only': '#F97316',
-            '2026 Reform': '#EC4899',
-            'Future Positive': '#8B5CF6',
-            'Tolerated': '#A78BFA'
-        };
+    // Dark base layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
-        // Initialize map with dark tiles
-        const map = L.map('map').setView([20, 0], 2);
+    // Load GeoJSON
+    fetch('cannabis-worldmap.geojson.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('loading').style.display = 'none';
         
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
-
-        // Load and process data
-        let geoJsonLayer;
-        let cannabisData = [];
-
-        // IMPORTANT: Update these paths to match your actual file structure
-        // If index.html is at /map/index.html, data should be at /map/data/
-        const CSV_PATH = 'data/cannapeace-data.csv';
-        const GEOJSON_PATH = 'data/countries.geo.json';
-
-        Promise.all([
-            fetch(CSV_PATH).then(res => {
-                if (!res.ok) throw new Error(`CSV not found: ${CSV_PATH}`);
-                return res.text();
-            }),
-            fetch(GEOJSON_PATH).then(res => {
-                if (!res.ok) throw new Error(`GeoJSON not found: ${GEOJSON_PATH}`);
-                return res.json();
-            })
-        ])
-        .then(([csvText, geoJsonData]) => {
-            // Parse CSV
-            const parsed = Papa.parse(csvText, { 
-                header: true, 
-                skipEmptyLines: true 
-            });
-            cannabisData = parsed.data;
+        L.geoJSON(data, {
+          style: feature => ({
+            fillColor: colorMap[feature.properties.positive_category] || '#64748b',
+            color: '#334155',
+            weight: 0.8,
+            fillOpacity: 0.85
+          }),
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties;
+            const flags = [];
+            if (p.home_grow_allowed === 'Yes') flags.push('🏠 Home Grow');
+            if (p.medical_allowed === 'Yes') flags.push('⚕️ Medical');
+            if (p.recreational_allowed === 'Yes') flags.push('🎉 Recreational');
+            if (p.hemp_allowed === 'Yes') flags.push('🌾 Industrial Hemp');
             
-            console.log('CSV loaded:', cannabisData.length, 'rows');
-            
-            // Create lookup map by ISO code
-            const dataLookup = new Map();
-            cannabisData.forEach(row => {
-                if (row.iso_code) {
-                    dataLookup.set(row.iso_code.toUpperCase(), row);
-                }
-            });
-
-            // Style function
-            function style(feature) {
-                const isoCode = feature.id || feature.properties.iso_a2 || feature.properties.iso_code;
-                const data = dataLookup.get(isoCode?.toUpperCase());
-                
-                if (data && data.positive_category) {
-                    const color = statusColors[data.positive_category] || '#6B7280';
-                    return {
-                        fillColor: color,
-                        weight: 1,
-                        opacity: 1,
-                        color: color,
-                        fillOpacity: 0.7
-                    };
-                }
-                
-                // Default for countries without data
-                return {
-                    fillColor: '#334155',
-                    weight: 0.5,
-                    opacity: 0.3,
-                    color: '#475569',
-                    fillOpacity: 0.1
-                };
-            }
-
-            // Popup content
-            function getPopupContent(feature) {
-                const isoCode = feature.id || feature.properties.iso_a2 || feature.properties.iso_code;
-                const data = dataLookup.get(isoCode?.toUpperCase());
-                const countryName = feature.properties.name || 'Unknown';
-                
-                if (data) {
-                    const color = statusColors[data.positive_category] || '#6B7280';
-                    return `
-                        <div class="popup-title">${countryName}</div>
-                        <div class="popup-status" style="background: ${color}20; color: ${color}; border: 1px solid ${color}">
-                            ${data.positive_category}
-                        </div>
-                        <div class="popup-note">${data.notes || 'No additional notes'}</div>
-                    `;
-                }
-                
-                return `<div class="popup-title">${countryName}</div><div class="popup-note">No data available</div>`;
-            }
-
-            // Create GeoJSON layer
-            geoJsonLayer = L.geoJSON(geoJsonData, {
-                style: style,
-                onEachFeature: function(feature, layer) {
-                    layer.bindPopup(getPopupContent(feature));
-                    
-                    layer.on({
-                        mouseover: function(e) {
-                            e.target.setStyle({
-                                weight: 3,
-                                fillOpacity: 0.9
-                            });
-                            e.target.bringToFront();
-                        },
-                        mouseout: function(e) {
-                            geoJsonLayer.resetStyle(e.target);
-                        }
-                    });
-                }
-            }).addTo(map);
-
-            // Calculate stats
-            const stats = {
-                total: 0,
-                'Full Legalization': 0,
-                'Home Grow Allowed': 0,
-                'Medical Positive': 0,
-                'Decriminalized': 0,
-                'Medical Only': 0,
-                '2026 Reform': 0,
-                'Future Positive': 0,
-                'Tolerated': 0
-            };
-
-            cannabisData.forEach(row => {
-                if (row.positive_category) {
-                    stats.total++;
-                    if (stats[row.positive_category] !== undefined) {
-                        stats[row.positive_category]++;
-                    }
-                }
-            });
-
-            // Update stat cards
-            document.getElementById('totalCountries').textContent = stats.total;
-            document.getElementById('fullLegal').textContent = stats['Full Legalization'] + stats['Home Grow Allowed'];
-            document.getElementById('medicalPositive').textContent = stats['Medical Positive'];
-            document.getElementById('decriminalized').textContent = stats['Decriminalized'];
-
-            // Build legend
-            const legendContent = document.getElementById('legendContent');
-            Object.entries(statusColors).forEach(([category, color]) => {
-                const count = stats[category] || 0;
-                if (count > 0) {
-                    legendContent.innerHTML += `
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: ${color}"></div>
-                            <div class="legend-label">${category}</div>
-                            <div class="legend-count">${count}</div>
-                        </div>
-                    `;
-                }
-            });
-
-            // Hide loading screen
-            document.getElementById('loading').style.display = 'none';
-
-        })
-        .catch(error => {
-            console.error('Error loading map data:', error);
-            document.getElementById('loading').innerHTML = `
-                <div style="text-align: center; padding: 40px;">
-                    <h2 style="color: #EF4444; margin-bottom: 16px;">⚠️ Error Loading Map</h2>
-                    <p style="color: #94a3b8; margin-bottom: 24px;">${error.message}</p>
-                    <p style="color: #64748b; font-size: 0.9rem;">
-                        Make sure you're viewing this on GitHub Pages (not file://)<br>
-                        Check that data files exist in the /map/data/ folder
-                    </p>
+            const popupContent = `
+              <div class="popup">
+                <h3>${p.name}</h3>
+                <div class="status" style="background:${colorMap[p.positive_category] || '#64748b'}; color:white">
+                  ${p.positive_category}
                 </div>
+                ${p.status_2026_update ? `<p><strong>2026 Update:</strong> ${p.status_2026_update}</p>` : ''}
+                ${p.planned_reform_2027 ? `<p><strong>2027 Outlook:</strong> ${p.planned_reform_2027}</p>` : ''}
+                ${flags.length ? `<div class="flags">${flags.map(f => `<span class="flag">${f}</span>`).join('')}</div>` : ''}
+                ${p.notes && p.notes !== 'No data available' ? `<div class="notes">📝 ${p.notes}</div>` : ''}
+              </div>
             `;
-        });
-    </script>
+            layer.bindPopup(popupContent);
+            
+            // Hover effect
+            layer.on('mouseover', function(e) {
+              this.setStyle({ weight: 2, color: '#fff', fillOpacity: 1 });
+            });
+            layer.on('mouseout', function(e) {
+              this.setStyle({ weight: 0.8, color: '#334155', fillOpacity: 0.85 });
+            });
+          }
+        }).addTo(map);
+      })
+      .catch(err => {
+        document.getElementById('loading').innerHTML = '⚠️ Error loading map data.<br><small>Make sure cannabis-worldmap.geojson.json is in the same folder.</small>';
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
