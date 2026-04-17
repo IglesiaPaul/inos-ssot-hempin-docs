@@ -3,94 +3,512 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEMPIN Global Network - INOS SSOT</title>
+    <title>HEMPIN 4.20 - Global Cannabis Freedom Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #00ff88, #00cc6a, #00ff88);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🌿';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '🌿';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) rotate(-10deg); }
+            50% { transform: translateY(-60%) rotate(10deg); }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #0a0a0a;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #0a0a0a;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .date {
+            font-size: 2rem;
+            color: #0a0a0a;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 106, 0.05));
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ff88;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         #map {
-            height: 100vh;
-            width: 100%;
+            height: 600px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+            border: 3px solid #00ff88;
+            z-index: 1;
         }
-        .info-panel {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            max-width: 300px;
-        }
-        .info-panel h2 {
-            margin: 0 0 10px 0;
-            color: #2d5016;
-        }
-        .country-info {
-            margin-top: 10px;
-        }
-        .status-positive {
-            color: #22c55e;
-            font-weight: bold;
-        }
-        .status-neutral {
-            color: #f59e0b;
-            font-weight: bold;
-        }
+
         .legend {
-            position: absolute;
-            bottom: 30px;
-            right: 10px;
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 2px solid #00ff88;
         }
+
+        .legend h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
         .legend-item {
             display: flex;
             align-items: center;
-            margin: 5px 0;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s;
         }
+
+        .legend-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
         .legend-color {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-            border-radius: 4px;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            margin-right: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .legend-text {
+            font-size: 0.95rem;
+        }
+
+        .legend-count {
+            margin-left: auto;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .info-panel {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 2px solid #00ff88;
+        }
+
+        .info-panel h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .info-panel p {
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header .date {
+                font-size: 1.5rem;
+            }
+            #map {
+                height: 400px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #00ff88;
+        }
+
+        .popup-title {
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .popup-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0.25rem 0;
         }
     </style>
 </head>
 <body>
-    <div id="map"></div>
-    
-    <div class="info-panel">
-        <h2>🌿 HEMPIN Global Network</h2>
-        <p>Verified hemp industry infrastructure across <span id="country-count">0</span> countries</p>
-        <div id="country-details" class="country-info">
-            Click on a country to see details
-        </div>
+    <div class="header">
+        <h1>🌍 HEMPIN Global Map</h1>
+        <div class="subtitle">Cannabis Legalization Status Worldwide</div>
+        <div class="date">🌿 4.20 - International Cannabis Day 🌿</div>
     </div>
-    
-    <div class="legend">
-        <div class="legend-item">
-            <div class="legend-color" style="background: #22c55e;"></div>
-            <span>Positive/Progressive</span>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" id="totalCountries">0</span>
+                <div class="stat-label">Countries Tracked</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="fullLegal">0</span>
+                <div class="stat-label">Fully Legal</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="medicalPositive">0</span>
+                <div class="stat-label">Medical Positive</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="decriminalized">0</span>
+                <div class="stat-label">Decriminalized</div>
+            </div>
         </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #f59e0b;"></div>
-            <span>Neutral/Reform</span>
+
+        <div id="map"></div>
+
+        <div class="legend">
+            <h3>📊 Legalization Status Legend</h3>
+            <div id="legendContent"></div>
         </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #6b7280;"></div>
-            <span>Restricted</span>
+
+        <div class="info-panel">
+            <h3> About HEMPIN</h3>
+            <p>
+                <span class="highlight">HEMPIN</span> is building the verified truth infrastructure for the global hemp and cannabis industry. 
+                Our platform connects farmers, producers, brands, and consumers through a <span class="highlight">Single Source of Truth (SSOT)</span> 
+                knowledge graph that encodes regulatory compliance across 57+ jurisdictions.
+            </p>
+            <p>
+                Through our <span class="highlight">DEWII</span> platform and <span class="highlight">BUD AI Agent</span>, we're making it easier than ever 
+                for operators to navigate complex regulatory landscapes, verify their products, and access global markets.
+            </p>
+            <p>
+                <strong>Join the movement:</strong> Grow cannabis. Build infrastructure. Change the world. 🌱
+            </p>
         </div>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="map.js"></script>
+    <script>
+        // Cannabis legalization data from CSV
+        const cannabisData = [
+            {country: "Argentina", iso: "AR", status: "Medical Positive", note: "Patients can home grow with prescription"},
+            {country: "Australia", iso: "AU", status: "Decriminalized", note: "Medical legal federally; Canberra allows limited home grow"},
+            {country: "Austria", iso: "AT", status: "Decriminalized", note: "Personal possession decriminalized"},
+            {country: "Barbados", iso: "BB", status: "Decriminalized", note: "Small amounts decriminalized; religious exemptions proposed"},
+            {country: "Belgium", iso: "BE", status: "Home Grow Allowed", note: "1 plant per adult permitted"},
+            {country: "Bosnia and Herzegovina", iso: "BA", status: "Medical Positive", note: "Medical cannabis legalized via parliamentary approval (2026)"},
+            {country: "Brazil", iso: "BR", status: "2026 Reform", note: "Medical cultivation authorized for companies & patients (Jan 2026)"},
+            {country: "Canada", iso: "CA", status: "Full Legalization", note: "Fully legal nationwide; up to 4 plants at home"},
+            {country: "Chile", iso: "CL", status: "Medical Positive", note: "Registered patients can home grow"},
+            {country: "Colombia", iso: "CO", status: "Medical Positive", note: "Major medical exporter; home grow for registered patients"},
+            {country: "Czechia (Czech Republic)", iso: "CZ", status: "2026 Reform / Full Legalization", note: "Adults 21+ can grow 3 plants & possess 100g at home (Jan 2026)"},
+            {country: "Denmark", iso: "DK", status: "Medical Only", note: "Medical cannabis pilot program active"},
+            {country: "Estonia", iso: "EE", status: "Decriminalized", note: "Fines for personal possession"},
+            {country: "Finland", iso: "FI", status: "Decriminalized", note: "Personal use decriminalized (fines)"},
+            {country: "France", iso: "FR", status: "Future Positive (2027)", note: "Full medical program planned for 2027; study recommends adult-use legalization"},
+            {country: "Germany", iso: "DE", status: "Full Legalization", note: "Home cultivation (3 plants) & non-profit clubs legal"},
+            {country: "Ghana", iso: "GH", status: "2026 Reform", note: "Cannabis Regulatory Programme launched (Feb 2026) for ≤0.3% THC"},
+            {country: "Greece", iso: "GR", status: "2026 Reform", note: "Industrial hemp THC limit raised to 0.3%"},
+            {country: "India", iso: "IN", status: "Future Positive (Discussion)", note: "State-level pilots developing (Uttarakhand, MP, HP)"},
+            {country: "Ireland", iso: "IE", status: "Medical Only", note: "Medical access program (restrictive)"},
+            {country: "Israel", iso: "IL", status: "Medical Positive", note: "Major medical exporter; recreational decriminalized"},
+            {country: "Italy", iso: "IT", status: "Decriminalized", note: "Personal possession decriminalized (administrative penalties)"},
+            {country: "Jamaica", iso: "JM", status: "Home Grow Allowed", note: "Rastafarian religious cultivation rights; personal possession decriminalized"},
+            {country: "Latvia", iso: "LV", status: "Decriminalized", note: "Small amounts decriminalized (fines)"},
+            {country: "Lithuania", iso: "LT", status: "Decriminalized", note: "Small amounts decriminalized (fines)"},
+            {country: "Luxembourg", iso: "LU", status: "Home Grow Allowed", note: "Home cultivation legal (up to 4 plants); no commercial sales"},
+            {country: "Malta", iso: "MT", status: "Home Grow Allowed", note: "Home cultivation legal (up to 4 plants); non-profit associations allowed"},
+            {country: "Mexico", iso: "MX", status: "Decriminalized / Future Positive", note: "Supreme Court decriminalized cultivation; full legalization bill pending"},
+            {country: "Netherlands", iso: "NL", status: "Tolerated", note: "Coffee shop sale tolerated; production gray area (no home grow)"},
+            {country: "New Zealand", iso: "NZ", status: "2026 Reform", note: "THC limit raised to <1%; licensing removed for industrial hemp (2026)"},
+            {country: "Peru", iso: "PE", status: "Medical Positive", note: "Registered patients can home grow"},
+            {country: "Philippines", iso: "PH", status: "Future Positive (Discussion)", note: "Medical pilot under consideration by current administration"},
+            {country: "Poland", iso: "PL", status: "Medical Only", note: "Medical cannabis legal; EU-driven reforms possible 2027"},
+            {country: "Portugal", iso: "PT", status: "Decriminalized", note: "All drugs decriminalized since 2001 (no home grow)"},
+            {country: "South Africa", iso: "ZA", status: "Home Grow Allowed", note: "Constitutional Court legalized private cultivation & consumption"},
+            {country: "Spain", iso: "ES", status: "Home Grow Allowed", note: "Private consumption & non-profit clubs tolerated"},
+            {country: "Switzerland", iso: "CH", status: "Decriminalized / Future Positive", note: "Adult-use pilot trials underway; results due mid-2026"},
+            {country: "Thailand", iso: "TH", status: "Decriminalized", note: "Medical license required for home grow; re-reform debates ongoing"},
+            {country: "Ukraine", iso: "UA", status: "Future Positive (2026-2027)", note: "Medical cannabis legalized (Aug 2024); industrial hemp expansion planned"},
+            {country: "United Arab Emirates", iso: "AE", status: "2026 Reform", note: "New federal law legalizes industrial hemp (0.3% THC) for licensed cultivation (2026)"},
+            {country: "United Kingdom", iso: "GB", status: "Medical Only", note: "Medical cannabis by specialist prescription only (very restrictive)"},
+            {country: "United States (Federal)", iso: "US", status: "Full Legalization (select states)", note: "Federal prohibition but 24 states have legalized recreationally"},
+            {country: "Uruguay", iso: "UY", status: "Full Legalization", note: "First nation to fully legalize (2013); up to 6 plants at home"},
+            {country: "Zimbabwe", iso: "ZW", status: "Future Positive (2027)", note: "Medical cannabis licensing active; industrial hemp framework planned 2027"}
+        ];
+
+        // Color mapping for status
+        const statusColors = {
+            "Full Legalization": "#00ff88",
+            "Full Legalization (select states)": "#00ff88",
+            "Home Grow Allowed": "#00cc6a",
+            "Medical Positive": "#00aa55",
+            "Decriminalized": "#ffaa00",
+            "Decriminalized / Future Positive": "#ffaa00",
+            "Medical Only": "#ff6600",
+            "2026 Reform": "#ff3366",
+            "Future Positive (2027)": "#ff3366",
+            "Future Positive (2026-2027)": "#ff3366",
+            "Future Positive (Discussion)": "#ff3366",
+            "Tolerated": "#cc00ff",
+            "2026 Reform / Full Legalization": "#00ff88"
+        };
+
+        // Calculate statistics
+        const stats = {
+            total: cannabisData.length,
+            fullLegal: 0,
+            medicalPositive: 0,
+            decriminalized: 0,
+            homeGrow: 0,
+            medicalOnly: 0,
+            reform: 0,
+            future: 0,
+            tolerated: 0
+        };
+
+        cannabisData.forEach(item => {
+            const status = item.status;
+            if (status.includes("Full Legalization")) stats.fullLegal++;
+            else if (status === "Medical Positive") stats.medicalPositive++;
+            else if (status.includes("Decriminalized")) stats.decriminalized++;
+            else if (status === "Home Grow Allowed") stats.homeGrow++;
+            else if (status === "Medical Only") stats.medicalOnly++;
+            else if (status.includes("2026 Reform")) stats.reform++;
+            else if (status.includes("Future Positive")) stats.future++;
+            else if (status === "Tolerated") stats.tolerated++;
+        });
+
+        // Update stats display
+        document.getElementById('totalCountries').textContent = stats.total;
+        document.getElementById('fullLegal').textContent = stats.fullLegal;
+        document.getElementById('medicalPositive').textContent = stats.medicalPositive + stats.homeGrow;
+        document.getElementById('decriminalized').textContent = stats.decriminalized;
+
+        // Initialize map
+        const map = L.map('map').setView([20, 0], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Create legend
+        const legendContent = document.getElementById('legendContent');
+        const legendItems = [
+            { color: "#00ff88", label: "Full Legalization", count: stats.fullLegal },
+            { color: "#00cc6a", label: "Home Grow Allowed", count: stats.homeGrow },
+            { color: "#00aa55", label: "Medical Positive", count: stats.medicalPositive },
+            { color: "#ffaa00", label: "Decriminalized", count: stats.decriminalized },
+            { color: "#ff6600", label: "Medical Only", count: stats.medicalOnly },
+            { color: "#ff3366", label: "2026 Reform / Future Positive", count: stats.reform + stats.future },
+            { color: "#cc00ff", label: "Tolerated", count: stats.tolerated }
+        ];
+
+        legendItems.forEach(item => {
+            if (item.count > 0) {
+                legendContent.innerHTML += `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${item.color}"></div>
+                        <div class="legend-text">${item.label}</div>
+                        <div class="legend-count">${item.count}</div>
+                    </div>
+                `;
+            }
+        });
+
+        // Load GeoJSON and style countries
+        fetch('countries.geo.json')
+            .then(response => response.json())
+            .then(geojson => {
+                L.geoJSON(geojson, {
+                    style: function(feature) {
+                        const countryData = cannabisData.find(d => 
+                            d.iso === feature.id || 
+                            d.country.toLowerCase().includes(feature.properties.name.toLowerCase()) ||
+                            feature.properties.name.toLowerCase().includes(d.country.toLowerCase())
+                        );
+                        
+                        return {
+                            fillColor: countryData ? statusColors[countryData.status] || '#666' : '#333',
+                            weight: 2,
+                            opacity: 1,
+                            color: countryData ? statusColors[countryData.status] || '#666' : '#444',
+                            dashArray: '3',
+                            fillOpacity: 0.7
+                        };
+                    },
+                    onEachFeature: function(feature, layer) {
+                        const countryData = cannabisData.find(d => 
+                            d.iso === feature.id || 
+                            d.country.toLowerCase().includes(feature.properties.name.toLowerCase()) ||
+                            feature.properties.name.toLowerCase().includes(d.country.toLowerCase())
+                        );
+
+                        if (countryData) {
+                            const popupContent = `
+                                <div class="popup-title">${countryData.country}</div>
+                                <div class="popup-status" style="background: ${statusColors[countryData.status] || '#666'}; color: #000;">
+                                    ${countryData.status}
+                                </div>
+                                <div style="margin-top: 0.5rem; font-size: 0.9rem;">${countryData.note}</div>
+                            `;
+                            layer.bindPopup(popupContent);
+                        }
+
+                        layer.on({
+                            mouseover: function(e) {
+                                const layer = e.target;
+                                layer.setStyle({
+                                    weight: 4,
+                                    fillOpacity: 0.9
+                                });
+                                layer.bringToFront();
+                            },
+                            mouseout: function(e) {
+                                const layer = e.target;
+                                geojsonResetStyle(layer);
+                            }
+                        });
+                    }
+                }).addTo(map);
+            });
+
+        function geojsonResetStyle(layer) {
+            map.eachLayer(function(l) {
+                if (l instanceof L.GeoJSON) {
+                    l.resetStyle(layer);
+                }
+            });
+        }
+
+        // Add pulse animation to full legalization countries
+        setTimeout(() => {
+            document.querySelectorAll('.leaflet-interactive').forEach(layer => {
+                if (layer._path) {
+                    const fillColor = layer._path.style.fillColor;
+                    if (fillColor === 'rgb(0, 255, 136)' || fillColor === '#00ff88') {
+                        layer._path.classList.add('pulse');
+                    }
+                }
+            });
+        }, 1000);
+    </script>
 </body>
 </html>
