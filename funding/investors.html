@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Investment opportunity in NADA/HEMPIN: verified truth infrastructure for supply chains. Mission-aligned capital, regenerative returns, sovereign EU tech stack.">
-    <title>Investment Opportunity — NADA/HEMPIN</title>
+    <meta name="description" content="Pre-seed investment opportunity in NADA/HEMPIN: verified truth infrastructure for supply chains. €200K–500K SAFE, 12-month runway, Thailand pilot deployment.">
+    <title>Pre-Seed Activation Round — NADA/HEMPIN</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/js/navbar.js" defer></script>
     <script src="../assets/js/footer.js" defer></script>
     <style>
-        /* Same styles as funding/index.html + investor-specific */
+        /* Investor Page — Pre-Seed Focus, Mission-Aligned */
+        
         .investor-hero {
             background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 120px 0;
+            padding: 140px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -84,58 +85,76 @@
             font-size: 1.1rem;
         }
         
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            margin: 40px 0;
-        }
-        
-        .market-stat {
-            background: var(--light);
-            padding: 32px;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            border-top: 4px solid var(--hempin-green);
-        }
-        
-        .market-stat .number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--hempin-green);
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .market-stat .label {
+        .investor-section ul {
+            margin: 24px 0;
+            padding-left: 24px;
             color: var(--gray);
-            font-size: 1rem;
         }
         
-        .why-invest {
-            padding: 100px 0;
+        .investor-section li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .investor-section .highlight {
             background: var(--light);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--inos-blue);
+            margin: 32px 0;
         }
         
-        .why-invest .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .why-invest h2 {
-            text-align: center;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 60px;
+        .investor-section .highlight p {
+            margin: 0;
+            font-weight: 600;
             color: var(--dark);
-            font-weight: 800;
-            font-family: 'Georgia', serif;
         }
         
+        /* Use of Funds Table */
+        .funds-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .funds-table th {
+            background: var(--inos-blue);
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .funds-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .funds-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .funds-table tr.total {
+            background: var(--light);
+            font-weight: 700;
+        }
+        
+        .funds-table .amount {
+            text-align: right;
+            font-family: monospace;
+            font-weight: 600;
+        }
+        
+        /* Why Invest Grid */
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
+            margin: 40px 0;
         }
         
         .why-card {
@@ -144,6 +163,12 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--inos-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
         
         .why-card .icon {
@@ -163,44 +188,71 @@
             margin: 0;
         }
         
-        .investment-terms {
-            padding: 100px 0;
+        /* Path Timeline */
+        .path-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+        
+        .path-timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: linear-gradient(180deg, #8B5CF6, #3B82F6, #10B981);
+            border-radius: 2px;
+        }
+        
+        .path-step {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 32px;
+        }
+        
+        .path-step::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
             background: var(--white);
+            border: 3px solid var(--inos-blue);
+            z-index: 1;
         }
         
-        .investment-terms .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .path-step.phase-1::before { border-color: #8B5CF6; }
+        .path-step.phase-2::before { border-color: #3B82F6; }
+        .path-step.phase-3::before { border-color: #10B981; }
+        
+        .path-step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--dark);
         }
         
-        .terms-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .terms-table th {
-            background: var(--inos-blue);
-            color: var(--white);
-            padding: 16px;
-            text-align: left;
+        .path-step .timeline {
+            display: inline-block;
+            background: var(--light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 12px;
             font-weight: 600;
         }
         
-        .terms-table td {
-            padding: 16px;
-            border-bottom: 1px solid var(--gray-light);
+        .path-step p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
         }
         
-        .terms-table tr:last-child td {
-            border-bottom: none;
-        }
-        
+        /* CTA Section */
         .contact-cta {
             padding: 100px 0;
             background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
@@ -265,8 +317,21 @@
         
         @media (max-width: 768px) {
             .investor-hero { padding: 100px 0; }
-            .investor-section, .why-invest, .investment-terms, .contact-cta { padding: 80px 0; }
-            .market-grid { grid-template-columns: 1fr; }
+            .investor-section, .contact-cta { padding: 80px 0; }
+            .why-grid { grid-template-columns: 1fr; }
+            .path-timeline { padding-left: 20px; }
+            .path-timeline::before { left: 3px; }
+            .path-step { padding-left: 30px; }
+            .path-step::before { left: -22px; }
+            .funds-table {
+                font-size: 0.9rem;
+            }
+            .funds-table th, .funds-table td {
+                padding: 12px 10px;
+            }
+            .funds-table .amount {
+                text-align: left;
+            }
         }
     </style>
 </head>
@@ -276,150 +341,250 @@
     <!-- Hero Section -->
     <section class="investor-hero">
         <div class="container">
-            <h1>Investment Opportunity</h1>
-            <p class="subtitle">Verification-as-a-Service for Planetary Regeneration</p>
+            <h1>Pre-Seed Activation Round</h1>
+            <p class="subtitle">€200K–500K SAFE • 12-month runway • Thailand pilot deployment • April 20 launch</p>
         </div>
     </section>
 
-    <!-- Market Opportunity -->
+    <!-- The Ask Section -->
     <section class="investor-section">
         <div class="container">
             <a href="index.html" class="back-link">← Back to Funding Overview</a>
             
-            <h2>The Opportunity</h2>
-            <p>
-                NADA/HEMPIN is building verified truth infrastructure for supply chains — starting with hemp, scaling to all industries requiring regulatory compliance and provenance verification.
-            </p>
+            <h2>The Ask</h2>
             
-            <div class="market-grid">
-                <div class="market-stat">
-                    <span class="number">$17B</span>
-                    <span class="label">Hemp Market (2026)</span>
-                </div>
-                <div class="market-stat">
-                    <span class="number">25%</span>
-                    <span class="label">Annual Growth Rate</span>
-                </div>
-                <div class="market-stat">
-                    <span class="number">$200B+</span>
-                    <span class="label">Addressable Market (2030)</span>
-                </div>
-                <div class="market-stat">
-                    <span class="number">€1B+</span>
-                    <span class="label">Regeneration Fund (2045)</span>
-                </div>
+            <div class="highlight">
+                <p>
+                    <strong>Instrument:</strong> SAFE (Simple Agreement for Future Equity)<br>
+                    <strong>Raise:</strong> €200K minimum • €500K maximum<br>
+                    <strong>Runway:</strong> 12 months (April 2026 – March 2027)<br>
+                    <strong>Objective:</strong> Deploy the Thailand pilot, generate first verified GMV, establish the country model for global replication
+                </p>
             </div>
             
-            <h3 style="margin-top: 48px;">Business Model: Verification-as-a-Service (VaaS)</h3>
             <p>
-                Revenue from subscription fees for verified actors (farmers, processors, brands) accessing the SSOT graph. 30% of all revenue automatically routes to the Regeneration Fund — mission-locked by architecture, not policy.
+                This is not a product-building round from scratch. The INOS/SSOT architecture is validated. This is an <strong>activation round</strong> to deploy the human interface and prove the model in-market.
             </p>
-        </div>
-    </section>
-
-    <!-- Why Invest -->
-    <section class="why-invest">
-        <div class="container">
-            <h2>Why Invest in NADA?</h2>
             
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="icon">🚀</div>
-                    <h3>First-Mover Advantage</h3>
-                    <p>First Regulatory-Encoding Knowledge Graph for supply chains. Patent-pending NL2G pipeline creates defensible moat.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="icon">🛡️</div>
-                    <h3>De-Risked by Grants</h3>
-                    <p>EIC Pathfinder (€4M) covers R&D phase. EIC Accelerator (€10-15M) funds commercialization. Private capital scales proven model.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="icon">🌍</div>
-                    <h3>Mission-Locked</h3>
-                    <p>30% of revenue funds regeneration — encoded in architecture. Foundation + OpCo structure prevents mission drift.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="icon">🇪🇺</div>
-                    <h3>Sovereign Stack</h3>
-                    <p>100% EU infrastructure (OVHcloud, Memgraph, Mistral). Strategic autonomy aligns with EU policy priorities.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="icon">📈</div>
-                    <h3>Scalable Model</h3>
-                    <p>From hemp ($17B) to organic agriculture, textiles, critical minerals ($trillions). Same architecture, new markets.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="icon">🤝</div>
-                    <h3>Strong Traction</h3>
-                    <p>Thailand LOI secured (TiHTA). Consortium discussions with Nova-Institut, EIHA, InterChanvre, Univ. Iași.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Terms -->
-    <section class="investment-terms">
-        <div class="container">
-            <h2>Investment Pathway</h2>
+            <h3 style="margin-top: 48px;">Use of Funds (Base Case: €350K)</h3>
             
-            <table class="terms-table">
+            <table class="funds-table">
                 <thead>
                     <tr>
-                        <th>Round</th>
-                        <th>Timeline</th>
-                        <th>Target</th>
-                        <th>Use of Funds</th>
+                        <th>Category</th>
+                        <th class="amount">Amount</th>
+                        <th>What It Funds</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Pre-Seed</strong></td>
-                        <td>2026</td>
-                        <td>€200K</td>
-                        <td>Documentation, grant applications, initial team</td>
+                        <td><strong>DEWII Interface Development</strong></td>
+                        <td class="amount">€120K</td>
+                        <td>Mobile-first UI/UX, 6 mini-apps, BUD integration, landscape/portrait modes</td>
                     </tr>
                     <tr>
-                        <td><strong>EIC Pathfinder</strong></td>
-                        <td>2026-2030</td>
-                        <td>€4M (grant)</td>
-                        <td>R&D, pilot validation, TRL 4 proof</td>
+                        <td><strong>BUD Agent Integration</strong></td>
+                        <td class="amount">€80K</td>
+                        <td>NL2G pipeline fine-tuning, confidence scoring, human-in-loop console</td>
                     </tr>
                     <tr>
-                        <td><strong>EIC Accelerator</strong></td>
-                        <td>2027-2032</td>
-                        <td>€10-15M</td>
-                        <td>Commercial deployment, team scaling</td>
+                        <td><strong>Thailand Pilot Activation</strong></td>
+                        <td class="amount">€75K</td>
+                        <td>TiHTA partnership ops, farmer onboarding, regulatory compliance setup</td>
                     </tr>
                     <tr>
-                        <td><strong>Series A</strong></td>
-                        <td>2030+</td>
-                        <td>€20-30M</td>
-                        <td>Multi-industry expansion, protocol launch</td>
+                        <td><strong>Sovereign Stack Deployment</strong></td>
+                        <td class="amount">€40K</td>
+                        <td>OVHcloud hosting, Memgraph config, Mistral 7B self-hosted inference</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Team & Operations</strong></td>
+                        <td class="amount">€35K</td>
+                        <td>Fractional CTO, project manager, Thailand country lead, legal/compliance</td>
+                    </tr>
+                    <tr class="total">
+                        <td><strong>TOTAL</strong></td>
+                        <td class="amount"><strong>€350K</strong></td>
+                        <td>Base case deployment budget</td>
                     </tr>
                 </tbody>
             </table>
             
-            <div style="background: var(--light); padding: 24px; border-radius: var(--radius-lg); margin-top: 32px;">
-                <p style="margin: 0; color: var(--gray);">
-                    <strong>Note:</strong> Investment terms are indicative and subject to due diligence. Foundation + OpCo structure ensures mission alignment while enabling commercial flexibility.
+            <p style="color: var(--gray); font-size: 0.95rem; margin-top: 16px;">
+                <em>Full budget model available under NDA. Conservative Q4 revenue assumptions; real traction may begin earlier.</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- What We Build Section -->
+    <section class="investor-section" style="background: var(--light);">
+        <div class="container">
+            <h2>What We Build in 2026</h2>
+            <p>
+                This is not a product-building round from scratch. The INOS/SSOT architecture is validated. This is an <strong>activation round</strong> to deploy the human interface and prove the model in-market.
+            </p>
+            
+            <h3 style="margin-top: 40px; color: var(--dark);">DEWII: The Verified Hemp Operating Platform</h3>
+            <ul>
+                <li><strong>6 mini-apps, 2 modes:</strong> Hemp Globe (3D map), Hemp Mag (editorial), Hemp Swap (commerce), Hemp Swag (consumer), Hemp Places (directory), Hemp Commons (regulatory)</li>
+                <li><strong>Portrait/Landscape modes:</strong> Discovery mode for browsing, field-terminal mode for operators</li>
+                <li><strong>BUD integration:</strong> Contextual AI woven into every screen — not a chatbot, but an active participant</li>
+                <li><strong>Gaming-controller navigation:</strong> 6 dedicated buttons, always reachable, low-friction onboarding</li>
+            </ul>
+            
+            <h3 style="margin-top: 40px; color: var(--dark);">BUD Agent: Natural-Language-to-Graph</h3>
+            <ul>
+                <li>Fine-tuned Mistral 7B for hemp-domain conversational onboarding</li>
+                <li>Confidence scoring (&gt;0.85 threshold) + human-in-loop validation</li>
+                <li>Reduces onboarding friction from weeks to minutes for smallholder farmers</li>
+            </ul>
+            
+            <h3 style="margin-top: 40px; color: var(--dark);">Thailand Pilot: Proof in Market</h3>
+            <ul>
+                <li>TiHTA partnership operationalized (signed LOI)</li>
+                <li>250+ Thai hemp entities onboarded via BUD Agent</li>
+                <li>50+ cross-border transactions validated through Compliance Engine</li>
+                <li>User satisfaction &gt;4/5, gender-stratified feedback</li>
+            </ul>
+            
+            <h3 style="margin-top: 40px; color: var(--dark);">Sovereign EU Stack: Data Sovereignty by Design</h3>
+            <ul>
+                <li>OVHcloud (France) hosting, Memgraph (Slovenia) graph DB, Mistral 7B (France) LLM</li>
+                <li>No US API dependency — critical for EU SMEs concerned about Cloud Act exposure</li>
+                <li>Green data centres + model quantisation to minimise energy footprint</li>
+            </ul>
+            
+            <div class="highlight" style="margin-top: 40px;">
+                <p>
+                    <strong>By March 2027:</strong> A validated country model ready for replication in 15+ markets, with first verified GMV, user testimonials, and a clear path to Series A.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Contact CTA -->
+    <!-- Why Invest Section -->
+    <section class="investor-section">
+        <div class="container">
+            <h2>Why This Is Defensible</h2>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="icon">🔐</div>
+                    <h3>Regulatory-Encoding Knowledge Graphs</h3>
+                    <p>Not just traceability — <strong>active prevention</strong> of non-compliant transactions via graph constraints. 57 jurisdictions encoded as machine-readable rules (SHACL/Cypher). No existing platform combines regulatory science + graph theory at this scale.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🏢</div>
+                    <h3>Physical-Digital Hybrid Moat</h3>
+                    <p>Country showrooms (~$15K fit-out + $3-6K/mo ops) are <strong>expensive to replicate</strong>. Each showroom is a trust node, sales office, and product showcase. Software alone cannot replicate this physical presence + local relationship building.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🇪🇺</div>
+                    <h3>Sovereign AI Stack</h3>
+                    <p>Full EU sovereignty: no US Cloud Act exposure for sensitive commercial data. Self-hosted Mistral 7B on OVHcloud — validated performance benchmark. Strategic alignment with EU Digital Decade + Strategic Autonomy priorities.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">⏳</div>
+                    <h3>Temporal Moat: Graph Density</h3>
+                    <p>"You cannot buy three years of verified, relationship-dense, event-sourced graph data. You have to earn it." First 10,000 verified entities across 15 countries create an authoritative data layer. Marginal value accelerates with density.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">💧</div>
+                    <h3>Mission-Locked Economics</h3>
+                    <p>30% of transaction value automatically routes to Regeneration Fund — <strong>encoded in architecture</strong>, not policy. Foundation + OpCo structure prevents mission drift if acquired. Attracts impact capital aligned with long-term regeneration.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="icon">🌱</div>
+                    <h3>Hemp as the Hardest Test Case</h3>
+                    <p>If verified truth infrastructure works for hemp — the most fragmented, stigmatized, regulated plant-based industry — it works for any regenerative plant-based industry. Hemp is the prototype. INOS is the pattern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Path Section -->
+    <section class="investor-section" style="background: var(--light);">
+        <div class="container">
+            <h2>The Path: From Activation to Scale</h2>
+            
+            <div class="path-timeline">
+                <div class="path-step phase-1">
+                    <h4>Phase 1: Pre-Seed Activation (2026) — YOU ARE HERE</h4>
+                    <span class="timeline">Capital: €200K–500K SAFE</span>
+                    <p><strong>Goal:</strong> Deploy Thailand pilot, generate first verified GMV, prove country model</p>
+                    <p><strong>De-risking:</strong> EIC Pathfinder application submitted (€4M grant, decision Q4 2026)</p>
+                </div>
+                
+                <div class="path-step phase-2">
+                    <h4>Phase 2: Grant-Funded R&D (2026–2030) — If EIC Awarded</h4>
+                    <span class="timeline">Capital: €4M non-dilutive grant (100% funding rate)</span>
+                    <p><strong>Goal:</strong> Validate SSOT graph schema, BUD Agent, Compliance Engine at TRL 4</p>
+                    <p><strong>Outcome:</strong> De-risked technology ready for commercial deployment</p>
+                </div>
+                
+                <div class="path-step phase-3">
+                    <h4>Phase 3: Series A Commercialization (2027–2030)</h4>
+                    <span class="timeline">Capital: €3M–5M equity (base case)</span>
+                    <p><strong>Goal:</strong> Scale to 15 countries, launch VaaS subscriptions, achieve profitability in base case</p>
+                    <p><strong>Revenue Model:</strong> 6 streams (commissions, match fees, memberships, intelligence, visibility, events)</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p>
+                    <strong>Key Insight:</strong> Private pre-seed capital funds activation; grant funding de-risks R&D; Series A scales proven model. This is not a rescue round — it's an acceleration instrument timed to proven traction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Team Section -->
+    <section class="investor-section">
+        <div class="container">
+            <h2>The Team</h2>
+            
+            <div style="background: var(--white); padding: 32px; border-radius: var(--radius-lg); box-shadow: var(--shadow); border-left: 5px solid var(--inos-blue);">
+                <h3 style="margin-top: 0; color: var(--dark);">Paul Iglesia — Founder & Technical Lead</h3>
+                <p style="color: var(--gray); line-height: 1.7;">
+                    Former chef de projet logiciel, validated expertise in graph databases, AI integration, stakeholder coordination. Led Thailand LOI with TiHTA, authored 20+ technical files on GitHub, ADIE-validated business plan. Deep hemp industry relationships across cultivation, processing, trade, government.
+                </p>
+                <p style="color: var(--gray); line-height: 1.7; margin-top: 16px;">
+                    <strong>Core competencies:</strong> Product strategy, technical architecture, partnership development, grant writing, sovereign AI stack deployment.
+                </p>
+            </div>
+            
+            <p style="margin-top: 32px; color: var(--gray); font-size: 0.95rem;">
+                <em>Full team bios and technical specifications available under NDA.</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
     <section class="contact-cta">
         <div class="container">
-            <h2>Interested in Investing?</h2>
-            <p>We're currently engaging with mission-aligned investors for pre-seed and Series A opportunities. Let's start a conversation.</p>
+            <h2>Join the Activation Round</h2>
+            <p>We're engaging with mission-aligned investors who understand the strategic value of verified truth infrastructure for supply chains, the opportunity in hemp as the hardest test case for regenerative tech, and the importance of EU data sovereignty.</p>
+            
+            <div style="margin-top: 32px;">
+                <h4 style="color: var(--white); margin-bottom: 16px;">Next Steps</h4>
+                <ol style="text-align: left; max-width: 600px; margin: 0 auto 24px; color: var(--white); opacity: 0.95; line-height: 1.7;">
+                    <li><strong>Initial conversation:</strong> 30-min call to align on vision, terms, timeline</li>
+                    <li><strong>Due diligence:</strong> Access to data room (technical docs, budget model, LOIs) under NDA</li>
+                    <li><strong>Term sheet:</strong> SAFE terms, valuation cap, pro-rata rights, board observer (if applicable)</li>
+                    <li><strong>Close:</strong> Target close by June 2026 to fund April 20 pilot launch</li>
+                </ol>
+            </div>
+            
             <a href="mailto:investors@hempin.org" class="email-link">📧 investors@hempin.org</a>
+            
             <p style="margin-top: 24px; font-size: 1rem; opacity: 0.8;">
-                We respond within 5 business days. Investor deck and financial projections available under NDA.
+                We respond within 5 business days. Investor deck, financial model, and technical specs available under NDA.<br>
+                <em>This round is confidential and intended for accredited investors only.</em>
             </p>
         </div>
     </section>
