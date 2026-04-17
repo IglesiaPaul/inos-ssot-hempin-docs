@@ -386,7 +386,7 @@
 
         // IMPORTANT: Update these paths to match your actual file structure
         // If index.html is at /map/index.html, data should be at /map/data/
-        const CSV_PATH = 'data/cannapeace-data.csv';
+        const CSV_PATH = 'data/cannapeace-data-new.csv';
         const GEOJSON_PATH = 'data/countries.geo.json';
 
         Promise.all([
@@ -412,7 +412,7 @@
             // Create lookup map by ISO code
             const dataLookup = new Map();
             cannabisData.forEach(row => {
-                if (row.iso_code) {
+                if (row.id) {
                     dataLookup.set(row.iso_code.toUpperCase(), row);
                 }
             });
