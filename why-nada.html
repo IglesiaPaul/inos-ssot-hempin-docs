@@ -3,29 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Why NADA? — Nada Brahma philosophy meets verified truth infrastructure. Where ancient wisdom, modern science, and solarpunk vision converge for planetary regeneration.">
-    <title>Why NADA? — The Philosophy | HEMPIN</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/navbar.js" defer></script>
-    <script src="assets/js/footer.js" defer></script>
+    <meta name="description" content="Why NADA? — Where zero waste meets verified truth. A name with many meanings, a vision with one purpose: planetary regeneration through verified supply chains.">
+    <title>Why NADA? — Zero Waste, Verified Truth | HEMPIN</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/navbar.js" defer></script>
+    <script src="../assets/js/footer.js" defer></script>
     <style>
-        /* NADA Philosophy Page — Warm, Organic, Story-Driven */
+        /* NADA Philosophy Page — Visual-First, Investor-Ready */
         
-        /* Hero Section — Lightweight Gradient + Particles */
-        .philosophy-hero {
+        :root {
+            --ripple-color-1: rgba(139, 92, 246, 0.15);
+            --ripple-color-2: rgba(59, 130, 246, 0.15);
+            --ripple-color-3: rgba(16, 185, 129, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Ripple Background */
+        .ripple-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid;
+            animation: rippleExpand 8s ease-out infinite;
+            opacity: 0;
+        }
+        
+        .ripple:nth-child(1) {
+            border-color: var(--ripple-color-1);
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 30%;
+            animation-delay: 0s;
+        }
+        
+        .ripple:nth-child(2) {
+            border-color: var(--ripple-color-2);
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+        
+        .ripple:nth-child(3) {
+            border-color: var(--ripple-color-3);
+            width: 120px;
+            height: 120px;
+            top: 40%;
+            left: 50%;
+            animation-delay: 4s;
+        }
+        
+        .ripple:nth-child(4) {
+            border-color: var(--ripple-color-1);
+            width: 180px;
+            height: 180px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes rippleExpand {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
-            padding: 140px 0;
+            padding: 120px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .philosophy-hero::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -40,127 +130,55 @@
             50% { transform: translateY(-30px); }
         }
         
-        .philosophy-hero .container {
+        .hero .container {
             position: relative;
             z-index: 1;
             padding: 0 20px;
+            max-width: 900px;
         }
         
-        .philosophy-hero h1 {
+        .hero h1 {
             font-size: clamp(3rem, 8vw, 5rem);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--white);
-            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
             letter-spacing: -0.03em;
             font-weight: 900;
             font-family: 'Georgia', serif;
         }
         
-        .philosophy-hero .subtitle {
+        .hero .tagline {
             font-size: clamp(1.3rem, 3vw, 1.8rem);
-            max-width: 800px;
-            margin: 0 auto 24px;
+            max-width: 700px;
+            margin: 0 auto 32px;
             opacity: 0.95;
             color: var(--white);
             font-weight: 300;
             line-height: 1.4;
-            font-style: italic;
         }
         
-        .philosophy-hero .tagline {
+        .hero .subtitle {
             font-size: clamp(1rem, 2.5vw, 1.3rem);
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
             opacity: 0.9;
             color: var(--white);
-        }
-        
-        /* Sacred Geometry Wave Divider */
-        .wave-divider {
-            height: 60px;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-            background: transparent;
-        }
-        
-        .wave-svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        
-        .wave-path {
-            fill: url(#waveGradient);
-            animation: waveFlow 20s ease-in-out infinite;
-        }
-        
-        @keyframes waveFlow {
-            0%, 100% { d: path("M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"); }
-            50% { d: path("M0,30 Q300,50 600,30 T1200,30 L1200,60 L0,60 Z"); }
-        }
-        
-        /* Philosophy Section — Narrative Prose */
-        .philosophy-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
-        }
-        
-        .philosophy-section .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .philosophy-section h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 32px;
-            color: var(--dark);
-            font-weight: 800;
-            font-family: 'Georgia', serif;
-            text-align: center;
-        }
-        
-        .philosophy-section .sanskrit {
-            display: block;
-            text-align: center;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: var(--ssot-purple);
-            margin-bottom: 32px;
-            font-weight: 600;
-        }
-        
-        .philosophy-section .narrative {
-            font-size: 1.25rem;
-            line-height: 2;
-            color: var(--gray);
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        
-        .philosophy-section .highlight {
-            background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.1) 100%);
-            padding: 40px;
-            border-radius: var(--radius-lg);
-            margin: 40px 0;
-            border-left: 5px solid var(--ssot-purple);
-        }
-        
-        .philosophy-section .highlight p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: var(--dark);
-            margin: 0;
             font-style: italic;
         }
         
-        /* Science Convergence Section */
-        .convergence-section {
-            padding: 100px 0;
+        /* Meanings Grid */
+        .meanings-section {
+            padding: 100px 20px;
             background: var(--white);
+            color: var(--dark);
         }
         
-        .convergence-section h2 {
+        .meanings-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .meanings-section h2 {
             text-align: center;
             font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 16px;
@@ -169,7 +187,7 @@
             font-family: 'Georgia', serif;
         }
         
-        .convergence-section .subtitle {
+        .meanings-section .section-subtitle {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 60px;
@@ -177,86 +195,180 @@
             font-size: 1.2rem;
         }
         
-        .convergence-grid {
+        .meanings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+        
+        .meaning-card {
+            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
+            padding: 40px 32px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 2px solid rgba(139,92,246,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .meaning-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--ssot-purple);
+            box-shadow: 0 12px 40px rgba(139,92,246,0.2);
+        }
+        
+        .meaning-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .meaning-card:hover::before {
+            opacity: 1;
+        }
+        
+        .meaning-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .meaning-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .meaning-card .origin {
+            font-size: 0.9rem;
+            color: var(--ssot-purple);
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .meaning-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Zero Waste Pillar */
+        .zerowaste-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(59,130,246,0.05) 100%);
+        }
+        
+        .zerowaste-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .zerowaste-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+            font-weight: 800;
+            font-family: 'Georgia', serif;
+        }
+        
+        .zerowaste-section .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .zerowaste-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1100px;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .zerowaste-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .zerowaste-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .zerowaste-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .alchemy-circle {
+            width: 300px;
+            height: 300px;
+            border: 3px solid var(--hempin-green);
+            border-radius: 50%;
+            position: relative;
+            animation: rotateCircle 30s linear infinite;
+        }
+        
+        @keyframes rotateCircle {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .alchemy-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .alchemy-inner .icon {
+            font-size: 4rem;
+            margin-bottom: 12px;
+        }
+        
+        .alchemy-inner p {
+            font-size: 1.1rem;
+            color: var(--hempin-green);
+            font-weight: 600;
+        }
+        
+        /* Investor Value Section */
+        .investor-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+        
+        .investor-section .container {
+            max-width: 1200px;
             margin: 0 auto;
         }
         
-        .convergence-column {
-            background: var(--light);
-            padding: 40px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-        }
-        
-        .convergence-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .convergence-column .ancient {
-            color: #8B5CF6;
-        }
-        
-        .convergence-column .modern {
-            color: #3B82F6;
-        }
-        
-        .convergence-column ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        
-        .convergence-column li {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--gray-light);
-            font-size: 1.05rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        
-        .convergence-column li:last-child {
-            border-bottom: none;
-        }
-        
-        .convergence-column .icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .convergence-bridge {
-            text-align: center;
-            max-width: 800px;
-            margin: 60px auto 0;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(59,130,246,0.05) 100%);
-            border-radius: var(--radius-lg);
-            border: 2px solid var(--ssot-purple);
-        }
-        
-        .convergence-bridge p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--gray);
-            margin: 0;
-        }
-        
-        /* Bridge Section — Resonance to Verification */
-        .bridge-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
-        }
-        
-        .bridge-section h2 {
+        .investor-section h2 {
             text-align: center;
             font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 16px;
@@ -265,7 +377,7 @@
             font-family: 'Georgia', serif;
         }
         
-        .bridge-section .subtitle {
+        .investor-section .section-subtitle {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 60px;
@@ -273,66 +385,51 @@
             font-size: 1.2rem;
         }
         
-        .bridge-diagram {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .investor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
         }
         
-        .bridge-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            align-items: center;
-        }
-        
-        .bridge-node {
-            background: var(--white);
+        .investor-card {
+            background: var(--light);
             padding: 32px;
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 600px;
-            border: 3px solid transparent;
+            border-left: 5px solid var(--inos-blue);
             transition: all 0.3s ease;
         }
         
-        .bridge-node:hover {
-            transform: scale(1.02);
+        .investor-card:hover {
+            transform: translateX(8px);
             box-shadow: var(--shadow-lg);
         }
         
-        .bridge-node.philosophy {
-            border-color: #8B5CF6;
-            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.1) 100%);
+        .investor-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
         }
         
-        .bridge-node.technology {
-            border-color: #3B82F6;
-            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
-        }
-        
-        .bridge-node h3 {
+        .investor-card h3 {
             font-size: 1.4rem;
             margin-bottom: 12px;
             color: var(--dark);
         }
         
-        .bridge-node p {
+        .investor-card p {
             color: var(--gray);
+            line-height: 1.7;
             margin: 0;
-            font-size: 1.05rem;
         }
         
-        .bridge-arrow {
-            font-size: 2.5rem;
-            color: var(--gray-light);
-        }
-        
-        /* Architecture Stack Section */
+        /* Architecture Stack */
         .stack-section {
-            padding: 100px 0;
-            background: var(--white);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
+        }
+        
+        .stack-section .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .stack-section h2 {
@@ -344,7 +441,7 @@
             font-family: 'Georgia', serif;
         }
         
-        .stack-section .subtitle {
+        .stack-section .section-subtitle {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 60px;
@@ -353,8 +450,6 @@
         }
         
         .architecture-stack {
-            max-width: 700px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 16px;
@@ -363,53 +458,43 @@
         .stack-layer {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 32px;
+            padding: 28px;
             box-shadow: var(--shadow-lg);
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 24px;
             transition: all 0.3s ease;
             border: 3px solid transparent;
         }
         
         .stack-layer:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+            transform: translateX(12px);
         }
         
-        .stack-layer.nada {
-            border-color: #8B5CF6;
-            background: linear-gradient(135deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.1) 100%);
-        }
-        
-        .stack-layer.ssot {
-            border-color: #3B82F6;
-            background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(59,130,246,0.1) 100%);
-        }
-        
-        .stack-layer.inos {
-            border-color: #10B981;
-            background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(16,185,129,0.1) 100%);
-        }
-        
-        .stack-layer.hempin {
-            border-color: #F59E0B;
-            background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0.1) 100%);
-        }
+        .stack-layer.nada { border-color: #8B5CF6; }
+        .stack-layer.ssot { border-color: #3B82F6; }
+        .stack-layer.inos { border-color: #10B981; }
+        .stack-layer.hempin { border-color: #F59E0B; }
         
         .stack-layer .icon {
             font-size: 2.5rem;
-            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        
+        .stack-layer .content {
+            flex: 1;
         }
         
         .stack-layer h3 {
             font-size: 1.4rem;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--dark);
         }
         
         .stack-layer p {
             color: var(--gray);
-            margin: 0;
             font-size: 0.95rem;
+            margin: 0;
         }
         
         .stack-arrow {
@@ -419,72 +504,9 @@
             margin: -8px 0;
         }
         
-        /* Convergence Section — Three Pillars */
-        .pillars-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, rgba(16,185,129,0.03) 100%);
-        }
-        
-        .pillars-section h2 {
-            text-align: center;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 16px;
-            color: var(--dark);
-            font-weight: 800;
-            font-family: 'Georgia', serif;
-        }
-        
-        .pillars-section .subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-            color: var(--gray);
-            font-size: 1.2rem;
-        }
-        
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .pillar-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            text-align: center;
-            border-top: 5px solid #10B981;
-            transition: all 0.3s ease;
-        }
-        
-        .pillar-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .pillar-card .icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .pillar-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-        
-        .pillar-card p {
-            color: var(--gray);
-            line-height: 1.7;
-            margin: 0;
-        }
-        
         /* Invitation Section */
         .invitation-section {
-            padding: 120px 0;
+            padding: 120px 20px;
             background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #10B981 100%);
             color: var(--white);
             text-align: center;
@@ -506,6 +528,8 @@
             position: relative;
             z-index: 1;
             padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .invitation-section h2 {
@@ -518,17 +542,10 @@
         
         .invitation-section p {
             font-size: 1.3rem;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto 24px;
             opacity: 0.95;
             line-height: 1.7;
-        }
-        
-        .invitation-section .highlight {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 32px auto;
-            display: block;
         }
         
         .invitation-section .cta-buttons {
@@ -569,22 +586,30 @@
         
         /* Responsive */
         @media (max-width: 968px) {
-            .convergence-grid {
+            .zerowaste-content {
                 grid-template-columns: 1fr;
             }
             
-            .philosophy-hero {
-                padding: 100px 0;
-                min-height: 70vh;
+            .zerowaste-visual {
+                height: 300px;
             }
             
-            .philosophy-section,
-            .convergence-section,
-            .bridge-section,
+            .alchemy-circle {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .hero {
+                padding: 100px 20px;
+                min-height: 60vh;
+            }
+            
+            .meanings-section,
+            .zerowaste-section,
+            .investor-section,
             .stack-section,
-            .pillars-section,
             .invitation-section {
-                padding: 80px 0;
+                padding: 80px 20px;
             }
         }
         
@@ -596,235 +621,193 @@
     </style>
 </head>
 <body class="nada-page">
-    <!-- Navbar and Footer injected by navbar.js and footer.js -->
+    <!-- Ripple Background -->
+    <div class="ripple-container">
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+    </div>
 
-    <!-- Hero Section: The First Vibration -->
-    <section class="philosophy-hero">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
             <h1>Why NADA?</h1>
-            <p class="subtitle">Before structure, resonance. Before systems, signal.</p>
-            <p class="tagline">Where ancient wisdom meets verified truth infrastructure</p>
+            <p class="tagline">A name with many meanings. A vision with one purpose.</p>
+            <p class="subtitle">Zero waste. Verified truth. Planetary regeneration.</p>
         </div>
     </section>
 
-    <!-- Sacred Geometry Wave Divider -->
-    <div class="wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
-        </svg>
-    </div>
-
-    <!-- Philosophy Section: Nada Brahma -->
-    <section class="philosophy-section">
+    <!-- Meanings Grid -->
+    <section class="meanings-section">
         <div class="container">
-            <span class="sanskrit">नाद ब्रह्म — Nada Brahma</span>
-            <h2>The Universe is Sound</h2>
+            <h2>Many Meanings, One Vision</h2>
+            <p class="section-subtitle">NADA resonates across languages and philosophies — each meaning reinforces our mission</p>
             
-            <p class="narrative">
-                In the beginning, there was no matter. No form. No structure.<br>
-                There was only vibration.
-            </p>
-            
-            <p class="narrative">
-                The ancient Vedic sages called it <strong>Nāda</strong> the primordial sound from which all creation emerges. Not metaphor. Not poetry. Literal truth: before the universe took shape, it resonated.
-            </p>
-            
-            <div class="highlight">
-                <p>
-                    "This idea says: Before matter, there was vibration. Before form, there was frequency. Creation begins as resonance, not substance."
-                </p>
-            </div>
-            
-            <p class="narrative">
-                This is <strong>Nada Brahma</strong>: the understanding that reality itself is frequency made manifest. And if reality is vibration, then <strong>trust is alignment</strong>.
-            </p>
-        </div>
-    </section>
-
-    <!-- Science Convergence Section -->
-    <section class="convergence-section">
-        <div class="container">
-            <h2>The Same Truth, Different Languages</h2>
-            <p class="subtitle">Ancient wisdom and modern physics arriving at the same conclusion</p>
-            
-            <div class="convergence-grid">
-                <div class="convergence-column">
-                    <h3 class="ancient">🕉️ Ancient India (3000 BCE)</h3>
-                    <ul>
-                        <li><span class="icon">🌊</span><strong>Nāda:</strong> Primordial vibration from which all emerges</li>
-                        <li><span class="icon">💫</span><strong>Spanda:</strong> Cosmic pulse, the universe breathing</li>
-                        <li><span class="icon">🔊</span><strong>Om (AUM):</strong> Fundamental frequency of existence</li>
-                        <li><span class="icon">🌍</span><strong>Prakriti:</strong> Manifest reality from vibration</li>
-                    </ul>
+            <div class="meanings-grid">
+                <!-- Spanish: Nothing / Zero Waste -->
+                <div class="meaning-card">
+                    <div class="icon">⭕</div>
+                    <h3>Nada = Nothing</h3>
+                    <div class="origin">Spanish</div>
+                    <p>Nothing wasted. Nothing extracted without giving back. Our Regeneration Fund routes 30% of every transaction to environmental repair — encoded in architecture, not policy.</p>
                 </div>
                 
-                <div class="convergence-column">
-                    <h3 class="modern">🔬 Modern Physics (2026)</h3>
-                    <ul>
-                        <li><span class="icon">🌊</span><strong>Quantum Fields:</strong> Vibration patterns in spacetime</li>
-                        <li><span class="icon">💫</span><strong>Wave-Particle Duality:</strong> Matter as frequency</li>
-                        <li><span class="icon">🔊</span><strong>String Theory:</strong> Reality as vibrating strings</li>
-                        <li><span class="icon">🌍</span><strong>Emergent Complexity:</strong> Form from simple rules</li>
-                    </ul>
+                <!-- Sanskrit: Sound / Vibration -->
+                <div class="meaning-card">
+                    <div class="icon">🌊</div>
+                    <h3>Nāda = Sound</h3>
+                    <div class="origin">Sanskrit (inspirational)</div>
+                    <p>Ancient wisdom describes reality as vibration. Modern physics agrees: matter is frequency. Like ripples in water, verified transactions create expanding waves of trust.</p>
                 </div>
-            </div>
-            
-            <div class="convergence-bridge">
-                <p>
-                    <strong>They're describing the same reality.</strong><br>
-                    One through meditation. One through mathematics.<br>
-                    Both arriving at: <strong>vibration creates form.</strong>
-                </p>
+                
+                <!-- Alchemy: Transformation -->
+                <div class="meaning-card">
+                    <div class="icon">⚗️</div>
+                    <h3>Alchemy: Transform</h3>
+                    <div class="origin">Hermetic Philosophy</div>
+                    <p>Everything transforms, nothing is lost. Supply chain waste becomes regeneration capital. Fragmentation becomes verified truth. Extraction becomes reciprocity.</p>
+                </div>
+                
+                <!-- Technology: Null / Zero -->
+                <div class="meaning-card">
+                    <div class="icon">0️⃣</div>
+                    <h3>Null = Zero</h3>
+                    <div class="origin">Computer Science</div>
+                    <p>Zero friction onboarding. Zero redundant verification. Zero tolerance for non-compliance. The SSOT graph starts from null state — pure, verified, immutable.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sacred Geometry Wave Divider (Reversed) -->
-    <div class="wave-divider wave-divider-reversed" aria-hidden="true">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,30 Q300,50 600,30 T1200,30 L1200,0 L0,0 Z"/>
-        </svg>
-    </div>
-
-    <!-- Bridge Section: From Philosophy to Architecture -->
-    <section class="bridge-section">
+    <!-- Zero Waste Pillar -->
+    <section class="zerowaste-section">
         <div class="container">
-            <h2>From Resonance to Verification</h2>
-            <p class="subtitle">The pattern repeats at every scale</p>
+            <h2>♻️ Zero Waste by Design</h2>
+            <p class="section-subtitle">The alchemy principle: everything transforms, nothing is wasted</p>
             
-            <div class="bridge-diagram">
-                <div class="bridge-flow">
-                    <div class="bridge-node philosophy">
-                        <h3>🌌 Cosmos</h3>
-                        <p>Silence → Vibration → Form</p>
-                    </div>
-                    
-                    <div class="bridge-arrow">↓</div>
-                    
-                    <div class="bridge-node technology">
-                        <h3>⚙️ Supply Chains</h3>
-                        <p>Fragmentation → Verification → Trust</p>
-                    </div>
-                    
-                    <div class="bridge-arrow">↓</div>
-                    
-                    <div class="bridge-node philosophy">
-                        <h3>🌍 Planetary</h3>
-                        <p>Extraction → Regeneration → Harmony</p>
+            <div class="zerowaste-content">
+                <div class="zerowaste-text">
+                    <h3>From Extraction to Regeneration</h3>
+                    <p>Traditional supply chains extract value from communities and ecosystems, leaving waste behind. NADA inverts this model.</p>
+                    <p><strong>30% of every transaction fee</strong> automatically funds verified environmental cleanup: soil remediation, water restoration, carbon sequestration. This isn't charity — it's encoded into the graph's value layer as a deterministic function.</p>
+                    <p>At commercial scale (1% market penetration by 2035), this protocol could route <strong>€10B+ cumulatively</strong> to planetary repair — a sustainable funding mechanism independent of philanthropy or government grants.</p>
+                    <p style="color: var(--hempin-green); font-weight: 600; margin-top: 24px;">
+                        "Nothing wasted" isn't a slogan. It's architecture.
+                    </p>
+                </div>
+                
+                <div class="zerowaste-visual">
+                    <div class="alchemy-circle">
+                        <div class="alchemy-inner">
+                            <div class="icon">🌱 → ♻️ → 🌍</div>
+                            <p>Extraction → Transformation → Regeneration</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="convergence-bridge" style="margin-top: 60px;">
-                <p>
-                    <strong>NADA isn't just a name. It's an architectural principle:</strong><br>
-                    verified truth emerges not from force, but from resonance.<br>
-                    Just as the first sound organized chaos into cosmos,<br>
-                    our infrastructure organizes fragmentation into verified truth.
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- Architecture Stack Section -->
+    <!-- Investor Value Section -->
+    <section class="investor-section">
+        <div class="container">
+            <h2>Why This Matters for Markets</h2>
+            <p class="section-subtitle">Verified truth infrastructure unlocks efficiency, compliance, and trust at scale</p>
+            
+            <div class="investor-grid">
+                <div class="investor-card">
+                    <div class="icon">📉</div>
+                    <h3>30-40% Cost Reduction</h3>
+                    <p>Automated compliance validation eliminates manual audits, customs rejections, and redundant verification. SMEs in fragmented markets gain access to global trade without prohibitive overhead.</p>
+                </div>
+                
+                <div class="investor-card">
+                    <div class="icon">🔒</div>
+                    <h3>Sovereign EU Stack</h3>
+                    <p>OVHcloud + Memgraph + Mistral AI. No US Cloud Act exposure. Data sovereignty is a competitive advantage for European SMEs concerned about extraterritorial jurisdiction.</p>
+                </div>
+                
+                <div class="investor-card">
+                    <div class="icon">📊</div>
+                    <h3>Verification-as-a-Service</h3>
+                    <p>VaaS is a new market category. Hemp ($17B) is the testbed. The architecture generalizes to organic agriculture, textiles, critical minerals — any supply chain requiring verified trust.</p>
+                </div>
+                
+                <div class="investor-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Temporal Moat</h3>
+                    <p>"You cannot buy three years of verified, relationship-dense graph data. You have to earn it." Accumulated trust cannot be replicated — only outspent, and we're first.</p>
+                </div>
+                
+                <div class="investor-card">
+                    <div class="icon">🌱</div>
+                    <h3>Regenerative Economics</h3>
+                    <p>30% to environmental repair creates positive externalities that compound. Brands gain verified sustainability claims. Investors gain ESG-aligned returns. Planet gains cleanup funding.</p>
+                </div>
+                
+                <div class="investor-card">
+                    <div class="icon"></div>
+                    <h3>De-Risked by Grants</h3>
+                    <p>EIC Pathfinder (€4M) covers R&D phase. EIC Accelerator (€10-15M) funds commercialization. Private capital scales a proven model — not a rescue round, an acceleration instrument.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Stack -->
     <section class="stack-section">
         <div class="container">
-            <h2>The Frequency Stack</h2>
-            <p class="subtitle">Each layer vibrates at a different frequency, but all emerge from the same source</p>
+            <h2>From Philosophy to Infrastructure</h2>
+            <p class="section-subtitle">The NADA stack: each layer vibrates at a different frequency, all emerging from the same source</p>
             
             <div class="architecture-stack">
                 <div class="stack-layer nada">
                     <div class="icon">🌌</div>
-                    <h3>NADA</h3>
-                    <p>"The signal before structure" — Philosophical foundation</p>
+                    <div class="content">
+                        <h3>NADA</h3>
+                        <p>Philosophical foundation — zero waste, verified truth, regenerative economics</p>
+                    </div>
                 </div>
                 
-                <div class="stack-arrow">↓ resonates into</div>
+                <div class="stack-arrow">↓ encodes into</div>
                 
                 <div class="stack-layer ssot">
                     <div class="icon">🌐</div>
-                    <h3>SSOT (Knowledge Graph)</h3>
-                    <p>Living truth of all entities, relationships, regulations</p>
+                    <div class="content">
+                        <h3>SSOT (Knowledge Graph)</h3>
+                        <p>Single Source of Truth — entities, relationships, compliance, value flows as immutable events</p>
+                    </div>
                 </div>
                 
-                <div class="stack-arrow">↓ organizes into</div>
+                <div class="stack-arrow">↓ operates on</div>
                 
                 <div class="stack-layer inos">
                     <div class="icon">⚙️</div>
-                    <h3>INOS (Operating System)</h3>
-                    <p>Sovereign EU stack with event-sourced core</p>
+                    <div class="content">
+                        <h3>INOS (Operating System)</h3>
+                        <p>Sovereign EU stack — OVHcloud, Memgraph, Mistral AI, event-sourced core</p>
+                    </div>
                 </div>
                 
                 <div class="stack-arrow">↓ deploys as</div>
                 
                 <div class="stack-layer hempin">
                     <div class="icon">🌱</div>
-                    <h3>HEMPIN (Industry #1)</h3>
-                    <p>BUD AI onboarding + Compliance + Regeneration Fund</p>
+                    <div class="content">
+                        <h3>HEMPIN (Industry #1)</h3>
+                        <p>BUD AI onboarding + Compliance Engine + Regeneration Fund — hemp as proof-of-concept</p>
+                    </div>
                 </div>
                 
                 <div class="stack-arrow">↓ funds</div>
                 
-                <div style="text-align: center; padding: 24px; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(236,72,153,0.1) 100%); border-radius: var(--radius-lg); border: 3px solid #F59E0B;">
+                <div class="stack-layer" style="background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(236,72,153,0.1) 100%); border-color: #F59E0B;">
                     <div class="icon">💧</div>
-                    <h3 style="margin: 8px 0;">Regeneration Fund</h3>
-                    <p style="margin: 0;">30% to environmental cleanup</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sacred Geometry Wave Divider -->
-    <div class="wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave-svg">
-            <defs>
-                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
-                    <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.3"/>
-                </linearGradient>
-            </defs>
-            <path class="wave-path" d="M0,30 Q300,10 600,30 T1200,30 L1200,60 L0,60 Z"/>
-        </svg>
-    </div>
-
-    <!-- Three Pillars Convergence Section -->
-    <section class="pillars-section">
-        <div class="container">
-            <h2>✨ The Convergence</h2>
-            <p class="subtitle">Three languages. One truth.</p>
-            
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="icon">🕉️</div>
-                    <h3>Philosophy</h3>
-                    <p>Nada Brahma — reality as vibration<br>Resonance creates harmony<br>Trust emerges from alignment</p>
-                </div>
-                
-                <div class="pillar-card">
-                    <div class="icon">🔬</div>
-                    <h3>Science</h3>
-                    <p>Quantum fields as vibration<br>Wave-particle duality<br>String theory fundamentals</p>
-                </div>
-                
-                <div class="pillar-card">
-                    <div class="icon">⚙️</div>
-                    <h3>Technology</h3>
-                    <p>Graph database verification<br>Executable compliance logic<br>Sovereign AI infrastructure</p>
+                    <div class="content">
+                        <h3>Regeneration Fund</h3>
+                        <p>30% of transaction value → verified environmental cleanup (soil, water, carbon)</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -834,24 +817,22 @@
     <section class="invitation-section">
         <div class="container">
             <h2>🌊 Join the Resonance</h2>
-            <p>This isn't just infrastructure.<br>It's a gathering point.</p>
+            <p>This isn't just infrastructure. It's a gathering point.</p>
             
-            <p class="highlight">
-                For philosophers who see technology as applied wisdom.<br>
-                For scientists who recognize ancient truths in new forms.<br>
-                For builders who want their code to serve regeneration.<br>
-                For dreamers who believe another world is possible.
-            </p>
-            
-            <p style="font-size: 1.5rem; margin-top: 40px;">
-                <strong>NADA is where these currents converge.</strong>
+            <p style="font-size: 1.5rem; margin-top: 40px; font-weight: 600;">
+                For investors who see regenerative economics as market opportunity.<br>
+                For builders who want their code to serve planetary repair.<br>
+                For dreamers who believe another economy is possible.
             </p>
             
             <div class="cta-buttons">
-                <a href="architecture.html" class="cta-button">Explore the Architecture →</a>
-                <a href="involved.html" class="cta-button secondary">Join the Mission</a>
-                <a href="why-nada.html" class="cta-button secondary">Read Solarpunk Mandate</a>
+                <a href="../architecture.html" class="cta-button">Explore the Architecture →</a>
+                <a href="../involved.html" class="cta-button secondary">Join the Mission</a>
             </div>
+            
+            <p style="margin-top: 48px; font-size: 1.1rem; opacity: 0.9;">
+                <strong>NADA is where these currents converge.</strong>
+            </p>
         </div>
     </section>
 
